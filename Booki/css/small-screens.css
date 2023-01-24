@@ -1,0 +1,94 @@
+@media only screen and (min-width: 769px) and (max-width: 1023px) {
+  h1,
+  h2,
+  h2 a {
+    /* passe de 20px à 18px */
+    font-size: 1.25rem;
+    line-height: 21px;
+  }
+
+  h4,
+  h4 a {
+    /* passe de 16px à 15px */
+    font-size: 0.938rem;
+    line-height: 17px;
+  }
+
+  h3,
+  input,
+  ::placeholder {
+    /* passe de 18px à 17px */
+    font-size: 1.063rem;
+    line-height: 20px;
+  }
+
+  .card p {
+    /* passe de 14px à 13px; */
+    font-size: 0.813rem;
+    line-height: 15px;
+  }
+
+  a,
+  li {
+    /* passe de 16px à 15px */
+    font-size: 0.938rem;
+    line-height: 17px;
+  }
+
+  .link-button {
+    /* passe de 17px à 16px; */
+    font-size: 1rem;
+    line-height: 20px;
+  }
+
+  /* ----- HEADER ----- */
+
+  /* ----- MAIN ----- */
+
+  /* ----- MAIN - Form ----- */
+
+  label {
+    padding: 11px 16px 10px;
+  }
+
+  input {
+    padding: 10px;
+  }
+
+  /* ----- MAIN - section Filtres ----- */
+  .filter {
+    gap: 2.5%;
+  }
+
+  .fa-info {
+    border: 1px solid var(--main-border-color);
+    border-radius: 150px;
+    padding: 6px 10px;
+    margin: 10px 5px;
+  }
+
+  /* ----- MAIN - section Hébergements ----- */
+
+  /* ----- MAIN - section Liste des Hébergements ----- */
+  .list {
+    width: 60%;
+  }
+
+  .container-list {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 100% 100% 100%;
+    gap: 35px 4%;
+  }
+
+  /* ----- MAIN - section des Hébergements populaires ----- */
+  .popular {
+    width: 40%;
+  }
+
+  /* ----- MAIN - section Activités ----- */
+  .container-activities img {
+    height: 300px;
+  }
+
+  /* ----- FOOTER ----- */
+}
