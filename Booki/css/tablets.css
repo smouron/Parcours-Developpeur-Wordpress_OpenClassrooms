@@ -1,7 +1,6 @@
 @media only screen and (min-width: 581px) and (max-width: 768px) {
   h1,
-  h2,
-  h2 a {
+  h2 {
     /* passe de 20px à 17px */
     font-size: 1.063rem;
     line-height: 19px;
@@ -79,7 +78,7 @@
   .container-list {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 100% 100%;
+    grid-template-rows: 1fr 1fr;
     gap: 30px 2%;
     justify-content: center;
   }
