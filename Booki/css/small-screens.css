@@ -1,6 +1,7 @@
 @media only screen and (min-width: 769px) and (max-width: 1023px) {
   h1,
-  h2 {
+  h2,
+  .link-button {
     /* passe de 20px à 18px */
     font-size: 1.25rem;
     line-height: 21px;
@@ -15,7 +16,7 @@
 
   h3,
   input,
-  ::placeholder {
+  input::placeholder {
     /* passe de 18px à 17px */
     font-size: 1.063rem;
     line-height: 20px;
@@ -34,10 +35,10 @@
     line-height: 17px;
   }
 
-  .link-button {
+  a span {
     /* passe de 17px à 16px; */
     font-size: 1rem;
-    line-height: 20px;
+    line-height: 18px;
   }
 
   /* ----- HEADER ----- */
@@ -85,9 +86,25 @@
   }
 
   /* ----- MAIN - section Activités ----- */
+  .activities {
+    gap: 2%;
+  }
+
   .container-activities img {
     height: 300px;
   }
 
   /* ----- FOOTER ----- */
+  footer {
+    margin: 10px;
+    gap: 2%;
+    flex-wrap: wrap;
+  }
+
+  footer div {
+    width: 25%;
+    min-width: 50px;
+    /* margin: 40px 0 40px 20px; */
+    padding: 25px 0 25px 40px;
+  }
 }

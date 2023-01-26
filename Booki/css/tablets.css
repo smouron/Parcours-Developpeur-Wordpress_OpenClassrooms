@@ -1,6 +1,7 @@
 @media only screen and (min-width: 581px) and (max-width: 768px) {
   h1,
-  h2 {
+  h2,
+  .link-button {
     /* passe de 20px à 17px */
     font-size: 1.063rem;
     line-height: 19px;
@@ -15,7 +16,7 @@
 
   h3,
   input,
-  ::placeholder {
+  input::placeholder {
     /* passe de 18px à 15px */
     font-size: 0.938rem;
     font-weight: 700;
@@ -35,7 +36,7 @@
     line-height: 15px;
   }
 
-  .link-button {
+  a span {
     /* passe de 17px à 14px */
     font-size: 0.875rem;
     line-height: 16px;
@@ -94,14 +95,19 @@
 
   /* ----- MAIN - section des Hébergements populaires ----- */
   .popular {
-    width: 50%;
+    max-width: 350px;
+    width: 95%;
   }
 
   .popular img {
-    width: 160px;
+    width: 180px;
     max-width: 33%;
     height: 124px;
     padding: 5px;
+  }
+
+  .data-popular .info {
+    min-height: 120px;
   }
 
   .data-popular .info {
@@ -131,10 +137,12 @@
   footer {
     margin: 10px;
     gap: 2%;
+    flex-wrap: wrap;
   }
 
   footer div {
-    width: 25%;
-    margin: 40px 0 40px 20px;
+    width: 40%;
+    /* margin: 40px 0 40px 20px; */
+    padding: 20px 0 20px 30px;
   }
 }
