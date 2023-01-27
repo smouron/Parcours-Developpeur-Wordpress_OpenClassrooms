@@ -1,4 +1,9 @@
-/* ----- Utilisation de variable pour les couleurs ----- */
+/* ********************  Infos  Media query  ******************** */
+/* only screen and (max-width: 1023px) : à partir de la ligne 423 */
+/* only screen and (max-width:  768px) : à partir de la ligne 532 */
+/* only screen and (max-width:  580px) : à partir de la ligne 670 */
+
+/* ----- Utilisation de variables pour les couleurs ----- */
 :root {
   --main-color: #0065fc; /* var(--main-color) */
   --second-color: #deebff; /* var(--second-color) */
@@ -9,7 +14,7 @@
   --main-border-color: #d9d9d9; /* var(--main-border-color) */
 }
 
-/* -----  Initialisation ----- */
+/* -----  Initialisation de certaines valeurs ----- */
 * {
   margin: 0;
   padding: 0;
@@ -46,12 +51,16 @@ input::placeholder {
   line-height: 21px;
 }
 
-.card p {
+p {
   /* font-size: 14px; */
   font-size: 0.875rem;
   font-weight: 400;
   line-height: 16px;
-  padding: 5px 0;
+}
+
+.fa-info {
+  /* font-size: 10px; */
+  font-size: 0.625rem;
 }
 
 li,
@@ -115,6 +124,10 @@ img {
   transition: 0.3s;
 }
 
+.card p {
+  padding: 5px 0;
+}
+
 .card:hover,
 .card:focus {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.267);
@@ -136,12 +149,12 @@ img {
   letter-spacing: -0.2rem;
 }
 
-/* Etoile en blue foncé */
+/* Etoile blue foncé */
 .main-color {
   color: var(--main-color);
 }
 
-/* Etoile en blue très clair */
+/* Etoile blue très clair */
 .second-color {
   color: var(--second-color);
 }
@@ -166,7 +179,7 @@ header img {
 }
 
 header a {
-  margin: 20px;
+  margin: 0 25px;
   padding: 46px 5px 10px;
   border-top: 3px solid transparent;
 }
@@ -178,10 +191,10 @@ nav a:focus {
 
 /* ----- MAIN - Form ----- */
 h1 {
-  margin-left: 5px;
   padding: 5px 0;
 }
 
+h1,
 h1 + p {
   margin-left: 5px;
 }
@@ -235,17 +248,16 @@ input[type='submit']:focus {
 .filter {
   align-items: center;
   justify-content: flex-start;
-  margin-left: 5px;
-  margin-bottom: 5px;
+  margin-top: 30px;
+  margin-bottom: 20px;
   flex-wrap: wrap;
-  gap: 3.1%;
+  gap: 10px 3.1%;
 }
 
 .link-button {
   border: 2px solid var(--main-border-color);
   border-radius: 150px;
   padding: 10px 15px;
-  margin: 5px 0;
 }
 
 .link-button:hover,
@@ -265,7 +277,7 @@ input[type='submit']:focus {
   margin: 15px 5px;
 }
 
-/* MAIN */
+/* ----- MAIN - Div container Liste Hébergements + Les plus populaires ----- */
 .container-accommodation-activities {
   gap: 55px;
   margin-bottom: 60px;
@@ -276,13 +288,13 @@ input[type='submit']:focus {
   justify-content: center;
   align-content: flex-start;
   margin-top: 20px;
-  gap: 2.5%;
+  gap: 40px;
 }
 
 .accommodation {
   background: var(--second-background-color);
   border-radius: 20px;
-  padding: 40px 3.2% 20px;
+  padding: 40px 40px 20px;
 }
 
 /* ----- MAIN - section Liste des Hébergements ----- */
@@ -294,7 +306,7 @@ input[type='submit']:focus {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr;
-  gap: 35px 4%;
+  gap: 35px 30px;
   justify-content: center;
 }
 
@@ -308,10 +320,8 @@ input[type='submit']:focus {
 
 .container-list .info {
   margin: 0 15px 5px;
-  /* display: flex;
-  flex-direction: column;
-  justify-content: space-between; */
-  /* height: 80px; */
+  justify-content: space-between;
+  height: 50%;
 }
 
 .more {
@@ -329,12 +339,13 @@ input[type='submit']:focus {
 }
 
 .container-card-accommodation {
-  align-items: flex-start;
+  margin: 0 auto;
   gap: 33px;
 }
 
 .popular .data-popular {
   align-items: flex-start;
+  gap: 15px;
 }
 
 .popular img {
@@ -348,14 +359,20 @@ input[type='submit']:focus {
 
 .data-popular .info {
   justify-content: space-between;
-  margin: 10px 15px 5px;
-  min-height: 130px;
+  margin-top: 15px;
+  min-height: 125px;
+  max-width: 50%;
 }
 
 /* ----- MAIN - section Activités ----- */
+.container-activities {
+  align-content: flex-start;
+}
+
 .activities {
   align-items: stretch;
-  gap: 3%;
+  justify-content: center;
+  gap: 20px;
 }
 
 .activities .card {
@@ -377,18 +394,17 @@ input[type='submit']:focus {
 
 footer {
   align-items: flex-start;
-  /* justify-content: flex-start; */
+  justify-content: space-between;
   flex-wrap: wrap;
-  gap: 5%;
+  gap: 40px;
   background: var(--second-background-color);
-  padding: 10px;
+  min-width: 60px;
+  padding: 40px;
 }
 
 footer div {
-  width: 22%;
+  width: 30%;
   min-width: 190px;
-  /* margin: 40px 0 40px 70px; */
-  padding: 25px 0 25px 50px;
 }
 
 footer h3 {
@@ -397,4 +413,324 @@ footer h3 {
 
 footer li {
   padding-bottom: 10px;
+}
+
+/*  ***********************************  */
+/*    Media query : max-width: 1023px    */
+/*  ***********************************  */
+@media only screen and (max-width: 1023px) {
+  h1,
+  h2,
+  .link-button {
+    /* passe de 20px à 18px */
+    font-size: 1.25rem;
+    line-height: 21px;
+  }
+
+  h4,
+  h4 a {
+    /* passe de 16px à 15px */
+    font-size: 0.938rem;
+    line-height: 17px;
+  }
+
+  h3,
+  input,
+  input::placeholder {
+    /* passe de 18px à 17px */
+    font-size: 1.063rem;
+    line-height: 20px;
+  }
+
+  a,
+  li {
+    /* passe de 16px à 15px */
+    font-size: 0.938rem;
+    line-height: 17px;
+  }
+
+  a span {
+    /* passe de 17px à 16px; */
+    font-size: 1rem;
+    line-height: 18px;
+  }
+
+  /* ----- HEADER ----- */
+
+  /* ----- MAIN - Form ----- */
+
+  label {
+    padding: 11px 16px 10px;
+  }
+
+  input {
+    padding: 10px;
+  }
+
+  /* ----- MAIN - section Filtres ----- */
+  .filter {
+    gap: 10px 2.5%;
+  }
+
+  .fa-info {
+    border: 1px solid var(--main-border-color);
+    border-radius: 150px;
+    padding: 6px 10px;
+    margin: 10px 5px;
+  }
+
+  /* ----- MAIN - section Hébergements ----- */
+  .container-accommodation {
+    gap: 30px;
+  }
+
+  .accommodation {
+    padding: 40px 30px 20px;
+  }
+
+  /* ----- MAIN - section Liste des Hébergements ----- */
+  .list {
+    width: 60%;
+  }
+
+  .container-list {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 30px 25px;
+  }
+
+  /* ----- MAIN - section des Hébergements populaires ----- */
+  .popular {
+    width: 40%;
+  }
+
+  /* ----- MAIN - section Activités ----- */
+  .activities {
+    flex-wrap: wrap;
+  }
+
+  .activities .card {
+    width: 45%;
+  }
+
+  /* flex-wrap: wrap; */
+  .container-activities img {
+    height: 300px;
+  }
+
+  /* ----- FOOTER ----- */
+  footer div {
+    width: 25%;
+  }
+}
+
+/*  **********************************  */
+/*    Media query : max-width: 768px    */
+/*  **********************************  */
+@media only screen and (max-width: 768px) {
+  h1,
+  h2,
+  .link-button {
+    /* passe de 20px à 17px */
+    font-size: 1.063rem;
+    line-height: 19px;
+  }
+
+  h4,
+  h4 a {
+    /* passe de 16px à 13px */
+    font-size: 0.813rem;
+    line-height: 15px;
+  }
+
+  h3,
+  input,
+  input::placeholder {
+    /* passe de 18px à 15px */
+    font-size: 0.938rem;
+    font-weight: 700;
+    line-height: 18px;
+  }
+
+  p {
+    /* passe de 14px à 13px; */
+    font-size: 0.813rem;
+    line-height: 15px;
+  }
+
+  a,
+  li {
+    /* passe de 16px à 13px */
+    font-size: 0.813rem;
+    line-height: 15px;
+  }
+
+  a span {
+    /* passe de 17px à 14px */
+    font-size: 0.875rem;
+    line-height: 16px;
+  }
+
+  /* ----- HEADER ----- */
+
+  nav a:hover,
+  nav a:focus {
+    border-top: 3px solid transparent;
+    border-bottom: 2px solid var(--main-color);
+  }
+
+  /* ----- MAIN - Form ----- */
+
+  label {
+    padding: 7px 12px 8px;
+  }
+
+  input {
+    padding: 8px;
+  }
+
+  /* ----- MAIN - section Filtres ----- */
+  .filter {
+    gap: 10px 15px;
+  }
+
+  /* ----- MAIN - section Hébergements ----- */
+  .container-accommodation {
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  .accommodation {
+    padding: 30px 25px 20px;
+  }
+
+  /* ----- MAIN - section Liste des Hébergements ----- */
+  .list {
+    width: 95%;
+  }
+
+  .container-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 20px;
+    /* justify-content: center; */
+  }
+
+  .container-accommodation p,
+  .container-list .notation {
+    padding: 5px 0;
+  }
+
+  .more {
+    margin: 30px 0 15px;
+  }
+
+  /* ----- MAIN - section des Hébergements populaires ----- */
+  .popular {
+    width: 95%;
+  }
+
+  .container-card-accommodation {
+    width: 100%;
+    gap: 20px;
+  }
+
+  .popular img {
+    width: 180px;
+    max-width: 33%;
+    height: 124px;
+    padding: 5px;
+  }
+
+  .data-popular .info {
+    min-height: 120px;
+  }
+
+  /* ----- MAIN - section Activités ----- */
+  .container-activities img {
+    height: 250px;
+  }
+
+  .container-activities h2 {
+    margin: 10px 20px 10px;
+  }
+
+  /* ----- FOOTER ----- */
+  footer div {
+    width: 40%;
+  }
+}
+
+/*  **********************************  */
+/*    Media query : max-width: 580px    */
+/*  **********************************  */
+@media only screen and (max-width: 580px) {
+  input,
+  input::placeholder {
+    /* passe de 18px à 14px */
+    font-size: 0.875rem;
+    font-weight: 700;
+    line-height: 16px;
+  }
+
+  /* ----- HEADER ----- */
+  header img {
+    padding: 26px 0 32px;
+  }
+
+  header a {
+    margin: 5px 10px;
+    padding: 1px 5px;
+  }
+
+  /* ----- MAIN - Form ----- */
+
+  label {
+    padding: 5px 10px;
+  }
+
+  input {
+    padding: 7px;
+  }
+
+  /* ----- MAIN - section Filtres ----- */
+  .filter {
+    gap: 10px;
+  }
+
+  /* ----- MAIN - Div container Liste Hébergements + Les plus populaires ----- */
+  .container-accommodation-activities {
+    gap: 35px;
+  }
+
+  /* ----- MAIN - section Hébergements ----- */
+  .container-accommodation {
+    gap: 15px;
+  }
+
+  .accommodation {
+    padding: 20px 15px 15px;
+  }
+
+  /* ----- MAIN - section Liste des Hébergements ----- */
+  .container-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 15px 20px;
+    /* justify-content: center; */
+  }
+
+  /* ----- MAIN - section des Hébergements populaires ----- */
+  .container-card-accommodation {
+    gap: 10px;
+  }
+
+  /* ----- MAIN - section Activités ----- */
+  .container-activities img {
+    height: 200px;
+  }
+
+  /* ----- FOOTER ----- */
 }
