@@ -1,4 +1,3 @@
-<?php include_once('variables.php'); ?>
 <!-- header.php -->
 <header>
    <a href="index.php"><img src="img/logo.png" alt="Logo Artbox" id="logo"></a>

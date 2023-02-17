@@ -1,5 +1,5 @@
-<?php
-// variables.php
+<?php 
+// variables.php 
 
 $artworks = [
 	[
@@ -137,5 +137,6 @@ $artworks = [
 		'is_enabled' => true,
 	],
 ];
+
 ?>
 
