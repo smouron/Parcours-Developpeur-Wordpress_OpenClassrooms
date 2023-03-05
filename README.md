@@ -49,7 +49,7 @@ ________________________________________________________________________________
 Pour ce projet, je suis intégrateur WordPress dans une agence web, et je suis en charge du développement du site vitrine de Planty, une jeune marque de boissons énergisantes à base de plantes.
 
 #### Réalisation
-PLANTY : 
+PLANTY : https://www.sanoecreation.fr/OpenClassRooms/Planty/index.php
 
 _______________________________________________________________________________________________
 ## Projets à faire
