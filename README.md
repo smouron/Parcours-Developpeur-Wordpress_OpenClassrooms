@@ -1,6 +1,6 @@
 # Parcours-Developpeur-Wordpress_OpenClassrooms
 Projets effectués durant cette formation
-
+ 
 ## Projets terminés
 
 ### Projet 1 - Démarrez votre formation de développeur WordPress
