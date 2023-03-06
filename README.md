@@ -11,7 +11,7 @@ Ce n'est pas du développement. Cela n'a pas été mis sur github
 Pour ce projet, suivant les consignes de Romain (maître de stage et CTO), l’objectif est de modifier la page du site internet existant d’une association sportive qui promeut le skate (Riding Cities).
 
 #### Réalisation
-RIDING CITIES : https://www.sanoecreation.fr/OpenClassRooms/Riding-Citites/index.html
+RIDING CITIES : https://www.sanoecreation.fr/OpenClassRooms/Riding-Citites/index.html 
 
 
 ### Projet 3 - Créez la page d'accueil d'une agence de voyage avec HTML & CSS
