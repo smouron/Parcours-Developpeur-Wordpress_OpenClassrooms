@@ -1,4 +1,4 @@
-/* Chargement de la font personnalisée */ 
+/* Chargement de la font personnalisée */
 @font-face {
   font-family: 'Syne';
   src: url('../fonts/Syne-VariableFont_wght.ttf') format('truetype');
@@ -47,7 +47,7 @@ body * {
   background: #FFFFFF;
 }
 
-#ast-hf-mobile-menua:hover  {
+#ast-hf-mobile-menu a:hover  {
   color: #000000;
 }
 

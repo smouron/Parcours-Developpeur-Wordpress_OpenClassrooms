@@ -1,15 +1,17 @@
 <?php
-/** 
+/**
 ** activation theme
 **/
 add_action( 'wp_enqueue_scripts', 'theme_enqueue_styles' );
 function theme_enqueue_styles() {
-//  Chagerment du style du theme parent
- wp_enqueue_style( 'parent-style', get_template_directory_uri() . '/style.css' );
+//  Chargement du style du theme parent
+wp_enqueue_style( 'parent-style', get_template_directory_uri() . '/style.css' );
  
-//  Chagerment du style personnalisé pour le theme
- wp_enqueue_style( 'theme-style', get_stylesheet_directory_uri() . '/assets/css/theme.css' );
+//  Chargement du style personnalisé pour le theme
+wp_enqueue_style( 'theme-style', get_stylesheet_directory_uri() . '/assets/css/theme.css' );
 
+// Enqueue Custom Scripts
+wp_enqueue_script( 'order-custom-scripts', get_theme_file_uri( '/assets/js/custom-scripts.js' ), array(), '1.0.0', true );
 }
 
 // _____________________
@@ -91,7 +93,7 @@ function prefix_add_menu_item ( $items, $args ) {
             // On ajoute au tableau le dernier élément de la liste
             $items_array[] = $items;
             // On insère le lien 'Admin' à la position indiquée (ici 1) dans le tableau.
-            array_splice($items_array, 1, 0, '<li class="menu-item"><a class="menu-admin" href="http://127.0.0.1/planty/wp-admin/">Admin</a></li>'); // insert custom item after 9th item one
+            array_splice($items_array, 1, 0, '<li class="menu-item"><a class="menu-admin" href="'. get_site_url() .'/wp-admin/">Admin</a></li>'); // insert custom item after 9th item one
             // On retransforme le tableau en liste d'items
             $items = implode('', $items_array);
         }
