@@ -41,8 +41,6 @@ Actuellement, il y a une page HTML par oeuvre. Soit 15 pages.
 #### Réalisation
 THE ARTBOX : https://www.sanoecreation.fr/OpenClassRooms/The-Artbox-master/index.php
 
-_______________________________________________________________________________________________
-## Projets en cours
 
 ### Projet 6 - Personnaliser une thème WordPress pour une startup avec HTML, CSS et Php
 #### Objectifs
@@ -50,9 +48,8 @@ Pour ce projet, je suis intégrateur WordPress dans une agence web, et je suis e
 
 #### Réalisation
 PLANTY : https://www.sanoecreation.fr/OpenClassRooms/Planty/index.php
-
 _______________________________________________________________________________________________
-## Projets à faire
+## Projets en cours
 
 ### Projet 7 - Optimiser un site WordPress existant pour une marque de vêtements
 #### Objectifs
@@ -60,7 +57,7 @@ Pour ce projet, je suis intégrateur WordPress en freelance et à la recherche d
 Je suis en charge d'optimiser le au mieux le site Chic Dressing.
 
 #### Réalisation
-CHIC DRESSING
+CHIC DRESSING : http://chic-dressing.sanoecreation.fr/
 
 
 ### Projet 8 - Premiers pas sur le langage JavaScipt
@@ -70,6 +67,8 @@ Pour ce projet, je débute comme développeur front-end en freelance, et je vien
 #### Réalisation
 PRINT IT : 
 
+_______________________________________________________________________________________________
+## Projets à faire
 
 ### Projet 9 - Améliorer le site d'un studio d'animation avec JavaScript et des animations CSS
 #### Objectifs
