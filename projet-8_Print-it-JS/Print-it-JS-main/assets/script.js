@@ -33,7 +33,30 @@ const dot4 = document.getElementById("dot4");
 const dot = document.querySelector(".dot");
 let posDot = 0;
 
-// Controle de la fleche gauche
+// banner.addEventListener("click", (e) => {
+// 	console.log (e);
+// 	let targetClassName = (e.target.className);
+// 	console.log (targetClassName);
+// 	if ((targetClassName.indexOf('arrow_left')) >= 0) {
+// 		if (posDot <= 0) {
+// 			posDot = 3;
+// 		} else {
+// 			posDot--;
+// 		}
+// 		updateSlider(posDot);
+// 	}
+
+// 	if ((targetClassName.indexOf('arrow_right')) >= 0) {
+// 		if (posDot >= 3) {
+// 			posDot = 0;
+// 		} else {
+// 			posDot++;
+// 		}	
+// 		updateSlider(posDot);
+// 	}
+// });
+
+
 arrowLeft.addEventListener("click", () => {
 	if (posDot <= 0) {
 		posDot = 3;
@@ -43,7 +66,6 @@ arrowLeft.addEventListener("click", () => {
 	updateSlider(posDot);
 });
 
-// Controle de la fleche droite
 arrowRight.addEventListener("click", () => {
 	if (posDot >= 3) {
 		posDot = 0;
@@ -53,7 +75,6 @@ arrowRight.addEventListener("click", () => {
 	updateSlider(posDot);
 });
 
-// Controle des 4 dots
 dot1.addEventListener("click", () => {
 	posDot = 0;
 	updateSlider(posDot);
@@ -74,15 +95,21 @@ dot4.addEventListener("click", () => {
 	updateSlider(posDot);
 });
 
-// Selection du Dot et changement de l'image avec le texte
-const updateSlider = (arg) => {
-	arg == 0 ? dot1.classList.add("dot_selected") : dot1.classList.remove("dot_selected");
-	arg == 1 ? dot2.classList.add("dot_selected") : dot2.classList.remove("dot_selected");
-	arg == 2 ? dot3.classList.add("dot_selected") : dot3.classList.remove("dot_selected");
-	arg == 3 ? dot4.classList.add("dot_selected") : dot4.classList.remove("dot_selected");
-	let srcImage = "./assets/images/slideshow/" + slides[arg]['image'];
+const updateSlider = (e) => {
+	console.log (e);
+	e == 0 ? dot1.classList.add("dot_selected") : dot1.classList.remove("dot_selected");
+	e == 1 ? dot2.classList.add("dot_selected") : dot2.classList.remove("dot_selected");
+	e == 2 ? dot3.classList.add("dot_selected") : dot3.classList.remove("dot_selected");
+	e == 3 ? dot4.classList.add("dot_selected") : dot4.classList.remove("dot_selected");
+	console.log (slides[e]['image']);
+	console.log (slides[e]['tagLine']);
+	console.log(bannerImg.alt);
+	console.log(bannerImg.src);
+	let srcImage = "./assets/images/slideshow/" + slides[e]['image'];
 	bannerImg.src = srcImage;
-	bannerImg.alt = slides[arg]['tagLine'];
+	bannerImg.alt = slides[e]['tagLine'];
+	
+	console.log(srcImage);
 }
 
 // updateSlider(posDot);
