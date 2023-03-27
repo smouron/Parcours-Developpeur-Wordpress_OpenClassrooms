@@ -147,7 +147,7 @@ header {
 	background-color: #ffffff00;
 	border: 3px solid #fff;
 	border-radius: 100%;
-	box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);;
+	box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
 }
 .dot_selected {
 	background-color: #fff;
@@ -297,4 +297,9 @@ footer div {
 	#contact > article {
 		flex: 2;
 	}
+}
+
+/* AJOUTE pour chacher les flêches du slider tant que le script JS n'est pas lancé */
+.hidden {
+	visibility: hidden
 }
