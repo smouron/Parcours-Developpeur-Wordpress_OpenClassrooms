@@ -62,16 +62,10 @@ let srcImage = "./assets/images/slideshow/";
 // On pointe sur les élements suivants
 const bannerImg = document.querySelector(".banner-img");
 const bannerText = document.querySelector(".banner-text");
-let text = document.querySelector(".banner-text");
 const arrowLeft = document.querySelector(".arrow_left");
 const arrowRight = document.querySelector(".arrow_right");
 const dots = document.querySelector(".dots");
 
-// Le script est lancé donc on fait afficher les flêches
-arrowLeft.classList.remove("hidden");
-arrowRight.classList.remove("hidden");
-
-console.log(text);
 // Mise en place des points de sélection
 for (let pas = 0; pas <= nbElement; pas++) {
   dots.innerHTML += '<span id="dot' + pas + '" class="dot"></span>';
