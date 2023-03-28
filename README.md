@@ -6,11 +6,14 @@ Suivi de mon planning : https://trello.com/invite/b/IzTdkieL/ATTIae69c03af8ba7bb
 
 ## Projets terminés
 
-### Projet 1 - Démarrez votre formation de développeur WordPress
+### Projet 1
+Démarrez votre formation de développeur WordPress
 
 Ce n'est pas du développement. Cela n'a pas été mis sur github
 
-### Projet 2 - Premiers pas sur le langage HTML
+
+### Projet 2 - Riding-Citites
+Premiers pas sur le langage HTML
 
 #### Objectifs
 
@@ -20,7 +23,10 @@ Pour ce projet, suivant les consignes de Romain (maître de stage et CTO), l’o
 
 RIDING CITIES : https://www.sanoecreation.fr/OpenClassRooms/Riding-Citites/index.html
 
-### Projet 3 - Créez la page d'accueil d'une agence de voyage avec HTML & CSS
+
+### Projet 3 - Booki
+
+Créez la page d'accueil d'une agence de voyage avec HTML & CSS
 
 #### Objectifs
 
@@ -31,7 +37,10 @@ Je suis chargé d'intégrer l'interface du site avec du code HTML et CSS.
 
 BOOKI : https://www.sanoecreation.fr/OpenClassRooms/Booki/index.html
 
-### Projet 4 - Créer un site complet avec WordPress sans utiliser de code
+
+### Projet 4 - Simpl-Vintage
+
+Créer un site complet avec WordPress sans utiliser de code
 
 #### Objectifs
 
@@ -42,7 +51,10 @@ On me demande de développer pour la marque de vêtement Simpl Vintage, un site 
 
 SIMPL VINTAGE : https://www.sanoecreation.fr/OpenClassRooms/Simpl-Vintage/
 
-### Projet 5 - Premiers pas sur le langage PHP
+
+### Projet 5 - The-Artbox-master
+
+Premiers pas sur le langage PHP
 
 #### Objectifs
 
@@ -52,9 +64,12 @@ Actuellement, il y a une page HTML par oeuvre. Soit 15 pages.
 
 #### Réalisation
 
-THE ARTBOX : https://www.sanoecreation.fr/OpenClassRooms/The-Artbox-master/index.php
+THE ARTBOX MASTER : https://www.sanoecreation.fr/OpenClassRooms/The-Artbox-master/index.php
 
-### Projet 6 - Personnaliser une thème WordPress pour une startup avec HTML, CSS et Php
+
+### Projet 6 - Planty
+
+Personnaliser une thème WordPress pour une startup avec HTML, CSS et Php
 
 #### Objectifs
 
@@ -64,7 +79,10 @@ Pour ce projet, je suis intégrateur WordPress dans une agence web, et je suis e
 
 PLANTY : https://www.sanoecreation.fr/OpenClassRooms/Planty/index.php
 
-### Projet 7 - Optimiser un site WordPress existant pour une marque de vêtements
+
+### Projet 7
+
+Chic-Dressing - Optimiser un site WordPress existant pour une marque de vêtements
 
 #### Objectifs
 
@@ -75,7 +93,10 @@ Je suis en charge d'optimiser le au mieux le site Chic Dressing.
 
 CHIC DRESSING : http://chic-dressing.sanoecreation.fr/
 
-### Projet 8 - Premiers pas sur le langage JavaScipt
+
+### Projet 8 - Print-it-JS
+
+Premiers pas sur le langage JavaScipt
 
 #### Objectifs
 
@@ -83,13 +104,15 @@ Pour ce projet, je débute comme développeur front-end en freelance, et je vien
 
 #### Réalisation
 
-PRINT IT : https://smouron.github.io/Print-it-JS-main/
+PRINT-IT-JS : https://smouron.github.io/Print-it-JS-main/
 
 ---
 
 ## Projets en cours
 
-### Projet 9 - Améliorer le site d'un studio d'animation avec JavaScript et des animations CSS
+### Projet 9 - Fleurs Chats errants / Koukaki
+
+Améliorer le site d'un studio d'animation avec JavaScript et des animations CSS
 
 #### Objectifs
 
@@ -104,7 +127,9 @@ KOUKAKI :
 
 ## Projets à faire
 
-### Projet 10 - Débuggez et tester un site WordPres d'outillage médical
+### Projet 10 - Med.It
+
+Débuggez et tester un site WordPres d'outillage médical
 
 #### Objectifs
 
@@ -112,9 +137,12 @@ Pour ce projet, je suis développeur WordPress en freelance. La PME MedIT, spéc
 
 #### Réalisation
 
-MEDIT :
+MED.IT :
 
-### Projet 11 - Créer un sit WordPress complese pour une photographe freelance
+
+### Projet 11 - Nathalie Motta
+
+Créer un sit WordPress complese pour une photographe freelance
 
 #### Objectifs
 
@@ -126,7 +154,10 @@ Elle vient de perdre son site à la suite de la fermeture subite de la plateform
 
 PHOTOGRAPHE EVENT :
 
-### Projet 12 - Planifier le développement d'un site de vente de vélos électriques
+
+### Projet 12 - Emoving
+
+Planifier le développement d'un site de vente de vélos électriques
 
 #### Objectifs
 
@@ -137,7 +168,10 @@ Chez Emoving, les employés ont plusieurs casquettes ; il vous revient de mener,
 
 #### Réalisation
 
-### Projet 13 - Créer et publier votre portfolio de développeur
+
+### Projet 13 - Portfolio
+
+Créer et publier votre portfolio de développeur
 
 #### Objectifs
 
