@@ -22,34 +22,6 @@ const slides = [
     image: "slide4.png",
     tagLine: "Autocollants <span>avec découpe laser sur mesure</span>",
   },
-  {
-    image: "slide1.jpg",
-    tagLine: "Ajout slide<span>n° 5</span>",
-  },
-  {
-    image: "slide2.jpg",
-    tagLine: "Ajout slide<span>n° 6</span>",
-  },
-  {
-    image: "slide3.jpg",
-    tagLine: "Ajout slide<span>n° 7</span>",
-  },
-  {
-    image: "slide4.png",
-    tagLine: "Ajout slide<span>n° 8</span>",
-  },
-  {
-    image: "slide1.jpg",
-    tagLine: "Ajout slide<span>n° 9</span>",
-  },
-  {
-    image: "slide2.jpg",
-    tagLine: "Ajout slide<span>n° 10</span>",
-  },
-  {
-    image: "slide3.jpg",
-    tagLine: "Ajout slide<span>n° 11</span>",
-  },
 ];
 
 // Calcul du nombre d'élements pour le slider
@@ -66,9 +38,18 @@ const arrowLeft = document.querySelector(".arrow_left");
 const arrowRight = document.querySelector(".arrow_right");
 const dots = document.querySelector(".dots");
 
+// Le script est lancé donc on fait afficher les flêches
+arrowLeft.classList.remove("hidden");
+arrowRight.classList.remove("hidden");
+
 // Mise en place des points de sélection
 for (let pas = 0; pas <= nbElement; pas++) {
-  dots.innerHTML += '<span id="dot' + pas + '" class="dot"></span>';
+  dots.innerHTML +=
+    '<span id="dot' +
+    pas +
+    '" class="dot" title="Image ' +
+    (pas + 1) +
+    '"></span>';
 }
 
 // On place dans une liste tous les élements ayant la class dot
