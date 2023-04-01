@@ -4,13 +4,14 @@
 .old
 .scss
 .sass-cache
+.wpress
 
 # ignore ALL .log files
 *.log
 
 ## WordPress
-# wp-admin
-# wp-includes
+wp-admin
+wp-includes
 
 /.htaccess
 /license.txt
@@ -19,20 +20,23 @@
 sitemap.xml
 sitemap.xml.gz
 
-# Ignore tout à la racine, sauf .gitignore et "wp-content"
-*
-!.gitignore
-!wp-content
+/wp-admin/
+/wp-content/index.php
+/wp-content/languages
+/wp-content/plugins/index.php
+/wp-content/themes/index.php
+/wp-content/ai1wm-backups
+/wp-includes/
+/index.php
+/license.txt
+/readme.html
+/wp-*.php
+/xmlrpc.php
 
-# Ignore le contenu de "wp-content" sauf "plugins", "themes" et "mu-plugins"
-wp-content/*
-!wp-content/plugins/
-!wp-content/themes/
-!wp-content/mu-plugins/
-
-## Configuration
-# wp-config.php
-/.htaccess
+# Configuration
+xmlrpc.php
+wp-config.php
+*.htaccess
 
 ## Example themes
 /wp-content/themes/twenty*/
