@@ -7,7 +7,7 @@ get_header();
         <!-- LIGNE(S) AJOUTEE(S) -->
         <section class="banner">
             <img class="banner__background" src="<?php echo get_theme_file_uri() . '/assets/images/banner.png'; ?>" alt="">
-            <video class="banner__video" control poster="<?php echo get_theme_file_uri() . '/assets/images/banner.png'; ?>" autoplay="autoplay" muted=""
+            <video class="banner__video" width="1440" autoplay="autoplay" muted=""
                     loop="infinite">
                     <source src="<?php echo get_theme_file_uri() . '/assets/video/Studio+Koukaki-vidéo+header+sans+son.mp4'; ?>" type="video/mp4">
             </video>
@@ -35,29 +35,14 @@ get_header();
             <article id="characters">
                 <div class="main-character">
                     <h3>Les personnages</h3>
-                    <?php
-                    $main_character = $characters_query->posts[0];
-                    echo '<figure>';
-                    echo get_the_post_thumbnail( $main_character->ID, 'full' );
-                    echo '<figcaption>'. $main_character->post_title . '</figcaption>';
-                    echo '</figure>';
-                    $characters_query->next_post();
-                    ?>
-                </div>
-                <div class="other-characters">
-                    <?php
-                    while ( $characters_query->have_posts() ) {
-                        $characters_query->the_post();
-                        echo '<figure>';
-                        echo get_the_post_thumbnail( get_the_ID(), 'full' );
-                        echo '<figcaption>';
-                        the_title();
-                        echo'</figcaption>';
-                        echo '</figure>';
-                    }
-                    ?>
                 </div>
             </article>
+
+            <?php 
+            include_once ( 'template-parts/characters-slider.php' ); 
+            // get_template_part ( 'template-parts/characters' , 'slider' ); 
+            ?>
+
             <article id="place">
                 <!-- LIGNE(S) AJOUTEE(S) -->
                 <img class="place--big_cloud" src="<?php echo get_theme_file_uri() . '/assets/images/big_cloud.png'; ?>" alt="Gros nuage qui passe">
@@ -70,7 +55,6 @@ get_header();
 
             </article>
         </section>
-
 
         <!-- LIGNE(S) AJOUTEE(S) -->
         <section id="studio" class="studio hidden">

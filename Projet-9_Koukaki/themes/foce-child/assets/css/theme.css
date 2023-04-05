@@ -34,7 +34,7 @@
 
 .banner__background {
   z-index: -2;
-  opacity: 0;
+  opacity: 1;
 }
 
 .banner__video {  
@@ -47,7 +47,7 @@
   position: absolute;
   bottom: 0px;
   left: 0px;
-  width: 100% !important;  
+  min-width: 1440px !important;  
   animation: move-down 2s 300ms both;
 }
 
@@ -246,6 +246,47 @@
   }
 }
 
+/* **************** */
+/*      SWIPER      */
+/* **************** */
+.story #characters {
+  position: relative;
+  margin-bottom: 0 !important;
+}
+
+#characters span {
+  top: 0;
+}
+
+.container-swiper {
+  width: 100%;
+}
+
+swiper-container {
+  height: 420px;
+  opacity: 1;
+  margin-bottom: 7em;
+}
+
+swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  /* background: #fff; */
+  display: flex;
+  width: 100%;
+  /* min-width: 460px; */
+  justify-content: center;
+  align-items: center;
+}
+
+swiper-slide img {
+  display: block;
+  max-height: 400px ;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 /* ********************** */
 /*       NOMINATION       */
 /* ********************** */
@@ -270,13 +311,6 @@
 .nomination img {
   height: 100%;
 }
-
-/* .nomination h3::before {
-	content: url("../images/oscars-2021.png");
-	position: absolute;
-  left: 850px;
-  
-} */
 
 /* Suppression des fleurs du pieds de page pour le déplacer dans la nouvelle section- */
 .nomination::before {
