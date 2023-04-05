@@ -1,21 +1,25 @@
-* {
+:root {
   --top: 0px;
   --left: 0px;
   --transy: 0px;
   --rotate: 15s;
+  --posX: 0;
 }
 
-/* SECTION FADE IN */
+.hidden {
+  opacity: 0;
+}
+
 #page {
   position: relative;
 }
 
-#page .story,
-#page .studio,
-#page .nomination,
-#page .site-footer {    
-  opacity: 1; 
-  animation: move-up 2s 300ms both;
+/* SECTION FADE IN */
+.story,
+.studio,
+.nomination,
+.site-footer {   
+  transform: translateY(30px);
 }
 
 /* ************************* */
@@ -23,56 +27,94 @@
 /* ************************* */
 .banner {
   position: relative;
-  background-image: none !important;
+  object-fit: contain;
+  height: 800px;
+  background-image: none;
 }
 
-.banner .banner__video {
-  /* width: 100%; */
-  /* height: 100%; */
-  /* z-index: -1; */
-  opacity: 1; 
+.banner__background {
+  z-index: -2;
+  opacity: 0;
+}
+
+.banner__video {  
+  z-index: 1;
+  opacity: 1;
+}
+
+.banner__background, 
+.banner__video {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  width: 100% !important;  
   animation: move-down 2s 300ms both;
 }
 
-.banner .banner__logo {
-  position:absolute;
-  z-index: 2;
-  /* opacity: 1; */
-  animation: move-up 2s 300ms both;  
+.banner__logo {
+  position: sticky;
+  top: 80px;
+  z-index: 10;
+  opacity: 1;
+  animation: move-up 2s 300ms both, float 6s infinite ease-in-out;  
 }
 
+.mouve-up {
+  animation: move-up 1s 300ms both;  
+}
+
+/* Pour faire apparaitre les éléments en descendant et avec agmentatation de l'opacité */
 @keyframes move-down {
   0% {
     transform: translateY(-300px);
     opacity: 0;
-  }
-
-  30% {
-    opacity: 0;
-  }
-
+  }  
   100% {
     transform: translateY(0);
-    opacity: 1;
   }
 }
 
-/*  */
+/* Pour faire apparaitre les éléments en montant et avec agmentatation de l'opacité */
 @keyframes move-up {
   0% {
     transform: translateY(600px);
     opacity: 0;
-  }
-
-  30% {
-    opacity: 0;
-  }
- 
+  } 
   100% {
-    transform: translateY(var(--transy));  
-    opacity: 1;
+    transform: translateY(0);  
   }
 }
+
+
+/* Pour faire flotter les éléments */
+@keyframes float {
+  0% {
+    transform: translate(6px,6px);
+  }
+  12% {
+    transform: translate(0px,6px);
+  }
+  24% {
+    transform: translate(6px,-4px);
+  }
+  36% {
+    transform: translate(6px,0px);
+  }
+  48% {
+    transform: translate(-4px,-6px);
+  }
+  60% {
+    transform: translate(0px,-4px);
+  }
+  72% {
+    transform: translate(-8px,6px);
+  }
+  84% {
+    transform: translate(-4px,0px);
+  }
+  100% {transform: translate(6px,6px); }
+}
+
 
 /* ****************** */
 /*       FLOWER       */
@@ -113,12 +155,11 @@
 .story h2::after,
 #studio h2::after,
 .site-footer::before,
-.site-footer::after {
-  animation: rotate-flower var(--rotate) linear infinite;
-}
-
-.site-footer ul::after {  
-  animation: rotate-flower var(--rotate) linear infinite;
+.site-footer::after,
+.nomination::before,
+.nomination::after,
+.site-footer ul::after {
+  animation: rotate-flower var(--rotate) ease-in-out infinite;
 }
 
 @keyframes rotate-flower {
@@ -146,45 +187,22 @@
   -webkit-filter: blur(12px);
   -moz-filter: blur(12px);
   z-index: 2;
-
 }
 
 #place .place--big_cloud {
   height: 122px;	
   top: 70px;
   right: 90px;
+  transform: translateX(var(--posX));
 }
 
 #place .place--little_cloud {
   height: 55px;	
 	top: 250px;
   right: 500px;
+  transform: translateX(var(--posX));
 }
 
-/* .story #place::before,
-.story #place::after {
-  position: absolute;
-  filter: blur(12px);
-  -webkit-filter: blur(12px);
-  -moz-filter: blur(12px);
-  z-index: 2;
-}
-
-.story #place::before {
-	content: url("../images/big_cloud.png");	
-	top: 70px;
-  right: 90px;
-}
-
-.story #place::after {
-	content: url("../images/little_cloud.png");	
-	top: 250px;
-  right: 500px;
-}
-
-.story #place:hover {
-  animation: move-cloud 2s 300ms both;
-} */
 
 /* ******************** */
 /*       TITLE H2       */
@@ -192,24 +210,28 @@
 .story h2,
 .studio h2 {
   color: transparent;
+  width: auto;
+  height: 202px;
+  width: 100%;
+  z-index: -1;
 }
 
 .story span,
 .studio span {
   position: absolute;
-  /* color: #21201f; */
   color: #FFF5E9;
   font-family: 'Quicksand', sans-serif;
   font-weight: 700;
   font-size: 62px;
-  width: 565px;
   top: 110px;  
-  left: 50%;
-  transform: translate(-50%, 50%);
   opacity: 0;
   z-index: 4;
-  text-align: center;
-  animation: animTitle 9s forwards;
+  animation: animTitle 1s forwards paused;
+}
+
+.studio:hover span,
+.story:hover span {
+  animation: animTitle 1s forwards;
 }
 
 
@@ -227,29 +249,69 @@
 /* ********************** */
 /*       NOMINATION       */
 /* ********************** */
-.site-footer {
-  flex-direction: column;
+
+.nomination {  
+  position: relative;
+  padding: 150px 50px 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
 }
 
 .nomination h3 {
+  padding-left: 110px;
+  padding-right: 110px;
+  max-width: 860px;
 	background-image: url("../images/orange_nomination_bg3.png");
   text-align: left;
 }
 
-.nomination {  
-  position: relative;
-	max-width: 900px;
-  padding: 0 50px;
+.nomination img {
+  height: 100%;
 }
 
-.nomination h3::before {
+/* .nomination h3::before {
 	content: url("../images/oscars-2021.png");
 	position: absolute;
   left: 850px;
+  
+} */
+
+/* Suppression des fleurs du pieds de page pour le déplacer dans la nouvelle section- */
+.nomination::before {
+  content: url("../images/Sunflower.png");
+  position: absolute;
+  left: 4em;
+  top: 0em;
 }
 
+.nomination::after {
+  content: url("../images/orchid.png");
+  position: absolute;
+  right: -4em;
+  top: 0em;
+}
 
+.site-footer::before {
+  content: '';
+}
 
+.site-footer::after {
+  content: '';
+}
 
+/*  **********************************  */
+/*    Media query : max-width: 580px    */
+/*  **********************************  */
+@media only screen and (max-width: 580px) {
+  .banner .banner__video {
+    opacity: 0; 
+    /* animation: move-down 2s 300ms both; */
+  }
 
+  .banner__background {
+    opacity: 1;
+  }
 
+}
