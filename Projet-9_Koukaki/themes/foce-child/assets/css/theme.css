@@ -204,34 +204,49 @@
 }
 
 
-/* ******************** */
-/*       TITLE H2       */
-/* ******************** */
-.story h2,
-.studio h2 {
+/* ************************ */
+/*       TITLE H2 / H3      */
+/* ************************ */
+.story > h2,
+.studio >  h2,
+#characters > h3,
+#place h3 {
   color: transparent;
-  width: auto;
   height: 202px;
-  width: 100%;
   z-index: -1;
 }
 
-.story span,
-.studio span {
+.story > h2,
+.studio >  h2 {
+  width: 100%;
+}
+
+#characters > h3,
+#place h3  {
+  position: relative;
+  width: 40%;
+}
+
+.story > h2 span,
+.studio > h2 span,
+#characters span,
+#place span {
   position: absolute;
   color: #FFF5E9;
-  font-family: 'Quicksand', sans-serif;
-  font-weight: 700;
-  font-size: 62px;
   top: 110px;  
   opacity: 0;
   z-index: 4;
-  animation: animTitle 1s forwards paused;
+  /* animation: animTitle 1s forwards paused; */
 }
 
-.studio:hover span,
-.story:hover span {
-  animation: animTitle 1s forwards;
+.story #characters,
+#characters > h3 span,
+#place span {
+  width: 100%;
+}
+
+.animTitle {
+  animation: animTitle 500ms 500ms forwards;
 }
 
 
@@ -252,10 +267,6 @@
 .story #characters {
   position: relative;
   margin-bottom: 0 !important;
-}
-
-#characters span {
-  top: 0;
 }
 
 .container-swiper {
@@ -336,9 +347,18 @@ swiper-slide img {
 }
 
 /*  **********************************  */
+/*    Media query : max-width: 700px    */
+/*  **********************************  */
+@media all and (max-width: 700px) {
+  h3 {
+    font-size: 1.5rem;
+  }
+}
+
+/*  **********************************  */
 /*    Media query : max-width: 580px    */
 /*  **********************************  */
-@media only screen and (max-width: 580px) {
+@media all and (max-width: 580px) {
   .banner .banner__video {
     opacity: 0; 
     /* animation: move-down 2s 300ms both; */

@@ -17,7 +17,7 @@ get_header();
 
         <!-- LIGNE(S) AJOUTEE(S) -->
         <section id="#story" class="story hidden">
-            <h2><span class="hidden">L'histoire</span></h2>
+            <h2><span class="story__title hidden">L'histoire</span></h2>
             <!-- =================== -->
             <article id="" class="story__article">
                 <p><?php echo get_theme_mod('story'); ?></p>
@@ -32,9 +32,10 @@ get_header();
             );
             $characters_query = new WP_Query($args);
             ?>
+
             <article id="characters">
+                <h3><span class="characters__title hidden">Les personnages</span></h3>
                 <div class="main-character">
-                    <h3>Les personnages</h3>
                 </div>
             </article>
 
@@ -49,7 +50,7 @@ get_header();
                 <img class="place--little_cloud" src="<?php echo get_theme_file_uri() . '/assets/images/little_cloud.png'; ?>" alt="Petit nuage qui passe">
                 <!-- =================== -->
                 <div>
-                    <h3>Le Lieu</h3>
+                    <h3><span class="place__title hidden">Le Lieu</span></h3>
                     <p><?php echo get_theme_mod('place'); ?></p>
                 </div>
 
@@ -58,7 +59,7 @@ get_header();
 
         <!-- LIGNE(S) AJOUTEE(S) -->
         <section id="studio" class="studio hidden">
-            <h2><span class="hidden">Studio Koukaki</span></h2>
+            <h2><span class="studio__title hidden">Studio Koukaki</span></h2>
             <!-- =================== -->
             <div>
                 <p>Acteur majeur de l’animation, Koukaki est un studio intégré fondé en 2012 qui créé, produit et distribue des programmes originaux dans plus de 190 pays pour les enfants et les adultes. Nous avons deux sections en activité : le long métrage et le court métrage. Nous développons des films fantastiques, principalement autour de la culture de notre pays natal, le Japon.</p>

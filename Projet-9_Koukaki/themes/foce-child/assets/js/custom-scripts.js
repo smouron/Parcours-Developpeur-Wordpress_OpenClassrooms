@@ -20,26 +20,27 @@ function monScript() {
   const littleCloud = document.querySelector(".place--little_cloud");
   const bigCloud = document.querySelector(".place--big_cloud");
 
-  const handleIntersect = function (entries, observer) {
-    entries.forEach(function (e) {
+  const handleIntersect = (entries => {
+    entries.forEach(function (entry) {
       // Contrôle si l'élément à observer
       // est dans le ratio de la zone qui est affichée
-      console.log(e.target);
-      if (e.intersectionRatio > ratio) {
-        elementName = e.target.className;
+      console.log(entry.target);
+      if (entry.intersectionRatio > ratio) {
+        elementName = entry.target.className;
         console.log(elementName + " est visible");
-        if (
-          elementName === "story hidden" ||
-          elementName === "studio hidden" ||
-          elementName === "nomination hidden" ||
-          elementName === "site-footer hidden"
-        ) {
+        if (elementName === "story hidden" || elementName === "studio hidden" || elementName === "nomination hidden" || elementName === "site-footer hidden") {
           // On valide la class qui va executer le keyframes d'apparition des sections
-          e.target.classList.add("mouve-up");
+          entry.target.classList.add("mouve-up");
           // On arrête l'observation sur cet élément
-          observer.unobserve(e.target);
+          observer.unobserve(entry.target);
           // On retire la class qui cachait par défaut l'élement
-          e.target.classList.remove("hidden");
+          entry.target.classList.remove("hidden");
+        }
+
+        if (elementName === "story__title hidden" || elementName === "studio__title hidden" || elementName === "characters__title hidden" || elementName === "place__title hidden") {
+          entry.target.classList.add("animTitle");  
+          observer.unobserve(entry.target);
+          entry.target.classList.remove("hidden");
         }
 
         // Si on a trouvé un des nuages on active l'autorisation de déplacement
@@ -51,14 +52,15 @@ function monScript() {
         } else {
           mouveCloud = false;
         }
+
       }
     });
-  };
+  });
 
-  const ratio = 0.1;
+  const ratio = 0.05;
   // Initialisation de l'option pour la fonction IntersectionObserver
   // root :
-  // threshold : 0.1 = 10% qui doit être visible de l'élement avant de déclencher l'action
+  // ratio : % qui doit être visible de l'élement avant de déclencher l'action
   const options = {
     root: null,
     rootMargin: "0px",
@@ -75,6 +77,10 @@ function monScript() {
   observer.observe(document.querySelector(".studio"));
   observer.observe(document.querySelector(".nomination"));
   observer.observe(document.querySelector(".site-footer"));
+  observer.observe(document.querySelector(".story__title"));
+  observer.observe(document.querySelector(".studio__title"));  
+  observer.observe(document.querySelector(".characters__title"));
+  observer.observe(document.querySelector(".place__title"));
   observer.observe(bigCloud);
   observer.observe(littleCloud);
 
