@@ -26,19 +26,36 @@
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'foce' ); ?></a>
 
 	<header id="masthead" class="site-header">
-		<nav id="site-navigation" class="main-navigation">
-            <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">
+    <nav id="site-navigation" class="main-navigation">
+        <ul>
+            <li class="site-title"><a href="#" rel="home">Fleurs d'oranger & chats errants</a></li>
+        </ul>
+
+        <div id="modal" class="modal">
+            <button id="open" class="menu-toggle" aria-controls="primary-menu" aria-expanded="false" onclick="window.location.href = '#modal';">
                 <span class="line"></span>
                 <span class="line"></span>
                 <span class="line"></span>
             </button>
-            <ul>
-                <li><a href="#story">Histoire</a></li>
-                <li><a href="#characters">Personnages</a></li>
-                <li class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></li>
-                <li><a href="#place">Lieu</a></li>
-                <li><a href="#studio">Studio Koukaki</a></li>
-            </ul>
+            <button id="close" class="menu-toggle" aria-controls="primary-menu" aria-expanded="false" onclick="window.location.href = '#';">
+                <span class="line"></span>
+                <span class="line"></span>
+                <span class="line"></span>
+            </button>
+            <div class="modal__content">
+                <img class="modal__content--logo" src="<?php echo get_theme_file_uri() . '/assets/images/logo.png'; ?>" alt="">
+                <ul>
+                    <li class="modal__content--story flower cat"><a href="#story">Histoire</a></li>
+                    <li class="modal__content--characters flower cat"><a href="#characters">Personnages</a></li>
+                    <li class="modal__content--place flower cat"><a href="#place">Lieu</a></li>
+                    <li class="modal__content--studio flower cat"><a href="#studio">Studio Koukaki</a></li>
+                </ul>
 
-		</nav><!-- #site-navigation -->
+                <div class="modal__content--footer flower cat">
+                    <a href="#">STUDIO KOUKAKI</a></li>
+                </div>
+
+            </div>
+        </div>
+        </nav><!-- #site-navigation -->
 	</header><!-- #masthead -->

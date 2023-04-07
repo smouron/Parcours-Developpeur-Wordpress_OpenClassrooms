@@ -16,7 +16,7 @@ get_header();
         <!-- =================== -->
 
         <!-- LIGNE(S) AJOUTEE(S) -->
-        <section id="#story" class="story hidden">
+        <section id="story" class="story hidden">
             <h2><span class="story__title hidden">L'histoire</span></h2>
             <!-- =================== -->
             <article id="" class="story__article">
@@ -68,7 +68,7 @@ get_header();
         </section>
 
         <!-- LIGNE(S) AJOUTEE(S) -->
-        <section id="#nomination" class="nomination">
+        <section id="nomination" class="nomination">
             <h3>Fleurs d’oranger & chats errants est nominé aux Oscars Short Film Animated de 2022 !</h3>
             <img class="nomination__logo" src="<?php echo get_theme_file_uri() . '/assets/images/oscars-2021.png'; ?>" alt="Nomination aux Oscars 2022" ">
         </section>

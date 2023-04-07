@@ -14,12 +14,198 @@
   position: relative;
 }
 
-/* SECTION FADE IN */
-.story,
-.studio,
-.nomination,
-.site-footer {   
-  transform: translateY(30px);
+
+/* ************** */
+/*   Navigation   */
+/* ************** */
+
+.main-navigation.toggled ul {
+	display: flex !important;
+}
+
+#site-navigation {
+  position: relative;
+}
+
+#open,
+#close {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  gap: 8px;
+  height: 100%;
+  top: 0;
+  right: 3em;
+  cursor: pointer;
+}
+
+#open .line,
+#close .line {
+  height: 2px;
+  background-color: #000;
+  display: block;
+  width: 40px; 
+}
+
+#modal:target #open,
+#modal:not(:target) #close  {
+  display: none;
+}
+
+#modal:target #open  {
+  display: none;
+}
+
+/* Création du bouton pour fermer */
+#close .line:nth-child(2) {
+  opacity: 0;
+}
+
+#close .line:first-child {
+  transform: rotate(45deg) translate3d(10px, 10px, 0);
+}
+
+#close .line:last-child {
+  transform: rotate(-45deg) translate3d(10px, -10px, 0);
+}
+
+/* ************* */
+/*     MODAL     */
+/* ************* */
+.modal {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 0.4rem;
+  font-weight: 400;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+  z-index: 99;
+  /* animation: move-down 2s 300ms both; */
+}
+
+.modal h2,
+.modal li > a {
+  font-size: 3.1rem;
+}
+
+.modal .modal__content {
+  position: relative;
+  visibility: hidde;
+  opacity: 0;
+  width: 100%;
+  height: 95vh;
+  background: #FFF5E9;
+  font-size: 3em;
+}
+
+.modal:target .modal__content {
+  visibility: visible;
+  opacity: 1;
+}
+
+.modal__content--logo {
+  margin: 40px;
+  width: 154px;
+  filter: drop-shadow(0px 0px 10px rgba(255, 92, 0, 0.6));
+  -webkit-filter: drop-shadow(0px 0px 10px rgba(255, 92, 0, 0.6));
+  -moz-filter: drop-shadow(0px 0px 10px rgba(255, 92, 0, 0.6));
+}
+
+.modal__content ul {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  height: 300px;
+  gap: 1em;
+}
+
+.modal__content li > a:hover {
+  filter: drop-shadow(0px 0px 5px #ff5c00);
+  -webkit-filter: drop-shadow(0px 0px 5px #ff5c00);
+  -moz-filter: drop-shadow(0px 0px 5px #ff5c00);
+}
+
+.modal__content--footer {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 50px;
+}
+
+/* *************** */
+/*   CAT - MODAL   */
+/* *************** */
+.modal__content--story::before {
+  content: url("../images/Kawaneko.png");
+  position: absolute;
+  right: 20em;
+  bottom: -3em;
+  animation: float 7s 100ms infinite ease-in-out; 
+  /* transform: scale(0.7); */
+}
+
+.modal__content--place::before {
+  content: url("../images/Jaakuna-1.png");
+  position: absolute;
+  left: 20em;
+  top: -4em;  
+  animation: float 6s 200ms infinite ease-in-out; 
+  /* transform: scale(0.7); */
+}
+
+.modal__content--footer::before {
+  content: url("../images/Orenjiiro-1.png");
+  position: absolute;
+  right: 30em;
+  bottom: 0;  
+  animation: float 5s 300ms infinite ease-in-out; 
+  /* transform: scale(0.7); */
+}
+
+/* ****************** */
+/*   FLOWER - MODAL   */
+/* ****************** */
+.modal__content::after{
+  content: url("../images/orchid.png");
+  position: absolute;
+  left: -4em;
+  top: 3em;
+  transform: scale(0.8);
+}
+
+.modal__content--story::after {
+  content: url("../images/Sunflower.png");
+  position: absolute;
+  left: 24em;
+  bottom: 0em;
+}
+
+.modal__content--characters::after {
+  content: url("../images/random_flower.png");
+  position: absolute;
+  left: 54em;
+  top: -2em;
+  transform: scale(0.3);
+}
+
+.modal__content--place::after {
+  content: url("../images/flower.png");
+  position: absolute;
+  right: 28em;
+  top: -2em;
+  transform: scale(0.5);
+}
+
+.modal__content--footer::after {
+  content: url("../images/hibiscus_footer.png");
+  position: absolute;
+  left: 500px;
+  bottom: -23.5em;
 }
 
 /* ************************* */
@@ -56,7 +242,7 @@
   top: 80px;
   z-index: 10;
   opacity: 1;
-  animation: move-up 2s 300ms both, float 6s infinite ease-in-out;  
+  animation: move-up 2s 300ms both, float 6s 2s infinite ease-in-out;  
 }
 
 .mouve-up {
@@ -89,47 +275,45 @@
 /* Pour faire flotter les éléments */
 @keyframes float {
   0% {
-    transform: translate(6px,6px);
+    transform: translate3d(6px,6px,0);
   }
   12% {
-    transform: translate(0px,6px);
+    transform: translate3d(0px,6px,0);
   }
   24% {
-    transform: translate(6px,-4px);
+    transform: translate3d(6px,-4px,0);
   }
   36% {
-    transform: translate(6px,0px);
+    transform: translate3d(6px,0px,0);
   }
   48% {
-    transform: translate(-4px,-6px);
+    transform: translate3d(-4px,-6px,0);
   }
   60% {
-    transform: translate(0px,-4px);
+    transform: translate3d(0px,-4px,0);
   }
   72% {
-    transform: translate(-8px,6px);
+    transform: translate3d(-8px,6px,0);
   }
   84% {
-    transform: translate(-4px,0px);
+    transform: translate3d(-4px,0px,0);
   }
-  100% {transform: translate(6px,6px); }
+  100% {
+    transform: translate3d(6px,6px,0); 
+  }
 }
 
 
-/* ****************** */
-/*       FLOWER       */
-/* ****************** */
-/* Hibiscus.png */
-.story__article::after {
-	width: 188px;
-	height: 188px;
-}
+/* ********************* */
+/*     FLOWER - MAIN     */
+/* ********************* */
 
+/* Ajustements pour qu'elles puissent tourner rond */
 /* Sunflower.png */
 .story h2::after,
 .site-footer::before {
-	width: 155px;
-	height: 155px;
+	width: 154px;
+	height: 154px;
 }
 
 /* random_flower.png */
@@ -150,6 +334,13 @@
   height: 173px;
 }
 
+/* Hibiscus.png */
+.story__article::after {
+	width: 188px;
+	height: 188px;
+}
+
+/* Ajout d'une rotation sur les fleurs */
 .story__article::after,
 #studio h2::before,
 .story h2::after,
@@ -158,8 +349,9 @@
 .site-footer::after,
 .nomination::before,
 .nomination::after,
-.site-footer ul::after {
-  animation: rotate-flower var(--rotate) ease-in-out infinite;
+.site-footer ul::after,
+.modal ::after {
+  animation: rotate-flower var(--rotate) linear infinite;
 }
 
 @keyframes rotate-flower {
@@ -233,10 +425,16 @@
 #place span {
   position: absolute;
   color: #FFF5E9;
-  top: 110px;  
   opacity: 0;
   z-index: 4;
   /* animation: animTitle 1s forwards paused; */
+}
+
+.story > h2 span,
+.studio > h2 span,
+#characters span,
+#place span {
+  top: 100px;  
 }
 
 .story #characters,
@@ -249,14 +447,13 @@
   animation: animTitle 500ms 500ms forwards;
 }
 
-
 @keyframes animTitle {
 	0% {
-    transform: translate(-50%, 50%);
+    transform: translate3d(-50%, 50%, 0);
     opacity: 0;
   }
   100% {
-    transform: translate(-50%, -50%);
+    transform: translate3d(-50%, -50%, 0);
     opacity: 1;
   }
 }
@@ -353,6 +550,11 @@ swiper-slide img {
   h3 {
     font-size: 1.5rem;
   }
+
+  #characters span,
+  #place span {
+    top: 80px;  
+  }
 }
 
 /*  **********************************  */
@@ -361,7 +563,6 @@ swiper-slide img {
 @media all and (max-width: 580px) {
   .banner .banner__video {
     opacity: 0; 
-    /* animation: move-down 2s 300ms both; */
   }
 
   .banner__background {

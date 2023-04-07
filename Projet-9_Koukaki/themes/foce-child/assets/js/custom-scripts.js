@@ -1,3 +1,9 @@
+/**
+ * Custon Script 1.0.0
+ *
+ * Released on: April 2023
+ */
+
 console.log("Démarrage du script !");
 
 // Différer le lancement du script => ne se lance qu'une fois que tout le HTML a été chargé
