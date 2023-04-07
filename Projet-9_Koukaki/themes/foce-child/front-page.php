@@ -34,15 +34,12 @@ get_header();
             ?>
 
             <article id="characters">
-                <h3><span class="characters__title hidden">Les personnages</span></h3>
-                <div class="main-character">
-                </div>
+                <h3><span class="characters__title hidden">Les personnages</span></h3>                
+                <?php 
+                include_once ( 'template-parts/characters-slider.php' ); 
+                // get_template_part ( 'template-parts/characters' , 'slider' ); 
+                ?>
             </article>
-
-            <?php 
-            include_once ( 'template-parts/characters-slider.php' ); 
-            // get_template_part ( 'template-parts/characters' , 'slider' ); 
-            ?>
 
             <article id="place">
                 <!-- LIGNE(S) AJOUTEE(S) -->
