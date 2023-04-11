@@ -4,7 +4,7 @@
  * Released on: April 2023
  */
 
-console.log("Démarrage du script !");
+// console.log("Démarrage du script !");
 
 // Différer le lancement du script => ne se lance qu'une fois que tout le HTML a été chargé
 if (document.readyState === "complete") {
@@ -16,49 +16,39 @@ if (document.readyState === "complete") {
 }
 
 function monScript() {
-  console.log("HTML prêt !");
-
-   // Initialize Swiper
-   var swiper = new Swiper('.swiper-container', {
-    spaceBetween: 60,
-    speed: 1000,
-    autoplay: {
-        delay: 250,
-    },
-    effect: 'coverflow',
-    grabCursor: true,
-    centeredSlides: true,
-    loop: true,
-    slidesPerView: 3,
-    coverflowEffect: {
-        rotate: 60,
-        stretch: 0,
-        depth: 100,
-        modifier: 1,
-        slideShadows: false,
-    },
-    autoplay: {
-        delay: 2500,
-        // disableOnInteraction: false,
-    },
-
-});
+  // console.log("HTML prêt !");
 
   let posX = 0;
   let mouveCloud = false;
 
   const root = document.documentElement;
+  const burger = document.querySelector(".modal__burger");
+  const content = document.querySelector(".modal__content");
+  const modalTriggers = document.querySelectorAll(".modal-trigger");
   const place = document.querySelector("#place");
   const littleCloud = document.querySelector(".place--little_cloud");
   const bigCloud = document.querySelector(".place--big_cloud");
 
+  // Gestion de la fermeture et de l'ouverture de la modale
+  modalTriggers.forEach((trigger) => {
+    trigger.addEventListener("click", () => {
+      toggleModal();
+    });
+  });
+
+  function toggleModal() {
+    burger.classList.toggle("close");
+    content.classList.toggle("hidden");
+    content.classList.toggle("visible");
+  }
+
+  // Gestion du déclenchement des évenements quand ils apparaissent
   const handleIntersect = (entries) => {
     entries.forEach(function (entry) {
       // Contrôle si l'élément à observer
       // est dans le ratio de la zone qui est affichée
       if (entry.intersectionRatio > ratio) {
         elementName = entry.target.className;
-        // console.log(elementName + " est visible");
         if (
           elementName === "story hidden" ||
           elementName === "studio hidden" ||
