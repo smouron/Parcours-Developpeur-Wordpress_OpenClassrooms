@@ -18,6 +18,32 @@ if (document.readyState === "complete") {
 function monScript() {
   console.log("HTML prêt !");
 
+   // Initialize Swiper
+   var swiper = new Swiper('.swiper-container', {
+    spaceBetween: 60,
+    speed: 1000,
+    autoplay: {
+        delay: 250,
+    },
+    effect: 'coverflow',
+    grabCursor: true,
+    centeredSlides: true,
+    loop: true,
+    slidesPerView: 3,
+    coverflowEffect: {
+        rotate: 60,
+        stretch: 0,
+        depth: 100,
+        modifier: 1,
+        slideShadows: false,
+    },
+    autoplay: {
+        delay: 2500,
+        // disableOnInteraction: false,
+    },
+
+});
+
   let posX = 0;
   let mouveCloud = false;
 
@@ -30,10 +56,9 @@ function monScript() {
     entries.forEach(function (entry) {
       // Contrôle si l'élément à observer
       // est dans le ratio de la zone qui est affichée
-      console.log(entry.target);
       if (entry.intersectionRatio > ratio) {
         elementName = entry.target.className;
-        console.log(elementName + " est visible");
+        // console.log(elementName + " est visible");
         if (
           elementName === "story hidden" ||
           elementName === "studio hidden" ||
@@ -99,10 +124,6 @@ function monScript() {
   observer.observe(bigCloud);
   observer.observe(littleCloud);
 
-  console.log(
-    "La résolution d'écran est: " + screen.width + " x " + screen.height
-  );
-
   // Contrôle si on scroll sur la fenêtre
   window.addEventListener("scroll", () => {
     // Si on scroll, cela accélère la rotation des fleurs
@@ -120,7 +141,6 @@ function monScript() {
     // on ne bouge les nuages que s'ils ont été détécté à l'affichage
     if (mouveCloud) {
       posX = Math.round(0 - (window.scrollY - place.offsetTop - 200));
-      console.log("posX: " + posX);
       if (posX <= 0 && posX > -400) {
         root.style.setProperty("--posX", posX + "px");
       }
