@@ -40,7 +40,7 @@
   padding: 0;
   top: 0;
   right: 3em;
-  cursor: pointer;
+  cursor: pointer;  
 }
 
 #open .line,
@@ -48,7 +48,9 @@
 	display: block;
   height: 2px;
   width: 100%;
-  transition: all .3s ease-in-out;
+  /* transition: all 3s ease-in-out; */
+  transition-property: rotate;
+    transition-duration: 5s;
 }
 
 #modal:not(:target) #close  {
@@ -93,6 +95,7 @@
 
 .modal .modal__content {
   position: relative;
+  visibility: hidden;
   opacity: 0;
   width: 100%;
   height: 95vh;
@@ -293,10 +296,11 @@
   }  
   100% {
     transform: translateY(0);
+    visibility: visible;
   }
 }
 
-/* Pour faire apparaitre les éléments en montant et avec agmentatation de l'opacité */
+/* Pour faire apparaitre les éléments en montant et avec augmentatation de l'opacité */
 @keyframes move-up {
   0% {
     transform: translateY(600px);
@@ -535,48 +539,6 @@
   }
 }
 
-/*  **********************************  */
-/*    Media query : max-width: 920px    */
-/*  **********************************  */
-@media all and (max-width: 920px) {
-  h3 {
-    font-size: 1.8rem;
-  }  
-}
-
-/*  **********************************  */
-/*    Media query : max-width: 700px    */
-/*  **********************************  */
-@media all and (max-width: 700px) {
-  #characters > h3,
-  #place > h3 {
-    width: 60%;
-  }
-
-  h3 {
-    font-size: 1.6rem;
-  }  
-
-  #characters span,
-  #place span {
-    top: 100px;
-  }
-}
-
-/*  **********************************  */
-/*    Media query : max-width: 480px    */
-/*  **********************************  */
-@media all and (max-width: 480px) {
-  h3 {
-    font-size: 1.2rem;
-  }  
-
-  #characters span,
-  #place span {
-    top: 100px;
-  }
-}
-
 
 /* **************** */
 /*      SWIPER      */
@@ -586,12 +548,9 @@
   margin-bottom: 0 !important;
 }
 
-.container-swiper {
-  width: 100%;
-}
-
 swiper-container {
-  height: 420px;
+  width: 100%;
+  /* height: 420px; */
   opacity: 1;
   margin-bottom: 7em;
 }
@@ -602,16 +561,15 @@ swiper-slide {
   /* background: #fff; */
   display: flex;
   width: 100%;
-  /* min-width: 460px; */
   justify-content: center;
   align-items: center;
 }
 
 swiper-slide img {
   display: block;
-  max-height: 400px ;
+  /* max-height: 400px ;
   width: 100%;
-  height: 100%;
+  height: 100%; */
   object-fit: cover;
 }
 
@@ -621,18 +579,19 @@ swiper-slide img {
 
 .nomination {  
   position: relative;
-  padding: 150px 50px 0;
+  padding: 150px 0 50px;
   display: flex;
   flex-wrap: wrap;
+  gap: 40px 0;
   justify-content: center;
   align-items: center;
 }
 
 .nomination h3 {
-  padding-left: 110px;
-  padding-right: 110px;
-  max-width: 860px;
-	background-image: url("../images/orange_nomination_bg3.png");
+  padding-left: 100px;
+  padding-right: 130px;
+  max-width: 870px;
+	background-image: url("../images/orange_nomination_bg2.png");
   text-align: left;
 }
 
@@ -652,7 +611,7 @@ swiper-slide img {
   content: url("../images/orchid.png");
   position: absolute;
   right: -4em;
-  top: 0em;
+  top: -3em;
 }
 
 .site-footer::before {
@@ -663,6 +622,91 @@ swiper-slide img {
   content: '';
 }
 
+/*  **********************************  */
+/*    Media query : max-width: 1192px    */
+/*  **********************************  */
+@media all and (max-width: 1192px) {
+  .nomination h3 {
+    padding-left: 180px;
+    padding-right: 180px;
+    font-size: 2.3rem;
+  }  
+}
 
+/*  **********************************  */
+/*    Media query : max-width: 920px    */
+/*  **********************************  */
+@media all and (max-width: 920px) {
+  h2 {
+    font-size: 3.3rem;
+  } 
+
+  .story > h2 span, 
+  .studio > h2 span {
+    width: 100%;
+  }
+
+  h3 {
+    font-size: 1.8rem;
+  }  
+  
+  .nomination h3 {
+    padding-left: 140px;
+    padding-right: 130px;
+  }
+}
+
+/*  **********************************  */
+/*    Media query : max-width: 700px    */
+/*  **********************************  */
+@media all and (max-width: 700px) {
+  h2 {
+    font-size: 3rem;
+  } 
+
+  #characters > h3,
+  #place > h3 {
+    width: 60%;
+  }
+
+  h3 {
+    font-size: 1.6rem;
+  }  
+  
+  .nomination h3 {  
+    padding-left: 120px;
+    padding-right: 120px;
+    font-size: 1.9rem;
+  }
+
+  #characters span,
+  #place span {
+    top: 100px;
+  }
+}
+
+/*  **********************************  */
+/*    Media query : max-width: 480px    */
+/*  **********************************  */
+@media all and (max-width: 480px) {
+  h2 {
+    font-size: 2.4rem;
+  } 
+
+  h3 {
+    font-size: 1.2rem;
+  }  
+
+  .nomination h3 {  
+    padding-left: 80px;
+    padding-right: 80px;
+    font-size: 1.5rem;
+  }
+
+  #characters span,
+  #place span {
+    top: 100px;
+  }
+}
 
 

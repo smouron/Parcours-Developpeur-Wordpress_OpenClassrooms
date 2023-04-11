@@ -26,7 +26,7 @@ function monScript() {
   const littleCloud = document.querySelector(".place--little_cloud");
   const bigCloud = document.querySelector(".place--big_cloud");
 
-  const handleIntersect = (entries => {
+  const handleIntersect = (entries) => {
     entries.forEach(function (entry) {
       // Contrôle si l'élément à observer
       // est dans le ratio de la zone qui est affichée
@@ -34,7 +34,12 @@ function monScript() {
       if (entry.intersectionRatio > ratio) {
         elementName = entry.target.className;
         console.log(elementName + " est visible");
-        if (elementName === "story hidden" || elementName === "studio hidden" || elementName === "nomination hidden" || elementName === "site-footer hidden") {
+        if (
+          elementName === "story hidden" ||
+          elementName === "studio hidden" ||
+          elementName === "nomination hidden" ||
+          elementName === "site-footer hidden"
+        ) {
           // On valide la class qui va executer le keyframes d'apparition des sections
           entry.target.classList.add("mouve-up");
           // On arrête l'observation sur cet élément
@@ -43,8 +48,13 @@ function monScript() {
           entry.target.classList.remove("hidden");
         }
 
-        if (elementName === "story__title hidden" || elementName === "studio__title hidden" || elementName === "characters__title hidden" || elementName === "place__title hidden") {
-          entry.target.classList.add("animTitle");  
+        if (
+          elementName === "story__title hidden" ||
+          elementName === "studio__title hidden" ||
+          elementName === "characters__title hidden" ||
+          elementName === "place__title hidden"
+        ) {
+          entry.target.classList.add("animTitle");
           observer.unobserve(entry.target);
           entry.target.classList.remove("hidden");
         }
@@ -58,10 +68,9 @@ function monScript() {
         } else {
           mouveCloud = false;
         }
-
       }
     });
-  });
+  };
 
   const ratio = 0.05;
   // Initialisation de l'option pour la fonction IntersectionObserver
@@ -84,7 +93,7 @@ function monScript() {
   observer.observe(document.querySelector(".nomination"));
   observer.observe(document.querySelector(".site-footer"));
   observer.observe(document.querySelector(".story__title"));
-  observer.observe(document.querySelector(".studio__title"));  
+  observer.observe(document.querySelector(".studio__title"));
   observer.observe(document.querySelector(".characters__title"));
   observer.observe(document.querySelector(".place__title"));
   observer.observe(bigCloud);

@@ -36,8 +36,8 @@ get_header();
             <article id="characters">
                 <h3><span class="characters__title hidden">Les personnages</span></h3>                
                 <?php 
-                // include_once ( 'template-parts/characters-slider.php' ); 
-                get_template_part ( get_theme_file_uri() . '/template-parts/characters' , 'slider' ); 
+                include_once ( 'template-parts/characters-slider.php' ); 
+                // get_template_part ( '/template-parts/characters' , 'slider' ); 
                 ?>
             </article>
 

@@ -1,9 +1,11 @@
-<article class="container-swiper">
-    <!-- <swiper-container class="mySwiper" pagination="true" pagination-clickable="true" space-between="30"
-                        slides-per-view="3" centered-slides="true" autoplay-delay="2500"
-                        autoplay-disable-on-interaction="false" loop="true"> -->
-    <swiper-container class="mySwiper" space-between="30" slides-per-view="3" centered-slides="true"
-                        autoplay-delay="2500" autoplay-disable-on-interaction="false" loop="true">
+<div class="container-swiper">
+    <!-- Options : 
+    pagination="true" pagination-clickable="true" space-between="30"
+    slides-per-view="3" centered-slides="true" autoplay-delay="2500"
+    autoplay-disable-on-interaction="false" loop="true"> -->
+    <swiper-container class="mySwiper" space-between="60" slides-per-view="3" effect="coverflow" grab-cursor="true"
+        coverflow-effect-rotate="60" coverflow-effect-stretch="0" coverflow-effect-depth="100"
+        coverflow-effect-modifier="1" coverflow-effect-slide-shadows="false" centered-slides="true" speed="1000" autoplay-delay="2500" loop="true">
         <?php
             while ( $characters_query->have_posts() ) {
                 $characters_query->the_post();
@@ -18,4 +20,4 @@
             }
         ?>                        
     </swiper-container>
-</article>
+</div>
