@@ -108,7 +108,7 @@ PRINT-IT-JS : https://smouron.github.io/Print-it-JS-main/
 
 ---
 
-## Projets en cours
+## Projets en attente de validation
 
 ### Projet 9 - Fleurs Chats errants / Koukaki
 
@@ -121,11 +121,11 @@ Ma mission pour ces prochains jours est de dynamiser le site internet du studio 
 
 #### Réalisation
 
-KOUKAKI :
+KOUKAKI : https://koukaki.sanoecreation.fr/
 
 ---
 
-## Projets à faire
+## Projets en cours
 
 ### Projet 10 - Med.It
 
@@ -139,6 +139,9 @@ Pour ce projet, je suis développeur WordPress en freelance. La PME MedIT, spéc
 
 MED.IT :
 
+---
+
+## Projets à faire
 
 ### Projet 11 - Nathalie Motta
 
