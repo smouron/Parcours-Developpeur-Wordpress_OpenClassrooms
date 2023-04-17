@@ -7,34 +7,34 @@
 console.log("Démarrage du script !");
 
 // Différer le lancement du script => ne se lance qu'une fois que tout le HTML a été chargé
-if (document.readyState === "complete") {
-  monScript();
-} else {
+
   document.addEventListener("DOMContentLoaded", function () {
     monScript();
   });
-}
+
 
 function monScript() {
-  console.log("HTML prêt !");
+  // console.log("HTML prêt !");
 
   // Gestion de la fermeture et de l'ouverture de la modale avec jQuery
-  $(".modal-open").click(function () {
-    console.log("modal-trigger cliqué");
-    $(".modal__content").animate({ height: "toggle", opacity: "toggle" }, 1000);
-    $(".modal__content").toggleClass("open");
-    $(".modal__burger").toggleClass("close");
-  });
-  $("a").click(function () {
-    if ($(".modal__content").hasClass("open")) {
-      $(".modal__content").animate(
-        { height: "toggle", opacity: "toggle" },
-        1000
-      );
-      $(".modal__content").removeClass("open");
-      $(".modal__burger").removeClass("close");
-    }
-  });
+  (function($) {
+      $(".modal-open").click(function () {
+      console.log("modal-trigger cliqué");
+      $(".modal__content").animate({ height: "toggle", opacity: "toggle" }, 1000);
+      $(".modal__content").toggleClass("open");
+      $(".modal__burger").toggleClass("close");
+    });
+    $("a").click(function () {
+      if ($(".modal__content").hasClass("open")) {
+        $(".modal__content").animate(
+          { height: "toggle", opacity: "toggle" },
+          1000
+        );
+        $(".modal__content").removeClass("open");
+        $(".modal__burger").removeClass("close");
+      }
+    });    
+  })(jQuery);
 
    // Initialize Swiper
    var swiper = new Swiper('.swiper-container', {

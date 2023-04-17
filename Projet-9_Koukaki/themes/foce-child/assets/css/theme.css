@@ -344,6 +344,10 @@
     opacity: 1;
     min-width: 1200px !important;
   }
+
+  .banner img {
+    width: 80%;
+  }
 }
 
 /*  **********************************  */
@@ -473,7 +477,17 @@
 #place h3 {
   color: transparent;
   height: 202px;
+}
+
+.story > h2,
+.studio >  h2,
+#characters > h3 {
   z-index: -1;
+}
+
+
+#place h3 {
+  z-index: 4;
 }
 
 .story > h2,
@@ -585,11 +599,19 @@
   align-items: center;
 }
 
-.nomination h3 {
-  padding-left: 100px;
-  padding-right: 130px;
-  max-width: 870px;
-	background-image: url("../images/orange_nomination_bg2.png");
+.nomination__title {  
+  position: relative;
+}
+
+.nomination__title img {
+  height: 100%;
+}
+
+.nomination__title h3 {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  line-height: 3.2rem;
   text-align: left;
 }
 
@@ -620,14 +642,17 @@
   content: '';
 }
 
+#place h3 {
+  width: 60%;
+}
+
 /*  **********************************  */
 /*    Media query : max-width: 1192px    */
 /*  **********************************  */
 @media all and (max-width: 1192px) {
   .nomination h3 {
-    padding-left: 180px;
-    padding-right: 180px;
-    font-size: 2.3rem;
+    font-size: 2.8rem;
+    line-height: 3rem;
   }  
 }
 
@@ -644,13 +669,28 @@
     width: 100%;
   }
 
-  h3 {
-    font-size: 1.8rem;
-  }  
+  .story #characters {
+    margin-top: 10px !important;
+  }
+
+  #characters > h3,
+  #place h3 {
+    width: 100%;
+  }
   
-  .nomination h3 {
-    padding-left: 140px;
-    padding-right: 130px;
+  #nomination {
+    padding-top: 20px;
+  }
+
+  .nomination h3 {  
+    font-size: 2.4rem;    
+    line-height: 2.8rem;
+  }
+  
+  #studio h2::before,
+  .nomination::before,
+  .nomination::after {
+    content: '';
   }
 }
 
@@ -662,19 +702,9 @@
     font-size: 3rem;
   } 
 
-  #characters > h3,
-  #place > h3 {
-    width: 60%;
-  }
-
-  h3 {
-    font-size: 1.6rem;
-  }  
-  
   .nomination h3 {  
-    padding-left: 120px;
-    padding-right: 120px;
-    font-size: 1.9rem;
+    font-size: 1.9rem;    
+    line-height: 2.5rem;
   }
 
   #characters span,
@@ -692,18 +722,25 @@
   } 
 
   h3 {
-    font-size: 1.2rem;
+    font-size: 2rem;
   }  
+  
+    #characters span,
+    #place span {
+      top: 100px;
+    }
 
-  .nomination h3 {  
-    padding-left: 80px;
-    padding-right: 80px;
-    font-size: 1.5rem;
+  .nomination__title {
+    height:200px
   }
 
-  #characters span,
-  #place span {
-    top: 100px;
+  .nomination h3 {  
+    font-size: 1.4rem;
+    line-height: 1.6rem;
+  }
+
+  .nomination__logo {
+    max-width: 70%;
   }
 }
 

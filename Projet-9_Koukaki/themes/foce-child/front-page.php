@@ -22,24 +22,12 @@ get_header();
             <article id="" class="story__article">
                 <p><?php echo get_theme_mod('story'); ?></p>
             </article>
-            <?php
-            $args = array(
-                'post_type' => 'characters',
-                'posts_per_page' => -1,
-                'meta_key'  => '_main_char_field',
-                'orderby'   => 'meta_value_num',
 
-            );
-            $characters_query = new WP_Query($args);
+            <!-- 'Characters' déplacé dans template-parts\characters-slider.php -->
+            <?php 
+                // include_once ( 'template-parts/characters-slider.php' ); 
+                get_template_part ( 'template-parts/characters' , 'slider' ); 
             ?>
-
-            <article id="characters">
-                <h3><span class="characters__title hidden">Les personnages</span></h3>                
-                <?php 
-                include_once ( 'template-parts/characters-slider.php' ); 
-                // get_template_part ( '/template-parts/characters' , 'slider' ); 
-                ?>
-            </article>
 
             <article id="place">
                 <!-- LIGNE(S) AJOUTEE(S) -->
@@ -66,7 +54,10 @@ get_header();
 
         <!-- LIGNE(S) AJOUTEE(S) -->
         <section id="nomination" class="nomination">
+            <div class="nomination__title">
+            <img src="<?php echo get_theme_file_uri() . '/assets/images/orange_nomination_bg.png'; ?>" alt="fond du titre des nominations">
             <h3>Fleurs d’oranger & chats errants est nominé aux Oscars Short Film Animated de 2022 !</h3>
+            </div>
             <img class="nomination__logo" src="<?php echo get_theme_file_uri() . '/assets/images/oscars-2021.png'; ?>" alt="Nomination aux Oscars 2022" ">
         </section>
         <!-- =================== -->
