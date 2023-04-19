@@ -1,0 +1,66 @@
+.oew-effect-14 a {
+  position: relative;
+  display: inline-block;
+  padding: 0 20px;
+  height: 45px;
+  line-height: 45px;
+}
+
+.oew-effect-14 a::before,
+.oew-effect-14 a::after {
+  position: absolute;
+  width: 45px;
+  height: 2px;
+  background: #13aff0;
+  content: '';
+  opacity: 0.2;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
+  pointer-events: none;
+}
+
+.oew-effect-14 a::before {
+  top: 0;
+  left: 0;
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  transform: rotate(90deg);
+  -webkit-transform-origin: 0 0;
+  -moz-transform-origin: 0 0;
+  transform-origin: 0 0;
+}
+
+.oew-effect-14 a::after {
+  right: 0;
+  bottom: 0;
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  transform: rotate(90deg);
+  -webkit-transform-origin: 100% 0;
+  -moz-transform-origin: 100% 0;
+  transform-origin: 100% 0;
+}
+
+.oew-effect-14 a:hover::before,
+.oew-effect-14 a:hover::after,
+.oew-effect-14 a:focus::before,
+.oew-effect-14 a:focus::after {
+  opacity: 1;
+}
+
+.oew-effect-14 a:hover::before,
+.oew-effect-14 a:focus::before {
+  left: 50%;
+  -webkit-transform: rotate(0deg) translateX(-50%);
+  -moz-transform: rotate(0deg) translateX(-50%);
+  transform: rotate(0deg) translateX(-50%);
+}
+
+.oew-effect-14 a:hover::after,
+.oew-effect-14 a:focus::after {
+  right: 50%;
+  -webkit-transform: rotate(0deg) translateX(50%);
+  -moz-transform: rotate(0deg) translateX(50%);
+  transform: rotate(0deg) translateX(50%);
+}

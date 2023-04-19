@@ -1,0 +1,65 @@
+.oew-btn-effect-30 a {
+  position: relative;
+  border-left: none !important;
+  border-right: none !important;
+  border-top-width: 1px;
+  border-bottom-width: 1px;
+  border-top-style: solid !important;
+  border-bottom-style: solid !important;
+  border-top-color: rgba(0,0,0,0.2);
+  border-bottom-color: rgba(0,0,0,0.2);
+  border-radius: 0 !important;
+}
+
+.oew-btn-effect-30 a span {
+  position: relative;
+  z-index: 2;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.oew-btn-effect-30 a:hover span {
+  letter-spacing: 2px;
+}
+
+.oew-btn-effect-30 a:hover {
+  border-top-color: transparent !important;
+  border-bottom-color: transparent !important;
+}
+
+.oew-btn-effect-30 a::before,
+.oew-btn-effect-30 a::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 1px;
+  height: 100%;
+  z-index: 1;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+  background-color: rgba(0,0,0,0.2);
+}
+
+.oew-btn-effect-30 a::after {
+  right: auto;
+  left: 0;
+}
+
+.oew-btn-effect-30 a:hover::before {
+  right: 50%;
+  -webkit-transform: translate(-50%, 0) rotate(360deg);
+  -moz-transform: translate(-50%, 0) rotate(360deg);
+  transform: translate(-50%, 0) rotate(360deg);
+}
+
+.oew-btn-effect-30 a:hover::after {
+  left: 50%;
+  -webkit-transform: translate(-50%,0) rotate(180deg);
+  -moz-transform: translate(-50%,0) rotate(180deg);
+  transform: translate(-50%,0) rotate(180deg);
+}

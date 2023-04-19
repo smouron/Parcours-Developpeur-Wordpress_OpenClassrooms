@@ -1,0 +1,65 @@
+/*------------------------------------------------------------------
+Forms
+-------------------------------------------------------------------*/
+.oew-form {
+    label {
+        display: inline-block;
+        font-size: 15px;
+        font-weight: 600;
+        margin-bottom: 8px;
+    }
+
+    .oew-remember label {
+        cursor: pointer;
+        margin: 0 !important;
+    }
+
+    .oew-buttons {
+        .oew-left,
+        .oew-right {
+            width: 48%;
+        }
+
+        .oew-left {
+            float: left;
+        }
+
+        .oew-right {
+            float: right;
+        }
+
+        .oew-button {
+            display: block;
+            width: 100%;
+            border: none;
+            font-size: 12px;
+            font-weight: 600;
+            line-height: 1;
+            text-transform: uppercase;
+            padding: 18px 20px;
+            text-align: center;
+            letter-spacing: 0.1em;
+            border-radius: 4px;
+        }
+
+        .oew-register .oew-button {
+            background-color: #f6f6f6;
+            color: #333;
+
+            &:hover {
+                background-color: #eee;
+            }
+        }
+    }
+
+    .oew-link,
+    .oew-privacy {
+        padding-top: 20px;
+        text-align: center;
+    }
+}
+
+.oew-form-message {
+    padding: 12px;
+    border: 1px solid #eaeaea;
+}

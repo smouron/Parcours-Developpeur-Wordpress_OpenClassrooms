@@ -1,0 +1,100 @@
+/*------------------------------------------------------------------
+Newsletter
+-------------------------------------------------------------------*/
+.oew-newsletter-form-wrap {
+    position: relative;
+    margin: 0 auto;
+    max-width: 100%;
+}
+
+.elementor-align-right .oew-newsletter-form-wrap {
+    margin: 0 0 0 auto;
+}
+
+.elementor-align-left .oew-newsletter-form-wrap {
+    margin: 0 auto 0 0;
+}
+
+.oew-newsletter-form input[type="text"],
+.oew-newsletter-form input[type="email"] {
+    height: 50px;
+    padding: 0 15px;
+    margin: 0;
+}
+
+body .oew-newsletter-form-button {
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    padding: 0 15px !important;
+    height: 60%;
+    border-radius: 3px;
+    -ms-transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+#mc-embedded-subscribe-form {
+    .email-wrap {
+        position: relative;
+        margin-bottom: 10px;
+    }
+
+    .gdpr-wrap {
+        label,
+        .err-msg{
+            display: block;
+        }
+    }
+
+    .err-msg,
+    .res-msg {
+        display: block;
+        padding: 3px 13px;
+        margin-bottom: 10px;
+        border: 1px solid transparent;
+        border-radius: 4px;
+    }
+
+    .err-msg,
+    .failed.res-msg {
+        color: #a94442;
+        background-color: #f2dede;
+        border-color: #ebccd1;
+    }
+
+    .success.res-msg {
+        color: #3c763d;
+        background-color: #dff0d8;
+        border-color: #d6e9c6;
+    }
+
+    .success.res-msg,
+    .failed.res-msg {
+        margin: 6px 0 0;
+    }
+}
+
+/* RTL */
+body.rtl {
+    .oew-newsletter-form-button {
+        left: 15px;
+        right: auto;
+    }
+}
+
+/*------------------------------------------------------------------
+Responsive
+-------------------------------------------------------------------*/
+@media only screen and (max-width: 767px) {
+    .elementor-tablet-align-right .oew-newsletter-form-wrap { margin: 0 0 0 auto; }
+    .elementor-tablet-align-left .oew-newsletter-form-wrap { margin: 0 auto 0 0; }
+    .elementor-tablet-align-center .oew-newsletter-form-wrap { margin: 0 auto; }
+}
+
+@media only screen and (max-width: 360px) {
+    .elementor-mobile-align-right .oew-newsletter-form-wrap { margin: 0 0 0 auto; }
+    .elementor-mobile-align-left .oew-newsletter-form-wrap { margin: 0 auto 0 0; }
+    .elementor-mobile-align-center .oew-newsletter-form-wrap { margin: 0 auto; }
+}

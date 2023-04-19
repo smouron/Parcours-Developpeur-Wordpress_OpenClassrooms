@@ -1,0 +1,126 @@
+// Animation
+@mixin animation( $args ) {
+    -ms-animation: $args;
+    -webkit-animation: $args;
+    -o-animation: $args;
+    -moz-animation: $args;
+    animation: $args;
+}
+
+/*------------------------------------------------------------------
+Woo Add To Cart
+-------------------------------------------------------------------*/
+.oew-addtocart {
+    .elementor-align-icon-left {
+        margin-right: 4px;
+    }
+
+    .elementor-align-icon-right {
+        margin-left: 4px;
+    }
+
+    &.loading {
+        opacity: 1;
+
+        &:after {
+            display: inline-block;
+            font-family: 'Font Awesome 5 Free';
+            font-style: normal;
+            letter-spacing: normal;
+            text-rendering: auto;
+            content: '\f110';
+            position: inherit;
+            top: auto;
+            right: auto;
+            margin-left: 6px;
+            vertical-align: top;
+            font-weight: 900;
+            @include animation( spin 2s infinite linear );
+            color: inherit;
+            opacity: 1;
+        }
+    }
+
+    .oew-button-icon {
+
+        i, svg {
+            width: 1em;
+            height: 1em;
+            position: relative;
+            vertical-align: middle;
+        }
+
+    }
+}
+
+.oew-align-left {
+    text-align: left;
+}
+
+.oew-align-center {
+    text-align: center;
+}
+
+.oew-align-right {
+    text-align: right;
+}
+
+.oew-align-justify .oew-addtocart {
+    width: 100%;
+}
+
+.oew-addtocart-wrap .added_to_cart {
+    font-size: 12px;
+    font-weight: 600;
+    padding-bottom: 1px;
+    border-bottom: 2px solid;
+    margin-left: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+}
+
+/* RTL */
+body.rtl {
+    .oew-oew-addtocart {
+        .elementor-align-icon-left {
+            margin-left: 4px;
+            margin-right: 0;
+        }
+
+        .elementor-align-icon-right {
+            margin-right: 4px;
+            margin-left: 0;
+        }
+    }
+}
+
+/*------------------------------------------------------------------
+Responsive
+-------------------------------------------------------------------*/
+@media only screen and (max-width: 1024px) {
+    .oew-tablet-align-left {
+        text-align: left;
+    }
+
+    .oew-tablet-align-center {
+        text-align: center;
+    }
+
+    .oew-tablet-align-right {
+        text-align: right;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .oew-mobile-align-left {
+        text-align: left;
+    }
+
+    .oew-mobile-align-center {
+        text-align: center;
+    }
+
+    .oew-mobile-align-right {
+        text-align: right;
+    }
+}

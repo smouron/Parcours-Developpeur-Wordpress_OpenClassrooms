@@ -1,0 +1,28 @@
+.oew-effect-11 a {
+  position: relative;
+  display: inline-block;
+  padding: 10px 0;
+  border-top: 2px solid #333;
+  color: #333;
+} 
+
+.oew-effect-11 a::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  padding: 10px 0;
+  max-width: 0;
+  border-bottom: 2px solid #13aff0;
+  color: #13aff0;
+  content: attr(data-hover);
+  white-space: nowrap;
+  -webkit-transition: max-width 0.5s;
+  -moz-transition: max-width 0.5s;
+  transition: max-width 0.5s;
+}
+
+.oew-effect-11 a:hover::before,
+.oew-effect-11 a:focus::before {
+  max-width: 100%;
+}

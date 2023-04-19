@@ -1,0 +1,77 @@
+/*------------------------------------------------------------------
+Woo Slider
+-------------------------------------------------------------------*/
+.oew-woo-carousel .swiper-container,
+.oew-woo-carousel .swiper {
+  width: 95%;
+}
+.oew-woo-carousel .swiper-container.has-dots,
+.oew-woo-carousel .swiper.has-dots {
+  padding-bottom: 10px;
+}
+.oew-woo-carousel ul.products {
+  padding: 0;
+  margin: 0;
+}
+.oew-woo-carousel .star-rating {
+  margin: 0 auto;
+}
+.oew-woo-carousel .oew-swiper-buttons {
+  background-image: none;
+  outline: none;
+  margin-top: 0;
+  width: 40px;
+  top: calc(50% - 20px);
+  text-align: center;
+}
+.oew-woo-carousel .oew-swiper-buttons::after {
+  content: none;
+}
+.oew-woo-carousel .oew-swiper-buttons svg {
+  width: 20px;
+}
+.oew-woo-carousel .oew-swiper-buttons, .oew-woo-carousel .oew-swiper-buttons svg {
+  height: 40px;
+  -webkit-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.oew-woo-carousel .swiper-button-next {
+  right: 0;
+}
+.oew-woo-carousel .swiper-button-prev {
+  left: 0;
+}
+.oew-woo-carousel .swiper-pagination {
+  position: static;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+.oew-woo-carousel .swiper-pagination-bullet {
+  background: #ccc;
+  margin: 0 4px;
+  height: 8px;
+  width: 8px;
+  opacity: 1;
+  -webkit-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.oew-woo-carousel .swiper-pagination-bullet-active {
+  background: #000;
+}
+
+body .oew-woo-carousel .product {
+  clear: none;
+}
+
+/* RTL */
+body.rtl .oew-woo-carousel .swiper-button-next {
+  right: auto;
+  left: 0;
+}
+body.rtl .oew-woo-carousel .swiper-button-prev {
+  left: auto;
+  right: 0;
+}

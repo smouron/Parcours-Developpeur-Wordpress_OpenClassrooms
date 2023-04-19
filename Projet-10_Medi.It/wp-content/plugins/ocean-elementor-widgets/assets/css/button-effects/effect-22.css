@@ -1,0 +1,34 @@
+.oew-btn-effect-22 a {
+  position: relative;
+  border: 1px solid rgba(0,0,0,0.2);
+  overflow: hidden;
+}
+
+.oew-btn-effect-22 a span {
+  position: relative;
+  z-index: 2;
+}
+
+.oew-btn-effect-22 a::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s;
+  opacity: 1;
+  -webkit-transform: translate(-105%,0);
+  transform: translate(-105%,0);
+  background-color: rgba(0,0,0,0.15);
+}
+
+.oew-btn-effect-22 a:hover::before {
+  opacity: 0;
+  -webkit-transform: translate(0,0);
+  transform: translate(0,0);  
+}

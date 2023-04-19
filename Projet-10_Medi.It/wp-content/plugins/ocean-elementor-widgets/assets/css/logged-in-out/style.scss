@@ -1,0 +1,14 @@
+/*------------------------------------------------------------------
+Logged In/Out
+-------------------------------------------------------------------*/
+.oew-login-link {
+    .oew-login-content,
+    .oew-login-ul {
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    .oew-login-ul > li > a.menu-link {
+        padding: 4px 8px;
+    }
+}

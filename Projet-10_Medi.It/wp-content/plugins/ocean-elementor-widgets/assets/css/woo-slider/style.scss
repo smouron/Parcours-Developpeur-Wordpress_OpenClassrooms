@@ -1,0 +1,96 @@
+/*------------------------------------------------------------------
+Woo Slider
+-------------------------------------------------------------------*/
+.oew-woo-carousel {
+
+    .swiper-container,
+    .swiper {
+        width: 95%;
+
+        &.has-dots {
+            padding-bottom: 10px;
+        }
+    }
+
+    ul.products {
+        padding: 0;
+        margin: 0;
+    }
+
+    .star-rating {
+        margin: 0 auto;
+    }
+
+    .oew-swiper-buttons {
+        background-image: none;
+        outline: none;
+        margin-top: 0;
+        width: 40px;
+        top: calc(50% - (40px/2));
+        text-align: center;
+
+        &::after {
+            content: none;
+        }
+
+        svg {
+            width: 20px;
+        }
+
+        &, svg {
+            height: 40px;
+            -webkit-transition: all 0.3s ease;
+            -o-transition: all 0.3s ease;
+            transition: all 0.3s ease;
+        }
+    }
+
+    .swiper-button-next {
+        right: 0;
+    }
+
+    .swiper-button-prev {
+        left: 0;
+    }
+
+    .swiper-pagination {
+        position: static;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+    }
+
+    .swiper-pagination-bullet {
+        background: #ccc;
+        margin: 0 4px;
+        height: 8px;
+        width: 8px;
+        opacity: 1;
+        -webkit-transition: all .3s ease;
+        -o-transition: all .3s ease;
+        transition: all .3s ease;
+    }
+
+    .swiper-pagination-bullet-active {
+        background: #000;
+    }
+}
+
+body .oew-woo-carousel .product {
+    clear: none;
+}
+
+/* RTL */
+body.rtl {
+    .oew-woo-carousel {
+        .swiper-button-next {
+            right: auto;
+            left: 0;
+        }
+
+        .swiper-button-prev {
+            left: auto;
+            right: 0;
+        }
+    }
+}

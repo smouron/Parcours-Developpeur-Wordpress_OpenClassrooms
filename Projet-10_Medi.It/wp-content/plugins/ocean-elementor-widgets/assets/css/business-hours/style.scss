@@ -1,0 +1,39 @@
+// Transition
+@mixin transition( $args ) {
+    -webkit-transition: $args;
+    -moz-transition: $args;
+    -ms-transition: $args;
+    -o-transition: $args;
+    transition: $args;
+}
+
+/*------------------------------------------------------------------
+Business Hours
+-------------------------------------------------------------------*/
+.oew-business-hours {
+    .oew-business-day,
+    .oew-business-timing {
+        float: left;
+        width: 50%;
+        @include transition( all .3s ease-in-out );
+    }
+
+    .oew-business-timing {
+        text-align: right;
+    }
+
+	.fa {
+		margin-right: 6px;
+    }
+
+    .oew-business-day {
+
+        i, svg {
+            width: 1em;
+            height: 1em;
+            position: relative;
+            vertical-align: middle;
+        }
+
+    }
+}

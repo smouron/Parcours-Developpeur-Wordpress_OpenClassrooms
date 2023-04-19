@@ -1,0 +1,223 @@
+// Display flex
+@mixin flex() {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+// Align center
+@mixin align() {
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+// Justify content
+@mixin justify-content( $arg ) {
+    -webkit-justify-content:  $arg ;
+    justify-content:  $arg ;
+}
+
+// Transition
+@mixin transition( $args ) {
+    -webkit-transition: $args;
+    -moz-transition: $args;
+    -ms-transition: $args;
+    -o-transition: $args;
+    transition: $args;
+}
+
+/*------------------------------------------------------------------
+Table
+-------------------------------------------------------------------*/
+.oew-table {
+    margin: 0 auto;
+
+    thead .oew-table-cell {
+        background-color: #13aff0;
+        color: #fff;
+        border-bottom: 0;
+    }
+
+    &.oew-table-rules {
+        border-collapse: collapse;
+    }
+}
+
+.oew-table-cell {
+    padding: 0;
+}
+
+.oew-table-text {
+    @include flex();
+    @include align();
+    padding: 12px;
+}
+
+.oew-table {
+    .oew-table-row,
+    .oew-table-cell,
+    .oew-table-text {
+        @include transition( all .3s ease );
+    }
+}
+
+.oew-align-left .oew-table {
+    .oew-table-cell {
+        text-align: left;
+    }
+
+    .oew-table-text {
+        @include justify-content( flex-start );
+    }
+}
+
+.oew-align-center .oew-table {
+    .oew-table-cell {
+        text-align: center;
+    }
+    
+    .oew-table-text {
+        @include justify-content( center );
+    }
+}
+
+.oew-align-right .oew-table {
+    .oew-table-cell {
+        text-align: right;
+    }
+    
+    .oew-table-text {
+        @include justify-content( flex-end );
+    }
+}
+
+.oew-table-text {
+    .elementor-align-icon-left {
+        margin-right: 12px;
+    }
+
+    .elementor-align-icon-right {
+        -ms-flex-order: 2;
+        order: 2;
+        margin-left: 12px;
+    }
+}
+
+/*------------------------------------------------------------------
+Responsive
+-------------------------------------------------------------------*/
+@media only screen and (max-width: 1024px) {
+    .oew-tablet-align-left .oew-table {
+        .oew-table-cell {
+            text-align: left;
+        }
+
+        .oew-table-text {
+            @include justify-content( flex-start );
+        }
+    }
+
+    .oew-tablet-align-center .oew-table {
+        .oew-table-cell {
+            text-align: center;
+        }
+        
+        .oew-table-text {
+            @include justify-content( center );
+        }
+    }
+
+    .oew-tablet-align-right .oew-table {
+        .oew-table-cell {
+            text-align: right;
+        }
+        
+        .oew-table-text {
+            @include justify-content( flex-end );
+        }
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .oew-table {
+        thead {
+            display: none;
+        }
+
+        tr {
+            td,
+            th {
+                @include flex();
+            }
+
+            td > *,
+            td:before,
+            th > *,
+            th:before {
+                -ms-flex-preferred-size: 50%;
+                flex-basis: 50%;
+                width: 50%;
+                -ms-flex-positive: 1;
+                flex-grow: 1;
+            }
+
+            td[data-title]:before,
+            th[data-title]:before {
+                background-color: #13aff0;
+                color: #fff;
+                content: attr(data-title);
+                position: relative;
+                padding: 12px;
+            }
+        }
+    }
+
+    .oew-table-mobile-header-hide .oew-table-cell[data-title]:before {
+        content: none !important;
+    }
+
+    .oew-table-mobile-header-inline .oew-table-cell[data-title] {
+        -ms-flex-direction: column;
+        flex-direction: column;
+
+        > *,
+        &:before {
+            -ms-flex-preferred-size: 100%;
+            flex-basis: 100%;
+            width: auto;
+        }
+    }
+
+    .oew-mobile-align-left .oew-table {
+        .oew-table-cell {
+            text-align: left;
+        }
+
+        .oew-table-text {
+            @include justify-content( flex-start );
+        }
+    }
+
+    .oew-mobile-align-center .oew-table {
+        .oew-table-cell {
+            text-align: center;
+        }
+        
+        .oew-table-text {
+            @include justify-content( center );
+        }
+    }
+
+    .oew-mobile-align-right .oew-table {
+        .oew-table-cell {
+            text-align: right;
+        }
+        
+        .oew-table-text {
+            @include justify-content( flex-end );
+        }
+    }
+}

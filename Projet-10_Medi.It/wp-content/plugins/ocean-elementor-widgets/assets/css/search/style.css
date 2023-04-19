@@ -1,0 +1,197 @@
+/*------------------------------------------------------------------
+Search
+-------------------------------------------------------------------*/
+.oew-search-wrap {
+  position: relative;
+}
+.oew-search-wrap .search-submit {
+  color: #333;
+}
+.oew-search-wrap .search-submit:focus, .oew-search-wrap .search-submit:hover {
+  color: #333;
+}
+.oew-search-wrap .oew-ajax-loading {
+  display: none;
+  background: transparent url("../../img/loader.svg") no-repeat center center;
+  background-size: 100%;
+  position: absolute;
+  top: 50%;
+  right: 60px;
+  margin-top: -8px;
+  width: 16px;
+  height: 16px;
+}
+.oew-search-wrap .oew-search-results {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: #fff;
+  -webkit-box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  z-index: 999;
+  overflow: hidden;
+}
+.oew-search-wrap .oew-search-results ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.oew-search-wrap .oew-search-results ul li a.search-result-link {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+.oew-search-wrap .oew-search-results ul li a {
+  position: relative;
+  font-size: 14px;
+  line-height: 1;
+  padding: 10px 34px 10px 13px;
+  border-bottom: 1px solid #eaeaea;
+  letter-spacing: 0.6px;
+}
+.oew-search-wrap .oew-search-results ul li a img {
+  float: left;
+  max-width: 30px;
+  margin-right: 10px;
+}
+.oew-search-wrap .oew-search-results ul li a .result-title {
+  display: block;
+  line-height: 1.3;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.oew-search-wrap .oew-search-results ul li a i.icon {
+  position: absolute;
+  top: 50%;
+  right: 13px;
+  margin-top: -6px;
+  font-size: 12px;
+  color: #aaa;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.oew-search-wrap .oew-search-results ul li a:hover i.icon {
+  color: #666;
+}
+.oew-search-wrap .oew-search-results ul li a.all-results {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.6px;
+  text-align: center;
+}
+.oew-search-wrap .oew-search-results ul li a.all-results span {
+  display: inline-block;
+  padding-bottom: 3px;
+  border-bottom: 1px solid;
+}
+.oew-search-wrap .oew-search-results ul li a.all-results span i {
+  padding-left: 5px;
+}
+.oew-search-wrap .oew-search-results ul li a.search-result-link:hover {
+  background-color: #f8f8f8;
+  color: #555;
+}
+.oew-search-wrap .oew-search-results ul li:last-child a {
+  border-bottom: 0;
+}
+.oew-search-wrap .oew-no-search-results {
+  position: relative;
+  font-size: 14px;
+  line-height: 1;
+  padding: 18px 18px;
+}
+.oew-search-wrap .oew-no-search-results h6 {
+  margin: 0 0 10px;
+}
+.oew-search-wrap .oew-no-search-results p {
+  margin: 0;
+}
+
+form.oceanwp-searchform {
+  width: 100%;
+  height: auto;
+}
+form.oceanwp-searchform,
+form.oceanwp-searchform input.field {
+  min-height: 40px;
+}
+form.oceanwp-searchform input.field:focus {
+  -webkit-box-shadow: 0 0 8px 1px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0 0 8px 1px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 8px 1px rgba(0, 0, 0, 0.1);
+}
+
+.oew-align-left .oew-search-wrap {
+  margin: 0 auto 0 0;
+}
+
+.oew-align-center .oew-search-wrap {
+  margin: 0 auto;
+}
+
+.oew-align-right .oew-search-wrap {
+  margin: 0 0 0 auto;
+}
+
+@media (max-width: 1024px) {
+  .oew-tablet-align-left .oew-search-wrap {
+    margin: 0 auto 0 0;
+  }
+  .oew-tablet-align-center .oew-search-wrap {
+    margin: 0 auto;
+  }
+  .oew-tablet-align-right .oew-search-wrap {
+    margin: 0 0 0 auto;
+  }
+}
+@media (max-width: 767px) {
+  .oew-mobile-align-left .oew-search-wrap {
+    margin: 0 auto 0 0;
+  }
+  .oew-mobile-align-center .oew-search-wrap {
+    margin: 0 auto;
+  }
+  .oew-mobile-align-right .oew-search-wrap {
+    margin: 0 0 0 auto;
+  }
+}
+/* RTL */
+body.rtl .oew-search-wrap .oew-ajax-loading {
+  left: 60px;
+  right: auto;
+}
+body.rtl .oew-search-wrap .oew-search-results {
+  right: 0;
+  left: auto;
+}
+body.rtl .oew-search-wrap .oew-search-results ul li a {
+  padding-left: 34px;
+  padding-right: 13px;
+}
+body.rtl .oew-search-wrap .oew-search-results ul li a .result-thumb {
+  margin-left: 10px;
+  margin-right: 0;
+}
+body.rtl .oew-search-wrap .oew-search-results ul li a i.icon {
+  left: 13px;
+  right: auto;
+}
+body.rtl .oew-search-wrap .oew-search-results ul li a.all-results span i {
+  padding-right: 5px;
+  padding-left: 0;
+}
+body.rtl .oew-search-wrap form.oceanwp-searchform button {
+  left: 0;
+  right: auto;
+}

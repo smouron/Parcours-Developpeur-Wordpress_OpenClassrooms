@@ -1,0 +1,45 @@
+/*------------------------------------------------------------------
+Member
+-------------------------------------------------------------------*/
+.oew-member-wrap {
+  position: relative;
+  width: 100%;
+}
+.oew-member-wrap .oew-member-image {
+  margin-bottom: 15px;
+}
+.oew-member-wrap .oew-member-image img {
+  width: 100%;
+}
+.oew-member-wrap .oew-member-content {
+  margin-bottom: 15px;
+}
+.oew-member-wrap .oew-member-name {
+  display: block;
+  margin-bottom: 5px;
+}
+.oew-member-wrap .oew-member-role {
+  display: block;
+  font-size: 13px;
+  margin-bottom: 13px;
+}
+.oew-member-wrap .oew-member-icons {
+  margin: 0 -5px;
+}
+.oew-member-wrap .oew-member-icons a {
+  display: inline-block;
+  font-size: 18px;
+  line-height: 1;
+  padding: 5px;
+  text-align: center;
+}
+.oew-member-wrap .oew-member-icons a i, .oew-member-wrap .oew-member-icons a svg {
+  width: 1em;
+  height: 1em;
+  text-align: center;
+  display: inline-block;
+}
+
+#powerTip.oew-member-powertip {
+  padding: 4px 10px;
+}

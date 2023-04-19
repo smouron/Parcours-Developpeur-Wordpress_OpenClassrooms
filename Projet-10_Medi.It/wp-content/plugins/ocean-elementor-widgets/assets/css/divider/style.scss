@@ -1,0 +1,69 @@
+// Display flex
+@mixin flex() {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+// Justify content
+@mixin justify( $args ) {
+    -webkit-justify-content: $args;
+    justify-content: $args;
+}
+
+// Align center
+@mixin align() {
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+/*------------------------------------------------------------------
+Divider
+-------------------------------------------------------------------*/
+.oew-divider-wrap {
+    @include flex();
+    @include justify( center );
+    @include align();
+    position: relative;
+    margin: 0 auto;
+
+    .oew-divider {
+        -ms-flex-positive: 1;
+        flex-grow: 1;
+        height: 1px;
+        min-height: 1px;
+        background-color: #333;
+    }
+
+    .oew-divider-middle {
+        -ms-flex-negative: 1;
+        flex-shrink: 1;
+        padding: 0 8px;
+        margin: 0;
+
+        .oew-divider-text {
+            margin: 0;
+            padding: 0;
+        }
+
+        i {
+            line-height: 1em;
+            text-align: center;
+        }
+
+        i, svg {
+                width: 1em;
+                height: 1em;
+                position: relative;
+                display: block;
+        }
+    }
+}
+
+.oew-divider-left .oew-divider-before,
+.oew-divider-right .oew-divider-after {
+    display: none;
+}

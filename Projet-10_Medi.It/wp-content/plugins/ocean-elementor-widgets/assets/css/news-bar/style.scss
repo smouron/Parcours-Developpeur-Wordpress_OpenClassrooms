@@ -1,0 +1,119 @@
+@charset "UTF-8";
+/*------------------------------------------------------------------
+News Bar
+-------------------------------------------------------------------*/
+.oew-news-bar-container {
+  background: #f4f4f4;
+  display: flex;
+  overflow: hidden;
+}
+.oew-news-bar-heading {
+  background: #333;
+  color: #fff;
+  display: flex;
+  flex-direction: row;
+  flex-shrink: 0;
+  align-items: center;
+  padding: 10px 15px;
+  position: relative;
+}
+.oew-news-bar-heading-icon {
+  margin-right: 5px;
+}
+.oew-news-bar-wrap {
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  padding: 10px 15px 10px 20px;
+}
+.oew-news-bar-heading-arrow .oew-news-bar-heading:after {
+  content: "";
+  position: absolute;
+  right: -20px;
+  border: 10px solid transparent;
+  border-left-color: #333;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.oew-news-bar {
+  overflow: hidden;
+
+  .swiper-wrapper {
+    align-items: center;
+  }
+
+  .oew-news-bar-item-title {
+    font-size: 20px;
+    margin: 0;
+  }
+}
+
+.oew-news-bar-content {
+  display: flex;
+  align-items: center;
+}
+
+.oew-news-bar-image {
+  flex-shrink: 0;
+  margin-right: 15px;
+  width: 40px;
+}
+
+.oew-news-bar-navigation {
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-left: auto;
+
+  .swiper-button-next,
+  .swiper-button-prev {
+    background: transparent;
+    font-size: 18px;
+    line-height: 1.2;
+    height: auto;
+    margin: 0;
+    padding: 0 6px;
+    position: static;
+    text-align: center;
+    width: auto;
+
+    &::after {
+      content: none;
+    }
+  }
+
+  .swiper-button-prev {
+    margin-right: 6px;
+  }
+}
+
+.oew-news-bar-heading-icon {
+  margin-right: 5px;
+  display: inline-block;
+  line-height: 1;
+  text-align: center;
+}
+.oew-news-bar-heading-icon-right {
+  -webkit-box-ordinal-group: 2;
+  -ms-flex-order: 1;
+  order: 1;
+  margin-left: 5px;
+  margin-right: 0;
+}
+
+@media only screen and (max-width: 767px) {
+  .oew-news-bar-heading {
+    width: 100% !important;
+  }
+  .oew-news-bar-heading-arrow .oew-news-bar-heading:after {
+    display: none;
+  }
+  .oew-news-bar-container {
+    flex-direction: column;
+  }
+  .oew-news-bar-navigation {
+    justify-content: center;
+  }
+}

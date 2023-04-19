@@ -1,0 +1,107 @@
+// Transition
+@mixin transition( $args ) {
+    -webkit-transition: $args;
+    -moz-transition: $args;
+    -ms-transition: $args;
+    -o-transition: $args;
+    transition: $args;
+}
+
+// Transform
+@mixin transform( $args ) {
+    -webkit-transform: $args;
+    -moz-transform: $args;
+    -ms-transform: $args;
+    -o-transform: $args;
+    transform: $args;
+}
+
+// Box Shadow
+@mixin box-shadow( $args ) {
+    -webkit-box-shadow: $args;
+    -moz-box-shadow: $args;
+    box-shadow: $args;
+}
+
+/*------------------------------------------------------------------
+Scroll Up
+-------------------------------------------------------------------*/
+.oew-scroll-button {
+    .elementor-align-icon-left {
+        margin-left: 4px;
+    }
+
+    .elementor-align-icon-right {
+        margin-right: 4px;
+    }
+
+    .oew-button-icon {
+        i, svg {
+            width: 1em;
+            height: 1em;
+            vertical-align: bottom;
+        }
+    }
+}
+
+.oew-align-left {
+    text-align: left;
+}
+
+.oew-align-center {
+	text-align: center;
+}
+
+.oew-align-right {
+	text-align: right;
+}
+
+.oew-align-justify .oew-scroll-button a {
+	width: 100%;
+}
+
+/* RTL */
+body.rtl {
+    .oew-scroll-button {
+        .elementor-align-icon-left {
+            margin-right: 4px;
+            margin-left: 0;
+        }
+
+        .elementor-align-icon-right {
+            margin-left: 4px;
+            margin-right: 0;
+        }
+    }
+}
+
+/*------------------------------------------------------------------
+Responsive
+-------------------------------------------------------------------*/
+@media only screen and (max-width: 1024px) {
+    .oew-tablet-align-left {
+        text-align: left;
+    }
+
+    .oew-tablet-align-center {
+        text-align: center;
+    }
+
+    .oew-tablet-align-right {
+        text-align: right;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .oew-mobile-align-left {
+        text-align: left;
+    }
+
+    .oew-mobile-align-center {
+        text-align: center;
+    }
+
+    .oew-mobile-align-right {
+        text-align: right;
+    }
+}
