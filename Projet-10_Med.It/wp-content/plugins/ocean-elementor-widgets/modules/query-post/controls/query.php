@@ -4,9 +4,7 @@ namespace owpElementor\Modules\QueryPost\Controls;
 use Elementor\Base_Data_Control;
 use owpElementor\Modules\QueryPost\Module;
 
-if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly
-}
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 class Query extends Base_Data_Control {
 	const CONTROL_ID = 'oew-query-posts';
@@ -16,29 +14,22 @@ class Query extends Base_Data_Control {
 	}
 
 	protected function get_default_settings() {
-		return array(
+		return [
 			'label_block' => true,
 			'multiple'    => false,
-			'options'     => array(),
+			'options'     => [],
 			'post_type'   => 'all',
-		);
+		];
 	}
 
 	public function enqueue() {
-		wp_enqueue_script(
-			'oew-query-post',
-			plugins_url( '/assets/js/query-post.min.js', OWP_ELEMENTOR__FILE__ ),
-			array( 'jquery' ),
+		$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
+		wp_register_script( 'oew-query-post',
+			plugins_url( '/assets/js/query-post.js', OWP_ELEMENTOR__FILE__ ),
+			[ 'jquery' ],
 			'1.0.0'
 		);
-
-		wp_localize_script(
-			'oew-query-post',
-			'queryPostData',
-			array(
-				'nonce' => wp_create_nonce( 'oceanwp-elementor-controls' ),
-			)
-		);
+		wp_enqueue_script( 'oew-query-post' );
 	}
 
 	public function content_template() {

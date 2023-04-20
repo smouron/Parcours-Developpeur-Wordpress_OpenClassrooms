@@ -29,25 +29,36 @@ function oceanwp_child_enqueue_parent_style() {
 }
 add_action( 'wp_enqueue_scripts', 'oceanwp_child_enqueue_parent_style' );
 
-/**
-* Shortcode pour ajouter un bouton
-*/
-function contact_btn( $items, $args ) {
 
+/**
+ * Shortcode pour ajouter un bouton
+ */
+function shortcode_contact_btn() {
 	// Code du bouton
-	// $items .= '
-	// <li class="menu-item menu-item-type-post_type menu-item-object-page">
-	// 	<a href="'. get_site_url() .'/contact" class="menu-link">Nous contacter</a>
-	// </li>
-	// ';
-	
-	// $items .= '<a href="'. get_site_url() .'/contact" class="contact-btn">Nous contacter</a>';
-	$items .= '<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="'. get_site_url() .'/contact" class="contact-btn"><span class="text-wrap">Nous contacter</span></a></li>';
-	// $items .= '<li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="'. get_site_url() .'/contact" class="menu-link"><span class="text-wrap">Nous contacter</span></a></li>';
+	$string .= '<a href="/contact" class="contact-btn">Nous contacter</a>';
+	// On retourne le code
+	return $string;
+}
+// On publie le shortcode
+add_shortcode('contact', 'shortcode_contact_btn');
+
+/**
+ * HOOK FILTERS
+ */
+// function contact_btn( $items, $args ) 
+function contact_btn( $items) {
+	// Code du bouton
+	// <a href="'. get_site_url() .'/contact/" class="menu-link">Nous contacter</a>
+	// <a href="'. get_site_url() .'/contact/" class="contact-btn">Nous contacter</a>
+	$items .= '
+	<li class="menu-item menu-item-type-post_type menu-item-object-page">
+	<a href="'. get_site_url() .'/contact/" class="contact-btn"><span>Nous contacter</span>	</a>
+	</li>';
 	// On retourne le code
 	return $items;
 }
-
-// On publie le shortcode
-add_filter( 'wp_nav_menu_items', 'contact_btn', 10, 2 );
-
+// On publie le HOOK
+// Where $priority is 10, $accepted_args is 2.
+// add_filter( 'wp_nav_menu_items', 'contact_btn', 10, 2 );
+// Where $priority is default 10, $accepted_args is default 1.
+add_filter( 'wp_nav_menu_items', 'contact_btn');

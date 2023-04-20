@@ -16,31 +16,40 @@
 </head>
 
 <body <?php body_class(); ?> <?php oceanwp_schema_markup( 'html' ); ?>>
+
 	<?php wp_body_open(); ?>
+
 	<?php do_action( 'ocean_before_outer_wrap' ); ?>
 
 	<div id="outer-wrap" class="site clr">
 
-		<a class="skip-link screen-reader-text" href="#main">
-			<?php oceanwp_theme_strings( 'owp-string-header-skip-link', 'oceanwp' ); ?></a>
-			<?php do_action( 'ocean_before_wrap' ); ?>
+		<a class="skip-link screen-reader-text" href="#main"><?php oceanwp_theme_strings( 'owp-string-header-skip-link', 'oceanwp' ); ?></a>
 
-			<div id="wrap" class="clr">
-				<?php do_action( 'ocean_top_bar' ); ?>
-				<?php do_action( 'ocean_header' ); ?>
-				<?php do_action( 'ocean_before_main' ); ?>
-				<main id="main" class="site-main clr"<?php oceanwp_schema_markup( 'main' ); ?> role="main">
-					<?php do_action( 'ocean_page_header' ); ?>
+		<?php do_action( 'ocean_before_wrap' ); ?>
+
+		<div id="wrap" class="clr">
+
+			<?php do_action( 'ocean_top_bar' ); ?>
+
+			<?php do_action( 'ocean_header' ); ?>
+
+			<?php do_action( 'ocean_before_main' ); ?>
+
+			<main id="main" class="site-main clr"<?php oceanwp_schema_markup( 'main' ); ?> role="main">
+
+				<?php do_action( 'ocean_page_header' ); ?>
+
+
 
 <!-- Ajout d'une popup pour annoncer la participation au salon -->
+
 <?php
-	// On récupère les champs ACF nécessaires
-	$titre=get_field('titre', 161);
-	$description=get_field('description', 161);
-	$lieu=get_field('lieu', 161);
-	$date=get_field('date', 161);
-	$lien=get_field('lien_google_maps', 161);
-	// var_dump(get_field('lien_google_maps', 161));
+// On récupère les champs ACF nécessaires
+$titre=get_field('titre', 161);
+$description=get_field('description', 161);
+$lieu=get_field('lieu', 161);
+$date=get_field('date', 161);
+$lien=get_field('lien_google_maps', 161);
 ?>
 
 <div class="popup-overlay">
@@ -54,7 +63,7 @@
 			<div class="popup-address">
 				<p><b>Le lieu</b></p>
 				<?php echo $lieu; ?>
-				<a class="popup-link" href="<?php echo $lien; ?>" target="_blank" tit>Voir sur Google Maps</a>
+				<a class="popup-link" href="<?php echo $lien; ?>" target="_blank">Voir sur Google Maps</a>
 			</div>
 			<div class="popup-address">
 				<p><b>La date</b></p>
@@ -78,20 +87,5 @@
 			$('.popup-overlay').hide();
 		}); 
 	})(jQuery);
-</script> 
+</script>
 
-
-<!-- Ajout d'un bouton contact au menu -->
-
-<?php
-
-/**
- * Shortcode pour ajouter un bouton
- */
-// function contact_btn() {
-// 	$string .= '<a href="/contact" class="contact-btn">Nous contacter</a>';
-// 	return $string; 
-// }
-// add_shortcode('contact', 'contact_btn');
-
-?>

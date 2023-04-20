@@ -3,6 +3,8 @@ namespace owpElementor\Modules\ButtonEffects\Widgets;
 
 // Elementor Classes
 use Elementor\Controls_Manager;
+use Elementor\Scheme_Color;
+use Elementor\Scheme_Typography;
 use Elementor\Group_Control_Typography;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Box_Shadow;
@@ -21,20 +23,13 @@ class ButtonEffects extends Widget_Base {
 	}
 
 	public function get_icon() {
+		// Upload "eicons.ttf" font via this site: http://bluejamesbond.github.io/CharacterMap/
 		return 'oew-icon eicon-button';
 	}
 
 	public function get_categories() {
 		return [ 'oceanwp-elements' ];
 	}
-
-    public function get_keywords() {
-        return [
-            'button',
-            'effect',
-            'owp',
-        ];
-    }
 
 	public function get_style_depends() {
 		global $settings;
@@ -51,7 +46,7 @@ class ButtonEffects extends Widget_Base {
 
 	}
 
-	protected function register_controls() {
+	protected function _register_controls() {
 
 		$this->start_controls_section(
 			'section_button_effects',
@@ -132,19 +127,19 @@ class ButtonEffects extends Widget_Base {
 				'options' 		=> [
 					'left'    => [
 						'title' => __( 'Left', 'ocean-elementor-widgets' ),
-						'icon' 	=> 'eicon-text-align-left',
+						'icon' 	=> 'fa fa-align-left',
 					],
 					'center' => [
 						'title' => __( 'Center', 'ocean-elementor-widgets' ),
-						'icon' 	=> 'eicon-text-align-center',
+						'icon' 	=> 'fa fa-align-center',
 					],
 					'right' => [
 						'title' => __( 'Right', 'ocean-elementor-widgets' ),
-						'icon' 	=> 'eicon-text-align-right',
+						'icon' 	=> 'fa fa-align-right',
 					],
 					'justify' => [
 						'title' => __( 'Justified', 'ocean-elementor-widgets' ),
-						'icon' 	=> 'eicon-text-align-justify',
+						'icon' 	=> 'fa fa-align-justify',
 					],
 				],
 				'default' 		=> '',
@@ -232,6 +227,7 @@ class ButtonEffects extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name' 			=> 'typography',
+				'scheme' 		=> Scheme_Typography::TYPOGRAPHY_4,
 				'selector' 		=> '{{WRAPPER}} .oew-button a',
 			]
 		);
@@ -250,6 +246,10 @@ class ButtonEffects extends Widget_Base {
 			[
 				'label' 		=> __( 'Background Color', 'ocean-elementor-widgets' ),
 				'type' 			=> Controls_Manager::COLOR,
+				'scheme' 		=> [
+					'type' => Scheme_Color::get_type(),
+					'value' => Scheme_Color::COLOR_4,
+				],
 				'selectors' 	=> [
 					'{{WRAPPER}} .oew-button a' => 'background-color: {{VALUE}};',
 					'{{WRAPPER}} .oew-btn-effect-10 a::before' => 'background-color: {{VALUE}};',

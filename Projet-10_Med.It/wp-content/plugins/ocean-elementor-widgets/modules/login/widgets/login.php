@@ -4,14 +4,11 @@ namespace owpElementor\Modules\Login\Widgets;
 // Elementor Classes
 use Elementor\Controls_Manager;
 use Elementor\Group_Control_Typography;
+use Elementor\Scheme_Typography;
 use Elementor\Group_Control_Text_Shadow;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Box_Shadow;
 use Elementor\Widget_Base;
-
-if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly.
-}
 
 class Login extends Widget_Base {
 
@@ -24,6 +21,7 @@ class Login extends Widget_Base {
 	}
 
 	public function get_icon() {
+		// Upload "eicons.ttf" font via this site: http://bluejamesbond.github.io/CharacterMap/
 		return 'oew-icon eicon-lock-user';
 	}
 
@@ -31,22 +29,11 @@ class Login extends Widget_Base {
 		return [ 'oceanwp-elements' ];
 	}
 
-    public function get_keywords() {
-        return [
-            'form',
-            'login',
-            'owp',
-        ];
-    }
-
 	public function get_style_depends() {
 		return [ 'oew-forms' ];
 	}
 
-	public function get_script_depends() {
-		return [ 'oew-login' ];
-	}
-	protected function register_controls() {
+	protected function _register_controls() {
 
 		$this->start_controls_section(
 			'section_login',
@@ -357,6 +344,7 @@ class Login extends Widget_Base {
 			[
 				'name' 			=> 'labels_typo',
 				'selector' 		=> '{{WRAPPER}} .oew-form label',
+				'scheme' 		=> Scheme_Typography::TYPOGRAPHY_1,
 			]
 		);
 
@@ -544,6 +532,7 @@ class Login extends Widget_Base {
 			[
 				'name' 			=> 'fields_typo',
 				'selector' 		=> '{{WRAPPER}} .oew-form .oew-input',
+				'scheme' 		=> Scheme_Typography::TYPOGRAPHY_1,
 			]
 		);
 
@@ -603,6 +592,7 @@ class Login extends Widget_Base {
 			[
 				'name' 			=> 'buttons_typo',
 				'selector' 		=> '{{WRAPPER}} .oew-form .oew-buttons .oew-button',
+				'scheme' 		=> Scheme_Typography::TYPOGRAPHY_1,
 			]
 		);
 
@@ -900,6 +890,7 @@ class Login extends Widget_Base {
 			[
 				'name' 			=> 'link_typo',
 				'selector' 		=> '{{WRAPPER}} .oew-form .oew-link a',
+				'scheme' 		=> Scheme_Typography::TYPOGRAPHY_1,
 			]
 		);
 
@@ -962,6 +953,7 @@ class Login extends Widget_Base {
 			[
 				'name' 			=> 'privacy_link_typo',
 				'selector' 		=> '{{WRAPPER}} .oew-form .oew-privacy a',
+				'scheme' 		=> Scheme_Typography::TYPOGRAPHY_1,
 			]
 		);
 
@@ -1075,11 +1067,7 @@ class Login extends Widget_Base {
 			$this->add_render_attribute( 'register', 'class', 'oew-right' );
 		} ?>
 
-		<div class="oew-login-form-wrap" data-page-url="<?php echo esc_url( get_permalink() ); ?>">
-
-			<form class="oew-form" id="oew-form-<?php echo esc_attr( $this->get_id() ); ?>" method="post" action="<?php echo esc_url( site_url( 'wp-login.php', 'login_post' ) ); ?>">
-			<?php wp_nonce_field( 'oew_login_nonce', 'oewe-lf-login-nonce' ); ?>
-				<input type="hidden" name="redirect_to" value="<?php echo esc_attr( $redirect_url ); ?>">
+		<form class="oew-form" method="post" action="<?php echo esc_url( site_url( 'wp-login.php', 'login_post' ) ); ?>">
 			<p class="oew-username">
 				<?php
 				if ( $settings['show_labels'] ) {
@@ -1131,27 +1119,16 @@ class Login extends Widget_Base {
 			<?php
 			if ( $show_privacy_policy && function_exists( 'the_privacy_policy_link' ) ) {
 				the_privacy_policy_link( '<div class="oew-privacy">', '</div>' );
-				} ?>
+			} ?>
 
-				<input type="hidden" name="action" value="oewe_lf_process_login" />
-			</form>
-			<style type="text/css">	
-				.oew-lf-error {
-					padding: 12px;
-					margin-left: 0;
-					margin-bottom: 20px;
-					margin-top: 5px;
-					background-color: #fff;
-					box-shadow: 0 1px 1px 0 rgba(0,0,0,.1);
-					border-left: 4px solid #d63638;
-					display: block;
-				}
-			</style>	
-		</div>
+			<input type="hidden" name="redirect_to" value="<?php echo esc_url( $redirect_url ); ?>" />
+			<input type="hidden" name="action" value="login" />
+		</form>
+
 	<?php
 	}
 
-	protected function content_template() { ?>
+	protected function _content_template() { ?>
 		<#
 		view.addRenderAttribute( 'user_input', {
 			'type'	: 'text',

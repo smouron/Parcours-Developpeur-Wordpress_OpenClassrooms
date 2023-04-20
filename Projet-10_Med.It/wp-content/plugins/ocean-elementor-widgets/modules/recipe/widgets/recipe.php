@@ -4,9 +4,9 @@ namespace owpElementor\Modules\Recipe\Widgets;
 // Elementor Classes
 use Elementor\Controls_Manager;
 use Elementor\Utils;
-use Elementor\Repeater;
 use Elementor\Control_Media;
 use Elementor\Group_Control_Typography;
+use Elementor\Scheme_Typography;
 use Elementor\Group_Control_Background;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Box_Shadow;
@@ -25,6 +25,7 @@ class Recipe extends Widget_Base {
 	}
 
 	public function get_icon() {
+		// Upload "eicons.ttf" font via this site: http://bluejamesbond.github.io/CharacterMap/
 		return 'oew-icon eicon-menu-card';
 	}
 
@@ -32,21 +33,11 @@ class Recipe extends Widget_Base {
 		return [ 'oceanwp-elements' ];
 	}
 
-    public function get_keywords() {
-        return [
-            'recipe',
-            'cook',
-            'cooking',
-            'reviews',
-            'owp',
-        ];
-    }
-
 	public function get_style_depends() {
 		return [ 'oew-recipe' ];
 	}
 
-	protected function register_controls() {
+	protected function _register_controls() {
 
 		$this->start_controls_section(
 			'section_recipe',
@@ -411,26 +402,21 @@ class Recipe extends Widget_Base {
 			]
 		);
 
-		$repeater = new Repeater();
-
-        $repeater->add_control(
-            'ingredient',
-            [
-				'name' 			=> 'ingredient',
-				'label' 		=> __( 'Text', 'ocean-elementor-widgets' ),
-				'type' 			=> Controls_Manager::TEXT,
-				'default' 		=> __( 'Ingredient', 'ocean-elementor-widgets' ),
-				'label_block' 	=> true,
-				'dynamic' 		=> [ 'active' => true ],
-			]
-        );
-
 		$this->add_control(
 			'ingredients',
 			[
 				'label' 		=> '',
 				'type' 			=> Controls_Manager::REPEATER,
-                'fields' 		=> $repeater->get_controls(),
+				'fields' 		=> [
+					[
+						'name' 			=> 'ingredient',
+						'label' 		=> __( 'Text', 'ocean-elementor-widgets' ),
+						'type' 			=> Controls_Manager::TEXT,
+						'default' 		=> __( 'Ingredient', 'ocean-elementor-widgets' ),
+						'label_block' 	=> true,
+						'dynamic' 		=> [ 'active' => true ],
+					],
+				],
 				'default' 		=> [
 					[
 						'ingredient' => __( 'Ingredient #1', 'ocean-elementor-widgets' ),
@@ -470,24 +456,21 @@ class Recipe extends Widget_Base {
 			]
 		);
 
-		$repeater->add_control(
-            'instruction',
-            [
-				'name' 			=> 'instruction',
-				'label' 		=> __( 'Text', 'ocean-elementor-widgets' ),
-				'type' 			=> Controls_Manager::TEXT,
-				'default' 		=> __( 'Instruction', 'ocean-elementor-widgets' ),
-				'label_block' 	=> true,
-				'dynamic' 		=> [ 'active' => true ],
-			]
-        );
-
 		$this->add_control(
 			'instructions',
 			[
 				'label' 		=> '',
 				'type' 			=> Controls_Manager::REPEATER,
-                'fields' 		=> $repeater->get_controls(),
+				'fields' 		=> [
+					[
+						'name' 			=> 'instruction',
+						'label' 		=> __( 'Text', 'ocean-elementor-widgets' ),
+						'type' 			=> Controls_Manager::TEXT,
+						'default' 		=> __( 'Instruction', 'ocean-elementor-widgets' ),
+						'label_block' 	=> true,
+						'dynamic' 		=> [ 'active' => true ],
+					],
+				],
 				'default' 		=> [
 					[
 						'instruction' => __( 'Instruction #1', 'ocean-elementor-widgets' ),
@@ -630,6 +613,7 @@ class Recipe extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name' 			=> 'content_title_typography',
+				'scheme' 		=> Scheme_Typography::TYPOGRAPHY_4,
 				'selector' 		=> '{{WRAPPER}} .oew-recipe-wrap .oew-recipe-title',
 			]
 		);
@@ -670,6 +654,7 @@ class Recipe extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name' 			=> 'content_desc_typography',
+				'scheme' 		=> Scheme_Typography::TYPOGRAPHY_4,
 				'selector' 		=> '{{WRAPPER}} .oew-recipe-wrap .oew-recipe-description',
 			]
 		);
@@ -740,6 +725,7 @@ class Recipe extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name' 			=> 'content_meta_typography',
+				'scheme' 		=> Scheme_Typography::TYPOGRAPHY_4,
 				'selector' 		=> '{{WRAPPER}} .oew-recipe-wrap .oew-recipe-meta',
 			]
 		);
@@ -810,6 +796,7 @@ class Recipe extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name' 			=> 'details_title_typography',
+				'scheme' 		=> Scheme_Typography::TYPOGRAPHY_4,
 				'selector' 		=> '{{WRAPPER}} .oew-recipe-wrap .oew-recipe-details-title',
 			]
 		);
@@ -838,6 +825,7 @@ class Recipe extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name' 			=> 'details_content_typography',
+				'scheme' 		=> Scheme_Typography::TYPOGRAPHY_4,
 				'selector' 		=> '{{WRAPPER}} .oew-recipe-wrap .oew-recipe-details-value',
 			]
 		);
@@ -912,6 +900,7 @@ class Recipe extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name' 			=> 'ingredients_typography',
+				'scheme' 		=> Scheme_Typography::TYPOGRAPHY_4,
 				'selector' 		=> '{{WRAPPER}} .oew-recipe-wrap .oew-recipe-ingredients > h3',
 			]
 		);
@@ -952,6 +941,7 @@ class Recipe extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name' 			=> 'ingredients_content_typography',
+				'scheme' 		=> Scheme_Typography::TYPOGRAPHY_4,
 				'selector' 		=> '{{WRAPPER}} .oew-recipe-wrap .oew-recipe-ingredients-list',
 			]
 		);
@@ -1006,6 +996,7 @@ class Recipe extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name' 			=> 'instructions_typography',
+				'scheme' 		=> Scheme_Typography::TYPOGRAPHY_4,
 				'selector' 		=> '{{WRAPPER}} .oew-recipe-wrap .oew-recipe-instructions > h3',
 			]
 		);
@@ -1046,6 +1037,7 @@ class Recipe extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name' 			=> 'instructions_content_typography',
+				'scheme' 		=> Scheme_Typography::TYPOGRAPHY_4,
 				'selector' 		=> '{{WRAPPER}} .oew-recipe-wrap .oew-recipe-instructions-list',
 			]
 		);
@@ -1083,6 +1075,7 @@ class Recipe extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name' 			=> 'notes_typography',
+				'scheme' 		=> Scheme_Typography::TYPOGRAPHY_4,
 				'selector' 		=> '{{WRAPPER}} .oew-recipe-wrap .oew-recipe-notes > h3',
 			]
 		);
@@ -1123,6 +1116,7 @@ class Recipe extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name' 			=> 'notes_content_typography',
+				'scheme' 		=> Scheme_Typography::TYPOGRAPHY_4,
 				'selector' 		=> '{{WRAPPER}} .oew-recipe-wrap .oew-recipe-notes-text',
 			]
 		);
@@ -1482,7 +1476,7 @@ class Recipe extends Widget_Base {
 	<?php
 	}
 
-	protected function content_template() { ?>
+	protected function _content_template() { ?>
 		<# var i = 1; #>
 		<# var prepiconHTML = elementor.helpers.renderIcon( view, settings.prep_icon, { 'aria-hidden': true }, 'i' , 'object' ); #>
 		<# var cookiconHTML = elementor.helpers.renderIcon( view, settings.cook_icon, { 'aria-hidden': true }, 'i' , 'object' ); #>

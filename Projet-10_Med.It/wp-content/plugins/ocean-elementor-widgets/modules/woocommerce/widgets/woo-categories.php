@@ -4,14 +4,11 @@ namespace owpElementor\Modules\Woocommerce\Widgets;
 // Elementor Classes
 use Elementor\Controls_Manager;
 use Elementor\Group_Control_Typography;
+use Elementor\Scheme_Typography;
 use Elementor\Group_Control_Background;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Box_Shadow;
 use Elementor\Widget_Base;
-
-if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly.
-}
 
 class Woo_Categories extends Widget_Base {
 
@@ -24,6 +21,7 @@ class Woo_Categories extends Widget_Base {
 	}
 
 	public function get_icon() {
+		// Upload "eicons.ttf" font via this site: http://bluejamesbond.github.io/CharacterMap/
 		return 'oew-icon eicon-woocommerce';
 	}
 
@@ -31,18 +29,7 @@ class Woo_Categories extends Widget_Base {
 		return [ 'oceanwp-elements' ];
 	}
 
-    public function get_keywords() {
-        return [
-            'woo',
-            'woocommerce',
-            'ecommerce',
-            'category',
-            'categories',
-            'owp',
-        ];
-    }
-
-	protected function register_controls() {
+	protected function _register_controls() {
 
 		$this->start_controls_section(
 			'section_woo_categories',
@@ -318,6 +305,7 @@ class Woo_Categories extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name' 			=> 'title_typography',
+				'scheme' 		=> Scheme_Typography::TYPOGRAPHY_4,
 				'selector' 		=> '{{WRAPPER}} .woocommerce ul.products li.product .woo-entry-inner a .woocommerce-loop-category__title',
 			]
 		);
@@ -370,6 +358,7 @@ class Woo_Categories extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name' 			=> 'desc_typography',
+				'scheme' 		=> Scheme_Typography::TYPOGRAPHY_4,
 				'selector' 		=> '{{WRAPPER}} .woocommerce ul.products li.product .woo-entry-inner .description',
 			]
 		);

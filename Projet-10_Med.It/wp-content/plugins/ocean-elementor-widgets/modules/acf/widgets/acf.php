@@ -1,95 +1,58 @@
 <?php
-/**
- * Ocean Elementor Widgets: ACF Widget
- *
- * @package Ocean_Elementor_Widgets
- * @author  OceanWP
- */
-
 namespace owpElementor\Modules\ACF\Widgets;
 
-// Elementor Classes.
+// Elementor Classes
 use Elementor\Controls_Manager;
 use Elementor\Group_Control_Typography;
+use Elementor\Scheme_Typography;
 use Elementor\Widget_Base;
 
-defined( 'ABSPATH' ) || exit; // Exit if accessed directly.
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
-/**
- * OEW ACF Widget
- */
 class ACF extends Widget_Base {
 
-	/**
-	 * OEW Widget name
-	 */
 	public function get_name() {
 		return 'oew-acf';
 	}
 
-	/**
-	 * OEW Widget title
-	 */
 	public function get_title() {
 		return __( 'ACF', 'ocean-elementor-widgets' );
 	}
 
-	/**
-	 * OEW Widget icon
-	 */
 	public function get_icon() {
+		// Upload "eicons.ttf" font via this site: http://bluejamesbond.github.io/CharacterMap/
 		return 'oew-icon eicon-post';
 	}
 
-	/**
-	 * OEW Widget category
-	 */
 	public function get_categories() {
 		return [ 'oceanwp-elements' ];
 	}
 
-	/**
-	 * OEW Widget keywords
-	 */
-	public function get_keywords() {
-		return [
-			'advanced custom fields',
-			'field',
-			'fields',
-			'acf',
-			'owp',
-			'oceanwp',
-		];
-	}
-
-	/**
-	 * OEW Widget register controls
-	 */
-	protected function register_controls() {
+	protected function _register_controls() {
 
 		$this->start_controls_section(
 			'section_acf',
 			[
-				'label' => __( 'ACF', 'ocean-elementor-widgets' ),
+				'label' 		=> __( 'ACF', 'ocean-elementor-widgets' ),
 			]
 		);
 
 		$this->add_control(
 			'field_name',
 			[
-				'label'   => __( 'Field Name', 'ocean-elementor-widgets' ),
-				'type'    => Controls_Manager::TEXT,
-				'dynamic' => [ 'active' => true ],
+				'label' 		=> __( 'Field Name', 'ocean-elementor-widgets' ),
+				'type' 			=> Controls_Manager::TEXT,
+				'dynamic' 		=> [ 'active' => true ],
 			]
 		);
 
 		$this->add_control(
 			'field_type',
 			[
-				'label'   => __( 'Field Type', 'ocean-elementor-widgets' ),
-				'type'    => Controls_Manager::SELECT,
-				'default' => 'text',
-				'options' => [
+				'label' 		=> __( 'Field Type', 'ocean-elementor-widgets' ),
+				'type' 			=> Controls_Manager::SELECT,
+				'default' 		=> 'text',
+				'options' 		=> [
 					'text' => __( 'Text', 'ocean-elementor-widgets' ),
 					'link' => __( 'Link', 'ocean-elementor-widgets' ),
 				],
@@ -99,26 +62,26 @@ class ACF extends Widget_Base {
 		$this->add_control(
 			'link_text',
 			[
-				'label'     => __( 'Link Text', 'ocean-elementor-widgets' ),
-				'type'      => Controls_Manager::TEXT,
-				'condition' => [
+				'label' 		=> __( 'Link Text', 'ocean-elementor-widgets' ),
+				'type' 			=> Controls_Manager::TEXT,
+				'condition' 	=> [
 					'field_type' => 'link',
 				],
-				'dynamic'   => [ 'active' => true ],
+				'dynamic' 		=> [ 'active' => true ],
 			]
 		);
 
 		$this->add_control(
 			'link_target',
 			[
-				'label'     => __( 'Link Target', 'ocean-elementor-widgets' ),
-				'type'      => Controls_Manager::SELECT,
-				'default'   => 'self',
-				'options'   => [
-					'self'  => __( 'Self', 'ocean-elementor-widgets' ),
+				'label' 		=> __( 'Link Target', 'ocean-elementor-widgets' ),
+				'type' 			=> Controls_Manager::SELECT,
+				'default' 		=> 'self',
+				'options' 		=> [
+					'self' => __( 'Self', 'ocean-elementor-widgets' ),
 					'blank' => __( 'Blank', 'ocean-elementor-widgets' ),
 				],
-				'condition' => [
+				'condition' 	=> [
 					'field_type' => 'link',
 				],
 			]
@@ -127,9 +90,9 @@ class ACF extends Widget_Base {
 		$this->add_control(
 			'link_nofollow',
 			[
-				'label'     => __( 'Add Nofollow', 'ocean-elementor-widgets' ),
-				'type'      => Controls_Manager::SWITCHER,
-				'condition' => [
+				'label' 		=> __( 'Add Nofollow', 'ocean-elementor-widgets' ),
+				'type' 			=> Controls_Manager::SWITCHER,
+				'condition' 	=> [
 					'field_type' => 'link',
 				],
 			]
@@ -138,32 +101,32 @@ class ACF extends Widget_Base {
 		$this->add_control(
 			'field_label',
 			[
-				'label'   => __( 'Label', 'ocean-elementor-widgets' ),
-				'type'    => Controls_Manager::TEXT,
-				'dynamic' => [ 'active' => true ],
+				'label' 		=> __( 'Label', 'ocean-elementor-widgets' ),
+				'type' 			=> Controls_Manager::TEXT,
+				'dynamic' 		=> [ 'active' => true ],
 			]
 		);
 
 		$this->add_control(
 			'icon',
 			[
-				'label'   => __( 'Icon', 'ocean-elementor-widgets' ),
-				'type'    => Controls_Manager::ICON,
-				'default' => '',
+				'label' 		=> __( 'Icon', 'ocean-elementor-widgets' ),
+				'type' 			=> Controls_Manager::ICON,
+				'default' 		=> '',
 			]
 		);
 
 		$this->add_control(
 			'icon_align',
 			[
-				'label'     => __( 'Icon Position', 'ocean-elementor-widgets' ),
-				'type'      => Controls_Manager::SELECT,
-				'default'   => 'left',
-				'options'   => [
-					'left'  => __( 'Before', 'ocean-elementor-widgets' ),
+				'label' 		=> __( 'Icon Position', 'ocean-elementor-widgets' ),
+				'type' 			=> Controls_Manager::SELECT,
+				'default' 		=> 'left',
+				'options' 		=> [
+					'left' => __( 'Before', 'ocean-elementor-widgets' ),
 					'right' => __( 'After', 'ocean-elementor-widgets' ),
 				],
-				'condition' => [
+				'condition' 	=> [
 					'icon!' => '',
 				],
 			]
@@ -172,17 +135,17 @@ class ACF extends Widget_Base {
 		$this->add_control(
 			'icon_indent',
 			[
-				'label'     => __( 'Icon Spacing', 'ocean-elementor-widgets' ),
-				'type'      => Controls_Manager::SLIDER,
-				'range'     => [
+				'label' 		=> __( 'Icon Spacing', 'ocean-elementor-widgets' ),
+				'type' 			=> Controls_Manager::SLIDER,
+				'range' 		=> [
 					'px' => [
 						'max' => 50,
 					],
 				],
-				'condition' => [
+				'condition' 	=> [
 					'icon!' => '',
 				],
-				'selectors' => [
+				'selectors' 	=> [
 					'{{WRAPPER}} .oew-acf .elementor-align-icon-right' => 'margin-left: {{SIZE}}{{UNIT}};',
 					'{{WRAPPER}} .oew-acf .elementor-align-icon-left' => 'margin-right: {{SIZE}}{{UNIT}};',
 				],
@@ -192,24 +155,24 @@ class ACF extends Widget_Base {
 		$this->add_responsive_control(
 			'align',
 			[
-				'label'     => __( 'Alignment', 'ocean-elementor-widgets' ),
-				'type'      => Controls_Manager::CHOOSE,
-				'options'   => [
-					'left'  => [
+				'label' 		=> __( 'Alignment', 'ocean-elementor-widgets' ),
+				'type' 			=> Controls_Manager::CHOOSE,
+				'options' 		=> [
+					'left'    => [
 						'title' => __( 'Left', 'ocean-elementor-widgets' ),
-						'icon'  => 'eicon-text-align-left',
+						'icon' 	=> 'fa fa-align-left',
 					],
 					'center' => [
 						'title' => __( 'Center', 'ocean-elementor-widgets' ),
-						'icon'  => 'eicon-text-align-center',
+						'icon' 	=> 'fa fa-align-center',
 					],
-					'right'  => [
+					'right' => [
 						'title' => __( 'Right', 'ocean-elementor-widgets' ),
-						'icon'  => 'eicon-text-align-right',
+						'icon' 	=> 'fa fa-align-right',
 					],
 				],
-				'default'   => '',
-				'selectors' => [
+				'default' 		=> '',
+				'selectors' 	=> [
 					'{{WRAPPER}} .oew-acf' => 'text-align: {{VALUE}};',
 				],
 			]
@@ -220,26 +183,27 @@ class ACF extends Widget_Base {
 		$this->start_controls_section(
 			'section_style',
 			[
-				'label' => __( 'Field', 'ocean-elementor-widgets' ),
-				'tab'   => Controls_Manager::TAB_STYLE,
+				'label' 		=> __( 'Field', 'ocean-elementor-widgets' ),
+				'tab' 			=> Controls_Manager::TAB_STYLE,
 			]
 		);
 
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-				'name'     => 'field_typography',
-				'selector' => '{{WRAPPER}} .oew-acf .oew-acf-field',
+				'name' 			=> 'field_typography',
+				'scheme' 		=> Scheme_Typography::TYPOGRAPHY_4,
+				'selector' 		=> '{{WRAPPER}} .oew-acf .oew-acf-field',
 			]
 		);
 
 		$this->add_control(
 			'field_color',
 			[
-				'label'     => __( 'Color', 'ocean-elementor-widgets' ),
-				'type'      => Controls_Manager::COLOR,
-				'default'   => '',
-				'selectors' => [
+				'label' 		=> __( 'Color', 'ocean-elementor-widgets' ),
+				'type' 			=> Controls_Manager::COLOR,
+				'default' 		=> '',
+				'selectors' 	=> [
 					'{{WRAPPER}} .oew-acf .oew-acf-field' => 'color: {{VALUE}};',
 				],
 			]
@@ -250,9 +214,9 @@ class ACF extends Widget_Base {
 		$this->start_controls_section(
 			'section_label_style',
 			[
-				'label'     => __( 'Label', 'ocean-elementor-widgets' ),
-				'tab'       => Controls_Manager::TAB_STYLE,
-				'condition' => [
+				'label' 		=> __( 'Label', 'ocean-elementor-widgets' ),
+				'tab' 			=> Controls_Manager::TAB_STYLE,
+				'condition' 	=> [
 					'field_label!' => '',
 				],
 			]
@@ -261,9 +225,10 @@ class ACF extends Widget_Base {
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
-				'name'      => 'label_typography',
-				'selector'  => '{{WRAPPER}} .oew-acf .oew-acf-label',
-				'condition' => [
+				'name' 			=> 'label_typography',
+				'scheme' 		=> Scheme_Typography::TYPOGRAPHY_4,
+				'selector' 		=> '{{WRAPPER}} .oew-acf .oew-acf-label',
+				'condition' 	=> [
 					'field_label!' => '',
 				],
 			]
@@ -272,13 +237,13 @@ class ACF extends Widget_Base {
 		$this->add_control(
 			'label_color',
 			[
-				'label'     => __( 'Color', 'ocean-elementor-widgets' ),
-				'type'      => Controls_Manager::COLOR,
-				'default'   => '',
-				'selectors' => [
+				'label' 		=> __( 'Color', 'ocean-elementor-widgets' ),
+				'type' 			=> Controls_Manager::COLOR,
+				'default' 		=> '',
+				'selectors' 	=> [
 					'{{WRAPPER}} .oew-acf .oew-acf-label' => 'color: {{VALUE}};',
 				],
-				'condition' => [
+				'condition' 	=> [
 					'field_label!' => '',
 				],
 			]
@@ -289,9 +254,9 @@ class ACF extends Widget_Base {
 		$this->start_controls_section(
 			'section_icon_style',
 			[
-				'label'     => __( 'Icon', 'ocean-elementor-widgets' ),
-				'tab'       => Controls_Manager::TAB_STYLE,
-				'condition' => [
+				'label' 		=> __( 'Icon', 'ocean-elementor-widgets' ),
+				'tab' 			=> Controls_Manager::TAB_STYLE,
+				'condition' 	=> [
 					'icon!' => '',
 				],
 			]
@@ -300,13 +265,13 @@ class ACF extends Widget_Base {
 		$this->add_control(
 			'icon_color',
 			[
-				'label'     => __( 'Color', 'ocean-elementor-widgets' ),
-				'type'      => Controls_Manager::COLOR,
-				'default'   => '',
-				'selectors' => [
+				'label' 		=> __( 'Color', 'ocean-elementor-widgets' ),
+				'type' 			=> Controls_Manager::COLOR,
+				'default' 		=> '',
+				'selectors' 	=> [
 					'{{WRAPPER}} .oew-acf .oew-acf-icon' => 'color: {{VALUE}};',
 				],
-				'condition' => [
+				'condition' 	=> [
 					'icon!' => '',
 				],
 			]
@@ -315,18 +280,18 @@ class ACF extends Widget_Base {
 		$this->add_responsive_control(
 			'icon_size',
 			[
-				'label' => __( 'Size', 'ocean-elementor-widgets' ),
-				'type'     => Controls_Manager::SLIDER,
-				'range'    => [
+				'label' 		=> __( 'Size', 'ocean-elementor-widgets' ),
+				'type' 			=> Controls_Manager::SLIDER,
+				'range' 		=> [
 					'px' => [
-						'min' => 5,
-						'max' => 200,
+						'min' 	=> 5,
+						'max' 	=> 200,
 					],
 				],
-				'selectors' => [
+				'selectors' 	=> [
 					'{{WRAPPER}} .oew-acf .oew-acf-icon' => 'font-size: {{SIZE}}{{UNIT}};',
 				],
-				'condition' => [
+				'condition' 	=> [
 					'icon!' => '',
 				],
 			]
@@ -336,13 +301,9 @@ class ACF extends Widget_Base {
 
 	}
 
-	/**
-	 * OEW Widget render
-	 */
 	protected function render() {
-
 		$settings = $this->get_settings_for_display();
-		$type     = $settings['field_type'];
+		$type = $settings['field_type'];
 
 		$this->add_render_attribute( 'wrap', 'class', 'oew-acf' );
 
@@ -360,77 +321,53 @@ class ACF extends Widget_Base {
 		$this->add_render_attribute( 'link', 'href', esc_url( get_field( $settings['field_name'] ) ) );
 		$this->add_render_attribute( 'link', 'target', '_' . $settings['link_target'] );
 
-		if ( true === $settings['link_nofollow'] ) {
+		if ( true == $settings['link_nofollow'] ) {
 			$this->add_render_attribute( 'link', 'rel', 'nofollow' );
-		}
-		?>
+		} ?>
 
 		<div <?php echo $this->get_render_attribute_string( 'wrap' ); ?>>
 			<?php
-			if ( ! empty( $settings['icon'] ) && 'left' === $settings['icon_align'] ) {
-				?>
-
+			if ( ! empty( $settings['icon'] ) && 'left' == $settings['icon_align'] ) { ?>
 				<span <?php echo $this->get_render_attribute_string( 'icon' ); ?>>
 					<i class="<?php echo esc_attr( $settings['icon'] ); ?>" aria-hidden="true"></i>
 				</span>
-
-				<?php
-			}
-			?>
-
 			<?php
-			if ( ! empty( $settings['field_label'] ) ) {
-				?>
-
+			} ?>
+			
+			<?php
+			if ( ! empty( $settings['field_label'] ) ) { ?>
 				<span <?php echo $this->get_render_attribute_string( 'label' ); ?>>
 					<?php echo esc_attr( $settings['field_label'] ); ?>
 				</span>
-
-				<?php
-			}
-			?>
-
+			<?php } ?>
+			
 			<?php
-			if ( 'text' === $type ) {
-				?>
-
+			if ( 'text' == $type ) { ?>
 				<span <?php echo $this->get_render_attribute_string( 'field' ); ?>>
 					<?php echo do_shortcode( get_field( $settings['field_name'] ) ); ?>
 				</span>
-
-				<?php
-			} elseif ( 'link' === $type ) {
-				?>
-
+			<?php
+			} else if ( 'link' == $type ) { ?>
 				<a <?php echo $this->get_render_attribute_string( 'link' ); ?>>
 					<?php
 					if ( ! empty( $settings['link_text'] ) ) {
 						echo esc_attr( $settings['link_text'] );
 					} else {
 						echo do_shortcode( get_field( $settings['field_name'] ) );
-					}
-					?>
-
+					} ?>
 				</a>
-
-				<?php
-			}
-			?>
+			<?php
+			} ?>
 
 			<?php
-			if ( ! empty( $settings['icon'] ) && 'right' === $settings['icon_align'] ) {
-				?>
-
+			if ( ! empty( $settings['icon'] ) && 'right' == $settings['icon_align'] ) { ?>
 				<span <?php echo $this->get_render_attribute_string( 'icon' ); ?>>
 					<i class="<?php echo esc_attr( $settings['icon'] ); ?>" aria-hidden="true"></i>
 				</span>
-
-				<?php
-			}
-			?>
-
+			<?php
+			} ?>
 		</div>
 
-		<?php
+	<?php
 	}
 }

@@ -4,9 +4,7 @@ namespace owpElementor\Modules\QueryPost;
 use owpElementor\Base\Module_Base;
 use owpElementor\Modules\QueryPost\Controls\Query;
 
-if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly
-}
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 class Module extends Module_Base {
 
@@ -24,28 +22,21 @@ class Module extends Module_Base {
 
 	public function register_controls() {
 		$controls_manager = \Elementor\Plugin::$instance->controls_manager;
-		if ( $this->is_elementor_version( '>=', '3.5.0' ) ) {
-			$controls_manager->register( new Query() );
-		} else {
-			$controls_manager->register_control( self::QUERY_CONTROL_ID, new Query() );
-		}
+		$controls_manager->register_control( self::QUERY_CONTROL_ID, new Query() );
 	}
 
 	public function get_posts_title_by_id() {
-		// if ( ! isset( $_POST['nonce'] ) || ! wp_verify_nonce( $_POST['nonce'], 'oceanwp-elementor-controls' ) ) {
-		// wp_die();
-		// }
 
 		$ids = isset( $_POST['id'] ) ? $_POST['id'] : array();
 
-		$results = array();
+		$results = [];
 
 		$query = new \WP_Query(
-			array(
+			[
 				'post_type'      => 'any',
 				'post__in'       => $ids,
 				'posts_per_page' => -1,
-			)
+			]
 		);
 
 		foreach ( $query->posts as $post ) {
@@ -57,9 +48,6 @@ class Module extends Module_Base {
 	}
 
 	public function get_posts_by_query() {
-		if ( ! isset( $_POST['nonce'] ) || ! wp_verify_nonce( $_POST['nonce'], 'oceanwp-elementor-controls' ) ) {
-			wp_die();
-		}
 
 		$search_string = isset( $_POST['q'] ) ? sanitize_text_field( $_POST['q'] ) : '';
 		$req_post_type = isset( $_POST['post_type'] ) ? sanitize_text_field( $_POST['post_type'] ) : 'all';
@@ -153,10 +141,7 @@ class Module extends Module_Base {
 	protected function add_actions() {
 		add_action( 'wp_ajax_oew_get_posts_by_query', array( $this, 'get_posts_by_query' ) );
 		add_action( 'wp_ajax_oew_get_posts_title_by_id', array( $this, 'get_posts_title_by_id' ) );
-		if ( $this->is_elementor_version( '>=', '3.5.0' ) ) {
-			add_action( 'elementor/controls/register', array( $this, 'register_controls' ) );
-		} else {
-			add_action( 'elementor/controls/controls_registered', array( $this, 'register_controls' ) );
-		}
+		add_action( 'elementor/controls/controls_registered', [ $this, 'register_controls' ] );
 	}
 }
+

@@ -4,15 +4,12 @@ namespace owpElementor\Modules\Woocommerce\Widgets;
 // Elementor Classes
 use Elementor\Controls_Manager;
 use Elementor\Group_Control_Typography;
+use Elementor\Scheme_Typography;
 use Elementor\Group_Control_Background;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Box_Shadow;
 use Elementor\Widget_Base;
 use owpElementor\Modules\QueryPost\Module;
-
-if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly.
-}
 
 class Woo_Add_To_Cart extends Widget_Base {
 
@@ -25,6 +22,7 @@ class Woo_Add_To_Cart extends Widget_Base {
 	}
 
 	public function get_icon() {
+		// Upload "eicons.ttf" font via this site: http://bluejamesbond.github.io/CharacterMap/
 		return 'oew-icon eicon-woocommerce';
 	}
 
@@ -32,22 +30,11 @@ class Woo_Add_To_Cart extends Widget_Base {
 		return [ 'oceanwp-elements' ];
 	}
 
-    public function get_keywords() {
-        return [
-            'woo',
-            'woocommerce',
-            'ecommerce',
-            'add to cart',
-            'button',
-            'owp',
-        ];
-    }
-
 	public function get_style_depends() {
 		return [ 'oew-woo-addtocart' ];
 	}
 
-	protected function register_controls() {
+	protected function _register_controls() {
 
 		$this->start_controls_section(
 			'section_woo_product',
@@ -101,19 +88,19 @@ class Woo_Add_To_Cart extends Widget_Base {
 				'options' 		=> [
 					'left'    => [
 						'title' => __( 'Left', 'ocean-elementor-widgets' ),
-						'icon' 	=> 'eicon-text-align-left',
+						'icon' 	=> 'fa fa-align-left',
 					],
 					'center' => [
 						'title' => __( 'Center', 'ocean-elementor-widgets' ),
-						'icon' 	=> 'eicon-text-align-center',
+						'icon' 	=> 'fa fa-align-center',
 					],
 					'right' => [
 						'title' => __( 'Right', 'ocean-elementor-widgets' ),
-						'icon' 	=> 'eicon-text-align-right',
+						'icon' 	=> 'fa fa-align-right',
 					],
 					'justify' => [
 						'title' => __( 'Justified', 'ocean-elementor-widgets' ),
-						'icon' 	=> 'eicon-text-align-justify',
+						'icon' 	=> 'fa fa-align-justify',
 					],
 				],
 				'default' 		=> '',
@@ -204,6 +191,7 @@ class Woo_Add_To_Cart extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name' 			=> 'button_typography',
+				'scheme' 		=> Scheme_Typography::TYPOGRAPHY_4,
 				'selector' 		=> '{{WRAPPER}} .oew-addtocart',
 			]
 		);
@@ -355,6 +343,7 @@ class Woo_Add_To_Cart extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name' 			=> 'view_cart_typography',
+				'scheme' 		=> Scheme_Typography::TYPOGRAPHY_4,
 				'selector' 		=> '{{WRAPPER}} .oew-addtocart-wrap .added_to_cart',
 			]
 		);

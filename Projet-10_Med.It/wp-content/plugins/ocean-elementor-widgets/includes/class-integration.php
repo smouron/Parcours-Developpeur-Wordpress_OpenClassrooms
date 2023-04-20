@@ -26,12 +26,9 @@ class OEW_Integrations {
 	 */
 	public static function settings( $array ) {
 
-		$array[ 'google_map_api' ]        = get_option( 'owp_google_map_api' );
-		$array[ 'recaptcha_site_key' ]    = get_option( 'owp_recaptcha_site_key' );
-		$array[ 'recaptcha_secret_key' ]  = get_option( 'owp_recaptcha_secret_key' );
-		$array[ 'recaptcha_version' ]     = get_option( 'owp_recaptcha_version' );
-		$array[ 'recaptcha3_site_key' ]   = get_option( 'owp_recaptcha3_site_key' );
-		$array[ 'recaptcha3_secret_key' ] = get_option( 'owp_recaptcha3_secret_key' );
+		$array['google_map_api'] 			= get_option( 'owp_google_map_api' );
+		$array['recaptcha_site_key'] 		= get_option( 'owp_recaptcha_site_key' );
+		$array['recaptcha_secret_key'] 		= get_option( 'owp_recaptcha_secret_key' );
 
 		return $array;
 	}
@@ -75,7 +72,6 @@ class OEW_Integrations {
 		<hr>
 
 		<h2 id="recaptcha"><?php esc_html_e( 'Google reCAPTCHA', 'ocean-elementor-widgets' ); ?></h2>
-
 		<p class="description"><?php echo
 			sprintf(
 				esc_html__( '%1$sreCAPTCHA%2$s is a free service by Google that protects your website from spam and abuse. It does this while letting your valid users pass through with ease.', 'ocean-elementor-widgets' ),
@@ -86,94 +82,22 @@ class OEW_Integrations {
 			<tbody>
 				<tr id="owp_google_recaptcha_site_key_tr">
 					<th scope="row">
-						<label for="owp_recaptcha_version"><?php esc_html_e( 'Use reCAPTCHA version', 'ocean-elementor-widgets' ); ?></label>
+						<label for="owp_recaptcha_site_key"><?php esc_html_e( 'Site Key', 'ocean-elementor-widgets' ); ?></label>
 					</th>
 					<td>
-						<select name="owp_integrations[recaptcha_version]" id="owp_recaptcha_version">
-							<option <?php selected( $settings[ 'recaptcha_version' ], 'default', true ); ?> value="default">
-								<?php esc_html_e( 'Use default', 'ocean-elementor-widgets' ); ?>
-							</option>
-							<option <?php selected( $settings[ 'recaptcha_version' ], 'v3', true ); ?> value="v3">
-								<?php esc_html_e( 'Use reCAPTCHA v3', 'ocean-elementor-widgets' ); ?>
-							</option>
-						</select>				
+						<input name="owp_integrations[recaptcha_site_key]" type="text" id="owp_recaptcha_site_key" value="<?php echo esc_attr( $settings['recaptcha_site_key'] ); ?>" class="regular-text">
+					</td>
+				</tr>
+				<tr id="owp_google_recaptcha_secret_key_tr">
+					<th scope="row">
+						<label for="owp_recaptcha_secret_key"><?php esc_html_e( 'Secret Key', 'ocean-elementor-widgets' ); ?></label>
+					</th>
+					<td>
+						<input name="owp_integrations[recaptcha_secret_key]" type="text" id="owp_recaptcha_secret_key" value="<?php echo esc_attr( $settings['recaptcha_secret_key'] ); ?>" class="regular-text">
 					</td>
 				</tr>
 			</tbody>
 		</table>
-
-		<div id="owp_google_recaptcha-default" style="display: none;">
-			<h3 id="recaptcha"><?php esc_html_e( 'v2', 'ocean-elementor-widgets' ); ?></h3>
-			<table class="form-table">
-				<tbody>
-					<tr id="owp_google_recaptcha_site_key_tr">
-						<th scope="row">
-							<label for="owp_recaptcha_site_key"><?php esc_html_e( 'Site Key', 'ocean-elementor-widgets' ); ?></label>
-						</th>
-						<td>
-							<input name="owp_integrations[recaptcha_site_key]" type="text" id="owp_recaptcha_site_key" value="<?php echo esc_attr( $settings['recaptcha_site_key'] ); ?>" class="regular-text">
-						</td>
-					</tr>
-					<tr id="owp_google_recaptcha_secret_key_tr">
-						<th scope="row">
-							<label for="owp_recaptcha_secret_key"><?php esc_html_e( 'Secret Key', 'ocean-elementor-widgets' ); ?></label>
-						</th>
-						<td>
-							<input name="owp_integrations[recaptcha_secret_key]" type="text" id="owp_recaptcha_secret_key" value="<?php echo esc_attr( $settings['recaptcha_secret_key'] ); ?>" class="regular-text">
-						</td>
-					</tr>
-				</tbody>
-			</table>
-		</div>
-
-		<div id="owp_google_recaptcha-v3" style="display: none;">
-			<h3 id="recaptcha"><?php esc_html_e( 'v3', 'ocean-elementor-widgets' ); ?></h3>
-			<table class="form-table">
-				<tbody>
-					<tr id="owp_google_recaptcha_site_key_tr">
-						<th scope="row">
-							<label for="owp_recaptcha3_site_key"><?php esc_html_e( 'Site Key', 'ocean-elementor-widgets' ); ?></label>
-						</th>
-						<td>
-							<input
-								name="owp_integrations[recaptcha3_site_key]"
-								type="text"
-								id="owp_recaptcha3_site_key"
-								value="<?php echo esc_attr( $settings[ 'recaptcha3_site_key' ] ); ?>"
-								class="regular-text"
-							/>
-						</td>
-					</tr>
-					<tr id="owp_google_recaptcha3_secret_key_tr">
-						<th scope="row">
-							<label for="owp_recaptcha3_secret_key"><?php esc_html_e( 'Secret Key', 'ocean-elementor-widgets' ); ?></label>
-						</th>
-						<td>
-							<input
-								name="owp_integrations[recaptcha3_secret_key]"
-								type="text"
-								id="owp_recaptcha3_secret_key"
-								value="<?php echo esc_attr( $settings[ 'recaptcha3_secret_key' ] ); ?>"
-								class="regular-text"
-							/>
-						</td>
-					</tr>
-				</tbody>
-			</table>
-		</div>
-
-		<script>
-			window.onload = function() {
-				let $control = jQuery( '#owp_recaptcha_version' );
-				function Toggle( event ) {
-					jQuery( event.target ).find( 'option' ).each( function ( index, option ) {
-						jQuery( '#owp_google_recaptcha-' + jQuery( option ).attr( 'value' ) ).hide( 0 );
-					} );
-					jQuery( '#owp_google_recaptcha-' + jQuery( event.target ).val() ).show( 0 );
-				}
-				$control.on( 'change', Toggle ).change();
-			};
-		</script>
 
 	<?php
 	}

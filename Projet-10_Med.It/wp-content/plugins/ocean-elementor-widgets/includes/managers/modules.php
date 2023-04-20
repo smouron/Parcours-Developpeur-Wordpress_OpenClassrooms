@@ -3,26 +3,21 @@ namespace owpElementor;
 
 use owpElementor\Base\Module_Base;
 
-if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly
-}
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 class Modules_Manager {
 	/**
 	 * @var Module_Base[]
 	 */
-	private $modules = array();
-
-	private $modules_list = array();
+	private $modules = [];
 
 	/**
 	 * @since 1.0.0
 	 */
 	public function register_modules() {
 
-		$modules = array(
+		$modules = [
 			'query-post',
-			'clickable-columns',
 			'accordion',
 			'advanced-heading',
 			'alert',
@@ -49,7 +44,6 @@ class Modules_Manager {
 			'logged-in-out',
 			'logo',
 			'member',
-			'member-carousel',
 			'modal',
 			'navbar',
 			'navigation',
@@ -57,7 +51,6 @@ class Modules_Manager {
 			'off-canvas',
 			'price-list',
 			'pricing',
-			'pricing-table',
 			'recipe',
 			'scroll-up',
 			'search',
@@ -65,26 +58,12 @@ class Modules_Manager {
 			'skillbar',
 			'table',
 			'tabs',
-			'testimonial',
-			'testimonial-carousel',
 			'timeline',
 			'toggle',
 			'login',
 			'lost-password',
 			'register',
-			'coupon',
-			'pricing-menu',
-			'news-bar',
-			'clipboard',
-			'twitter-embed',
-			'twitter-timeline',
-			'twitter-follow-share-buttons',
-			'magazine-hero',
-			'magazine-hero-grid',
-			'magazine-grid-simple',
-			'magazine-grid',
-			'magazine-list',
-		);
+		];
 
 		// If Advanced Custom Fields
 		if ( is_acf_active() ) {
@@ -116,40 +95,22 @@ class Modules_Manager {
 			$modules[] = 'ninja-forms';
 		}
 
-		// If Fluent Forms
-		if ( is_fluent_forms_active() ) {
-			$modules[] = 'fluent-forms';
-		}
-
-		// If Formidable Forms
-		if ( is_formidable_forms_active() ) {
-			$modules[] = 'formidable-forms';
-		}
 		// If WooCommerce
 		if ( is_woocommerce_active() ) {
 			$modules[] = 'woocommerce';
 		}
 
-		$oe_elementor_widgets_settings = get_option('oe_elementor_widgets_settings', 0);
 		foreach ( $modules as $module_name ) {
 			$class_name = str_replace( '-', ' ', $module_name );
 			$class_name = str_replace( ' ', '', ucwords( $class_name ) );
 			$class_name = __NAMESPACE__ . '\\Modules\\' . $class_name . '\Module';
 
-			$this->modules_list[] = $module_name;
-
-			if( $oe_elementor_widgets_settings === 0 || ! empty( $oe_elementor_widgets_settings[ $module_name ] ) ) {
-				$this->modules[ $module_name ] = $class_name::instance();
-			}
+			$this->modules[ $module_name ] = $class_name::instance();
 		}
 	}
 
-	public function get_modules_list() {
-		return $this->modules_list;
-	}
-
 	private function require_files() {
-		require OWP_ELEMENTOR_PATH . 'base/module.php';
+		require( OWP_ELEMENTOR_PATH . 'base/module.php' );
 	}
 
 	public function __construct() {

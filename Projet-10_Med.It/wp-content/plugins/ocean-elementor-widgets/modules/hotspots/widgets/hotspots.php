@@ -2,18 +2,15 @@
 namespace owpElementor\Modules\Hotspots\Widgets;
 
 // Elementor Classes
-use Elementor\Widget_Base;
+use Elementor\Controls_Manager;
 use Elementor\Utils;
+use Elementor\Group_Control_Image_Size;
 use Elementor\Repeater;
 use Elementor\Group_Control_Typography;
-use Elementor\Group_Control_Image_Size;
-use Elementor\Group_Control_Box_Shadow;
+use Elementor\Scheme_Typography;
 use Elementor\Group_Control_Border;
-use Elementor\Controls_Manager;
-
-if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly.
-}
+use Elementor\Group_Control_Box_Shadow;
+use Elementor\Widget_Base;
 
 class Hotspots extends Widget_Base {
 
@@ -26,216 +23,207 @@ class Hotspots extends Widget_Base {
 	}
 
 	public function get_icon() {
+		// Upload "eicons.ttf" font via this site: http://bluejamesbond.github.io/CharacterMap/
 		return 'oew-icon eicon-image-rollover';
 	}
 
 	public function get_categories() {
-		return array( 'oceanwp-elements' );
-	}
-
-	public function get_keywords() {
-		return array(
-			'hot',
-			'spot',
-			'hotspot',
-			'image',
-			'owp',
-		);
+		return [ 'oceanwp-elements' ];
 	}
 
 	public function get_script_depends() {
-		return array( 'oew-hotspots' );
+		return [ 'oew-hotspots', 'oew-tooltip' ];
 	}
 
 	public function get_style_depends() {
-		return array( 'oew-hotspots', 'tippy', 'tippy-arrow' );
+		return [ 'oew-hotspots', 'oew-tooltip' ];
 	}
 
-	protected function register_controls() {
+	protected function _register_controls() {
 
 		$this->start_controls_section(
 			'section_hotspots_image',
-			array(
-				'label' => __( 'Image', 'ocean-elementor-widgets' ),
-			)
+			[
+				'label' 		=> __( 'Image', 'ocean-elementor-widgets' ),
+			]
 		);
 
 		$this->add_control(
 			'image',
-			array(
-				'label'   => __( 'Choose Image', 'ocean-elementor-widgets' ),
-				'type'    => Controls_Manager::MEDIA,
-				'default' => array(
+			[
+				'label'   		=> __( 'Choose Image', 'ocean-elementor-widgets' ),
+				'type'    		=> Controls_Manager::MEDIA,
+				'default' 		=> [
 					'url' => Utils::get_placeholder_image_src(),
-				),
-				'dynamic' => array( 'active' => true ),
-			)
+				],
+				'dynamic' 		=> [ 'active' => true ],
+			]
 		);
 
 		$this->add_group_control(
 			Group_Control_Image_Size::get_type(),
-			array(
-				'name'    => 'image', // Usage: `{name}_size` and `{name}_custom_dimension`, in this case `image_size` and `image_custom_dimension`.
-				'label'   => __( 'Image Size', 'ocean-elementor-widgets' ),
-				'default' => 'large',
-			)
+			[
+				'name' 			=> 'image', // Usage: `{name}_size` and `{name}_custom_dimension`, in this case `image_size` and `image_custom_dimension`.
+				'label' 		=> __( 'Image Size', 'ocean-elementor-widgets' ),
+				'default' 		=> 'large',
+			]
 		);
 
-		$this->end_controls_section();
+        $this->end_controls_section();
 
 		$this->start_controls_section(
 			'section_hotspots',
-			array(
-				'label' => __( 'Hotspots', 'ocean-elementor-widgets' ),
-			)
+			[
+				'label' 		=> __( 'Hotspots', 'ocean-elementor-widgets' ),
+			]
 		);
 
 		$repeater = new Repeater();
 
 		$repeater->start_controls_tabs( 'hotspots_tabs' );
 
-		$repeater->start_controls_tab( 'tab_content', array( 'label' => __( 'Content', 'ocean-elementor-widgets' ) ) );
+		$repeater->start_controls_tab( 'tab_content', [ 'label' => __( 'Content', 'ocean-elementor-widgets' ) ] );
 
 		$repeater->add_control(
 			'hotspot_type',
-			array(
-				'label'   => __( 'Type', 'ocean-elementor-widgets' ),
-				'type'    => Controls_Manager::SELECT,
-				'default' => 'text',
-				'options' => array(
+			[
+				'label'			=> __( 'Type', 'ocean-elementor-widgets' ),
+				'type' 			=> Controls_Manager::SELECT,
+				'default' 		=> 'text',
+				'options' 		=> [
 					'text'  => __( 'Text', 'ocean-elementor-widgets' ),
 					'icon'  => __( 'Icon', 'ocean-elementor-widgets' ),
 					'blank' => __( 'Blank', 'ocean-elementor-widgets' ),
-				),
-			)
+				],
+			]
 		);
 
 		$repeater->add_control(
 			'hotspot_text',
-			array(
-				'label'     => __( 'Text', 'ocean-elementor-widgets' ),
-				'type'      => Controls_Manager::TEXT,
-				'default'   => __( '1', 'ocean-elementor-widgets' ),
-				'condition' => array(
-					'hotspot_type' => 'text',
-				),
-				'dynamic'   => array( 'active' => true ),
-			)
+			[
+				'label' 		=> __( 'Text', 'ocean-elementor-widgets' ),
+				'type'			=> Controls_Manager::TEXT,
+				'default'		=> __( '1', 'ocean-elementor-widgets' ),
+				'condition'		=> [
+					'hotspot_type' => 'text'
+				],
+				'dynamic' 		=> [ 'active' => true ],
+			]
 		);
 
 		$repeater->add_control(
 			'hotspot_icon',
-			array(
-				'label'     => __( 'Icon', 'ocean-elementor-widgets' ),
-				'type'      => Controls_Manager::ICON,
-				'default'   => '',
-				'condition' => array(
-					'hotspot_type' => 'icon',
-				),
-			)
+			[
+				'label' 		=> __( 'Icon', 'ocean-elementor-widgets' ),
+				'type' 			=> Controls_Manager::ICON,
+				'default' 		=> '',
+				'condition'		=> [
+					'hotspot_type' => 'icon'
+				],
+			]
 		);
 
 		$repeater->add_control(
 			'hotspot_link',
-			array(
-				'label'   => __( 'Link', 'ocean-elementor-widgets' ),
-				'type'    => Controls_Manager::URL,
-				'default' => array(
+			[
+				'label' 		=> __( 'Link', 'ocean-elementor-widgets' ),
+				'type' 			=> Controls_Manager::URL,
+				'default' 		=> [
 					'url' => '',
-				),
-			)
+				],
+			]
 		);
 
 		$repeater->end_controls_tab();
 
-		$repeater->start_controls_tab( 'tab_position', array( 'label' => __( 'Position', 'ocean-elementor-widgets' ) ) );
+		$repeater->start_controls_tab( 'tab_position', [ 'label' => __( 'Position', 'ocean-elementor-widgets' ) ] );
 
 		$repeater->add_control(
 			'hotspot_top_position',
-			array(
-				'label'     => __( 'Top position', 'ocean-elementor-widgets' ),
-				'type'      => Controls_Manager::SLIDER,
-				'range'     => array(
-					'px' => array(
-						'min'  => 0,
-						'max'  => 100,
-						'step' => 0.1,
-					),
-				),
-				'selectors' => array(
+			[
+				'label' 	=> __( 'Top position', 'ocean-elementor-widgets' ),
+				'type' 		=> Controls_Manager::SLIDER,
+				'range' 	=> [
+					'px' 	=> [
+						'min' 	=> 0,
+						'max' 	=> 100,
+						'step'	=> 0.1,
+					],
+				],
+				'selectors' => [
 					'{{WRAPPER}} {{CURRENT_ITEM}}' => 'top: {{SIZE}}%;',
-				),
-			)
+				],
+			]
 		);
 
 		$repeater->add_control(
 			'hotspot_left_position',
-			array(
-				'label'     => __( 'Left position', 'ocean-elementor-widgets' ),
-				'type'      => Controls_Manager::SLIDER,
-				'range'     => array(
-					'px' => array(
-						'min'  => 0,
-						'max'  => 100,
-						'step' => 0.1,
-					),
-				),
-				'selectors' => array(
+			[
+				'label' 	=> __( 'Left position', 'ocean-elementor-widgets' ),
+				'type' 		=> Controls_Manager::SLIDER,
+				'range' 	=> [
+					'px' 	=> [
+						'min' 	=> 0,
+						'max' 	=> 100,
+						'step'	=> 0.1,
+					],
+				],
+				'selectors' => [
 					'{{WRAPPER}} {{CURRENT_ITEM}}' => 'left: {{SIZE}}%;',
-				),
-			)
+				],
+			]
 		);
 
 		$repeater->end_controls_tab();
 
-		$repeater->start_controls_tab( 'tab_tooltip', array( 'label' => __( 'Tooltip', 'ocean-elementor-widgets' ) ) );
+		$repeater->start_controls_tab( 'tab_tooltip', [ 'label' => __( 'Tooltip', 'ocean-elementor-widgets' ) ] );
 
 		$repeater->add_control(
 			'tooltip',
-			array(
-				'label'   => __( 'Tooltip', 'ocean-elementor-widgets' ),
-				'type'    => Controls_Manager::SWITCHER,
-				'default' => 'yes',
-			)
+			[
+				'label' 		=> __( 'Tooltip', 'ocean-elementor-widgets' ),
+				'type' 			=> Controls_Manager::SWITCHER,
+				'default' 		=> 'yes',
+			]
 		);
 
 		$repeater->add_control(
 			'tooltip_position',
-			array(
-				'label'     => __( 'Tooltip Position', 'ocean-elementor-widgets' ),
-				'type'      => Controls_Manager::SELECT,
-				'default'   => 's',
-				'options'   => array(
-					'n'      => __( 'Top', 'ocean-elementor-widgets' ),
-					'ne-alt' => __( 'Top Start', 'ocean-elementor-widgets' ),
-					'ne'     => __( 'Top End', 'ocean-elementor-widgets' ),
-					'e'      => __( 'Right', 'ocean-elementor-widgets' ),
-					'se-alt' => __( 'Right Start', 'ocean-elementor-widgets' ),
-					'se'     => __( 'Right End', 'ocean-elementor-widgets' ),
-					's'      => __( 'Bottom', 'ocean-elementor-widgets' ),
-					'sw-alt' => __( 'Bottom Start', 'ocean-elementor-widgets' ),
-					'sw'     => __( 'Bottom End', 'ocean-elementor-widgets' ),
-					'w'      => __( 'Left', 'ocean-elementor-widgets' ),
-					'nw-alt' => __( 'Left Start', 'ocean-elementor-widgets' ),
-					'nw'     => __( 'Left End', 'ocean-elementor-widgets' ),
-				),
-				'condition' => array(
+			[
+				'label'			=> __( 'Tooltip Position', 'ocean-elementor-widgets' ),
+				'type' 			=> Controls_Manager::SELECT,
+				'default' 		=> 's',
+				'options' 		=> [
+					'n' 		=> __( 'Top', 'ocean-elementor-widgets' ),
+					'e' 		=> __( 'Right', 'ocean-elementor-widgets' ),
+					's' 		=> __( 'Bottom', 'ocean-elementor-widgets' ),
+					'w' 		=> __( 'Left', 'ocean-elementor-widgets' ),
+					'ne' 		=> __( 'Top Right', 'ocean-elementor-widgets' ),
+					'ne-alt' 	=> __( 'Top Right Alt', 'ocean-elementor-widgets' ),
+					'nw' 		=> __( 'Top Left', 'ocean-elementor-widgets' ),
+					'nw-alt' 	=> __( 'Top Left Alt', 'ocean-elementor-widgets' ),
+					'se' 		=> __( 'Bottom Right', 'ocean-elementor-widgets' ),
+					'se-alt' 	=> __( 'Bottom Right Alt', 'ocean-elementor-widgets' ),
+					'sw' 		=> __( 'Bottom Left', 'ocean-elementor-widgets' ),
+					'sw-alt' 	=> __( 'Bottom Left Alt', 'ocean-elementor-widgets' ),
+				],
+				'condition'		=> [
 					'tooltip' => 'yes',
-				),
-			)
+				],
+			]
 		);
 
 		$repeater->add_control(
 			'tooltip_content',
-			array(
-				'label'     => __( 'Tooltip Content', 'ocean-elementor-widgets' ),
-				'type'      => Controls_Manager::WYSIWYG,
-				'default'   => __( 'Add your tooltip content here', 'ocean-elementor-widgets' ),
-				'condition' => array(
+			[
+				'label' 		=> __( 'Tooltip Content', 'ocean-elementor-widgets' ),
+				'type' 			=> Controls_Manager::WYSIWYG,
+				'default' 		=> __( 'Add your tooltip content here', 'ocean-elementor-widgets' ),
+				'condition'		=> [
 					'tooltip' => 'yes',
-				),
-				'dynamic'   => array( 'active' => true ),
-			)
+				],
+				'dynamic' 		=> [ 'active' => true ],
+			]
 		);
 
 		$repeater->end_controls_tab();
@@ -244,196 +232,197 @@ class Hotspots extends Widget_Base {
 
 		$this->add_control(
 			'hotspots',
-			array(
-				'label'       => __( 'Hotspots', 'ocean-elementor-widgets' ),
-				'type'        => Controls_Manager::REPEATER,
-				'default'     => array(
-					array(
+			[
+				'label' 		=> __( 'Hotspots', 'ocean-elementor-widgets' ),
+				'type' 			=> Controls_Manager::REPEATER,
+				'default' 		=> [
+					[
 						'hotspot_text' => '1',
-					),
-				),
-				'fields'      => $repeater->get_controls(),
-				'title_field' => '{{{ hotspot_text }}}',
-			)
+					],
+				],
+				'fields' 		=> array_values( $repeater->get_controls() ),
+				'title_field' 	=> '{{{ hotspot_text }}}',
+			]
 		);
 
 		$this->add_control(
 			'disable_pulse',
-			array(
-				'label'        => __( 'Disable Pulse Effect', 'ocean-elementor-widgets' ),
-				'type'         => Controls_Manager::SWITCHER,
-				'default'      => 'no',
-				'return_value' => 'none',
-				'selectors'    => array(
-					'{{WRAPPER}} .oew-hotspot-inner:before' => 'display: {{VALUE}};',
-				),
-			)
+			[
+				'label' 		=> __( 'Disable Pulse Effect', 'ocean-elementor-widgets' ),
+				'type' 			=> Controls_Manager::SWITCHER,
+				'default' 		=> 'no',
+				'return_value' 	=> 'none',
+				'selectors'		=> [
+					'{{WRAPPER}} .oew-hotspot-inner:before' => 'display: {{VALUE}};'
+				]
+			]
 		);
 
-		$this->end_controls_section();
+        $this->end_controls_section();
 
 		$this->start_controls_section(
 			'section_hotspots_tooltip',
-			array(
-				'label' => __( 'Tooltip', 'ocean-elementor-widgets' ),
-			)
+			[
+				'label' 		=> __( 'Tooltip', 'ocean-elementor-widgets' ),
+			]
 		);
 
 		$this->add_control(
 			'fade_in_time',
-			array(
-				'label'              => __( 'Fade In Time (ms)', 'ocean-elementor-widgets' ),
-				'description'        => __( 'Time until tooltips appear.', 'ocean-elementor-widgets' ),
-				'type'               => Controls_Manager::SLIDER,
-				'default'            => array(
+			[
+				'label' 		=> __( 'Fade In Time (ms)', 'ocean-elementor-widgets' ),
+				'description' 	=> __( 'Time until tooltips appear.', 'ocean-elementor-widgets' ),
+				'type' 			=> Controls_Manager::SLIDER,
+				'default' 		=> [
 					'size' => 200,
-				),
-				'range'              => array(
-					'px' => array(
-						'min' => 0,
-						'max' => 1000,
-					),
-				),
+				],
+				'range' 		=> [
+					'px' => [
+						'min' 	=> 0,
+						'max' 	=> 1000,
+					],
+				],
 				'frontend_available' => true,
-			)
+			]
 		);
 
 		$this->add_control(
 			'fade_out_time',
-			array(
-				'label'              => __( 'Fade Out Time (ms)', 'ocean-elementor-widgets' ),
-				'description'        => __( 'Time until tooltips dissapear.', 'ocean-elementor-widgets' ),
-				'type'               => Controls_Manager::SLIDER,
-				'default'            => array(
+			[
+				'label' 		=> __( 'Fade Out Time (ms)', 'ocean-elementor-widgets' ),
+				'description' 	=> __( 'Time until tooltips dissapear.', 'ocean-elementor-widgets' ),
+				'type' 			=> Controls_Manager::SLIDER,
+				'default' 		=> [
 					'size' => 100,
-				),
-				'range'              => array(
-					'px' => array(
-						'min' => 0,
-						'max' => 1000,
-					),
-				),
+				],
+				'range' 		=> [
+					'px' => [
+						'min' 	=> 0,
+						'max' 	=> 1000,
+					],
+				],
 				'frontend_available' => true,
-			)
+			]
 		);
 
-		$this->end_controls_section();
+        $this->end_controls_section();
 
 		$this->start_controls_section(
 			'section_image_style',
-			array(
-				'label' => __( 'Image', 'ocean-elementor-widgets' ),
-				'tab'   => Controls_Manager::TAB_STYLE,
-			)
+			[
+				'label' 		=> __( 'Image', 'ocean-elementor-widgets' ),
+				'tab' 			=> Controls_Manager::TAB_STYLE,
+			]
 		);
 
 		$this->add_group_control(
 			Group_Control_Border::get_type(),
-			array(
-				'name'     => 'image_border',
-				'label'    => __( 'Image Border', 'ocean-elementor-widgets' ),
-				'selector' => '{{WRAPPER}} .oew-hotspots-wrap img',
-			)
+			[
+				'name' 			=> 'image_border',
+				'label' 		=> __( 'Image Border', 'ocean-elementor-widgets' ),
+				'selector' 		=> '{{WRAPPER}} .oew-hotspots-wrap img',
+			]
 		);
 
 		$this->add_control(
 			'image_border_radius',
-			array(
-				'label'      => __( 'Border Radius', 'ocean-elementor-widgets' ),
-				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => array( 'px', '%' ),
-				'selectors'  => array(
+			[
+				'label' 		=> __( 'Border Radius', 'ocean-elementor-widgets' ),
+				'type' 			=> Controls_Manager::DIMENSIONS,
+				'size_units' 	=> [ 'px', '%' ],
+				'selectors' 	=> [
 					'{{WRAPPER}} .oew-hotspots-wrap img' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_group_control(
 			Group_Control_Box_Shadow::get_type(),
-			array(
-				'name'     => 'image_box_shadow',
-				'selector' => '{{WRAPPER}} .oew-hotspots-wrap img',
-			)
+			[
+				'name' 			=> 'image_box_shadow',
+				'selector' 		=> '{{WRAPPER}} .oew-hotspots-wrap img',
+			]
 		);
 
-		$this->end_controls_section();
+        $this->end_controls_section();
 
 		$this->start_controls_section(
 			'section_hotspots_style',
-			array(
-				'label' => __( 'Hotspots', 'ocean-elementor-widgets' ),
-				'tab'   => Controls_Manager::TAB_STYLE,
-			)
+			[
+				'label' 		=> __( 'Hotspots', 'ocean-elementor-widgets' ),
+				'tab' 			=> Controls_Manager::TAB_STYLE,
+			]
 		);
 
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
-			array(
-				'name'     => 'hotspots_typo',
-				'selector' => '{{WRAPPER}} .oew-hotspot-inner',
-			)
+			[
+				'name' 			=> 'hotspots_typo',
+				'selector' 		=> '{{WRAPPER}} .oew-hotspot-inner',
+				'scheme' 		=> Scheme_Typography::TYPOGRAPHY_1,
+			]
 		);
 
 		$this->start_controls_tabs( 'tabs_hotspots_style' );
 
 		$this->start_controls_tab(
 			'tab_hotspots_normal',
-			array(
-				'label' => __( 'Normal', 'ocean-elementor-widgets' ),
-			)
+			[
+				'label' 		=> __( 'Normal', 'ocean-elementor-widgets' ),
+			]
 		);
 
 		$this->add_control(
 			'hotspots_background',
-			array(
-				'label'     => __( 'Background Color', 'ocean-elementor-widgets' ),
-				'type'      => Controls_Manager::COLOR,
-				'selectors' => array(
+			[
+				'label' 		=> __( 'Background Color', 'ocean-elementor-widgets' ),
+				'type' 			=> Controls_Manager::COLOR,
+				'selectors' 	=> [
 					'{{WRAPPER}} .oew-hotspot-inner, {{WRAPPER}} .oew-hotspot-inner:before' => 'background-color: {{VALUE}};',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
 			'hotspots_color',
-			array(
-				'label'     => __( 'Color', 'ocean-elementor-widgets' ),
-				'type'      => Controls_Manager::COLOR,
-				'selectors' => array(
+			[
+				'label' 		=> __( 'Color', 'ocean-elementor-widgets' ),
+				'type' 			=> Controls_Manager::COLOR,
+				'selectors' 	=> [
 					'{{WRAPPER}} .oew-hotspot-inner, {{WRAPPER}} .oew-hotspot-inner:hover' => 'color: {{VALUE}};',
-				),
-			)
+				],
+			]
 		);
 
 		$this->end_controls_tab();
 
 		$this->start_controls_tab(
 			'tab_hotspots_hover',
-			array(
-				'label' => __( 'Hover', 'ocean-elementor-widgets' ),
-			)
+			[
+				'label' 		=> __( 'Hover', 'ocean-elementor-widgets' ),
+			]
 		);
 
 		$this->add_control(
 			'hotspots_hover_background',
-			array(
-				'label'     => __( 'Background Color', 'ocean-elementor-widgets' ),
-				'type'      => Controls_Manager::COLOR,
-				'selectors' => array(
+			[
+				'label' 		=> __( 'Background Color', 'ocean-elementor-widgets' ),
+				'type' 			=> Controls_Manager::COLOR,
+				'selectors' 	=> [
 					'{{WRAPPER}} .oew-hotspot-inner:hover, {{WRAPPER}} .oew-hotspot-inner:hover:before' => 'background-color: {{VALUE}};',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_control(
 			'hotspots_hover_color',
-			array(
-				'label'     => __( 'Color', 'ocean-elementor-widgets' ),
-				'type'      => Controls_Manager::COLOR,
-				'selectors' => array(
+			[
+				'label' 		=> __( 'Color', 'ocean-elementor-widgets' ),
+				'type' 			=> Controls_Manager::COLOR,
+				'selectors' 	=> [
 					'{{WRAPPER}} .oew-hotspot-inner:hover' => 'color: {{VALUE}};',
-				),
-			)
+				],
+			]
 		);
 
 		$this->end_controls_tab();
@@ -442,125 +431,133 @@ class Hotspots extends Widget_Base {
 
 		$this->add_responsive_control(
 			'hotspots_size',
-			array(
-				'label'     => __( 'Size', 'ocean-elementor-widgets' ),
-				'type'      => Controls_Manager::SLIDER,
-				'default'   => array(
+			[
+				'label' 		=> __( 'Size', 'ocean-elementor-widgets' ),
+				'type' 			=> Controls_Manager::SLIDER,
+				'default' 		=> [
 					'size' => 40,
-				),
-				'range'     => array(
-					'px' => array(
-						'min' => 0,
-						'max' => 100,
-					),
-				),
-				'selectors' => array(
+				],
+				'range' 		=> [
+					'px' => [
+						'min' 	=> 0,
+						'max' 	=> 100,
+					],
+				],
+				'selectors' 	=> [
 					'{{WRAPPER}} .oew-hotspot-inner, {{WRAPPER}} .oew-hotspot-inner:before' => 'min-width: {{SIZE}}{{UNIT}}; min-height: {{SIZE}}{{UNIT}};',
 					'{{WRAPPER}} .oew-hotspot-inner' => 'line-height: {{SIZE}}{{UNIT}};',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_group_control(
 			Group_Control_Border::get_type(),
-			array(
-				'name'     => 'hotspots_border',
-				'label'    => __( 'Border', 'ocean-elementor-widgets' ),
-				'selector' => '{{WRAPPER}} .oew-hotspot-inner',
-			)
+			[
+				'name' 			=> 'hotspots_border',
+				'label' 		=> __( 'Border', 'ocean-elementor-widgets' ),
+				'selector' 		=> '{{WRAPPER}} .oew-hotspot-inner',
+			]
 		);
 
 		$this->add_responsive_control(
 			'hotspots_border_radius',
-			array(
-				'label'      => __( 'Border Radius', 'ocean-elementor-widgets' ),
-				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => array( 'px', '%' ),
-				'selectors'  => array(
+			[
+				'label' 		=> __( 'Border Radius', 'ocean-elementor-widgets' ),
+				'type' 			=> Controls_Manager::DIMENSIONS,
+				'size_units' 	=> [ 'px', '%' ],
+				'selectors' 	=> [
 					'{{WRAPPER}} .oew-hotspot-inner, {{WRAPPER}} .oew-hotspot-inner:before' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				),
-			)
+				],
+			]
 		);
 
 		$this->add_group_control(
 			Group_Control_Box_Shadow::get_type(),
-			array(
-				'name'     => 'hotspots_box_shadow',
-				'selector' => '{{WRAPPER}} .oew-hotspot-inner',
-			)
+			[
+				'name' 			=> 'hotspots_box_shadow',
+				'selector' 		=> '{{WRAPPER}} .oew-hotspot-inner',
+			]
 		);
 
-		$this->end_controls_section();
+        $this->end_controls_section();
 
 		$this->start_controls_section(
 			'section_tooltips_style',
-			array(
-				'label' => __( 'Tooltips', 'ocean-elementor-widgets' ),
-				'tab'   => Controls_Manager::TAB_STYLE,
-			)
+			[
+				'label' 		=> __( 'Tooltips', 'ocean-elementor-widgets' ),
+				'tab' 			=> Controls_Manager::TAB_STYLE,
+			]
 		);
 
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
-			array(
-				'name'     => 'tooltips_typo',
-				'selector' => 'div[id*="tippy-"].oew-hotspot-powertip-{{ID}} .tippy-box',
-			)
+			[
+				'name' 			=> 'tooltips_typo',
+				'selector' 		=> '#powerTip.oew-hotspot-powertip',
+				'scheme' 		=> Scheme_Typography::TYPOGRAPHY_1,
+			]
 		);
 
 		$this->add_control(
 			'tooltips_background',
-			array(
-				'label'     => __( 'Background Color', 'ocean-elementor-widgets' ),
-				'type'      => Controls_Manager::COLOR,
-				'selectors' => array(
-					'div[id*="tippy-"].oew-hotspot-powertip-{{ID}} .tippy-box' => 'background-color: {{VALUE}};',
-					'div[id*="tippy-"].oew-hotspot-powertip-{{ID}} .tippy-box > .tippy-svg-arrow' => 'fill: {{VALUE}};',
-				),
-			)
+			[
+				'label' 		=> __( 'Background Color', 'ocean-elementor-widgets' ),
+				'type' 			=> Controls_Manager::COLOR,
+				'selectors' 	=> [
+					'#powerTip.oew-hotspot-powertip' => 'background-color: {{VALUE}};',
+					'#powerTip.oew-hotspot-powertip.n:before' => 'border-top-color: {{VALUE}};',
+					'#powerTip.oew-hotspot-powertip.e:before' => 'border-right-color: {{VALUE}};',
+					'#powerTip.oew-hotspot-powertip.s:before' => 'border-bottom-color: {{VALUE}};',
+					'#powerTip.oew-hotspot-powertip.w:before' => 'border-left-color: {{VALUE}};',
+					'#powerTip.oew-hotspot-powertip.ne:before, #powerTip.oew-hotspot-powertip.nw:before' => 'border-top-color: {{VALUE}};',
+					'#powerTip.oew-hotspot-powertip.se:before, #powerTip.oew-hotspot-powertip.sw:before' => 'border-bottom-color: {{VALUE}};',
+					'#powerTip.oew-hotspot-powertip.nw-alt:before, #powerTip.oew-hotspot-powertip.ne-alt:before, #powerTip.oew-hotspot-powertip.sw-alt:before, #powerTip.oew-hotspot-powertip.se-alt:before' => 'border-top-color: {{VALUE}};',
+					'#powerTip.oew-hotspot-powertip.sw-alt:before, #powerTip.oew-hotspot-powertip.se-alt:before' => 'border-bottom-color: {{VALUE}};',
+				],
+			]
 		);
 
 		$this->add_control(
 			'tooltips_color',
-			array(
-				'label'     => __( 'Color', 'ocean-elementor-widgets' ),
-				'type'      => Controls_Manager::COLOR,
-				'selectors' => array(
-					'div[id*="tippy-"].oew-hotspot-powertip-{{ID}} .tippy-box' => 'color: {{VALUE}};',
-				),
-			)
+			[
+				'label' 		=> __( 'Color', 'ocean-elementor-widgets' ),
+				'type' 			=> Controls_Manager::COLOR,
+				'selectors' 	=> [
+					'#powerTip.oew-hotspot-powertip' => 'color: {{VALUE}};',
+				],
+			]
 		);
 
 		$this->add_group_control(
 			Group_Control_Border::get_type(),
-			array(
-				'name'     => 'tooltips_border',
-				'label'    => __( 'Border', 'ocean-elementor-widgets' ),
-				'selector' => 'div[id*="tippy-"].oew-hotspot-powertip-{{ID}} .tippy-box',
-			)
+			[
+				'name' 			=> 'tooltips_border',
+				'label' 		=> __( 'Border', 'ocean-elementor-widgets' ),
+				'selector' 		=> '#powerTip.oew-hotspot-powertip',
+			]
 		);
 
 		$this->add_responsive_control(
 			'tooltips_border_radius',
-			array(
-				'label'      => __( 'Border Radius', 'ocean-elementor-widgets' ),
-				'type'       => Controls_Manager::DIMENSIONS,
-				'size_units' => array( 'px', '%' ),
-				'selectors'  => array(
-					'div[id*="tippy-"].oew-hotspot-powertip-{{ID}} .tippy-box' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-				),
-			)
+			[
+				'label' 		=> __( 'Border Radius', 'ocean-elementor-widgets' ),
+				'type' 			=> Controls_Manager::DIMENSIONS,
+				'size_units' 	=> [ 'px', '%' ],
+				'selectors' 	=> [
+					'#powerTip.oew-hotspot-powertip' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
 		);
 
 		$this->add_group_control(
 			Group_Control_Box_Shadow::get_type(),
-			array(
-				'name'     => 'tooltips_box_shadow',
-				'selector' => 'div[id*="tippy-"].oew-hotspot-powertip-{{ID}} .tippy-box',
-			)
+			[
+				'name' 			=> 'tooltips_box_shadow',
+				'selector' 		=> '#powerTip.oew-hotspot-powertip',
+			]
 		);
 
-		$this->end_controls_section();
+        $this->end_controls_section();
 
 	}
 
@@ -575,37 +572,30 @@ class Hotspots extends Widget_Base {
 			<?php echo Group_Control_Image_Size::get_attachment_image_html( $settings ); ?>
 
 			<?php
-			if ( $settings['hotspots'] ) {
-				?>
+			if ( $settings['hotspots'] ) { ?>
 				<div class="oew-hotspot-wrap">
 					<?php
 					foreach ( $settings['hotspots'] as $index => $item ) :
-						$hotspot_tag = 'div';
-						$hotspot     = $this->get_repeater_setting_key( 'hotspot', 'hotspots', $index );
-						$text        = $this->get_repeater_setting_key( 'hotspot_text', 'hotspots', $index );
-						$icon        = $this->get_repeater_setting_key( 'hotspot_icon', 'hotspots', $index );
+						$hotspot_tag 	= 'div';
+						$hotspot 		= $this->get_repeater_setting_key( 'hotspot', 'hotspots', $index );
+						$text 			= $this->get_repeater_setting_key( 'hotspot_text', 'hotspots', $index );
+						$icon 			= $this->get_repeater_setting_key( 'hotspot_icon', 'hotspots', $index );
 
-						$this->add_render_attribute(
-							$hotspot,
-							array(
-								'class' => array(
-									'oew-hotspot-inner',
-									'elementor-repeater-item-' . $item['_id'],
-								),
-							)
-						);
+						$this->add_render_attribute( $hotspot, [
+							'class' => [
+								'oew-hotspot-inner',
+								'elementor-repeater-item-' . $item['_id'],
+							]
+						] );
 
 						if ( 'yes' == $item['tooltip'] ) {
-							$this->add_render_attribute(
-								$hotspot,
-								array(
-									'class' => array(
-										'oew-hotspot-tooltip',
-										'oew-tooltip-' . $item['tooltip_position'],
-									),
-									'aria-label' => trim( $this->parse_text_editor( $item['tooltip_content'] ) ),
-								)
-							);
+							$this->add_render_attribute( $hotspot, [
+								'class' => [
+									'oew-hotspot-tooltip',
+									'oew-tooltip-' . $item['tooltip_position'],
+								],
+								'title'	=> $this->parse_text_editor( $item['tooltip_content'] ),
+							] );
 						}
 
 						$this->add_render_attribute( $text, 'class', 'oew-hotspot-text' );
@@ -622,43 +612,35 @@ class Hotspots extends Widget_Base {
 							if ( ! empty( $item['hotspot_link']['nofollow'] ) ) {
 								$this->add_render_attribute( $hotspot, 'rel', 'nofollow' );
 							}
-						}
-						?>
+						} ?>
 
 						<<?php echo $hotspot_tag; ?> <?php echo $this->get_render_attribute_string( $hotspot ); ?>>
 							<?php
-							if ( 'blank' != $item['hotspot_type'] ) {
-								?>
+							if ( 'blank' != $item['hotspot_type'] ) { ?>
 								<span <?php echo $this->get_render_attribute_string( $text ); ?>>
 									<?php
-									if ( 'icon' == $item['hotspot_type'] && ! empty( $item['hotspot_icon'] ) ) {
-										?>
+									if ( 'icon' == $item['hotspot_type'] && ! empty( $item['hotspot_icon'] ) ) { ?>
 										<i class="<?php echo esc_attr( $item['hotspot_icon'] ); ?>""></i>
-										<?php
+									<?php
 									} else {
 										echo $item['hotspot_text'];
-									}
-									?>
+									} ?>
 								</span>
-								<?php
-							}
-							?>
+							<?php
+							} ?>
 						</<?php echo $hotspot_tag; ?>>
 
-						<?php
-					endforeach;
-					?>
+					<?php
+					endforeach; ?>
 				</div>
-				<?php
-			}
-			?>
+			<?php
+			} ?>
 		</div>
 
-		<?php
+	<?php
 	}
 
-	protected function content_template() {
-		?>
+	protected function _content_template() { ?>
 		<# if ( settings.image.url ) {
 			var image = {
 				id: settings.image.id,
@@ -694,7 +676,7 @@ class Hotspots extends Widget_Base {
 							if ( 'yes' == item.tooltip ) {
 								view.addRenderAttribute( hotspot, 'class', 'oew-hotspot-tooltip' );
 								view.addRenderAttribute( hotspot, 'class', 'oew-tooltip-' + item.tooltip_position );
-								view.addRenderAttribute( hotspot, 'aria-label', item.tooltip_content );
+								view.addRenderAttribute( hotspot, 'title', item.tooltip_content );
 							}
 
 							view.addRenderAttribute( text, 'class', 'oew-hotspot-text' );
@@ -721,7 +703,7 @@ class Hotspots extends Widget_Base {
 			</div>
 
 		<# } #>
-		<?php
+	<?php
 	}
 
 }

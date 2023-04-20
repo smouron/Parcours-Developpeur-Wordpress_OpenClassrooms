@@ -44,80 +44,63 @@
 Price List
 -------------------------------------------------------------------*/
 .oew-price-list {
-    .oew-price-list-item {
-        @include display();
-        @include align-items( center );
+    list-style: none;
+    padding: 0;
+    margin: 0;
     
-        &:not(:last-child) {
-            margin-bottom: 15px;
-        }
+    li:not(:last-child) {
+        margin-bottom: 10px;
     }
-
-    .oew-price-list-text {
-        @include flex-wrap( wrap );
-        -webkit-box-flex: 1;
-        -webkit-flex-grow: 1;
-        -ms-flex-positive: 1;
-        -moz-box-flex: 1;
-        flex-grow: 1;
+    
+    &-item {
+        display: block;
     }
-
-    .oew-price-list-header {
+    
+    &-text {
         @include display();
         @include flex-wrap( wrap );
         @include align-items( center );
         @include justify-content( space-between );
-        font-size: 16px;
+        font-size: 18px;
         font-weight: 600;
     }
 
-    &.no-separator .oew-price-list-header {
-        display: block;
-    }
-
-    .oew-price-list-image {
+    &-image {
+        max-width: 50%;
         padding-right: 18px;
-        width: 150px;
-        min-width: 150px;
 
         img {
             width: 100%;
         }
     }
 
-    .oew-price-list-title {
+    &-title {
         color: #333;
         max-width: 80%;
     }
 
-    .oew-price-list-description {
+    &-description {
         color: #999999;
         font-size: 14px;
-        margin: 10px 0 0;
+        margin: 0;
     }
 
-    .oew-price-list-separator {
+    &-separator {
         border-bottom: 1px dotted #b5b5b5;
-        flex: 1;
-        -webkit-box-flex: 1;
-        -webkit-flex-grow: 1;
-        -ms-flex-positive: 1;
-        -moz-box-flex: 1;
-        flex-grow: 1;
-        margin: 0 10px;
+        margin-left: 10px;
         height: 0;
+        flex: 1;
     }
 
-    .oew-price-list-price-wrap {
-        display: inline-block;
+    &-price-wrap {
+        display: inline-flex;
     }
 
-    &.oew-price-list-inline .oew-price-list-price-wrap {
+    &.oew-price-list-inline &-price-wrap {
         margin-top: 10px;
     }
 
-    .oew-price-list-price {
-        padding: 5px 10px;
+    &-price {
         color: #13aff0;
         border: 1px dotted #13aff0;
         width: 50px;
@@ -128,26 +111,26 @@ Price List
         @include transition( all .3s ease );
     }
 
-    a:hover .oew-price-list-price {
+    a:hover &-price {
         background-color: #13aff0;
         color: #fff;
-    }
-
-    .oew-price-list-discount-price {
-        text-decoration: line-through;
-        color: #ccc;
     }
 }
 
 /* RTL */
 body.rtl {
     .oew-price-list {
-        .oew-price-list-image {
+        &-image {
             padding-left: 25px;
             padding-right: 0;
         }
+        
+        &-separator {
+            margin-right: 10px;
+            margin-left: 0;
+        }
 
-        .oew-price-list-price {
+        &-price {
             padding-right: 30px;
             padding-left: 0;
         }
@@ -159,20 +142,17 @@ Responsive
 -------------------------------------------------------------------*/
 @media only screen and (max-width: 480px) {
     .oew-price-list {
-        .oew-price-list-item {
-            display: block;
+        &-image,
+        &-separator {
+            display: none;
         }
 
-        .oew-price-list-image {
-            padding: 0;
-        }
-
-        .oew-price-list-title {
+        &-title {
             font-size: 14px;
             max-width: 100%;
         }
 
-        .oew-price-list-description {
+        &-description {
             font-size: 12px;
         }
     }

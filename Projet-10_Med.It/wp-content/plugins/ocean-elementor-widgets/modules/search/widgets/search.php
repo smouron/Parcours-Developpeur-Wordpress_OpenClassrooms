@@ -6,6 +6,7 @@ use Elementor\Controls_Manager;
 use Elementor\Group_Control_Box_Shadow;
 use Elementor\Group_Control_Typography;
 use Elementor\Group_Control_Border;
+use Elementor\Scheme_Typography;
 use Elementor\Widget_Base;
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
@@ -21,21 +22,13 @@ class Search extends Widget_Base {
 	}
 
 	public function get_icon() {
+		// Upload "eicons.ttf" font via this site: http://bluejamesbond.github.io/CharacterMap/
 		return 'oew-icon eicon-search';
 	}
 
 	public function get_categories() {
 		return [ 'oceanwp-elements' ];
 	}
-
-    public function get_keywords() {
-        return [
-            'ajax',
-            'search',
-            'search icon',
-            'owp',
-        ];
-    }
 
 	public function get_script_depends() {
 		return [ 'oew-search' ];
@@ -45,7 +38,7 @@ class Search extends Widget_Base {
 		return [ 'oew-search' ];
 	}
 
-	protected function register_controls() {
+	protected function _register_controls() {
 
 		$this->start_controls_section(
 			'section_search',
@@ -117,7 +110,7 @@ class Search extends Widget_Base {
 			]
 		);
 
-		$this->add_control(
+		/*$this->add_control(
 			'source',
 			[
 				'label' 		=> _x( 'Source', 'Posts Type', 'ocean-elementor-widgets' ),
@@ -126,7 +119,7 @@ class Search extends Widget_Base {
 				'default' 		=> 'any',
 				'label_block' 	=> true,
 			]
-		);
+		);*/
 
 		$this->add_control(
 			'enable_ajax',
@@ -148,15 +141,15 @@ class Search extends Widget_Base {
 				'options' 		=> [
 					'left'    => [
 						'title' => __( 'Left', 'ocean-elementor-widgets' ),
-						'icon' 	=> 'eicon-text-align-left',
+						'icon' 	=> 'fa fa-align-left',
 					],
 					'center' => [
 						'title' => __( 'Center', 'ocean-elementor-widgets' ),
-						'icon' 	=> 'eicon-text-align-center',
+						'icon' 	=> 'fa fa-align-center',
 					],
 					'right' => [
 						'title' => __( 'Right', 'ocean-elementor-widgets' ),
-						'icon' 	=> 'eicon-text-align-right',
+						'icon' 	=> 'fa fa-align-right',
 					],
 				],
 				'default' 		=> '',
@@ -342,6 +335,7 @@ class Search extends Widget_Base {
 			[
 				'name' 			=> 'newsletter_input',
 				'selector' 		=> '{{WRAPPER}} .oceanwp-searchform input.field',
+				'scheme' 		=> Scheme_Typography::TYPOGRAPHY_1,
 			]
 		);
 
@@ -369,7 +363,6 @@ class Search extends Widget_Base {
 				],
 				'selectors' => [
 					'{{WRAPPER}} .oceanwp-searchform button' => 'font-size: {{SIZE}}px;',
-					'{{WRAPPER}} .oceanwp-searchform button .owp-icon' => 'width: {{SIZE}}px; height: {{SIZE}}px;',
 				],
 			]
 		);
@@ -407,7 +400,6 @@ class Search extends Widget_Base {
 				'type' 			=> Controls_Manager::COLOR,
 				'selectors' 	=> [
 					'{{WRAPPER}} .oceanwp-searchform button' => 'color: {{VALUE}};',
-					'{{WRAPPER}} .oceanwp-searchform button .owp-icon use' => 'stroke: {{VALUE}};',
 				],
 			]
 		);
@@ -428,7 +420,6 @@ class Search extends Widget_Base {
 				'type' 			=> Controls_Manager::COLOR,
 				'selectors' 	=> [
 					'{{WRAPPER}} .oceanwp-searchform button:hover' => 'color: {{VALUE}};',
-					'{{WRAPPER}} .oceanwp-searchform button:hover .owp-icon use' => 'stroke: {{VALUE}};',
 				],
 			]
 		);
@@ -621,6 +612,7 @@ class Search extends Widget_Base {
 			[
 				'name' 			=> 'results_search_typo',
 				'selector' 		=> '{{WRAPPER}} .oew-search-wrap .oew-search-results ul li a',
+				'scheme' 		=> Scheme_Typography::TYPOGRAPHY_1,
 			]
 		);
 
@@ -651,6 +643,7 @@ class Search extends Widget_Base {
 			[
 				'name' 			=> 'no_results_heading_typo',
 				'selector' 		=> '{{WRAPPER}} .oew-search-wrap .oew-no-search-results h6',
+				'scheme' 		=> Scheme_Typography::TYPOGRAPHY_1,
 			]
 		);
 
@@ -670,6 +663,7 @@ class Search extends Widget_Base {
 			[
 				'name' 			=> 'no_results_text_typo',
 				'selector' 		=> '{{WRAPPER}} .oew-search-wrap .oew-no-search-results p',
+				'scheme' 		=> Scheme_Typography::TYPOGRAPHY_1,
 			]
 		);
 
@@ -712,24 +706,17 @@ class Search extends Widget_Base {
 		$placeholder = '';
 		if ( ! empty( $settings['placeholder'] ) ) {
 			$placeholder = ' placeholder="'. $settings['placeholder'] .'"';
-		}
-
-		$oew_ajaxs_id = oew_unique_id( 'oew-ajaxs-' );
-		
-		?>
+		} ?>
 
 		<div class="oew-search-wrap" data-ajaxurl="<?php echo esc_url( $ajax ); ?>">
 			<form method="get" class="<?php echo esc_attr( $classes ); ?>" id="searchform" action="<?php echo esc_url( home_url( '/' ) ); ?>">
-				<label for="<?php echo esc_attr( $oew_ajaxs_id ); ?>">
-					<span class="screen-reader-text"><?php echo esc_html( oew_lang_strings( 'oew-string-ajaxs-label' ) ); ?></span>
-					<input type="text" class="field" name="s" id="<?php echo esc_attr( $oew_ajaxs_id ); ?>"<?php echo $placeholder; ?>>
-					<button aria-label="<?php echo esc_html( oew_lang_strings( 'oew-string-ajaxs-btn' ) ); ?>" type="submit" class="search-submit" value=""><?php oew_svg_icon( 'search' ); ?></button>
-					<?php
-					if ( ! empty( $settings['source'] ) && 'any' != $settings['source'] ) { ?>
-						<input type="hidden" name="post_type" value="<?php echo esc_attr( $settings['source'] ); ?>">
-					<?php
-					} ?>
-				</label>
+				<input type="text" class="field" name="s" id="s"<?php echo $placeholder; ?>>
+				<button type="submit" class="search-submit" value=""><i class="icon-magnifier"></i></button>
+				<?php
+				/*if ( ! empty( $settings['source'] ) && 'any' != $settings['source'] ) { ?>
+					<input type="hidden" name="post_type" value="<?php echo esc_attr( $settings['source'] ); ?>">
+				<?php
+				}*/ ?>
 			</form>
 			<?php
 			if ( 'yes' == $settings['enable_ajax'] ) { ?>
@@ -743,6 +730,6 @@ class Search extends Widget_Base {
 	}
 
 	// No template because it cause a js error in the edit mode
-	protected function content_template() {}
+	protected function _content_template() {}
 
 }

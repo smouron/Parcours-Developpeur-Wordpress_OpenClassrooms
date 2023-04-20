@@ -3,11 +3,10 @@ namespace owpElementor\Modules\PriceList\Widgets;
 
 // Elementor Classes
 use Elementor\Controls_Manager;
-use Elementor\Repeater;
 use Elementor\Group_Control_Typography;
+use Elementor\Scheme_Typography;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Box_Shadow;
-use Elementor\Group_Control_Image_Size;
 use Elementor\Widget_Base;
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
@@ -23,6 +22,7 @@ class Price_List extends Widget_Base {
 	}
 
 	public function get_icon() {
+		// Upload "eicons.ttf" font via this site: http://bluejamesbond.github.io/CharacterMap/
 		return 'oew-icon eicon-bullet-list';
 	}
 
@@ -30,20 +30,11 @@ class Price_List extends Widget_Base {
 		return [ 'oceanwp-elements' ];
 	}
 
-    public function get_keywords() {
-        return [
-            'price',
-            'list',
-            'menu',
-            'owp',
-        ];
-    }
-
 	public function get_style_depends() {
 		return [ 'oew-price-list' ];
 	}
 
-	protected function register_controls() {
+	protected function _register_controls() {
 
 		$this->start_controls_section(
 			'section_price_list',
@@ -52,92 +43,48 @@ class Price_List extends Widget_Base {
 			]
 		);
 
-		$repeater = new Repeater();
-
-        $repeater->add_control(
-            'price',
-            [
-				'name' => 'price',
-				'label' => __( 'Price', 'ocean-elementor-widgets' ),
-				'type' => Controls_Manager::TEXT,
-				'default' => '',
-				'dynamic' => [ 'active' => true ],
-			]
-        );
-
-        $repeater->add_control(
-            'has_discount',
-            [
-				'label' => __( 'Offering Discount?', 'ocean-elementor-widgets' ),
-				'type' => Controls_Manager::SWITCHER,
-				'default' => 'no',
-				'return_value' => 'yes',
-			]
-        );
-
-        $repeater->add_control(
-            'original_price',
-            [
-				'label' => __( 'Original Price', 'ocean-elementor-widgets' ),
-				'type' => Controls_Manager::TEXT,
-				'default' => '$99',
-				'dynamic' => [ 'active' => true ],
-				'condition' => [
-					'has_discount' => 'yes',
-				],
-			]
-        );
-
-		$repeater->add_control(
-            'title',
-            [
-				'name' => 'title',
-				'label' => __( 'Title', 'ocean-elementor-widgets' ),
-				'type' => Controls_Manager::TEXT,
-				'default' => '',
-				'label_block' => 'true',
-				'dynamic' => [ 'active' => true ],
-			]
-        );
-
-		$repeater->add_control(
-            'description',
-            [
-				'name' => 'description',
-				'label' => __( 'Description', 'ocean-elementor-widgets' ),
-				'type' => Controls_Manager::TEXTAREA,
-				'default' => '',
-				'dynamic' => [ 'active' => true ],
-			]
-        );
-
-		$repeater->add_control(
-            'image',
-            [
-				'name' => 'image',
-				'label' => __( 'Image', 'ocean-elementor-widgets' ),
-				'type' => Controls_Manager::MEDIA,
-				'default' => [],
-				'dynamic' => [ 'active' => true ],
-			]
-        );
-
-		$repeater->add_control(
-            'link',
-            [
-				'name' => 'link',
-				'label' => __( 'Link', 'ocean-elementor-widgets' ),
-				'type' => Controls_Manager::URL,
-				'default' => [ 'url' => '#' ],
-			]
-        );
-
 		$this->add_control(
 			'price_list',
 			[
 				'label' 		=> __( 'List Items', 'ocean-elementor-widgets' ),
 				'type' 			=> Controls_Manager::REPEATER,
-                'fields' 		=> $repeater->get_controls(),
+				'fields' 		=> [
+					[
+						'name' => 'price',
+						'label' => __( 'Price', 'ocean-elementor-widgets' ),
+						'type' => Controls_Manager::TEXT,
+						'default' => '',
+						'dynamic' => [ 'active' => true ],
+					],
+					[
+						'name' => 'title',
+						'label' => __( 'Title', 'ocean-elementor-widgets' ),
+						'type' => Controls_Manager::TEXT,
+						'default' => '',
+						'label_block' => 'true',
+						'dynamic' => [ 'active' => true ],
+					],
+					[
+						'name' => 'description',
+						'label' => __( 'Description', 'ocean-elementor-widgets' ),
+						'type' => Controls_Manager::TEXTAREA,
+						'default' => '',
+						'dynamic' => [ 'active' => true ],
+					],
+					[
+						'name' => 'image',
+						'label' => __( 'Image', 'ocean-elementor-widgets' ),
+						'type' => Controls_Manager::MEDIA,
+						'default' => [],
+						'dynamic' => [ 'active' => true ],
+					],
+					[
+						'name' => 'link',
+						'label' => __( 'Link', 'ocean-elementor-widgets' ),
+						'type' => Controls_Manager::URL,
+						'default' => [ 'url' => '#' ],
+					],
+				],
 				'default' 		=> [
 					[
 						'title' => __( 'Menu item #1', 'ocean-elementor-widgets' ),
@@ -151,20 +98,11 @@ class Price_List extends Widget_Base {
 					],
 					[
 						'title' => __( 'Menu item #3', 'ocean-elementor-widgets' ),
-						'price' => '$69',
+						'price' => '$99',
 						'link' => [ 'url' => '#' ],
 					],
 				],
 				'title_field' 	=> '{{{ title }}}',
-			]
-		);
-
-        $this->end_controls_section();
-
-		$this->start_controls_section(
-			'section_settings',
-			[
-				'label' 		=> __( 'Settings', 'ocean-elementor-widgets' ),
 			]
 		);
 
@@ -187,62 +125,6 @@ class Price_List extends Widget_Base {
 				'label' 		=> __( 'Separator', 'ocean-elementor-widgets' ),
 				'type' 			=> Controls_Manager::SWITCHER,
 				'default' 		=> 'yes',
-			]
-		);
-
-		$this->add_control(
-			'alignment',
-			[
-				'label' 		=> __( 'Alignment', 'ocean-elementor-widgets' ),
-				'type' 			=> Controls_Manager::CHOOSE,
-				'options' 		=> [
-					'left' => [
-						'title' => __( 'Left', 'ocean-elementor-widgets' ),
-						'icon' => 'eicon-text-align-left',
-					],
-					'center' => [
-						'title' => __( 'Center', 'ocean-elementor-widgets' ),
-						'icon' => 'eicon-text-align-center',
-					],
-					'right' => [
-						'title' => __( 'Right', 'ocean-elementor-widgets' ),
-						'icon' => 'eicon-text-align-right',
-					],
-				],
-				'selectors' 	=> [
-					'{{WRAPPER}} .oew-price-list .oew-price-list-item' => 'text-align: {{VALUE}}',
-				],
-			]
-		);
-
-		$this->add_control(
-			'vertical_align',
-			[
-
-				'label' 		=> __( 'Vertical Alignment', 'ocean-elementor-widgets' ),
-				'type' 			=> Controls_Manager::CHOOSE,
-				'options' 		=> [
-					'top' => [
-						'title' => __( 'Top', 'ocean-elementor-widgets' ),
-						'icon'  => 'fa fa-long-arrow-up',
-					],
-					'center' => [
-						'title' => __( 'Center', 'ocean-elementor-widgets' ),
-						'icon'  => 'fa fa-arrows-v',
-					],
-					'bottom' => [
-						'title' => __( 'Bottom', 'ocean-elementor-widgets' ),
-						'icon'  => 'fa fa-long-arrow-down',
-					],
-				],
-				'default' 		=> 'center',
-				'selectors' 	=> [
-					'{{WRAPPER}} .oew-price-list .oew-price-list-item' => 'align-items: {{VALUE}};',
-				],
-				'selectors_dictionary' => [
-					'top'    => 'flex-start',
-					'bottom' => 'flex-end',
-				],
 			]
 		);
 
@@ -283,7 +165,7 @@ class Price_List extends Widget_Base {
 					]
 				],
 				'selectors' 	=> [
-					'{{WRAPPER}} .oew-price-list .oew-price-list-item:not(:last-child)' => 'margin-bottom: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .oew-price-list li:not(:last-child)' => 'margin-bottom: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -357,6 +239,7 @@ class Price_List extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name' 			=> 'title_typography',
+				'scheme' 		=> Scheme_Typography::TYPOGRAPHY_4,
 				'selector' 		=> '{{WRAPPER}} .oew-price-list-title',
 			]
 		);
@@ -391,7 +274,7 @@ class Price_List extends Widget_Base {
 					'separator' => 'yes',
 				],
 				'selectors' 	=> [
-					'{{WRAPPER}} .oew-price-list .oew-price-list-separator' => 'border-bottom-style: {{VALUE}};',
+					'{{WRAPPER}} .oew-price-list-separator' => 'border-bottom-style: {{VALUE}};',
 				],
 			]
 		);
@@ -446,7 +329,8 @@ class Price_List extends Widget_Base {
 					'separator' => 'yes',
 				],
 				'selectors' 	=> [
-					'{{WRAPPER}} .oew-price-list-separator' => 'margin: 0 {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .oew-price-list-separator' => 'margin-left: {{SIZE}}{{UNIT}};',
+					'body.rtl {{WRAPPER}} .oew-price-list-separator' => 'margin-right: {{SIZE}}{{UNIT}}; margin-left: 0;',
 				],
 			]
 		);
@@ -461,10 +345,27 @@ class Price_List extends Widget_Base {
 			]
 		);
 
+		$this->add_control(
+			'price_width',
+			[
+				'label' 		=> __( 'Width', 'ocean-elementor-widgets' ),
+				'type' 			=> Controls_Manager::SLIDER,
+				'range' 		=> [
+					'px' => [
+						'max' => 400,
+					],
+				],
+				'selectors' 	=> [
+					'{{WRAPPER}} .oew-price-list-price' => 'width: {{SIZE}}{{UNIT}};',
+				],
+			]
+		);
+
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			[
 				'name' 			=> 'price_typography',
+				'scheme' 		=> Scheme_Typography::TYPOGRAPHY_4,
 				'selector' 		=> '{{WRAPPER}} .oew-price-list-price',
 			]
 		);
@@ -601,33 +502,6 @@ class Price_List extends Widget_Base {
 			]
 		);
 
-        $this->add_control(
-            'discount_title',
-            [
-                'label' 		=> __( 'Discount Price', 'ocean-elementor-widgets' ),
-                'type'  		=> Controls_Manager::HEADING,
-            ]
-        );
-
-		$this->add_control(
-			'discount_color',
-			[
-				'label' 		=> __( 'Color', 'ocean-elementor-widgets' ),
-				'type' 			=> Controls_Manager::COLOR,
-				'selectors' 	=> [
-					'{{WRAPPER}} .oew-price-list .oew-price-list-discount-price' => 'color: {{VALUE}};',
-				],
-			]
-		);
-
-		$this->add_group_control(
-			Group_Control_Typography::get_type(),
-			[
-				'name' 			=> 'discount_typo',
-				'selector' 		=> '{{WRAPPER}} .oew-price-list .oew-price-list-discount-price',
-			]
-		);
-
         $this->end_controls_section();
 
 		$this->start_controls_section(
@@ -654,6 +528,7 @@ class Price_List extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name' 			=> 'description_typography',
+				'scheme' 		=> Scheme_Typography::TYPOGRAPHY_4,
 				'selector' 		=> '{{WRAPPER}} .oew-price-list-description',
 			]
 		);
@@ -680,14 +555,6 @@ class Price_List extends Widget_Base {
 			]
 		);
 
-		$this->add_group_control(
-			Group_Control_Image_Size::get_type(),
-			array(
-				'name'    		=> 'image_size',
-				'default' 		=> 'thumbnail',
-			)
-		);
-
 		$this->add_responsive_control(
 			'image_width',
 			[
@@ -703,7 +570,7 @@ class Price_List extends Widget_Base {
 					]
 				],
 				'selectors' 	=> [
-					'{{WRAPPER}} .oew-price-list .oew-price-list-image' => 'width: {{SIZE}}{{UNIT}}; min-width: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .oew-price-list-image' => 'max-width: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -766,40 +633,6 @@ class Price_List extends Widget_Base {
 
 	}
 
-	private function render_price( $index ) {
-		$settings  = $this->get_settings_for_display();
-		$item      = $settings['price_list'][ $index ];
-
-		$key = $this->get_repeater_setting_key( 'wrapper', 'price_list', $index );
-		$this->add_render_attribute( $key, 'class', 'oew-price-list-price-wrap' );
-
-		if ( 'yes' === $item['has_discount'] ) {
-			$this->add_render_attribute( $key, 'class', 'has-discount' );
-		}
-
-		$price_key = $this->get_repeater_setting_key( 'price', 'price_list', $index );
-
-		$this->add_render_attribute( $price_key, 'class', 'oew-price-list-price' );
-		$this->add_inline_editing_attributes( $price_key, 'basic' );
-
-		$discount_price_key = $this->get_repeater_setting_key( 'original_price', 'price_list', $index );
-
-		$this->add_render_attribute( $discount_price_key, 'class', 'oew-price-list-discount-price' );
-		$this->add_inline_editing_attributes( $discount_price_key, 'basic' ); ?>
-
-		<div <?php echo $this->get_render_attribute_string( $key ); ?>>
-			<?php
-			if ( 'yes' === $item['has_discount'] ) { ?>
-				<span <?php echo $this->get_render_attribute_string( $discount_price_key ); ?>><?php echo wp_kses_post( $item['original_price'] ); ?></span>
-			<?php
-			} ?>
-
-			<span <?php echo $this->get_render_attribute_string( $price_key ); ?>><?php echo wp_kses_post( $item['price'] ); ?></span>
-		</div>
-
-	<?php
-	}
-
 	protected function render() {
 		$settings 	= $this->get_settings_for_display();
 		$style 		= $settings['style'];
@@ -807,44 +640,19 @@ class Price_List extends Widget_Base {
 		$this->add_render_attribute( 'wrap', 'class', [
 			'oew-price-list',
 			'oew-price-list-' . $style
-		] );
+		] ); ?>
 
-		if ( 'yes' != $settings['separator'] ) {
-			$this->add_render_attribute( 'wrap', 'class', 'no-separator' );
-		} ?>
-
-		<div <?php echo $this->get_render_attribute_string( 'wrap' ); ?>>
+		<ul <?php echo $this->get_render_attribute_string( 'wrap' ); ?>>
 
 			<?php
 			foreach ( $settings['price_list'] as $index => $item ) :
-				$title_key = $this->get_repeater_setting_key( 'title', 'price_list', $index );
-				$this->add_render_attribute( $title_key, 'class', 'oew-price-list-title' );
-				$this->add_inline_editing_attributes( $title_key, 'basic' );
-
-				$desc_key = $this->get_repeater_setting_key( 'description', 'price_list', $index );
-				$this->add_render_attribute( $desc_key, 'class', 'oew-price-list-description' );
-				$this->add_inline_editing_attributes( $desc_key, 'basic' );
-
 				$item_id 	= 'item-' . $index;
 
 				$url 		= $item['link']['url'];
 				$has_image 	= ( $item['image']['url'] ) ? 'has-image ' : '';
-				$image_id   = $item['image']['id'];
-				$image_size = $settings['image_size_size'];
-
-				if ( 'custom' === $image_size ) {
-					$image_src = Group_Control_Image_Size::get_attachment_image_src( $image_id, 'image_size', $settings );
-				} else {
-					$image_src = wp_get_attachment_image_src( $image_id, $image_size );
-					$image_src = ( false !== $image_src ) ? $image_src[0] : '';
-				}
-
-				if ( '' === $image_id ) {
-					if ( isset( $item['image']['url'] ) ) {
-						$image_src = $item['image']['url'];
-					}
-				}
-
+				$image_id  	= $item['image']['id'];
+				$image_src 	= wp_get_attachment_image_src( $image_id, 'full' );
+				$image_src 	= $image_src[0];
 
 				$this->add_render_attribute( $item_id, 'class', 'oew-price-list-item' );
 
@@ -855,178 +663,129 @@ class Price_List extends Widget_Base {
 						$this->add_render_attribute( $item_id, 'target', '_blank' );
 					} ?>
 
-					<a <?php echo $this->get_render_attribute_string( $item_id ); ?>>
+					<li><a <?php echo $this->get_render_attribute_string( $item_id ); ?>>
 
 				<?php
 				} else { ?>
-					<div <?php echo $this->get_render_attribute_string( $item_id ); ?>>
+					<li <?php echo $this->get_render_attribute_string( $item_id ); ?>>
 				<?php
 				} ?>
+
+					<div class="oew-price-list-text">
+						<?php
+						if ( ! empty( $item['image']['url'] ) ) { ?>
+							<div class="oew-price-list-image">
+								<?php echo sprintf( '<img src="%s" alt="%s" />', $image_src, $item['title'] ); ?>
+							</div>
+						<?php
+						} ?>
+
+						<span class="oew-price-list-title"><?php echo esc_html( $item['title'] ); ?></span>
+
+						<?php
+						if ( 'yes' == $settings['separator'] ) { ?>
+							<span class="oew-price-list-separator"></span>
+						<?php
+						}
+
+						if ( 'side' == $style ) { ?>
+							<div class="oew-price-list-price-wrap">
+								<span class="oew-price-list-price"><?php echo esc_html( $item['price'] ); ?></span>
+							</div>
+						<?php
+						} ?>
+					</div>
+
 					<?php
-					if ( ! empty( $item['image']['url'] ) ) { ?>
-						<div class="oew-price-list-image">
-							<?php echo sprintf( '<img src="%s" alt="%s" />', esc_url( $image_src ), wp_kses_post( $item['title'] ) ); ?>
+					if ( $item['description'] ) { ?>
+						<p class="oew-price-list-description"><?php echo wp_kses_post( $item['description'] ); ?></p>
+					<?php
+					}
+
+					if ( 'inline' == $style ) { ?>
+						<div class="oew-price-list-price-wrap">
+							<span class="oew-price-list-price"><?php echo esc_html( $item['price'] ); ?></span>
 						</div>
 					<?php
 					} ?>
 
-					<div class="oew-price-list-text">
-
-						<div class="oew-price-list-header">
-
-							<span <?php echo $this->get_render_attribute_string( $title_key ); ?>><?php echo esc_html( $item['title'] ); ?></span>
-
-							<?php
-							if ( 'yes' == $settings['separator'] ) { ?>
-								<span class="oew-price-list-separator"></span>
-							<?php
-							}
-
-							if ( 'side' == $style ) {
-								$this->render_price( $index );
-							} ?>
-
-						</div>
-
-						<?php
-						if ( $item['description'] ) { ?>
-							<p <?php echo $this->get_render_attribute_string( $desc_key ); ?>><?php echo wp_kses_post( $item['description'] ); ?></p>
-						<?php
-						}
-
-						if ( 'inline' == $style ) {
-							$this->render_price( $index );
-						} ?>
-
-					</div>
-
 				<?php
 				if ( $item['link']['url'] ) { ?>
-					</a>
+					</a></li>
 				<?php
 				} else { ?>
-					</div>
+					</li>
 				<?php
 				} ?>
 
 			<?php
 			endforeach; ?>
 
-		</div>
+		</ul>
 
 	<?php
 	}
 
-	/**
-	 * Render Price List widget output in the editor.
-	 *
-	 * Written as a Backbone JavaScript template and used to generate the live preview.
-	 *
-	 * @since 2.9.0
-	 * @access protected
-	 */
-	protected function content_template() { ?>
-		<#
-		view.addRenderAttribute( 'wrap', 'class', ['oew-price-list', 'oew-price-list-' + settings.style] );
-
-		if ( 'yes' != settings.separator ) {
-			view.addRenderAttribute( 'wrap', 'class', 'no-separator' );
-		} #>
-		<div {{{ view.getRenderAttributeString( 'wrap' ) }}}>
+	protected function _content_template() { ?>
+		<ul class="oew-price-list oew-price-list-{{ settings.style }}">
 			<# _.each( settings.price_list, function( item, index ) {
-				var key 				= view.getRepeaterSettingKey( 'wrap', 'price_list', index ),
-					titleKey 			= view.getRepeaterSettingKey( 'title', 'price_list', index ),
-					descKey 			= view.getRepeaterSettingKey( 'description', 'price_list', index )
-					priceKey 			= view.getRepeaterSettingKey( 'price', 'price_list', index )
-					discountPriceKey 	= view.getRepeaterSettingKey( 'original_price', 'price_list', index );
-
-				view.addRenderAttribute( key, 'class', 'oew-price-list-wrap' );
-
-				if ( 'yes' === item.has_discount ) {
-					view.addRenderAttribute( key, 'class', 'has-discount' );
-				}
-
-				view.addRenderAttribute( titleKey, 'class', 'oew-price-list-title' );
-				view.addInlineEditingAttributes( titleKey, 'basic' );
-
-				view.addRenderAttribute( descKey, 'class', 'oew-price-list-description' );
-				view.addInlineEditingAttributes( descKey, 'basic' );
-
-				view.addRenderAttribute( priceKey, 'class', 'oew-price-list-price' );
-				view.addInlineEditingAttributes( priceKey, 'basic' );
-
-				view.addRenderAttribute( discountPriceKey, 'class', 'oew-price-list-discount-price' );
-				view.addInlineEditingAttributes( discountPriceKey, 'basic' );
-
 				if ( item.link.url ) { #>
-					<a class="oew-price-list-item" href="{{ item.link.url }}">
+					<li><a class="oew-price-list-item" href="{{ item.link.url }}">
 				<# } else { #>
-					<div class="oew-price-list-item">
+					<li>
 				<# } #>
-					<# if ( item.image && item.image.id ) {
-
-						var image = {
-							id: item.image.id,
-							url: item.image.url,
-							size: settings.image_size_size,
-							dimension: settings.image_custom_dimension,
-							model: view.getEditModel()
-						};
-
-						var image_url = elementor.imagesManager.getImageUrl( image );
-
-						if ( image_url ) { #>
-							<div class="oew-price-list-image"><img src="{{ image_url }}" alt="{{ item.title }}"></div>
-						<# } #>
-
-					<# } #>
 
 					<div class="oew-price-list-text">
+						<# if ( item.image && item.image.id ) {
 
-						<div class="oew-price-list-header">
+							var image = {
+								id: item.image.id,
+								url: item.image.url,
+								size: settings.image_size,
+								dimension: settings.image_custom_dimension,
+								model: view.getEditModel()
+							};
 
-							<span {{{ view.getRenderAttributeString( titleKey ) }}}>{{{ item.title }}}</span>
+							var image_url = elementor.imagesManager.getImageUrl( image );
 
-							<# if ( 'yes' == settings.separator ) { #>
-								<span class="oew-price-list-separator"></span>
+							if ( image_url ) { #>
+								<div class="oew-price-list-image"><img src="{{ image_url }}" alt="{{ item.title }}"></div>
 							<# } #>
 
-							<# if ( 'side' == settings.style ) { #>
-								<div {{{ view.getRenderAttributeString( key ) }}}>
-									<# if( 'yes' == item.has_discount ) { #>
-										<span {{{ view.getRenderAttributeString( discountPriceKey ) }}}>{{{ item.original_price }}}</span>
-									<# } #>
-
-									<span {{{ view.getRenderAttributeString( priceKey ) }}}>{{{ item.price }}}</span>
-								</div>
-							<# } #>
-
-						</div>
-
-						<# if ( item.description ) { #>
-							<p {{{ view.getRenderAttributeString( descKey ) }}}>{{{ item.description }}}</p>
 						<# } #>
 
-						<# if ( 'inline' == settings.style ) { #>
-							<div {{{ view.getRenderAttributeString( key ) }}}>
-								<# if( 'yes' == item.has_discount ) { #>
-									<span {{{ view.getRenderAttributeString( discountPriceKey ) }}}>{{{ item.original_price }}}</span>
-								<# } #>
+						<span class="oew-price-list-title">{{{ item.title }}}</span>
 
-								<span {{{ view.getRenderAttributeString( priceKey ) }}}>{{{ item.price }}}</span>
+						<# if ( 'yes' == settings.separator ) { #>
+							<span class="oew-price-list-separator"></span>
+						<# } #>
+
+						<# if ( 'side' == settings.style ) { #>
+							<div class="oew-price-list-price-wrap">
+								<span class="oew-price-list-price">{{{ item.price }}}</span>
 							</div>
 						<# } #>
 
 					</div>
 
+					<# if ( item.description ) { #>
+						<p class="oew-price-list-description">{{{ item.description }}}</p>
+					<# } #>
+
+					<# if ( 'inline' == settings.style ) { #>
+						<div class="oew-price-list-price-wrap">
+							<span class="oew-price-list-price">{{{ item.price }}}</span>
+						</div>
+					<# } #>
+
 				<# if ( item.link.url ) { #>
-					</a>
+					</a></li>
 				<# } else { #>
-					</div>
+					</li>
 				<# } #>
 
 			<# } ); #>
-		</div>
+		</ul>
 	<?php
 	}
 

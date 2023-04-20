@@ -5,6 +5,7 @@ namespace owpElementor\Modules\Pricing\Widgets;
 use Elementor\Controls_Manager;
 use Elementor\Group_Control_Typography;
 use Elementor\Group_Control_Border;
+use Elementor\Scheme_Typography;
 use Elementor\Widget_Base;
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
@@ -20,6 +21,7 @@ class Pricing extends Widget_Base {
 	}
 
 	public function get_icon() {
+		// Upload "eicons.ttf" font via this site: http://bluejamesbond.github.io/CharacterMap/
 		return 'oew-icon eicon-price-table';
 	}
 
@@ -27,21 +29,11 @@ class Pricing extends Widget_Base {
 		return [ 'oceanwp-elements' ];
 	}
 
-    public function get_keywords() {
-        return [
-            'price',
-            'table',
-            'price table',
-            'pricing table',
-            'owp',
-        ];
-    }
-
 	public function get_style_depends() {
 		return [ 'oew-pricing' ];
 	}
 
-	protected function register_controls() {
+	protected function _register_controls() {
 
 		$this->start_controls_section(
 			'section_pricing',
@@ -194,6 +186,7 @@ class Pricing extends Widget_Base {
 			[
 				'name' 			=> 'plan_typo',
 				'selector' 		=> '{{WRAPPER}} .oew-pricing-header',
+				'scheme' 		=> Scheme_Typography::TYPOGRAPHY_1,
 			]
 		);
 
@@ -257,6 +250,7 @@ class Pricing extends Widget_Base {
 			[
 				'name' 			=> 'cost_typo',
 				'selector' 		=> '{{WRAPPER}} .oew-pricing-cost .oew-pricing-amount',
+				'scheme' 		=> Scheme_Typography::TYPOGRAPHY_1,
 			]
 		);
 
@@ -286,6 +280,7 @@ class Pricing extends Widget_Base {
 			[
 				'name' 			=> 'per_typo',
 				'selector' 		=> '{{WRAPPER}} .oew-pricing-per',
+				'scheme' 		=> Scheme_Typography::TYPOGRAPHY_1,
 			]
 		);
 
@@ -349,6 +344,7 @@ class Pricing extends Widget_Base {
 			[
 				'name' 			=> 'features_typo',
 				'selector' 		=> '{{WRAPPER}} .oew-pricing-content',
+				'scheme' 		=> Scheme_Typography::TYPOGRAPHY_1,
 			]
 		);
 
@@ -492,6 +488,7 @@ class Pricing extends Widget_Base {
 			[
 				'name' 			=> 'button_typo',
 				'selector' 		=> '{{WRAPPER}} .oew-pricing-button .button',
+				'scheme' 		=> Scheme_Typography::TYPOGRAPHY_1,
 			]
 		);
 
@@ -574,7 +571,7 @@ class Pricing extends Widget_Base {
 	<?php
 	}
 
-	protected function content_template() { ?>
+	protected function _content_template() { ?>
 		<#
 			var featured_class = '',
 				btn_target = '';

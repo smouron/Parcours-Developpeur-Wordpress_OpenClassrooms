@@ -4,14 +4,11 @@ namespace owpElementor\Modules\NinjaForms\Widgets;
 // Elementor Classes
 use Elementor\Controls_Manager;
 use Elementor\Group_Control_Typography;
+use Elementor\Scheme_Typography;
 use Elementor\Group_Control_Background;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Box_Shadow;
 use Elementor\Widget_Base;
-
-if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly.
-}
 
 class Ninja_Forms extends Widget_Base {
 
@@ -24,6 +21,7 @@ class Ninja_Forms extends Widget_Base {
 	}
 
 	public function get_icon() {
+		// Upload "eicons.ttf" font via this site: http://bluejamesbond.github.io/CharacterMap/
 		return 'oew-icon eicon-form-horizontal';
 	}
 
@@ -31,16 +29,7 @@ class Ninja_Forms extends Widget_Base {
 		return [ 'oceanwp-elements' ];
 	}
 
-    public function get_keywords() {
-        return [
-            'form',
-            'contact',
-            'ninja',
-            'owp',
-        ];
-    }
-
-	protected function register_controls() {
+	protected function _register_controls() {
 
 		$this->start_controls_section(
 			'section_ninja_forms',
@@ -98,6 +87,7 @@ class Ninja_Forms extends Widget_Base {
 			[
 				'name' 			=> 'labels_typo',
 				'selector' 		=> '{{WRAPPER}} .nf-field-label label',
+				'scheme' 		=> Scheme_Typography::TYPOGRAPHY_1,
 			]
 		);
 
@@ -138,6 +128,7 @@ class Ninja_Forms extends Widget_Base {
 			[
 				'name' 			=> 'description_typo',
 				'selector' 		=> '{{WRAPPER}} .nf-field-description',
+				'scheme' 		=> Scheme_Typography::TYPOGRAPHY_1,
 			]
 		);
 
@@ -278,6 +269,7 @@ class Ninja_Forms extends Widget_Base {
 			[
 				'name' 			=> 'inputs_typo',
 				'selector' 		=> '{{WRAPPER}} .ninja-forms-field:not([type="button"]):not([type="checkbox"]):not([type="radio"])',
+				'scheme' 		=> Scheme_Typography::TYPOGRAPHY_1,
 				'separator' 	=> 'before',
 			]
 		);
@@ -383,6 +375,7 @@ class Ninja_Forms extends Widget_Base {
 			[
 				'name' 			=> 'invalid_inputs_typo',
 				'selector' 		=> '{{WRAPPER}} .nf-error-msg',
+				'scheme' 		=> Scheme_Typography::TYPOGRAPHY_1,
 			]
 		);
 
@@ -511,6 +504,7 @@ class Ninja_Forms extends Widget_Base {
 			[
 				'name' 			=> 'button_typo',
 				'selector' 		=> '{{WRAPPER}} .ninja-forms-field[type="button"]',
+				'scheme' 		=> Scheme_Typography::TYPOGRAPHY_1,
 				'separator' 	=> 'before',
 			]
 		);
@@ -595,6 +589,7 @@ class Ninja_Forms extends Widget_Base {
 			[
 				'name' 			=> 'alerts_typo',
 				'selector' 		=> '{{WRAPPER}} .nf-response-msg, {{WRAPPER}} .nf-form-fields-required, {{WRAPPER}} .nf-error-wrap .nf-error-required-error',
+				'scheme' 		=> Scheme_Typography::TYPOGRAPHY_1,
 			]
 		);
 

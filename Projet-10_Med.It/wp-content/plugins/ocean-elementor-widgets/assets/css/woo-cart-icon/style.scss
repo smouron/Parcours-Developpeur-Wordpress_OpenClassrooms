@@ -67,12 +67,9 @@ Woo Cart Icon
         display: inline-block;
         line-height: 1;
         text-rendering: auto;
-        font-style: inherit;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
         @include transition( all .3s ease );
-    }
-
-    .owp-icon {
-        vertical-align: middle;
     }
 }
 

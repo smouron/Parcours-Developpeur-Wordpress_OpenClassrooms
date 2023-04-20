@@ -5,11 +5,8 @@ namespace owpElementor\Modules\GoogleMap\Widgets;
 use Elementor\Controls_Manager;
 use Elementor\Repeater;
 use Elementor\Group_Control_Typography;
+use Elementor\Scheme_Typography;
 use Elementor\Widget_Base;
-
-if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly.
-}
 
 class Google_Map extends Widget_Base {
 
@@ -22,20 +19,13 @@ class Google_Map extends Widget_Base {
 	}
 
 	public function get_icon() {
+		// Upload "eicons.ttf" font via this site: http://bluejamesbond.github.io/CharacterMap/
 		return 'oew-icon eicon-google-maps';
 	}
 
 	public function get_categories() {
 		return [ 'oceanwp-elements' ];
 	}
-
-    public function get_keywords() {
-        return [
-            'google',
-            'map',
-            'owp',
-        ];
-    }
 
 	public function get_script_depends() {
 		return [ 'oew-google-map-api', 'oew-google-map' ];
@@ -45,7 +35,7 @@ class Google_Map extends Widget_Base {
 		return [ 'oew-google-map' ];
 	}
 
-	protected function register_controls() {
+	protected function _register_controls() {
 
 		$this->start_controls_section(
 			'section_google_map',
@@ -69,171 +59,12 @@ class Google_Map extends Widget_Base {
 				]
 			);
 		}
-
-		$repeater = new Repeater();
-
-        $repeater->add_control(
-            'map_latitude',
-            [
-				'name' 				=> 'map_latitude',
-				'label' 			=> __( 'Latitude', 'ocean-elementor-widgets' ),
-                'description' 		=> sprintf( '<a href="https://www.latlong.net/" target="_blank">%1$s</a> %2$s', __( 'Click here', 'ocean-elementor-widgets' ), __( 'to find Latitude and Longitude of your location', 'ocean-elementor-widgets' ) ),
-				'type' 				=> Controls_Manager::TEXT,
-				'label_block' 		=> true,
-				'dynamic'     		=> [
-					'active' => true,
-				],
-			]
-        );
-
-        $repeater->add_control(
-            'map_longitude',
-            [
-				'name'            	=> 'map_longitude',
-				'label'           	=> __( 'Longitude', 'ocean-elementor-widgets' ),
-                'description'     	=> sprintf( '<a href="https://www.latlong.net/" target="_blank">%1$s</a> %2$s', __( 'Click here', 'ocean-elementor-widgets' ), __( 'to find Latitude and Longitude of your location', 'ocean-elementor-widgets' ) ),
-				'type'           	=> Controls_Manager::TEXT,
-				'label_block'     	=> true,
-				'dynamic'    		 => [
-					'active' => true,
-				],
-			]
-        );
-
-        $repeater->add_control(
-            'map_title',
-            [
-				'name'            	=> 'map_title',
-				'label'           	=> __( 'Address Title', 'ocean-elementor-widgets' ),
-				'type'            	=> Controls_Manager::TEXT,
-				'default'    	 	=> '',
-				'label_block'     	=> true,
-				'dynamic'     		=> [
-					'active' => true,
-				],
-			]
-        );
-
-        $repeater->add_control(
-            'map_marker_infowindow',
-            [
-				'name'            	=> 'map_marker_infowindow',
-                'label'           	=> __( 'Info Window', 'ocean-elementor-widgets' ),
-                'type'            	=> Controls_Manager::SWITCHER,
-                'default'         	=> 'no',
-                'return_value'    	=> 'yes',
-            ]
-        );
-
-        $repeater->add_control(
-            'map_info_window_open',
-            [
-				'name'            	=> 'map_info_window_open',
-				'label'           	=> __( 'Open Info Window on Load', 'ocean-elementor-widgets' ),
-				'type'            	=> Controls_Manager::SWITCHER,
-				'default'         	=> 'yes',
-                'conditions'      	=> [
-					'terms' => [
-						[
-							'name' => 'map_marker_infowindow',
-							'operator' => '==',
-							'value' => 'yes',
-						],
-					],
-				],
-			]
-        );
-
-        $repeater->add_control(
-            'map_description',
-            [
-				'name'            	=> 'map_description',
-				'label'           	=> __( 'Address Description', 'ocean-elementor-widgets' ),
-				'type'            	=> Controls_Manager::TEXTAREA,
-				'label_block'     	=> true,
-				'dynamic'     		=> [
-					'active' => true,
-				],
-                'conditions'      	=> [
-					'terms' => [
-						[
-							'name' => 'map_marker_infowindow',
-							'operator' => '==',
-							'value' => 'yes',
-						],
-					],
-				],
-			]
-        );
-
-        $repeater->add_control(
-            'map_marker_icon_type',
-            [
-				'name'            	=> 'map_marker_icon_type',
-                'label'           	=> __( 'Marker Icon', 'ocean-elementor-widgets' ),
-                'type'            	=> Controls_Manager::SELECT,
-                'default'         	=> 'default',
-                'options'         	=> [
-                    'default'     => __( 'Default', 'ocean-elementor-widgets' ),
-                    'custom'      => __( 'Custom', 'ocean-elementor-widgets' ),
-                ],
-            ]
-        );
-
-        $repeater->add_control(
-            'map_marker_icon',
-            [
-				'name'            	=> 'map_marker_icon',
-				'label'           	=> __( 'Custom Marker Icon', 'ocean-elementor-widgets' ),
-				'type'            	=> Controls_Manager::MEDIA,
-                'conditions' 		=> [
-					'terms' => [
-						[
-							'name' => 'map_marker_icon_type',
-							'operator' => '==',
-							'value' => 'custom',
-						],
-					],
-				],
-			]
-        );
-
-        $repeater->add_control(
-            'map_custom_marker_size',
-            [
-				'name'        		=> 'map_custom_marker_size',
-				'label'       		=> __( 'Marker Size', 'ocean-elementor-widgets' ),
-				'type'        		=> Controls_Manager::SLIDER,
-				'size_units'  		=> [ 'px' ],
-				'description' 		=> __( 'Note: If you want to retain the image original size, then set the Marker Size as blank.', 'ocean-elementor-widgets' ),
-				'default'     		=> [
-					'size' => 30,
-					'unit' => 'px',
-				],
-				'range'       		=> [
-					'px' => [
-						'min' => 5,
-						'max' => 100,
-					],
-				],
-				'conditions'  		=> [
-					'terms' => [
-						[
-							'name'     => 'map_marker_icon_type',
-							'operator' => '==',
-							'value'    => 'custom',
-						],
-					],
-				],
-			]
-        );
 		 
 		$this->add_control(
 			'oew_map_addresses',
 			[
 				'label'       => '',
 				'type'        => Controls_Manager::REPEATER,
-                'fields' 	  => $repeater->get_controls(),
 				'default'     => [
 					[
 						'map_latitude'    	=> 40.617340,
@@ -242,7 +73,129 @@ class Google_Map extends Widget_Base {
 						'map_description' 	=> __( 'Add your description here', 'ocean-elementor-widgets' ),
 					],
 				],
-				'title_field' => oew_svg_icon( 'map_marker', false ) . ' {{{ map_title }}}',
+				'fields'      => [
+					[
+						'name' 				=> 'map_latitude',
+						'label' 			=> __( 'Latitude', 'ocean-elementor-widgets' ),
+                        'description' 		=> sprintf( '<a href="https://www.latlong.net/" target="_blank">%1$s</a> %2$s', __( 'Click here', 'ocean-elementor-widgets' ), __( 'to find Latitude and Longitude of your location', 'ocean-elementor-widgets' ) ),
+						'type' 				=> Controls_Manager::TEXT,
+						'label_block' 		=> true,
+						'dynamic'     		=> [
+							'active' => true,
+						],
+					],
+					[
+						'name'            	=> 'map_longitude',
+						'label'           	=> __( 'Longitude', 'ocean-elementor-widgets' ),
+                        'description'     	=> sprintf( '<a href="https://www.latlong.net/" target="_blank">%1$s</a> %2$s', __( 'Click here', 'ocean-elementor-widgets' ), __( 'to find Latitude and Longitude of your location', 'ocean-elementor-widgets' ) ),
+						'type'           	=> Controls_Manager::TEXT,
+						'label_block'     	=> true,
+						'dynamic'    		 => [
+							'active' => true,
+						],
+					],
+					[
+						'name'            	=> 'map_title',
+						'label'           	=> __( 'Address Title', 'ocean-elementor-widgets' ),
+						'type'            	=> Controls_Manager::TEXT,
+						'default'    	 	=> '',
+						'label_block'     	=> true,
+						'dynamic'     		=> [
+							'active' => true,
+						],
+					],
+                    [
+						'name'            	=> 'map_marker_infowindow',
+                        'label'           	=> __( 'Info Window', 'ocean-elementor-widgets' ),
+                        'type'            	=> Controls_Manager::SWITCHER,
+                        'default'         	=> 'no',
+                        'return_value'    	=> 'yes',
+                    ],
+					[
+						'name'            	=> 'map_info_window_open',
+						'label'           	=> __( 'Open Info Window on Load', 'ocean-elementor-widgets' ),
+						'type'            	=> Controls_Manager::SWITCHER,
+						'default'         	=> 'yes',
+                        'conditions'      	=> [
+							'terms' => [
+								[
+									'name' => 'map_marker_infowindow',
+									'operator' => '==',
+									'value' => 'yes',
+								],
+							],
+						],
+					],
+					[
+						'name'            	=> 'map_description',
+						'label'           	=> __( 'Address Description', 'ocean-elementor-widgets' ),
+						'type'            	=> Controls_Manager::TEXTAREA,
+						'label_block'     	=> true,
+						'dynamic'     		=> [
+							'active' => true,
+						],
+                        'conditions'      	=> [
+							'terms' => [
+								[
+									'name' => 'map_marker_infowindow',
+									'operator' => '==',
+									'value' => 'yes',
+								],
+							],
+						],
+					],
+                    [
+						'name'            	=> 'map_marker_icon_type',
+                        'label'           	=> __( 'Marker Icon', 'ocean-elementor-widgets' ),
+                        'type'            	=> Controls_Manager::SELECT,
+                        'default'         	=> 'default',
+                        'options'         	=> [
+                            'default'     => __( 'Default', 'ocean-elementor-widgets' ),
+                            'custom'      => __( 'Custom', 'ocean-elementor-widgets' ),
+                        ],
+                    ],
+					[
+						'name'            	=> 'map_marker_icon',
+						'label'           	=> __( 'Custom Marker Icon', 'ocean-elementor-widgets' ),
+						'type'            	=> Controls_Manager::MEDIA,
+                        'conditions' 		=> [
+							'terms' => [
+								[
+									'name' => 'map_marker_icon_type',
+									'operator' => '==',
+									'value' => 'custom',
+								],
+							],
+						],
+					],
+					[
+						'name'        		=> 'map_custom_marker_size',
+						'label'       		=> __( 'Marker Size', 'ocean-elementor-widgets' ),
+						'type'        		=> Controls_Manager::SLIDER,
+						'size_units'  		=> [ 'px' ],
+						'description' 		=> __( 'Note: If you want to retain the image original size, then set the Marker Size as blank.', 'ocean-elementor-widgets' ),
+						'default'     		=> [
+							'size' => 30,
+							'unit' => 'px',
+						],
+						'range'       		=> [
+							'px' => [
+								'min' => 5,
+								'max' => 100,
+							],
+						],
+						'conditions'  		=> [
+							'terms' => [
+								[
+									'name'     => 'map_marker_icon_type',
+									'operator' => '==',
+									'value'    => 'custom',
+								],
+							],
+						],
+					],
+				],
+				'title_field' => '<i class="fa fa-map-marker"></i> {{{ map_title }}}',
 			]
 		);
 
@@ -579,6 +532,7 @@ class Google_Map extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
                 'name' 			=> 'title_typography',
+				'scheme' 		=> Scheme_Typography::TYPOGRAPHY_1,
 				'selector' 		=> '{{WRAPPER}} .gm-style .oew-infowindow-title',
 			]
 		);
@@ -701,7 +655,7 @@ class Google_Map extends Widget_Base {
 	<?php
 	}
 
-    protected function content_template() { ?>
+    protected function _content_template() { ?>
         <#
             function get_map_styles() {
                 return {
