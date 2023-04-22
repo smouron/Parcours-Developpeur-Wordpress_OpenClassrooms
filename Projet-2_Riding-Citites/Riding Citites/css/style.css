@@ -137,6 +137,17 @@ p {
   text-align: center;
 }
 
+.members img {
+  filter: grayscale(1);
+  -webkit-filter: grayscale(1);
+  transition: filter 500ms ease-in-out;
+}
+
+.members img:hover {
+  filter: grayscale(0);
+  -webkit-filter: grayscale(0);
+}
+
 /***************/
 .sectionLightGreyBackground {
   background-color: var(--light-grey-color);
@@ -186,7 +197,15 @@ p {
   border-radius: 39px;
 }
 
+.buttonHighlight {
+  transition: transform 800ms;
+  /* transition-property: font-weight;
+  transition-duration: 4s;
+  transition-delay: 2s; */
+}
+
 .buttonHighlight:hover {
   font-weight: 800;
-  border-width: 3px;
+  /* border-width: 5px; */
+  transform: scale(1.1);
 }
