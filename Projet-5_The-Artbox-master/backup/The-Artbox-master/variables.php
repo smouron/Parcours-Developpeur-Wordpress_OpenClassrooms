@@ -48,7 +48,7 @@ $artworks = [
 	],
 
 	[
-		'artwork_id' => 6,
+		'artwork_id' => 7,
 		'artwork_image' =>	'pawel-czerwinski.png',
 		'title' =>	'Chromatics',
 		'description' =>	'Jean-Michel Delatronchette',
@@ -57,7 +57,7 @@ $artworks = [
 	],
 
 	[
-		'artwork_id' => 7,
+		'artwork_id' => 6,
 		'artwork_image' =>	'jazmin-quaynor.png',
 		'title' =>	'Digital Negative',
 		'description' =>	'Hamish McKee',
@@ -75,7 +75,7 @@ $artworks = [
 	],
 
 	[
-		'artwork_id' => 9,
+		'artwork_id' => 17,
 		'artwork_image' =>	'victor-grabarczyk.png',
 		'title' =>	'Hurricane',
 		'description' =>	'Natalie Wellington',

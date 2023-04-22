@@ -98,6 +98,26 @@ footer {
     max-width: 470px;
 }
 
+#container-autres-oeuvres {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+}
+
+.autres-oeuvres {    
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.autres-oeuvres img {    
+    max-height: 300px;
+}
+
+
+
+
 @media (max-width: 850px) {
     .oeuvre {
         width: 50%;
