@@ -304,8 +304,35 @@
                         <?php if (defined('HMWP_DEFAULT_LOGIN') && HMWP_DEFAULT_LOGIN ) {
                             echo '<div class="text-danger col-sm-12 border-bottom border-light py-3 mx-0 my-3">' . sprintf(esc_html__('Your login URL is changed by another plugin/theme in %s. To activate this option, disable the custom login in the other plugin or deativate it.', 'hide-my-wp'), '<strong>' . HMWP_DEFAULT_LOGIN . '</strong>') . '</div>';
                             echo '<input type="hidden" name="hmwp_login_url" value="' . HMWP_Classes_Tools::$default['hmwp_login_url'] . '"/>';
-                        } else {
+	                        echo '<input type="hidden" name="hmwp_lostpassword_url" value=""/>';
+	                        echo '<input type="hidden" name="hmwp_register_url" value=""/>';
+	                        echo '<input type="hidden" name="hmwp_logout_url" value=""/>';
+	                        echo '<input type="hidden" name="hmwp_activate_url" value=""/>';
                             ?>
+
+                            <div class="col-sm-12 row mb-1 ml-1 p-2" <?php echo(HMWP_DEFAULT_LOGIN == HMWP_Classes_Tools::$default['hmwp_login_url'] ? 'style="display:none;"' : '') ?>>
+                                <div class="checker col-sm-12 row my-2 py-1">
+                                    <div class="col-sm-12 p-0 switch switch-sm">
+                                        <input type="hidden" name="hmwp_hide_wplogin" value="0"/>
+                                        <input type="checkbox" id="hmwp_hide_wplogin" name="hmwp_hide_wplogin" class="switch" <?php echo(HMWP_Classes_Tools::getOption('hmwp_hide_wplogin') ? 'checked="checked"' : '') ?> value="1"/>
+                                        <label for="hmwp_hide_wplogin"><?php echo esc_html__('Hide "wp-login.php"', 'hide-my-wp'); ?></label>
+                                        <div class="offset-1 text-black-50"><?php echo esc_html__('Hide /wp-login.php path from visitors.', 'hide-my-wp'); ?></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-12 row mb-1 ml-1 p-2 hmwp_hide_login_div" <?php echo(HMWP_DEFAULT_LOGIN == HMWP_Classes_Tools::$default['hmwp_login_url'] || HMWP_DEFAULT_LOGIN == 'login' ? 'style="display:none;"' : '') ?>>
+                                <div class="checker col-sm-12 row my-2 py-1">
+                                    <div class="col-sm-12 p-0 switch switch-sm">
+                                        <input type="hidden" name="hmwp_hide_login" value="0"/>
+                                        <input type="checkbox" id="hmwp_hide_login" name="hmwp_hide_login" class="switch" <?php echo(HMWP_Classes_Tools::getOption('hmwp_hide_login') ? 'checked="checked"' : '') ?> value="1"/>
+                                        <label for="hmwp_hide_login"><?php echo esc_html__('Hide "login" Path', 'hide-my-wp'); ?></label>
+                                        <div class="offset-1 text-black-50"><?php echo esc_html__('Hide /login path from visitors.', 'hide-my-wp'); ?></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        <?php } else { ?>
                             <div class="col-sm-12 row border-bottom border-light py-3 mx-0 my-3">
                                 <div class="col-sm-4 p-0 font-weight-bold">
                                     <?php echo esc_html__('Custom Login Path', 'hide-my-wp'); ?>:
@@ -327,6 +354,7 @@
                                     </div>
                                 </div>
                             </div>
+
                             <div class="col-sm-12 row mb-1 ml-1 p-2 hmwp_hide_login_div" <?php echo(HMWP_Classes_Tools::getOption('hmwp_login_url') == HMWP_Classes_Tools::$default['hmwp_login_url'] ? 'style="display:none;"' : '') ?>>
                                 <div class="checker col-sm-12 row my-2 py-1">
                                     <div class="col-sm-12 p-0 switch switch-sm">
@@ -407,13 +435,16 @@
                                     </div>
                                 </div>
                             <?php } ?>
+	                    <?php } ?>
 
-                            <div class="col-sm-12 text-center border-light py-1 m-0">
-                                <a href="<?php echo HMWP_Classes_Tools::getSettingsUrl('hmwp_tweaks#tab=redirects', true) ?>" target="_blank">
-                                    <?php echo esc_html__('Manage Login and Logout Redirects', 'hide-my-wp'); ?>
-                                </a>
-                            </div>
-                        <?php } ?>
+
+
+                        <div class="col-sm-12 text-center border-light py-1 m-0">
+                            <a href="<?php echo HMWP_Classes_Tools::getSettingsUrl('hmwp_tweaks#tab=redirects', true) ?>" target="_blank">
+                                <?php echo esc_html__('Manage Login and Logout Redirects', 'hide-my-wp'); ?>
+                            </a>
+                        </div>
+
 
                     </div>
                 </div>
@@ -596,7 +627,8 @@
                                             <a href="<?php echo esc_url(HMWP_Classes_Tools::getOption('hmwp_plugin_website') . '/kb/customize-paths-in-hide-my-wp-ghost/#disable_browsing') ?>" target="_blank" class="d-inline ml-1"><i class="dashicons dashicons-editor-help d-inline"></i></a>
                                         </label>
                                         <div class="offset-1 text-black-50"><?php echo sprintf(esc_html__("Don't let hackers see any directory content. See %sUploads Directory%s", 'hide-my-wp'), '<a href="' . $uploads['baseurl'] . '" target="_blank">', '</a>'); ?></div>
-                                    </div>
+                                        <div class="offset-1 text-danger my-2"><?php echo sprintf(esc_html__("Normally, the option to block visitors from browsing server directories is activated by the host through server configuration, and activating it twice in the config file may cause errors, so it's best to first check if the %sUploads Directory%s is visible.", 'hide-my-wp'), '<a href="' . $uploads['baseurl'] . '" target="_blank">', '</a>'); ?></div>
+                                   </div>
                                 </div>
                             </div>
 
@@ -666,6 +698,7 @@
                                         <input type="checkbox" id="hmwp_hide_plugins_advanced" name="hmwp_hide_plugins_advanced" class="switch" <?php echo(HMWP_Classes_Tools::getOption('hmwp_hide_plugins_advanced') ? 'checked="checked"' : '') ?> value="1"/>
                                         <label for="hmwp_hide_plugins_advanced"><?php echo esc_html__('Show Advanced Options', 'hide-my-wp'); ?>
                                             <a href="<?php echo esc_url(HMWP_Classes_Tools::getOption('hmwp_plugin_website') . '/kb/customize-paths-in-hide-my-wp-ghost/#plugins_advanced_options') ?>" target="_blank" class="d-inline ml-1"><i class="dashicons dashicons-editor-help d-inline"></i></a>
+                                            <span class="text-black-50 small">(<?php echo esc_html__("not recommended", 'hide-my-wp'); ?>)</span> </label>
                                         </label>
                                         <div class="offset-1 text-black-50"><?php echo esc_html__("Manually customize each plugin name and overwrite the random name", 'hide-my-wp'); ?></div>
                                     </div>
@@ -743,6 +776,7 @@
                                         <input type="checkbox" id="hmwp_hide_themes_advanced" name="hmwp_hide_themes_advanced" class="switch" <?php echo(HMWP_Classes_Tools::getOption('hmwp_hide_themes_advanced') ? 'checked="checked"' : '') ?> value="1"/>
                                         <label for="hmwp_hide_themes_advanced"><?php echo esc_html__('Show Advanced Options', 'hide-my-wp'); ?>
                                             <a href="<?php echo esc_url(HMWP_Classes_Tools::getOption('hmwp_plugin_website') . '/kb/customize-paths-in-hide-my-wp-ghost/#themes_advanced_options') ?>" target="_blank" class="d-inline ml-1"><i class="dashicons dashicons-editor-help d-inline"></i></a>
+                                            <span class="text-black-50 small">(<?php echo esc_html__("not recommended", 'hide-my-wp'); ?>)</span> </label>
                                         </label>
                                         <div class="offset-1 text-black-50"><?php echo esc_html__("Manually customize each theme name and overwrite the random name", 'hide-my-wp'); ?></div>
                                     </div>
@@ -789,8 +823,10 @@
                                     <input type="checkbox" id="hmwp_disable_rest_api" name="hmwp_disable_rest_api" class="switch"<?php echo(HMWP_Classes_Tools::getOption('hmwp_disable_rest_api') ? 'checked="checked"' : '') ?> value="1"/>
                                     <label for="hmwp_disable_rest_api"><?php echo esc_html__('Disable REST API access', 'hide-my-wp'); ?>
                                         <a href="<?php echo esc_url(HMWP_Classes_Tools::getOption('hmwp_plugin_website') . '/kb/customize-paths-in-hide-my-wp-ghost/#hide_rest_api') ?>" target="_blank" class="d-inline ml-1"><i class="dashicons dashicons-editor-help d-inline"></i></a>
+                                        <span class="text-black-50 small">(<?php echo esc_html__("not recommended", 'hide-my-wp'); ?>)</span> </label>
                                     </label>
                                     <div class="offset-1 text-black-50"><?php echo esc_html__("Disable REST API access for not logged in users", 'hide-my-wp'); ?></div>
+                                    <div class="offset-1 text-danger my-2"><?php echo esc_html__("The REST API is crucial for many plugins as it allows them to interact with the WordPress database and perform various actions programmatically.", 'hide-my-wp'); ?></div>
                                 </div>
                             </div>
                         </div>

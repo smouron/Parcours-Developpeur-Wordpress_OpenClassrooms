@@ -1,4 +1,4 @@
-/*! elementor - v3.12.1 - 02-04-2023 */
+/*! elementor - v3.12.2 - 23-04-2023 */
 .elementor-control-unit-1 {
   width: 27px;
 }
@@ -518,12 +518,6 @@ select {
   font-size: 13px;
   right: 0;
 }
-.elementor-panel ::-moz-selection {
-  background: var(--e-a-bg-primary);
-}
-.elementor-panel ::selection {
-  background: var(--e-a-bg-primary);
-}
 .elementor-panel h1,
 .elementor-panel h2,
 .elementor-panel h3,
@@ -806,7 +800,7 @@ select {
   font-family: eicons;
   font-size: 16px;
   display: block;
-  margin-bottom: 6px;
+  margin-bottom: 8px;
 }
 .elementor-panel .elementor-tab-control-content a:before {
   content: "\e92c";
@@ -994,8 +988,7 @@ select {
 #elementor-panel-elements-navigation .elementor-panel-navigation-tab {
   text-align: center;
   padding: 10px 0;
-  font-size: 11px;
-  text-transform: uppercase;
+  font-size: 12px;
   cursor: pointer;
 }
 
@@ -1090,7 +1083,7 @@ body.elementor-panel-loading #elementor-panel-state-loading {
   justify-content: center;
 }
 .elementor-panel .elementor-element .title {
-  font-size: 11px;
+  font-size: 12px;
 }
 .elementor-panel .elementor-element > .eicon-lock {
   position: absolute;
@@ -1531,8 +1524,7 @@ body:not(.elementor-device-mobile) .elementor-control.elementor-control-responsi
 }
 .e-units-wrapper .e-units-switcher {
   cursor: pointer;
-  text-transform: uppercase;
-  font-size: 9px;
+  font-size: 10px;
   padding: 0.5em;
   margin: -0.5em 0;
   transition: all ease-in-out 0.15s;
@@ -1584,8 +1576,7 @@ body:not(.elementor-device-mobile) .elementor-control.elementor-control-responsi
   align-items: center;
   height: 3em;
   justify-content: center;
-  text-transform: uppercase;
-  font-size: 9px;
+  font-size: 10px;
   transition: 0.15s;
 }
 .e-units-choices .elementor-units-choices-label:hover {
@@ -2140,7 +2131,7 @@ body:not(.elementor-device-mobile) .elementor-control.elementor-control-responsi
   display: block;
   margin-top: 5px;
   color: var(--e-a-color-txt-disabled);
-  font-size: 9px;
+  font-size: 10px;
   text-align: center;
 }
 .elementor-control-type-image_dimensions .elementor-image-dimensions-apply-button {
@@ -2716,7 +2707,7 @@ body:not(.elementor-device-mobile) .elementor-control.elementor-control-responsi
   position: relative;
   display: block;
   height: inherit;
-  font-size: 7px;
+  font-size: 10px;
   background: var(--e-a-bg-active-bold);
   border-radius: inherit;
   transition: 0.15s ease-out;
@@ -2732,12 +2723,12 @@ body:not(.elementor-device-mobile) .elementor-control.elementor-control-responsi
 }
 .elementor-control-type-switcher .elementor-switch-label:before {
   content: attr(data-off);
-  right: 3px;
+  right: 5px;
   color: var(--e-a-color-txt-muted);
 }
 .elementor-control-type-switcher .elementor-switch-label:after {
   content: attr(data-on);
-  left: 3px;
+  left: 5px;
   color: var(--e-a-btn-color);
   opacity: 0;
 }

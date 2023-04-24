@@ -585,7 +585,7 @@ class HMWP_Controllers_SecurityCheck extends HMWP_Classes_FrontController
 
             if (!is_wp_error($response) ) {
 
-                if (wp_remote_retrieve_response_code($response) == 200 ) {
+	            if ( wp_remote_retrieve_response_code($response) == 200 || wp_remote_retrieve_response_code($response) == 202 ) {
 
                     if (wp_remote_retrieve_header($response,'server') <> 'cloudflare' && HMWP_Classes_Tools::$default['hmwp_wp-json'] <> HMWP_Classes_Tools::getOption('hmwp_wp-json') ) {
                         $url = site_url() . '/' . HMWP_Classes_Tools::getOption('hmwp_wp-json');
@@ -609,7 +609,7 @@ class HMWP_Controllers_SecurityCheck extends HMWP_Classes_FrontController
                         )
                     );
                     exit();
-                }elseif (wp_remote_retrieve_response_code($response) == 404 ) {
+	            }elseif (wp_remote_retrieve_response_code($response) == 404 || wp_remote_retrieve_response_code($response) == 403  ) {
                     echo json_encode(
                         array(
                             'success' => false,

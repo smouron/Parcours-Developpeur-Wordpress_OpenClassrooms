@@ -1,4 +1,4 @@
-/*! elementor - v3.12.1 - 02-04-2023 */
+/*! elementor - v3.12.2 - 23-04-2023 */
 .dialog-widget-content {
   background-color: var(--e-a-bg-default);
   position: absolute;
@@ -157,7 +157,7 @@
   border-top: var(--e-a-border);
   padding: 10px;
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
   gap: 15px;
 }
 .elementor-templates-modal .dialog-message {
@@ -379,7 +379,7 @@
 }
 .elementor-finder__results__category__title {
   padding: 5px 25px;
-  font-size: 9px;
+  font-size: 10px;
   border-bottom: var(--e-a-border);
 }
 .elementor-finder__results__category--dynamic .elementor-finder__results__category__items {

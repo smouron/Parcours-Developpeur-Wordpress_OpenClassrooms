@@ -1,4 +1,4 @@
-/*! elementor - v3.12.1 - 02-04-2023 */
+/*! elementor - v3.12.2 - 23-04-2023 */
 .dialog-widget-content {
   background-color: var(--e-a-bg-default);
   position: absolute;
@@ -886,8 +886,7 @@ body:not(.elementor-device-mobile) .elementor-control.elementor-control-responsi
 }
 .e-units-wrapper .e-units-switcher {
   cursor: pointer;
-  text-transform: uppercase;
-  font-size: 9px;
+  font-size: 10px;
   padding: 0.5em;
   margin: -0.5em 0;
   transition: all ease-in-out 0.15s;
@@ -939,8 +938,7 @@ body:not(.elementor-device-mobile) .elementor-control.elementor-control-responsi
   align-items: center;
   height: 3em;
   justify-content: center;
-  text-transform: uppercase;
-  font-size: 9px;
+  font-size: 10px;
   transition: 0.15s;
 }
 .e-units-choices .elementor-units-choices-label:hover {
@@ -1491,7 +1489,7 @@ body:not(.elementor-device-mobile) .elementor-control.elementor-control-responsi
   display: block;
   margin-top: 5px;
   color: var(--e-a-color-txt-disabled);
-  font-size: 9px;
+  font-size: 10px;
   text-align: center;
 }
 .elementor-control-type-image_dimensions .elementor-image-dimensions-apply-button {
@@ -2067,7 +2065,7 @@ body:not(.elementor-device-mobile) .elementor-control.elementor-control-responsi
   position: relative;
   display: block;
   height: inherit;
-  font-size: 7px;
+  font-size: 10px;
   background: var(--e-a-bg-active-bold);
   border-radius: inherit;
   transition: 0.15s ease-out;
@@ -2083,12 +2081,12 @@ body:not(.elementor-device-mobile) .elementor-control.elementor-control-responsi
 }
 .elementor-control-type-switcher .elementor-switch-label:before {
   content: attr(data-off);
-  right: 3px;
+  right: 5px;
   color: var(--e-a-color-txt-muted);
 }
 .elementor-control-type-switcher .elementor-switch-label:after {
   content: attr(data-on);
-  left: 3px;
+  left: 5px;
   color: var(--e-a-btn-color);
   opacity: 0;
 }
@@ -3567,10 +3565,10 @@ html.elementor-html {
 .e-con-select-preset__list .e-con-preset[data-preset=r100] {
   transform: scaleX(-1);
 }
-.e-con.e-con--column .ui-resizable-e {
+.e-con .ui-resizable-e {
   right: 0;
 }
-.e-con.e-con--column .ui-resizable-w {
+.e-con .ui-resizable-w {
   left: 0;
 }
 /*# sourceMappingURL=editor-preview-rtl.css.map */

@@ -1099,8 +1099,12 @@ class HMWP_Models_Rewrite
 				} else {
 
 					$url = home_url('', $scheme);
-					if(stripos($url,'?') !== false){
-						$url = substr($url,0,strpos($url,'?'));
+					if(function_exists('mb_stripos')){
+						if (mb_stripos($url,'?') !== false) {
+							$url = substr($url,0,mb_stripos($url,'?'));
+						}
+					}elseif(stripos($url,'?') !== false){
+						$url = substr($url,0,stripos($url,'?'));
 					}
 
 					$url .= '/' . HMWP_Classes_Tools::getOption('hmwp_login_url') . $query;
@@ -1179,8 +1183,12 @@ class HMWP_Models_Rewrite
 				} else {
 
 					$url = site_url('', $scheme);
-					if(stripos($url,'?') !== false){
-						$url = substr($url,0,strpos($url,'?'));
+					if(function_exists('mb_stripos')){
+						if (mb_stripos($url,'?') !== false) {
+							$url = substr($url,0,mb_stripos($url,'?'));
+						}
+					}elseif(stripos($url,'?') !== false){
+						$url = substr($url,0,stripos($url,'?'));
 					}
 
 					$url .= '/' . HMWP_Classes_Tools::getOption('hmwp_login_url') . $query;
@@ -1945,6 +1953,7 @@ class HMWP_Models_Rewrite
                     if (HMWP_Classes_Tools::getOption('hmwp_hide_wplogin') || HMWP_Classes_Tools::getOption('hmwp_hide_login')) {
 
                         if (!HMWP_Classes_Tools::isWpengine() && HMWP_Classes_Tools::$default['hmwp_login_url'] <> HMWP_Classes_Tools::getOption('hmwp_login_url')) {
+
 	                        $paths = array(
 		                        home_url('wp-login.php', 'relative'),
 		                        home_url('wp-login', 'relative'),
@@ -1966,7 +1975,33 @@ class HMWP_Models_Rewrite
                                 if (site_url(HMWP_Classes_Tools::getOption('hmwp_login_url'), 'relative') <> $url) {
                                     $this->getNotFound($url);
                                 }
+
                             }
+                        } elseif (defined('HMWP_DEFAULT_LOGIN') && HMWP_DEFAULT_LOGIN <> HMWP_Classes_Tools::$default['hmwp_login_url']) {
+
+	                        $paths = array(
+		                        home_url('wp-login.php', 'relative'),
+		                        home_url('wp-login', 'relative'),
+		                        site_url('wp-login.php', 'relative'),
+		                        site_url('wp-login', 'relative'),
+	                        );
+
+	                        if (HMWP_Classes_Tools::getOption('hmwp_hide_login')) {
+
+		                        $paths[] = home_url('login', 'relative');
+		                        $paths[] = site_url('login', 'relative');
+
+	                        }
+
+	                        $paths = array_unique($paths);
+
+	                        if ($this->searchInString($url, $paths)) {
+
+		                        if (site_url(HMWP_DEFAULT_LOGIN, 'relative') <> $url) {
+			                        $this->getNotFound($url);
+		                        }
+
+	                        }
                         }
                     }
 
@@ -2050,16 +2085,22 @@ class HMWP_Models_Rewrite
      *
      * @return bool
      */
-    public function searchInString( $needle, $haystack )
-    {
-        foreach ( $haystack as $value ) {
-            if (stripos($needle, $value) !== false ) {
-                return true;
-            }
-        }
+	public function searchInString( $string, $haystack )
+	{
+		foreach ( $haystack as $value ) {
+			if($string && $value && $string <> '' && $value <> '') {
+				if (function_exists('mb_stripos')) {
+					if (mb_stripos($string, $value) !== false) {
+						return true;
+					}
+				} elseif (stripos($string, $value) !== false) {
+					return true;
+				}
+			}
+		}
 
-        return false;
-    }
+		return false;
+	}
 
     /**
      * Return 404 page or redirect
@@ -2405,15 +2446,17 @@ class HMWP_Models_Rewrite
 
             if (isset($this->_replace['from']) && isset($this->_replace['to']) && !empty($this->_replace['from']) && !empty($this->_replace['to']) ) {
 
-                foreach ( $this->_replace['rewrite'] as $index => $value ) {
-                    //add only the paths or the design path
-                    if (($index && isset($this->_replace['to'][$index]) && substr($this->_replace['to'][$index], -1) == '/')
-                        || strpos($this->_replace['to'][$index], '/' . HMWP_Classes_Tools::getOption('hmwp_themes_style'))
-                    ) {
-                        $this->_replace['from'][] = $this->_replace['from'][$index];
-                        $this->_replace['to'][] = $this->_replace['to'][$index];
-                    }
-                }
+				if(!empty($this->_replace['rewrite'])) {
+					foreach ( $this->_replace['rewrite'] as $index => $value ) {
+						//add only the paths or the design path
+						if ( ( $index && isset( $this->_replace['to'][ $index ] ) && substr( $this->_replace['to'][ $index ], - 1 ) == '/' )
+						     || strpos( $this->_replace['to'][ $index ], '/' . HMWP_Classes_Tools::getOption( 'hmwp_themes_style' ) )
+						) {
+							$this->_replace['from'][] = $this->_replace['from'][ $index ];
+							$this->_replace['to'][]   = $this->_replace['to'][ $index ];
+						}
+					}
+				}
 
                 //Don't replace include if content was already replaced
                 $url = str_ireplace($this->_replace['from'], $this->_replace['to'], $url);

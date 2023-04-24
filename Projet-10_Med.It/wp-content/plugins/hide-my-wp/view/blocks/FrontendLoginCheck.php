@@ -50,9 +50,15 @@
                 <li><?php echo sprintf(esc_html__("If you can't configure %s, switch to Deactivated Mode and %scontact us%s.", 'hide-my-wp'), HMWP_Classes_Tools::getOption('hmwp_plugin_name'), '<a href="'.HMWP_Classes_Tools::getOption('hmwp_plugin_website').'/contact/" target="_blank" >', '</a>'); ?></li>
             </ol>
 
-            <div class="wp-admin_warning col-sm-12 my-4 text-danger p-0 text-center">
-                <div class="mb-3"><?php echo sprintf(esc_html__("Your login URL will be: %s In case you can't login, use the safe URL: %s", 'hide-my-wp'), '<br /><a href="' . esc_url(site_url() . '/' . HMWP_Classes_Tools::getOption('hmwp_login_url')) . '" target="_blank">' . esc_url(site_url() . '/' . HMWP_Classes_Tools::getOption('hmwp_login_url')) . '</a><br /><br />', "<br /><a href='".site_url() . "/wp-login.php?" . HMWP_Classes_Tools::getOption('hmwp_disable_name') . "=" . HMWP_Classes_Tools::getOption('hmwp_disable')."' target='_blank'>" . site_url() . "/wp-login.php?" . HMWP_Classes_Tools::getOption('hmwp_disable_name') . "=" . HMWP_Classes_Tools::getOption('hmwp_disable') . "</a>"); ?></div>
-            </div>
+            <?php if (defined('HMWP_DEFAULT_LOGIN') && HMWP_DEFAULT_LOGIN ) { ?>
+                <div class="wp-admin_warning col-sm-12 my-4 text-danger p-0 text-center">
+                    <div class="mb-3"><?php echo sprintf(esc_html__("Your login URL is: %s", 'hide-my-wp'), '<br /><a href="' . esc_url(home_url(HMWP_DEFAULT_LOGIN)) . '" target="_blank">' . esc_url(home_url(HMWP_DEFAULT_LOGIN)) . '</a>'); ?></div>
+                </div>
+            <?php }else{ ?>
+                <div class="wp-admin_warning col-sm-12 my-4 text-danger p-0 text-center">
+                    <div class="mb-3"><?php echo sprintf(esc_html__("Your login URL will be: %s In case you can't login, use the safe URL: %s", 'hide-my-wp'), '<br /><a href="' . esc_url(site_url() . '/' . HMWP_Classes_Tools::getOption('hmwp_login_url')) . '" target="_blank">' . esc_url(site_url() . '/' . HMWP_Classes_Tools::getOption('hmwp_login_url')) . '</a><br /><br />', "<br /><a href='".site_url() . "/wp-login.php?" . HMWP_Classes_Tools::getOption('hmwp_disable_name') . "=" . HMWP_Classes_Tools::getOption('hmwp_disable')."' target='_blank'>" . site_url() . "/wp-login.php?" . HMWP_Classes_Tools::getOption('hmwp_disable_name') . "=" . HMWP_Classes_Tools::getOption('hmwp_disable') . "</a>"); ?></div>
+                </div>
+            <?php }?>
 
             <div class="p-0 text-center">
                 <div class="hmwp_confirm">

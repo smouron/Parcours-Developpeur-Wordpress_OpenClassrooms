@@ -83,8 +83,8 @@
                                 <div class="checker col-sm-12 row my-2 py-1">
                                     <div class="col-sm-12 p-0 switch switch-sm">
                                         <input type="checkbox" id="hmwp_bruteforce_woocommerce" name="hmwp_bruteforce_woocommerce" class="switch" <?php echo(HMWP_Classes_Tools::getOption('hmwp_bruteforce_woocommerce') ? 'checked="checked"' : '') ?> value="1"/>
-                                        <label for="hmwp_bruteforce_woocommerce"><?php echo esc_html__('WooCommerce Login Protection', 'hide-my-wp'); ?></label>
-                                        <div class="offset-1 text-black-50"><?php echo esc_html__('Activate the Brute Force protection for Woocommerce login forms.', 'hide-my-wp'); ?></div>
+                                        <label for="hmwp_bruteforce_woocommerce"><?php echo esc_html__('WooCommerce Support', 'hide-my-wp'); ?></label>
+                                        <div class="offset-1 text-black-50"><?php echo esc_html__('Activate the Brute Force protection for Woocommerce login/signup forms.', 'hide-my-wp'); ?></div>
                                     </div>
                                 </div>
                             </div>

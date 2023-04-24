@@ -282,90 +282,85 @@ class HMWP_Controllers_Rewrite extends HMWP_Classes_FrontController
                 $wpdb->hide_errors();
             }
 
-            //Check if Disable keys and mouse action is on
-            if (function_exists('is_user_logged_in') 
-                && (HMWP_Classes_Tools::getOption('hmwp_disable_click') 
-                || HMWP_Classes_Tools::getOption('hmwp_disable_inspect') 
-                || HMWP_Classes_Tools::getOption('hmwp_disable_source') 
-                || HMWP_Classes_Tools::getOption('hmwp_disable_copy_paste') 
-                || HMWP_Classes_Tools::getOption('hmwp_disable_drag_drop'))
-            ) {
 
-                //only disable the click and keys wfor visitors
-                if (!is_user_logged_in() ) {
-                    HMWP_Classes_ObjController::getClass('HMWP_Models_Clicks');
-                }else {
-
-                    HMWP_Classes_Tools::setCurrentUserRole();
-                    $role = HMWP_Classes_Tools::getUserRole();
-
-                    if(HMWP_Classes_Tools::getOption('hmwp_disable_click_loggedusers')) {
-                        $selected_roles = (array)HMWP_Classes_Tools::getOption('hmwp_disable_click_roles');
-
-                        if (!in_array($role, $selected_roles)) {
-                            add_filter('hmwp_option_hmwp_disable_click', '__return_false');
-                        }
-                    }else{
-                        add_filter('hmwp_option_hmwp_disable_click', '__return_false');
-                    }
-
-                    if(HMWP_Classes_Tools::getOption('hmwp_disable_inspect_loggedusers')) {
-                        $selected_roles = (array)HMWP_Classes_Tools::getOption('hmwp_disable_inspect_roles');
-
-                        if (!in_array($role, $selected_roles)) {
-                            add_filter('hmwp_option_hmwp_disable_inspect', '__return_false');
-                        }
-                    }else{
-                        add_filter('hmwp_option_hmwp_disable_inspect', '__return_false');
-                    }
-
-                    if(HMWP_Classes_Tools::getOption('hmwp_disable_source_loggedusers')) {
-                        $selected_roles = (array)HMWP_Classes_Tools::getOption('hmwp_disable_source_roles');
-
-                        if (!in_array($role, $selected_roles)) {
-                            add_filter('hmwp_option_hmwp_disable_source', '__return_false');
-                        }
-                    }else{
-                        add_filter('hmwp_option_hmwp_disable_source', '__return_false');
-                    }
-
-                    if(HMWP_Classes_Tools::getOption('hmwp_disable_copy_paste_loggedusers')) {
-                        $selected_roles = (array)HMWP_Classes_Tools::getOption('hmwp_disable_copy_paste_roles');
-
-                        if (!in_array($role, $selected_roles)) {
-                            add_filter('hmwp_option_hmwp_disable_copy_paste', '__return_false');
-                        }
-                    }else{
-                        add_filter('hmwp_option_hmwp_disable_copy_paste', '__return_false');
-                    }
-
-                    if(HMWP_Classes_Tools::getOption('hmwp_disable_drag_drop_loggedusers')) {
-                        $selected_roles = (array)HMWP_Classes_Tools::getOption('hmwp_disable_drag_drop_roles');
-
-                        if (!in_array($role, $selected_roles)) {
-                            add_filter('hmwp_option_hmwp_disable_drag_drop', '__return_false');
-                        }
-                    }else{
-                        add_filter('hmwp_option_hmwp_disable_drag_drop', '__return_false');
-                    }
-
-                    //check again if the options are active after the filrter are applied
-                    if(HMWP_Classes_Tools::getOption('hmwp_disable_click') 
-                        || HMWP_Classes_Tools::getOption('hmwp_disable_inspect') 
-                        || HMWP_Classes_Tools::getOption('hmwp_disable_source') 
-                        || HMWP_Classes_Tools::getOption('hmwp_disable_copy_paste') 
-                        || HMWP_Classes_Tools::getOption('hmwp_disable_drag_drop')
-                    ) {
-
-                        HMWP_Classes_ObjController::getClass('HMWP_Models_Clicks');
-
-                    }
-
-                }
-
-            }
         }
 
+	    //Check if Disable keys and mouse action is on
+	    if (HMWP_Classes_Tools::doDisableClick()) {
+
+		    //only disable the click and keys wfor visitors
+		    if (!is_user_logged_in() ) {
+			    HMWP_Classes_ObjController::getClass('HMWP_Models_Clicks');
+		    }else {
+
+			    HMWP_Classes_Tools::setCurrentUserRole();
+			    $role = HMWP_Classes_Tools::getUserRole();
+
+			    if(HMWP_Classes_Tools::getOption('hmwp_disable_click_loggedusers')) {
+				    $selected_roles = (array)HMWP_Classes_Tools::getOption('hmwp_disable_click_roles');
+
+				    if (!in_array($role, $selected_roles)) {
+					    add_filter('hmwp_option_hmwp_disable_click', '__return_false');
+				    }
+			    }else{
+				    add_filter('hmwp_option_hmwp_disable_click', '__return_false');
+			    }
+
+			    if(HMWP_Classes_Tools::getOption('hmwp_disable_inspect_loggedusers')) {
+				    $selected_roles = (array)HMWP_Classes_Tools::getOption('hmwp_disable_inspect_roles');
+
+				    if (!in_array($role, $selected_roles)) {
+					    add_filter('hmwp_option_hmwp_disable_inspect', '__return_false');
+				    }
+			    }else{
+				    add_filter('hmwp_option_hmwp_disable_inspect', '__return_false');
+			    }
+
+			    if(HMWP_Classes_Tools::getOption('hmwp_disable_source_loggedusers')) {
+				    $selected_roles = (array)HMWP_Classes_Tools::getOption('hmwp_disable_source_roles');
+
+				    if (!in_array($role, $selected_roles)) {
+					    add_filter('hmwp_option_hmwp_disable_source', '__return_false');
+				    }
+			    }else{
+				    add_filter('hmwp_option_hmwp_disable_source', '__return_false');
+			    }
+
+			    if(HMWP_Classes_Tools::getOption('hmwp_disable_copy_paste_loggedusers')) {
+				    $selected_roles = (array)HMWP_Classes_Tools::getOption('hmwp_disable_copy_paste_roles');
+
+				    if (!in_array($role, $selected_roles)) {
+					    add_filter('hmwp_option_hmwp_disable_copy_paste', '__return_false');
+				    }
+			    }else{
+				    add_filter('hmwp_option_hmwp_disable_copy_paste', '__return_false');
+			    }
+
+			    if(HMWP_Classes_Tools::getOption('hmwp_disable_drag_drop_loggedusers')) {
+				    $selected_roles = (array)HMWP_Classes_Tools::getOption('hmwp_disable_drag_drop_roles');
+
+				    if (!in_array($role, $selected_roles)) {
+					    add_filter('hmwp_option_hmwp_disable_drag_drop', '__return_false');
+				    }
+			    }else{
+				    add_filter('hmwp_option_hmwp_disable_drag_drop', '__return_false');
+			    }
+
+			    //check again if the options are active after the filrter are applied
+			    if(HMWP_Classes_Tools::getOption('hmwp_disable_click')
+			       || HMWP_Classes_Tools::getOption('hmwp_disable_inspect')
+			       || HMWP_Classes_Tools::getOption('hmwp_disable_source')
+			       || HMWP_Classes_Tools::getOption('hmwp_disable_copy_paste')
+			       || HMWP_Classes_Tools::getOption('hmwp_disable_drag_drop')
+			    ) {
+
+				    HMWP_Classes_ObjController::getClass('HMWP_Models_Clicks');
+
+			    }
+
+		    }
+
+	    }
 
     }
 

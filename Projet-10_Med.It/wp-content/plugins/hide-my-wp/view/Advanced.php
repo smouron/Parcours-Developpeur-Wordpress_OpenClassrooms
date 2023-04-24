@@ -32,9 +32,11 @@
                                     <div class="col-sm-12 p-0 switch switch-sm">
                                         <input type="hidden" name="prevent_slow_loading" value="0"/>
                                         <input type="checkbox" id="prevent_slow_loading" name="prevent_slow_loading" class="switch" <?php echo(HMWP_Classes_Tools::getOption('prevent_slow_loading') ? 'checked="checked"' : '') ?> value="1"/>
-                                        <label for="prevent_slow_loading"><?php echo esc_html__('Prevent Broken Website Layout', 'hide-my-wp'); ?></label>
-                                        <a href="https://hidemywpghost.com/kb/advanced-wp-security/#prevent_slow_loading" target="_blank" class="d-inline-block ml-2"><i class="fa fa-question-circle"></i></a>
-                                        <div class="offset-1 text-black-50"><?php echo esc_html__("Don't load the plugin if the rewrite rules are not loading correctly in the config file.", 'hide-my-wp'); ?></div>
+                                        <label for="prevent_slow_loading"><?php echo esc_html__('Prevent Broken Website Layout', 'hide-my-wp'); ?>
+                                            <a href="https://hidemywpghost.com/kb/advanced-wp-security/#prevent_slow_loading" target="_blank" class="d-inline ml-1"><i class="dashicons dashicons-editor-help d-inline"></i></a>
+                                            <span class="text-black-50 small">(<?php echo esc_html__("recommended", 'hide-my-wp'); ?>)</span> </label>
+                                        </label>
+                                        <div class="offset-1 text-black-50"><?php echo esc_html__("If the rewrite rules are not loading correctly in the config file, do not load the plugin and do not change the paths.", 'hide-my-wp'); ?></div>
                                     </div>
                                 </div>
                             </div>
@@ -51,7 +53,7 @@
                                         <input type="hidden" name="hmwp_firstload" value="0"/>
                                         <input type="checkbox" id="hmwp_firstload" name="hmwp_firstload" class="switch" <?php echo(HMWP_Classes_Tools::getOption('hmwp_firstload') ? 'checked="checked"' : '') ?> value="1"/>
                                         <label for="hmwp_firstload"><?php echo esc_html__('Compatibility with Manage WP plugin', 'hide-my-wp'); ?></label>
-                                        <a href="<?php echo esc_url(HMWP_Classes_Tools::getOption('hmwp_plugin_website') . '/kb/advanced-wp-security/#firstload') ?>" target="_blank" class="d-inline-block ml-2"><i class="dashicons dashicons-editor-help"></i></a>
+                                        <a href="<?php echo esc_url(HMWP_Classes_Tools::getOption('hmwp_plugin_website') . '/kb/advanced-wp-security/#firstload') ?>" target="_blank" class="d-inline-block ml-2"><i class="dashicons dashicons-editor-help d-inline"></i></a>
                                         <div class="offset-1 text-black-50"><?php echo esc_html__('Load the plugin as a Must Use plugin.', 'hide-my-wp'); ?></div>
                                         <div class="offset-1 text-black-50"><?php echo esc_html__('(compatibility with Token based login plugins)', 'hide-my-wp'); ?></div>
                                     </div>
@@ -64,7 +66,7 @@
                                         <input type="hidden" name="hmwp_priorityload" value="0"/>
                                         <input type="checkbox" id="hmwp_priorityload" name="hmwp_priorityload" class="switch" <?php echo(HMWP_Classes_Tools::getOption('hmwp_priorityload') ? 'checked="checked"' : '') ?> value="1"/>
                                         <label for="hmwp_priorityload"><?php echo esc_html__('Priority Loading', 'hide-my-wp'); ?></label>
-                                        <a href="<?php echo esc_url(HMWP_Classes_Tools::getOption('hmwp_plugin_website') . '/kb/advanced-wp-security/#proirity_loading') ?>" target="_blank" class="d-inline-block ml-2"><i class="dashicons dashicons-editor-help"></i></a>
+                                        <a href="<?php echo esc_url(HMWP_Classes_Tools::getOption('hmwp_plugin_website') . '/kb/advanced-wp-security/#proirity_loading') ?>" target="_blank" class="d-inline-block ml-2"><i class="dashicons dashicons-editor-help d-inline"></i></a>
                                         <div class="offset-1 text-black-50"><?php echo esc_html__('Load HMWP before all plugins are loaded.', 'hide-my-wp'); ?></div>
                                         <div class="offset-1 text-black-50"><?php echo esc_html__('(compatibility with cache plugins & themes)', 'hide-my-wp'); ?></div>
                                     </div>
@@ -77,7 +79,7 @@
                                         <input type="hidden" name="hmwp_laterload" value="0"/>
                                         <input type="checkbox" id="hmwp_laterload" name="hmwp_laterload" class="switch" <?php echo(HMWP_Classes_Tools::getOption('hmwp_laterload') ? 'checked="checked"' : '') ?> value="1"/>
                                         <label for="hmwp_laterload"><?php echo esc_html__('Late Loading', 'hide-my-wp'); ?></label>
-                                        <a href="<?php echo esc_url(HMWP_Classes_Tools::getOption('hmwp_plugin_website') . '/kb/advanced-wp-security/#late_loading') ?>" target="_blank" class="d-inline-block ml-2"><i class="dashicons dashicons-editor-help"></i></a>
+                                        <a href="<?php echo esc_url(HMWP_Classes_Tools::getOption('hmwp_plugin_website') . '/kb/advanced-wp-security/#late_loading') ?>" target="_blank" class="d-inline-block ml-2"><i class="dashicons dashicons-editor-help d-inline"></i></a>
                                         <div class="offset-1 text-black-50"><?php echo esc_html__('Load HMWP after all plugins are loaded.', 'hide-my-wp'); ?></div>
                                         <div class="offset-1 text-black-50"><?php echo esc_html__('(compatibility with cache plugins & themes)', 'hide-my-wp'); ?></div>
                                     </div>
@@ -90,7 +92,7 @@
                                         <input type="hidden" name="hmwp_remove_third_hooks" value="0"/>
                                         <input type="checkbox" id="hmwp_remove_third_hooks" name="hmwp_remove_third_hooks" class="switch" <?php echo(HMWP_Classes_Tools::getOption('hmwp_remove_third_hooks') ? 'checked="checked"' : '') ?> value="1"/>
                                         <label for="hmwp_remove_third_hooks"><?php echo esc_html__('Clean Login Page', 'hide-my-wp'); ?></label>
-                                        <a href="<?php echo esc_url(HMWP_Classes_Tools::getOption('hmwp_plugin_website') . '/kb/advanced-wp-security/#clean_login_page') ?>" target="_blank" class="d-inline-block ml-2"><i class="dashicons dashicons-editor-help"></i></a>
+                                        <a href="<?php echo esc_url(HMWP_Classes_Tools::getOption('hmwp_plugin_website') . '/kb/advanced-wp-security/#clean_login_page') ?>" target="_blank" class="d-inline-block ml-2"><i class="dashicons dashicons-editor-help d-inline"></i></a>
                                         <div class="offset-1 text-black-50"><?php echo esc_html__('Cancel the login hooks from other plugins and themes to prevent unwanted login redirects.', 'hide-my-wp'); ?></div>
                                         <div class="offset-1 text-black-50"><?php echo esc_html__('(useful when the theme is adding wrong admin redirects or infinite redirects)', 'hide-my-wp'); ?></div>
                                     </div>
@@ -111,7 +113,7 @@
                                         <input type="hidden" name="hmwp_send_email" value="0"/>
                                         <input type="checkbox" id="hmwp_send_email" name="hmwp_send_email" class="switch" <?php echo(HMWP_Classes_Tools::getOption('hmwp_send_email') ? 'checked="checked"' : '') ?> value="1"/>
                                         <label for="hmwp_send_email"><?php echo esc_html__('Email Notification', 'hide-my-wp'); ?></label>
-                                        <a href="<?php echo esc_url(HMWP_Classes_Tools::getOption('hmwp_plugin_website') . '/kb/advanced-wp-security/#email_notification') ?>" target="_blank" class="d-inline-block ml-2"><i class="dashicons dashicons-editor-help"></i></a>
+                                        <a href="<?php echo esc_url(HMWP_Classes_Tools::getOption('hmwp_plugin_website') . '/kb/advanced-wp-security/#email_notification') ?>" target="_blank" class="d-inline-block ml-2"><i class="dashicons dashicons-editor-help d-inline"></i></a>
                                         <div class="offset-1 text-black-50"><?php echo esc_html__('Send me an email with the changed admin and login URLs', 'hide-my-wp'); ?></div>
                                     </div>
                                 </div>

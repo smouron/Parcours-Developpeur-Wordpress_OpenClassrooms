@@ -364,11 +364,12 @@ class HMWP_Controllers_Brute extends HMWP_Classes_FrontController
         return $user;
     }
 
-    /**
-     * Called via WP action wp_login_failed to log failed attempt in db
-     *
-     * @return void
-     */
+	/**
+	 * Called via WP action wp_login_failed to log failed attempt in db
+	 *
+	 * @return void
+	 * @throws Exception
+	 */
     function hmwp_failed_attempt()
     {
         $this->model->brute_call('failed_attempt');

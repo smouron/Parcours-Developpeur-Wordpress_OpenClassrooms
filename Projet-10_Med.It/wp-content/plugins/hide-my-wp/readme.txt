@@ -4,7 +4,7 @@ Tags: security,firewall,hide,antivirus,wp-login,wp-admin,hide wordpress,hide wp,
 Requires at least: 4.3
 Tested up to: 6.2
 Requires PHP: 5.6
-Stable tag: 5.0.18
+Stable tag: 5.0.19
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -14,7 +14,7 @@ Hide WP paths, wp-admin, wp-login, wp-content, plugins, themes, authors, XML-RPC
 
 **Hide My WP Ghost** is a **WordPress Security plugin**. It gives you the best security solutions with its powerful and easy-to-use features. Without physically changing any directory or file, Hide My WP Ghost can take your website’s security to the next level.
 
-Over **200.000 secured websites**, over **4,000,000 brute force attempts blocked** and over **140.000 monthly hacks stopped** and counting.
+Over **200.000 secured websites**, over **8,000,000 brute force attempts blocked** and over **140.000 monthly hacks stopped** and counting.
 
 The plugin **adds filters and security layers** to prevent Scripts and SQL Injections, Brute Force attacks, XML-RPC attacks, XSS, and more.
 
@@ -274,18 +274,20 @@ Enjoy!
 9. Customize the wp-admin path while logged in as an administrator
 
 == Changelog ==
-= 5.0.19 =
+= 5.0.19 (24 Apr 2023) =
 * Update - Brute Force protection on lost password form
 * Update - Brute Force protection on Woocommerce (login, signup, lost passowrd)
 * Update - Compatibility with Memberpress plugin
 * Fixed - My account link on multisite option
+* Fixed - Settings to verify the array values on settings saving process
+* Fixed - Small Bugs
 
 = 5.0.18 (03 Mar 2023)=
 * Update - Compatibility with WP 6.2
 * Update - Compatibility with more plugins and themes
-* Update the security check when wp-content is customized
-* Update the File handle for login, signup, logout
-* Update the compatibility with PHP 8.2
+* Update - Security check when wp-content is customized
+* Update - File handle for login, signup, logout
+* Update - Compatibility with PHP 8.2
 * Update - Remove the atom+xml meta from header
 * Update - Remove the noredirect param if the redirect is fixed
 * Update - Check the XML and TXT URI by REQUEST_URI to make sure the Sitemap and Robots URLs are identified

@@ -1,4 +1,4 @@
-/*! elementor - v3.12.1 - 02-04-2023 */
+/*! elementor - v3.12.2 - 23-04-2023 */
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
@@ -34518,7 +34518,7 @@ module.exports = Marionette.ItemView.extend({
   ui: {
     menuButtons: '.elementor-panel-footer-tool',
     settings: '#elementor-panel-footer-settings',
-    deviceModeIcon: '#elementor-panel-footer-responsive > i',
+    deviceModeIcon: '#elementor-panel-footer-responsive',
     saveTemplate: '#elementor-panel-footer-sub-menu-item-save-template',
     history: '#elementor-panel-footer-history',
     navigator: '#elementor-panel-footer-navigator'

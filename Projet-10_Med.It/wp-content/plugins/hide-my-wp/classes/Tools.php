@@ -668,6 +668,41 @@ class HMWP_Classes_Tools
         return false;
     }
 
+	/**
+	 * Check if it's valid for click disabl, source code and inspect element
+	 *
+	 * @return bool
+	 */
+	public static function doDisableClick()
+	{
+
+		//Check if is valid for moving on
+		if(!apply_filters('hmwp_process_hide_disable', true)) {
+			return false;
+		}
+
+		if (defined('DOING_CRON') && DOING_CRON ) {
+			return false;
+		}
+
+		//If not admin
+		if (!is_admin() && !is_network_admin() ) {
+
+			if(function_exists('is_user_logged_in')
+			   && (HMWP_Classes_Tools::getOption('hmwp_disable_click')
+			       || HMWP_Classes_Tools::getOption('hmwp_disable_inspect')
+			       || HMWP_Classes_Tools::getOption('hmwp_disable_source')
+			       || HMWP_Classes_Tools::getOption('hmwp_disable_copy_paste')
+			       || HMWP_Classes_Tools::getOption('hmwp_disable_drag_drop'))){
+
+				return true;
+			}
+
+		}
+
+		return false;
+	}
+
     /**
      * Check if the option to hide the URLs is active
      *
