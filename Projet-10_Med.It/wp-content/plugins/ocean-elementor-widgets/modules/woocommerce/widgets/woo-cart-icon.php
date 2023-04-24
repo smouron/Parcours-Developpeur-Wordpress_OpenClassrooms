@@ -6,7 +6,6 @@ use Elementor\Controls_Manager;
 use Elementor\Group_Control_Box_Shadow;
 use Elementor\Group_Control_Typography;
 use Elementor\Group_Control_Border;
-use Elementor\Scheme_Typography;
 use Elementor\Widget_Base;
 use owpElementor\Modules\Woocommerce\Module;
 
@@ -23,7 +22,6 @@ class Woo_CartIcon extends Widget_Base {
 	}
 
 	public function get_icon() {
-		// Upload "eicons.ttf" font via this site: http://bluejamesbond.github.io/CharacterMap/
 		return 'oew-icon eicon-woocommerce';
 	}
 
@@ -31,11 +29,26 @@ class Woo_CartIcon extends Widget_Base {
 		return [ 'oceanwp-elements' ];
 	}
 
+    public function get_keywords() {
+        return [
+            'woo',
+            'woocommerce',
+            'ecommerce',
+            'cart',
+            'icon',
+            'owp',
+        ];
+    }
+
+	public function get_script_depends() {
+		return array( 'oew-woo-cart-icon' );
+	}
+
 	public function get_style_depends() {
 		return [ 'oew-woo-cart-icon' ];
 	}
 
-	protected function _register_controls() {
+	protected function register_controls() {
 
 		$this->start_controls_section(
 			'section_cart_icon',
@@ -95,15 +108,15 @@ class Woo_CartIcon extends Widget_Base {
 				'options' 		=> [
 					'left'    => [
 						'title' => __( 'Left', 'ocean-elementor-widgets' ),
-						'icon' 	=> 'fa fa-align-left',
+						'icon' 	=> 'eicon-text-align-left',
 					],
 					'center' => [
 						'title' => __( 'Center', 'ocean-elementor-widgets' ),
-						'icon' 	=> 'fa fa-align-center',
+						'icon' 	=> 'eicon-text-align-center',
 					],
 					'right' => [
 						'title' => __( 'Right', 'ocean-elementor-widgets' ),
-						'icon' 	=> 'fa fa-align-right',
+						'icon' 	=> 'eicon-text-align-right',
 					],
 				],
 				'default' 		=> '',
@@ -135,6 +148,7 @@ class Woo_CartIcon extends Widget_Base {
 				'size_units' 	=> [ 'px', 'em' ],
 				'selectors' 	=> [
 					'{{WRAPPER}} .oew-cart-link i' => 'font-size: {{SIZE}}{{UNIT}}',
+					'{{WRAPPER}} .oew-cart-link .owp-icon' => 'width: {{SIZE}}{{UNIT}}; height: {{SIZE}}{{UNIT}}',
 				],
 			]
 		);
@@ -166,6 +180,7 @@ class Woo_CartIcon extends Widget_Base {
 				'type' 			=> Controls_Manager::COLOR,
 				'selectors' 	=> [
 					'{{WRAPPER}} .oew-cart-link i' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .oew-cart-link .owp-icon use' => 'stroke: {{VALUE}};',
 				],
 			]
 		);
@@ -335,7 +350,6 @@ class Woo_CartIcon extends Widget_Base {
 			[
 				'name' 			=> 'subtotal_typo',
 				'selector' 		=> '{{WRAPPER}} .oew-cart-total',
-				'scheme' 		=> Scheme_Typography::TYPOGRAPHY_1,
 				'condition' 	=> [
 					'show_subtotal!' => '',
 				],
@@ -568,7 +582,6 @@ class Woo_CartIcon extends Widget_Base {
 			[
 				'name' 			=> 'cart_product_title_typo',
 				'selector' 		=> '{{WRAPPER}} .oew-cart-dropdown .oew-cart-products li .oew-grid-wrap .oew-grid h3',
-				'scheme' 		=> Scheme_Typography::TYPOGRAPHY_1,
 			]
 		);
 
@@ -597,7 +610,6 @@ class Woo_CartIcon extends Widget_Base {
 			[
 				'name' 			=> 'cart_product_quantity_typo',
 				'selector' 		=> '{{WRAPPER}} .oew-cart-dropdown .oew-cart-products li .oew-grid-wrap .oew-grid .quantity',
-				'scheme' 		=> Scheme_Typography::TYPOGRAPHY_1,
 			]
 		);
 
@@ -626,7 +638,6 @@ class Woo_CartIcon extends Widget_Base {
 			[
 				'name' 			=> 'cart_product_price_typo',
 				'selector' 		=> '{{WRAPPER}} .oew-cart-dropdown .oew-cart-products li .oew-grid-wrap .oew-grid .quantity .amount',
-				'scheme' 		=> Scheme_Typography::TYPOGRAPHY_1,
 			]
 		);
 
@@ -832,7 +843,6 @@ class Woo_CartIcon extends Widget_Base {
 			[
 				'name' 			=> 'cart_subtotal_typo',
 				'selector' 		=> '{{WRAPPER}} .oew-cart-dropdown .oew-cart-subtotal strong',
-				'scheme' 		=> Scheme_Typography::TYPOGRAPHY_1,
 			]
 		);
 
@@ -873,7 +883,6 @@ class Woo_CartIcon extends Widget_Base {
 			[
 				'name' 			=> 'cart_subtotal_price_typo',
 				'selector' 		=> '{{WRAPPER}} .oew-cart-dropdown .oew-cart-subtotal .amount',
-				'scheme' 		=> Scheme_Typography::TYPOGRAPHY_1,
 			]
 		);
 
@@ -1035,7 +1044,6 @@ class Woo_CartIcon extends Widget_Base {
 			[
 				'name' 			=> 'cart_view_cart_typo',
 				'selector' 		=> '{{WRAPPER}} .oew-cart-footer-buttons .oew-cart-view-cart',
-				'scheme' 		=> Scheme_Typography::TYPOGRAPHY_1,
 			]
 		);
 
@@ -1164,7 +1172,6 @@ class Woo_CartIcon extends Widget_Base {
 			[
 				'name' 			=> 'cart_checkout_typo',
 				'selector' 		=> '{{WRAPPER}} .oew-cart-footer-buttons .oew-cart-checkout',
-				'scheme' 		=> Scheme_Typography::TYPOGRAPHY_1,
 			]
 		);
 
@@ -1177,6 +1184,6 @@ class Woo_CartIcon extends Widget_Base {
 	}
 
 	// No template because it cause a js error in the edit mode
-	protected function _content_template() {}
+	protected function content_template() {}
 
 }

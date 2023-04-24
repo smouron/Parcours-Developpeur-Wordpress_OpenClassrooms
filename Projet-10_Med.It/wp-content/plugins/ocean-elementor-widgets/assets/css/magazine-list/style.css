@@ -1,0 +1,166 @@
+
+/*------------------------------------------------------------------
+Magazine List
+-------------------------------------------------------------------*/
+
+.oew-magazine-list-blog-list {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    vertical-align: middle;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.oew-magazine-list-bl-item {
+    padding: 0 15px;
+    margin: 15px 0 15px 0;
+    display: block;
+    line-height: 20px;
+}
+.oew-magazine-list-bli-inner {
+    position: relative;
+    display: flex;
+    width: 100%;
+    align-items: center;
+}
+.oew-magazine-list-post-image {
+    display: table-cell;
+    max-width: 100px;
+    vertical-align: top;
+    position: relative;
+    flex: none;
+}
+.oew-magazine-list-post-image a {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    vertical-align: middle;
+}
+.oew-magazine-list-post-image img {
+    display: block;
+    width: 100%;
+}
+.oew-magazine-list-bli-content {
+    display: flex;
+    flex-direction: column;
+    width: auto;
+    padding-left: 16px;
+    position: relative;
+    box-sizing: border-box;
+}
+.oew-magazine-list-bl-wrapper.image-right .oew-magazine-list-bli-content {
+    padding-left: 16px;
+}
+.oew-magazine-list-bl-wrapper.image-right .oew-magazine-list-post-image{
+    order: 2;
+}
+.oew-magazine-list-bl-wrapper.image-no .oew-magazine-list-bli-content {
+    padding: 0;
+}
+.oew-magazine-list-bl-wrapper.image-right .oew-magazine-list-bli-inner {
+    justify-content: space-between;
+}
+.oew-magazine-list-post-title {
+    font-weight: 700;
+    line-height: 19px;
+    text-transform: uppercase;
+}
+.oew-magazine-list-bli-content .oew-magazine-list-post-info-date {
+    display: block;
+    max-width: fit-content;
+    margin: 8px 0 0;
+    line-height: 1;
+}
+.oew-magazine-list-bli-content .oew-magazine-list-post-info-date a {
+    font-size: 15px;
+    color: #999;
+}
+
+.oew-magazine-list-post-info-date .datetime {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.oew-magazine-list-post-info-date .author-block {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.oew-magazine-list-post-info-author {
+    font-size: 13px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    vertical-align: middle;
+}
+
+.oew-magazine-list-bl-item .oew-magazine-list-post-info-author-image {
+    max-width: 25px;
+    margin-right: 5px;
+    line-height: 1em;
+    vertical-align: middle;
+    display: inline-block;
+}
+.oew-magazine-list-bl-item .oew-magazine-list-post-info-author-image img{
+    border-radius: 50%;
+}
+
+.oew-magazine-list-post-info-category {
+    text-transform: uppercase;
+    font-weight: 700;
+    line-height: 1.5em;
+    width: fit-content;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 0 12px 0 11px;
+    margin-right: 3px;
+    -webkit-transition: all .2s ease;
+    -o-transition: all .2s ease;
+    transition: all .2s ease;
+}
+
+.oew-magazine-list-bli-content>div.oew-magazine-list-post-info-category a:not(:last-child)::after {
+	content: "/";
+	padding: 0 5px;
+}
+.oew-magazine-list-post-info-category:last-of-type {
+    margin-right: 0;
+}
+
+.oew-magazine-list-post-info-category:hover {
+    -webkit-transform: translateY(-5px) translateZ(0);
+    transform: translateY(-5px) translateZ(0);
+    -moz-transform: translateY(-5px) translateZ(0);
+    -ms-transform: translateY(-5px) translateZ(0);
+    -o-transform: translateY(-5px) translateZ(0);
+}
+
+.oew-magazine-list-post-info-category a {
+    font-size: 12px;
+    line-height: 1em !important;
+}
+
+.oew-magazine-list-post-info-category a:hover {
+    color: #fff;
+}
+
+.oew-magazine-list-post-info-category {
+    z-index: 50;
+}
+
+.oew-magazine-list-bl-wrapper .oew-magazine-list-separator {
+    border-top: 1px dotted #b5b5b5;
+    flex: 1;
+    -webkit-box-flex: 1;
+    -webkit-flex-grow: 1;
+    -ms-flex-positive: 1;
+    -moz-box-flex: 1;
+    flex-grow: 1;
+    margin: 0;
+    height: 0;
+}
+
+.oew-magazine-list-bl-wrapper .oew-magazine-list-separator:last-child {
+    display: none;
+}

@@ -4,11 +4,14 @@ namespace owpElementor\Modules\OffCanvas\Widgets;
 // Elementor Classes
 use Elementor\Controls_Manager;
 use Elementor\Group_Control_Typography;
-use Elementor\Scheme_Typography;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Box_Shadow;
 use Elementor\Widget_Base;
 use Elementor\Plugin;
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
 
 class Off_Canvas extends Widget_Base {
 
@@ -21,13 +24,21 @@ class Off_Canvas extends Widget_Base {
 	}
 
 	public function get_icon() {
-		// Upload "eicons.ttf" font via this site: http://bluejamesbond.github.io/CharacterMap/
 		return 'oew-icon eicon-menu-bar';
 	}
 
 	public function get_categories() {
 		return [ 'oceanwp-elements' ];
 	}
+
+    public function get_keywords() {
+        return [
+            'off',
+            'canvas',
+            'widget',
+            'owp',
+        ];
+    }
 
 	public function get_script_depends() {
 		return [ 'oew-off-canvas' ];
@@ -37,7 +48,7 @@ class Off_Canvas extends Widget_Base {
 		return [ 'oew-off-canvas' ];
 	}
 
-	protected function _register_controls() {
+	protected function register_controls() {
 
 		$this->start_controls_section(
 			'section_off_canvas',
@@ -151,19 +162,19 @@ class Off_Canvas extends Widget_Base {
 				'options' 		=> [
 					'left'    => [
 						'title' => __( 'Left', 'ocean-elementor-widgets' ),
-						'icon' 	=> 'fa fa-align-left',
+						'icon' 	=> 'eicon-text-align-left',
 					],
 					'center' => [
 						'title' => __( 'Center', 'ocean-elementor-widgets' ),
-						'icon' 	=> 'fa fa-align-center',
+						'icon' 	=> 'eicon-text-align-center',
 					],
 					'right' => [
 						'title' => __( 'Right', 'ocean-elementor-widgets' ),
-						'icon' 	=> 'fa fa-align-right',
+						'icon' 	=> 'eicon-text-align-right',
 					],
 					'justify' => [
 						'title' => __( 'Justified', 'ocean-elementor-widgets' ),
-						'icon' 	=> 'fa fa-align-justify',
+						'icon' 	=> 'eicon-text-align-justify',
 					],
 				],
 				'default' 		=> '',
@@ -437,7 +448,6 @@ class Off_Canvas extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name' 			=> 'off_canvas_button_typography',
-				'scheme' 		=> Scheme_Typography::TYPOGRAPHY_4,
 				'selector' 		=> '{{WRAPPER}} .oew-off-canvas-button a',
 			]
 		);
@@ -629,8 +639,8 @@ class Off_Canvas extends Widget_Base {
 			<div <?php echo $this->get_render_attribute_string( 'off-canvas-sidebar' ); ?>>
 				<?php
 				if ( $settings['off_canvas_close_button'] ) { ?>
-	        		<button <?php echo $this->get_render_attribute_string( 'off-canvas-close' ); ?>>
-	        			<svg width="14" height="14" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve">
+	        		<button aria-label="<?php esc_attr( oew_lang_strings( 'oew-string-offc-close-btn' ) ); ?>" <?php echo $this->get_render_attribute_string( 'off-canvas-close' ); ?>>
+	        			<svg focusable="false" aria-hidden="true" role="img" width="14" height="14" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve">
 							<path d="M505.943,6.058c-8.077-8.077-21.172-8.077-29.249,0L6.058,476.693c-8.077,8.077-8.077,21.172,0,29.249
 								C10.096,509.982,15.39,512,20.683,512c5.293,0,10.586-2.019,14.625-6.059L505.943,35.306
 								C514.019,27.23,514.019,14.135,505.943,6.058z"/>

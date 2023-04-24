@@ -4,7 +4,6 @@ namespace owpElementor\Modules\Alert\Widgets;
 // Elementor Classes
 use Elementor\Controls_Manager;
 use Elementor\Group_Control_Typography;
-use Elementor\Scheme_Typography;
 use Elementor\Widget_Base;
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
@@ -20,13 +19,20 @@ class Alert extends Widget_Base {
 	}
 
 	public function get_icon() {
-		// Upload "eicons.ttf" font via this site: http://bluejamesbond.github.io/CharacterMap/
 		return 'oew-icon eicon-alert';
 	}
 
 	public function get_categories() {
 		return [ 'oceanwp-elements' ];
 	}
+
+    public function get_keywords() {
+        return [
+            'alert',
+            'notice',
+            'owp',
+        ];
+    }
 
 	public function get_script_depends() {
 		return [ 'oew-alert' ];
@@ -36,7 +42,7 @@ class Alert extends Widget_Base {
 		return [ 'oew-alert' ];
 	}
 
-	protected function _register_controls() {
+	protected function register_controls() {
 
 		$this->start_controls_section(
 			'section_alert',
@@ -180,7 +186,6 @@ class Alert extends Widget_Base {
 			[
 				'name' 			=> 'alert_title',
 				'selector' 		=> '{{WRAPPER}} .oew-alert-heading',
-				'scheme' 		=> Scheme_Typography::TYPOGRAPHY_1,
 			]
 		);
 
@@ -210,7 +215,6 @@ class Alert extends Widget_Base {
 			[
 				'name' 			=> 'alert_content',
 				'selector' 		=> '{{WRAPPER}} .oew-alert-content',
-				'scheme' 		=> Scheme_Typography::TYPOGRAPHY_3,
 			]
 		);
 
@@ -299,7 +303,7 @@ class Alert extends Widget_Base {
 	<?php
 	}
 
-	protected function _content_template() { ?>
+	protected function content_template() { ?>
 		<#
 			var wrap_classes = 'oew-alert clr',
 				alert_icon = '';

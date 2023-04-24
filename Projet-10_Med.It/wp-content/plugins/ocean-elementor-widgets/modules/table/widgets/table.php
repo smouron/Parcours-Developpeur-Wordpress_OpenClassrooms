@@ -9,7 +9,6 @@ use Elementor\Group_Control_Background;
 use Elementor\Group_Control_Image_Size;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Typography;
-use Elementor\Scheme_Typography;
 use Elementor\Group_Control_Box_Shadow;
 use Elementor\Widget_Base;
 
@@ -26,7 +25,6 @@ class Table extends Widget_Base {
 	}
 
 	public function get_icon() {
-		// Upload "eicons.ttf" font via this site: http://bluejamesbond.github.io/CharacterMap/
 		return 'oew-icon eicon-table';
 	}
 
@@ -34,11 +32,18 @@ class Table extends Widget_Base {
 		return [ 'oceanwp-elements' ];
 	}
 
+    public function get_keywords() {
+        return [
+            'table',
+            'owp',
+        ];
+    }
+
 	public function get_style_depends() {
 		return [ 'oew-table' ];
 	}
 
-	protected function _register_controls() {
+	protected function register_controls() {
 
 		$this->start_controls_section(
 			'section_header',
@@ -191,7 +196,7 @@ class Table extends Widget_Base {
 					],
 				],
 				'prevent_empty'	=> true,
-				'fields' 		=> array_values( $repeater->get_controls() ),
+				'fields' 		=> $repeater->get_controls(),
 				'title_field' 	=> '{{{ cell_text }}}',
 			]
 		);
@@ -395,7 +400,7 @@ class Table extends Widget_Base {
 						'content_text' 	=> __( 'Column #3', 'ocean-elementor-widgets' ),
 					],
 				],
-				'fields' 		=> array_values( $repeater->get_controls() ),
+				'fields' 		=> $repeater->get_controls(),
 				'title_field' 	=> 'Start {{ content_type }}: {{{ content_text }}}',
 			]
 		);
@@ -444,15 +449,15 @@ class Table extends Widget_Base {
 				'options' 		=> [
 					'left' => [
 						'title' => __( 'Left', 'ocean-elementor-widgets' ),
-						'icon' 	=> 'fa fa-align-left',
+						'icon' 	=> 'eicon-text-align-left',
 					],
 					'center' => [
 						'title' => __( 'Center', 'ocean-elementor-widgets' ),
-						'icon' 	=> 'fa fa-align-center',
+						'icon' 	=> 'eicon-text-align-center',
 					],
 					'right' => [
 						'title' => __( 'Right', 'ocean-elementor-widgets' ),
-						'icon' 	=> 'fa fa-align-right',
+						'icon' 	=> 'eicon-text-align-right',
 					],
 				],
 				'prefix_class' => 'oew%s-align-',
@@ -653,7 +658,6 @@ class Table extends Widget_Base {
 			[
 				'name' 		=> 'cell_typography',
 				'label' 	=> __( 'Typography', 'ocean-elementor-widgets' ),
-				'scheme' 	=> Scheme_Typography::TYPOGRAPHY_4,
 				'selector' 	=> '{{WRAPPER}} .oew-table td.oew-table-cell',
 			]
 		);
@@ -760,7 +764,6 @@ class Table extends Widget_Base {
 			[
 				'name' 		=> 'headers_typography',
 				'label' 	=> __( 'Typography', 'ocean-elementor-widgets' ),
-				'scheme' 	=> Scheme_Typography::TYPOGRAPHY_4,
 				'selector' 	=> '{{WRAPPER}} .oew-table th.oew-table-cell',
 			]
 		);
@@ -1080,7 +1083,7 @@ class Table extends Widget_Base {
 	<?php
 	}
 
-	protected function _content_template() { ?>
+	protected function content_template() { ?>
 		<#
 		var counter 				= 1,
 			cell_counter 			= 0,

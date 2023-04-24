@@ -4,7 +4,6 @@ namespace owpElementor\Modules\Navigation\Widgets;
 // Elementor Classes
 use Elementor\Controls_Manager;
 use Elementor\Group_Control_Typography;
-use Elementor\Scheme_Typography;
 use Elementor\Group_Control_Border;
 use Elementor\Widget_Base;
 
@@ -21,7 +20,6 @@ class Navigation extends Widget_Base {
 	}
 
 	public function get_icon() {
-		// Upload "eicons.ttf" font via this site: http://bluejamesbond.github.io/CharacterMap/
 		return 'oew-icon eicon-navigation-horizontal';
 	}
 
@@ -29,7 +27,16 @@ class Navigation extends Widget_Base {
 		return [ 'oceanwp-elements' ];
 	}
 
-	protected function _register_controls() {
+    public function get_keywords() {
+        return [
+            'nav',
+            'navigation',
+            'menu',
+            'owp',
+        ];
+    }
+
+	protected function register_controls() {
 
 		$this->start_controls_section(
 			'section_nav',
@@ -55,15 +62,15 @@ class Navigation extends Widget_Base {
 				'options' 		=> [
 					'left' => [
 						'title' => __( 'Left', 'ocean-elementor-widgets' ),
-						'icon'  => 'fa fa-align-left',
+						'icon'  => 'eicon-text-align-left',
 					],
 					'center' => [
 						'title' => __( 'Center', 'ocean-elementor-widgets' ),
-						'icon'  => 'fa fa-align-center',
+						'icon'  => 'eicon-text-align-center',
 					],
 					'right' => [
 						'title' => __( 'Right', 'ocean-elementor-widgets' ),
-						'icon'  => 'fa fa-align-right',
+						'icon'  => 'eicon-text-align-right',
 					],
 				],
 				'default' 		=> '',
@@ -88,7 +95,6 @@ class Navigation extends Widget_Base {
 			[
 				'name' 			=> 'navigation_typo',
 				'selector' 		=> '{{WRAPPER}} #site-navigation-wrap .dropdown-menu > li > a,{{WRAPPER}} #site-navigation-wrap .fs-dropdown-menu > li > a,{{WRAPPER}} .oceanwp-mobile-menu-icon a',
-				'scheme' 		=> Scheme_Typography::TYPOGRAPHY_1,
 			]
 		);
 
@@ -263,7 +269,6 @@ class Navigation extends Widget_Base {
 			[
 				'name' 			=> 'dropdowns_typo',
 				'selector' 		=> '{{WRAPPER}} .dropdown-menu .sub-menu,{{WRAPPER}} #searchform-dropdown,{{WRAPPER}} #current-shop-items-dropdown',
-				'scheme' 		=> Scheme_Typography::TYPOGRAPHY_1,
 			]
 		);
 

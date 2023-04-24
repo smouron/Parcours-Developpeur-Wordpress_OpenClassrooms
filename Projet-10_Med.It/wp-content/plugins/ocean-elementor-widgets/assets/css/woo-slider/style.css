@@ -1,51 +1,77 @@
 /*------------------------------------------------------------------
 Woo Slider
 -------------------------------------------------------------------*/
-.oew-woo-slider ul.products {
-  display: none;
-  margin: 0; }
-  .oew-woo-slider ul.products .product {
-    clear: none !important;
-    padding-bottom: 0; }
-  .oew-woo-slider ul.products.slick-list, .oew-woo-slider ul.products.slick-slider {
-    display: block; }
-  .oew-woo-slider ul.products .slick-arrow {
-    top: 50%;
-    margin-top: -70px;
-    font-size: 32px;
-    background-color: transparent;
-    color: #ddd; }
-    .oew-woo-slider ul.products .slick-arrow:hover, .oew-woo-slider ul.products .slick-arrow:focus {
-      background-color: transparent;
-      color: #333; }
-  .oew-woo-slider ul.products .slick-prev {
-    left: -30px; }
-    [dir="rtl"] .oew-woo-slider ul.products .slick-prev {
-      left: auto;
-      right: -30px; }
-  .oew-woo-slider ul.products .slick-next {
-    right: -30px; }
-    [dir="rtl"] .oew-woo-slider ul.products .slick-next {
-      right: auto;
-      left: -30px; }
-  .oew-woo-slider ul.products .slick-dots {
-    margin: 0; }
-    .oew-woo-slider ul.products .slick-dots li {
-      margin: 0 3px; }
+.oew-woo-carousel .swiper-container,
+.oew-woo-carousel .swiper {
+  width: 95%;
+}
+.oew-woo-carousel .swiper-container.has-dots,
+.oew-woo-carousel .swiper.has-dots {
+  padding-bottom: 10px;
+}
+.oew-woo-carousel ul.products {
+  padding: 0;
+  margin: 0;
+}
+.oew-woo-carousel .star-rating {
+  margin: 0 auto;
+}
+.oew-woo-carousel .oew-swiper-buttons {
+  background-image: none;
+  outline: none;
+  margin-top: 0;
+  width: 40px;
+  top: calc(50% - 20px);
+  text-align: center;
+}
+.oew-woo-carousel .oew-swiper-buttons::after {
+  content: none;
+}
+.oew-woo-carousel .oew-swiper-buttons svg {
+  width: 20px;
+}
+.oew-woo-carousel .oew-swiper-buttons, .oew-woo-carousel .oew-swiper-buttons svg {
+  height: 40px;
+  -webkit-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.oew-woo-carousel .swiper-button-next {
+  right: 0;
+}
+.oew-woo-carousel .swiper-button-prev {
+  left: 0;
+}
+.oew-woo-carousel .swiper-pagination {
+  position: static;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+.oew-woo-carousel .swiper-pagination-bullet {
+  background: #ccc;
+  margin: 0 4px;
+  height: 8px;
+  width: 8px;
+  opacity: 1;
+  -webkit-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.oew-woo-carousel .swiper-pagination-bullet-active {
+  background: #000;
+}
 
-@media only screen and (max-width: 767px) {
-  body.rtl .oew-carousel slick-prev {
-    right: -20px;
-    left: auto; }
-  body.rtl .oew-carousel .slick-next {
-    left: -20px;
-    right: auto; } }
+body .oew-woo-carousel .product {
+  clear: none;
+}
 
-/*------------------------------------------------------------------
-Responsive
--------------------------------------------------------------------*/
-@media only screen and (max-width: 767px) {
-  .oew-carousel .slick-prev {
-    left: -20px; }
-  .oew-carousel .slick-next {
-    right: -20px; } }
+/* RTL */
+body.rtl .oew-woo-carousel .swiper-button-next {
+  right: auto;
+  left: 0;
+}
+body.rtl .oew-woo-carousel .swiper-button-prev {
+  left: auto;
+  right: 0;
+}

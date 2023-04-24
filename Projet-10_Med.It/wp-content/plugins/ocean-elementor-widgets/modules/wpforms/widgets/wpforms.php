@@ -4,11 +4,14 @@ namespace owpElementor\Modules\WPForms\Widgets;
 // Elementor Classes
 use Elementor\Controls_Manager;
 use Elementor\Group_Control_Typography;
-use Elementor\Scheme_Typography;
 use Elementor\Group_Control_Background;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Box_Shadow;
 use Elementor\Widget_Base;
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
 
 class WPForms extends Widget_Base {
 
@@ -21,7 +24,6 @@ class WPForms extends Widget_Base {
 	}
 
 	public function get_icon() {
-		// Upload "eicons.ttf" font via this site: http://bluejamesbond.github.io/CharacterMap/
 		return 'oew-icon eicon-form-horizontal';
 	}
 
@@ -29,7 +31,16 @@ class WPForms extends Widget_Base {
 		return [ 'oceanwp-elements' ];
 	}
 
-	protected function _register_controls() {
+    public function get_keywords() {
+        return [
+            'form',
+            'contact',
+            'wpforms',
+            'owp',
+        ];
+    }
+
+	protected function register_controls() {
 
 		$this->start_controls_section(
 			'section_wpforms',
@@ -83,7 +94,6 @@ class WPForms extends Widget_Base {
 			[
 				'name' 			=> 'labels_typo',
 				'selector' 		=> '{{WRAPPER}} .wpforms-field label',
-				'scheme' 		=> Scheme_Typography::TYPOGRAPHY_1,
 			]
 		);
 
@@ -124,7 +134,6 @@ class WPForms extends Widget_Base {
 			[
 				'name' 			=> 'description_typo',
 				'selector' 		=> '{{WRAPPER}} .wpforms-form .wpforms-field-description',
-				'scheme' 		=> Scheme_Typography::TYPOGRAPHY_1,
 			]
 		);
 
@@ -265,7 +274,6 @@ class WPForms extends Widget_Base {
 			[
 				'name' 			=> 'inputs_typo',
 				'selector' 		=> '{{WRAPPER}} .wpforms-field input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]), {{WRAPPER}} .wpforms-field textarea, {{WRAPPER}} .wpforms-field select',
-				'scheme' 		=> Scheme_Typography::TYPOGRAPHY_1,
 				'separator' 	=> 'before',
 			]
 		);
@@ -382,7 +390,6 @@ class WPForms extends Widget_Base {
 			[
 				'name' 			=> 'invalid_inputs_typo',
 				'selector' 		=> '{{WRAPPER}} .wpforms-form label.wpforms-error',
-				'scheme' 		=> Scheme_Typography::TYPOGRAPHY_1,
 			]
 		);
 
@@ -511,7 +518,6 @@ class WPForms extends Widget_Base {
 			[
 				'name' 			=> 'button_typo',
 				'selector' 		=> '{{WRAPPER}} .wpforms-submit-container .wpforms-submit',
-				'scheme' 		=> Scheme_Typography::TYPOGRAPHY_1,
 				'separator' 	=> 'before',
 			]
 		);
@@ -596,7 +602,6 @@ class WPForms extends Widget_Base {
 			[
 				'name' 			=> 'sent_typo',
 				'selector' 		=> '{{WRAPPER}} .wpforms-confirmation-container-full',
-				'scheme' 		=> Scheme_Typography::TYPOGRAPHY_1,
 			]
 		);
 

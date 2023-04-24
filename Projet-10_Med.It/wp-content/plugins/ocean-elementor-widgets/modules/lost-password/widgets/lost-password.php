@@ -4,11 +4,14 @@ namespace owpElementor\Modules\LostPassword\Widgets;
 // Elementor Classes
 use Elementor\Controls_Manager;
 use Elementor\Group_Control_Typography;
-use Elementor\Scheme_Typography;
 use Elementor\Group_Control_Text_Shadow;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Box_Shadow;
 use Elementor\Widget_Base;
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
 
 class LostPassword extends Widget_Base {
 
@@ -21,7 +24,6 @@ class LostPassword extends Widget_Base {
 	}
 
 	public function get_icon() {
-		// Upload "eicons.ttf" font via this site: http://bluejamesbond.github.io/CharacterMap/
 		return 'oew-icon eicon-lock-user';
 	}
 
@@ -29,11 +31,20 @@ class LostPassword extends Widget_Base {
 		return [ 'oceanwp-elements' ];
 	}
 
+    public function get_keywords() {
+        return [
+            'form',
+            'lost',
+            'password',
+            'owp',
+        ];
+    }
+
 	public function get_style_depends() {
 		return [ 'oew-forms' ];
 	}
 
-	protected function _register_controls() {
+	protected function register_controls() {
 
 		$this->start_controls_section(
 			'section_lost_password',
@@ -271,7 +282,6 @@ class LostPassword extends Widget_Base {
 			[
 				'name' 			=> 'label_typo',
 				'selector' 		=> '{{WRAPPER}} .oew-form label',
-				'scheme' 		=> Scheme_Typography::TYPOGRAPHY_1,
 			]
 		);
 
@@ -348,7 +358,6 @@ class LostPassword extends Widget_Base {
 			[
 				'name' 			=> 'message_typo',
 				'selector' 		=> '{{WRAPPER}} .oew-form-message',
-				'scheme' 		=> Scheme_Typography::TYPOGRAPHY_1,
 			]
 		);
 
@@ -541,7 +550,6 @@ class LostPassword extends Widget_Base {
 			[
 				'name' 			=> 'field_typo',
 				'selector' 		=> '{{WRAPPER}} .oew-form .oew-input',
-				'scheme' 		=> Scheme_Typography::TYPOGRAPHY_1,
 			]
 		);
 
@@ -678,7 +686,6 @@ class LostPassword extends Widget_Base {
 			[
 				'name' 			=> 'button_typo',
 				'selector' 		=> '{{WRAPPER}} .oew-form .oew-buttons .oew-button',
-				'scheme' 		=> Scheme_Typography::TYPOGRAPHY_1,
 			]
 		);
 
@@ -782,7 +789,6 @@ class LostPassword extends Widget_Base {
 			[
 				'name' 			=> 'link_typo',
 				'selector' 		=> '{{WRAPPER}} .oew-form .oew-link a',
-				'scheme' 		=> Scheme_Typography::TYPOGRAPHY_1,
 			]
 		);
 
@@ -845,7 +851,6 @@ class LostPassword extends Widget_Base {
 			[
 				'name' 			=> 'privacy_link_typo',
 				'selector' 		=> '{{WRAPPER}} .oew-form .oew-privacy a',
-				'scheme' 		=> Scheme_Typography::TYPOGRAPHY_1,
 			]
 		);
 
@@ -960,7 +965,7 @@ class LostPassword extends Widget_Base {
 	<?php
 	}
 
-	protected function _content_template() { ?>
+	protected function content_template() { ?>
 		<#
 		view.addRenderAttribute( 'user_input', {
 			'type'	: 'text',

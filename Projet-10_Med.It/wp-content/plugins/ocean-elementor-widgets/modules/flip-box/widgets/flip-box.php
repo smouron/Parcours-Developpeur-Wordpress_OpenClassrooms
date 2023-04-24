@@ -6,7 +6,6 @@ use Elementor\Controls_Manager;
 use Elementor\Group_Control_Image_Size;
 use Elementor\Utils;
 use Elementor\Group_Control_Typography;
-use Elementor\Scheme_Typography;
 use Elementor\Group_Control_Background;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Box_Shadow;
@@ -25,7 +24,6 @@ class FlipBox extends Widget_Base {
 	}
 
 	public function get_icon() {
-		// Upload "eicons.ttf" font via this site: http://bluejamesbond.github.io/CharacterMap/
 		return 'oew-icon eicon-flip-box';
 	}
 
@@ -33,11 +31,21 @@ class FlipBox extends Widget_Base {
 		return [ 'oceanwp-elements' ];
 	}
 
+    public function get_keywords() {
+        return [
+            'flip box',
+            'flip',
+            'box',
+            'banner',
+            'owp',
+        ];
+    }
+
 	public function get_style_depends() {
 		return [ 'oew-flip-box' ];
 	}
 
-	protected function _register_controls() {
+	protected function register_controls() {
 
 		$this->start_controls_section(
 			'section_front',
@@ -400,15 +408,15 @@ class FlipBox extends Widget_Base {
 				'options' 		=> [
 					'left' => [
 						'title' => __( 'Left', 'ocean-elementor-widgets' ),
-						'icon' => 'fa fa-align-left',
+						'icon'  => 'eicon-text-align-left',
 					],
 					'center' => [
 						'title' => __( 'Center', 'ocean-elementor-widgets' ),
-						'icon' => 'fa fa-align-center',
+						'icon'  => 'eicon-text-align-center',
 					],
 					'right' => [
 						'title' => __( 'Right', 'ocean-elementor-widgets' ),
-						'icon' => 'fa fa-align-right',
+						'icon'  => 'eicon-text-align-right',
 					],
 				],
 				'default' 		=> 'center',
@@ -775,7 +783,6 @@ class FlipBox extends Widget_Base {
 			[
 				'name'     		=> 'front_title_typography',
 				'label'    		=> __( 'Typography', 'ocean-elementor-widgets' ),
-				'scheme'   		=> Scheme_Typography::TYPOGRAPHY_1,
 				'selector' 		=> '{{WRAPPER}} .oew-flip-box-front .oew-flip-box-layer-title',
 			]
 		);
@@ -809,7 +816,6 @@ class FlipBox extends Widget_Base {
 			[
 				'name'     		=> 'front_description_typography',
 				'label'    		=> __( 'Typography', 'ocean-elementor-widgets' ),
-				'scheme'   		=> Scheme_Typography::TYPOGRAPHY_3,
 				'selector' 		=> '{{WRAPPER}} .oew-flip-box-front .oew-flip-box-layer-desc',
 			]
 		);
@@ -870,15 +876,15 @@ class FlipBox extends Widget_Base {
 				'options' 		=> [
 					'left' => [
 						'title' => __( 'Left', 'ocean-elementor-widgets' ),
-						'icon' => 'fa fa-align-left',
+						'icon'  => 'eicon-text-align-left',
 					],
 					'center' => [
 						'title' => __( 'Center', 'ocean-elementor-widgets' ),
-						'icon' => 'fa fa-align-center',
+						'icon'  => 'eicon-text-align-center',
 					],
 					'right' => [
 						'title' => __( 'Right', 'ocean-elementor-widgets' ),
-						'icon' => 'fa fa-align-right',
+						'icon'  => 'eicon-text-align-right',
 					],
 				],
 				'default' 		=> 'center',
@@ -981,7 +987,6 @@ class FlipBox extends Widget_Base {
 			[
 				'name'      	=> 'back_title_typography',
 				'label'     	=> __( 'Typography', 'ocean-elementor-widgets' ),
-				'scheme'    	=> Scheme_Typography::TYPOGRAPHY_1,
 				'selector'  	=> '{{WRAPPER}} .oew-flip-box-back .oew-flip-box-layer-title',
 				'condition' 	=> [
 					'back_title_text!' => '',
@@ -1038,7 +1043,6 @@ class FlipBox extends Widget_Base {
 			[
 				'name'      	=> 'description_typography_b',
 				'label'     	=> __( 'Typography', 'ocean-elementor-widgets' ),
-				'scheme'    	=> Scheme_Typography::TYPOGRAPHY_3,
 				'selector'  	=> '{{WRAPPER}} .oew-flip-box-back .oew-flip-box-layer-desc',
 			]
 		);
@@ -1060,7 +1064,6 @@ class FlipBox extends Widget_Base {
 			[
 				'name'     		=> 'button_typography',
 				'label'    		=> esc_html__( 'Typography', 'ocean-elementor-widgets' ),
-				'scheme'   		=> Scheme_Typography::TYPOGRAPHY_4,
 				'selector' 		=> '{{WRAPPER}} .oew-flip-box-button',
 			]
 		);
@@ -1310,7 +1313,7 @@ class FlipBox extends Widget_Base {
 	<?php
 	}
 
-	protected function _content_template() { ?>
+	protected function content_template() { ?>
 		<#
 			if ( 'image' === settings.graphic_element && '' !== settings.image.url ) {
 				var image = {

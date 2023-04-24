@@ -167,7 +167,13 @@ class Module extends Module_Base {
 
 		<div class="oew-toggle-cart">
 			<a href="<?php echo esc_attr( $cart_link ); ?>" class="oew-cart-link">
-				<i class="oew-cart-icon"></i>
+				<?php
+				if ( 'svg' === oceanwp_theme_icon_class() ) {
+					ocean_svg( 'cart-menu-1' );
+				} else {
+					?> <i class="oew-cart-icon"></i> <?php
+				}
+				?>
 				<span class="oew-cart-count"><?php echo $cart_count; ?></span>
 				<span class="oew-cart-total"><?php echo $sub_total; ?></span>
 			</a>

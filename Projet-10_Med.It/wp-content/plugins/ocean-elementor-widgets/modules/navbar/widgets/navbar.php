@@ -3,9 +3,9 @@ namespace owpElementor\Modules\Navbar\Widgets;
 
 // Elementor Classes
 use Elementor\Controls_Manager;
+use Elementor\Repeater;
 use Elementor\Control_Media;
 use Elementor\Group_Control_Typography;
-use Elementor\Scheme_Typography;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Box_Shadow;
 use Elementor\Widget_Base;
@@ -24,13 +24,21 @@ class Navbar extends Widget_Base {
 	}
 
 	public function get_icon() {
-		// Upload "eicons.ttf" font via this site: http://bluejamesbond.github.io/CharacterMap/
 		return 'oew-icon eicon-navigation-vertical';
 	}
 
 	public function get_categories() {
 		return [ 'oceanwp-elements' ];
 	}
+
+    public function get_keywords() {
+        return [
+            'nav',
+            'navigation',
+            'menu',
+            'owp',
+        ];
+    }
 
 	public function get_script_depends() {
 		return [ 'oew-navbar' ];
@@ -40,7 +48,7 @@ class Navbar extends Widget_Base {
 		return [ 'oew-navbar', 'oew-off-canvas' ];
 	}
 
-	protected function _register_controls() {
+	protected function register_controls() {
 
 		$this->start_controls_section(
 			'section_navbar',
@@ -49,35 +57,48 @@ class Navbar extends Widget_Base {
 			]
 		);
 
+		$repeater = new Repeater();
+
+        $repeater->add_control(
+            'icon',
+            [
+				'name' 		=> 'icon',
+				'label' 	=> __( 'Icon', 'ocean-elementor-widgets' ),
+				'type' 		=> Controls_Manager::ICONS,
+				'default'		=> [
+					'value'   => '',
+					'library' => 'solid',
+				],
+			]
+        );
+
+		$repeater->add_control(
+            'title',
+            [
+				'name' 		=> 'title',
+				'label' 	=> __( 'Title', 'ocean-elementor-widgets' ),
+				'type' 		=> Controls_Manager::TEXT,
+				'default' 	=> __( 'Homepage' , 'ocean-elementor-widgets' ),
+				'dynamic' 	=> [ 'active' => true ],
+			]
+        );
+
+		$repeater->add_control(
+            'link',
+            [
+				'name' 		=> 'link',
+				'label' 	=> __( 'Link', 'ocean-elementor-widgets' ),
+				'type' 		=> Controls_Manager::URL,
+				'default' 	=> [ 'url' => '#' ],
+			]
+        );
+
 		$this->add_control(
 			'navbar',
 			[
 				'label' 		=> __( 'Nav Items', 'ocean-elementor-widgets' ),
 				'type' 			=> Controls_Manager::REPEATER,
-				'fields' 		=> [
-					[
-						'name' 		=> 'icon',
-						'label' 	=> __( 'Icon', 'ocean-elementor-widgets' ),
-						'type' 		=> Controls_Manager::ICONS,
-						'default'		=> [
-							'value'   => '',
-							'library' => 'solid',
-						],
-					],
-					[
-						'name' 		=> 'title',
-						'label' 	=> __( 'Title', 'ocean-elementor-widgets' ),
-						'type' 		=> Controls_Manager::TEXT,
-						'default' 	=> __( 'Homepage' , 'ocean-elementor-widgets' ),
-						'dynamic' 	=> [ 'active' => true ],
-					],
-					[
-						'name' 		=> 'link',
-						'label' 	=> __( 'Link', 'ocean-elementor-widgets' ),
-						'type' 		=> Controls_Manager::URL,
-						'default' 	=> [ 'url' => '#' ],
-					],
-				],
+                'fields' 		=> $repeater->get_controls(),
 				'default' 		=> [
 					[
 						'title' 	=> __( 'Homepage', 'ocean-elementor-widgets' ),
@@ -697,7 +718,6 @@ class Navbar extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name' 			=> 'tooltips_typography',
-				'scheme' 		=> Scheme_Typography::TYPOGRAPHY_4,
 				'selector' 		=> '{{WRAPPER}} .oew-navbar-wrap ul li a .oew-navbar-tooltip',
 			]
 		);
@@ -1055,7 +1075,6 @@ class Navbar extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name' 			=> 'mobile_link_typography',
-				'scheme' 		=> Scheme_Typography::TYPOGRAPHY_4,
 				'selector' 		=> '{{WRAPPER}} .oew-navbar-wrap.oew-is-responsive .oew-mobile-wrap a',
 			]
 		);
@@ -1078,6 +1097,7 @@ class Navbar extends Widget_Base {
 				'type' 			=> Controls_Manager::COLOR,
 				'selectors' 	=> [
 					'{{WRAPPER}} .oew-navbar-wrap.oew-is-responsive .oew-mobile-wrap a' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .oew-navbar-wrap.oew-is-responsive .oew-mobile-wrap a .owp-icon use' => 'stroke: {{VALUE}};',
 				],
 			]
 		);
@@ -1100,6 +1120,7 @@ class Navbar extends Widget_Base {
 				'type' 			=> Controls_Manager::COLOR,
 				'selectors' 	=> [
 					'{{WRAPPER}} .oew-navbar-wrap.oew-is-responsive .oew-mobile-wrap a:hover' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .oew-navbar-wrap.oew-is-responsive .oew-mobile-wrap a:hover .owp-icon use' => 'stroke: {{VALUE}};',
 				],
 			]
 		);
@@ -1233,7 +1254,7 @@ class Navbar extends Widget_Base {
 					<div <?php echo $this->get_render_attribute_string( 'mobile-wrap' ); ?>>
 						<a <?php echo $this->get_render_attribute_string( 'mobile-btn' ); ?>>
 							<span class="oew-mobile-icon">
-								<i class="fas fa-bars"></i>
+								<?php oew_svg_icon( 'menu' ); ?>
 							</span>
 							<?php
 							if ( ! empty( $settings['mobile_title'] ) ) { ?>
@@ -1257,7 +1278,7 @@ class Navbar extends Widget_Base {
 						<li <?php echo $this->get_render_attribute_string( 'off-canvas-li' ); ?>>
 							<a <?php echo $this->get_render_attribute_string( 'off-canvas-btn' ); ?>>
 								<span class="oew-navbar-icon">
-									<i class="fas fa-bars"></i>
+									<?php oew_svg_icon( 'menu' ); ?>
 								</span>
 								<?php
 								if ( ! empty( $settings['off_canvas_title'] ) ) { ?>

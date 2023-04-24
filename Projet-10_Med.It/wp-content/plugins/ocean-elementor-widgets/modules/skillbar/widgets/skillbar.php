@@ -4,7 +4,6 @@ namespace owpElementor\Modules\Skillbar\Widgets;
 // Elementor Classes
 use Elementor\Controls_Manager;
 use Elementor\Group_Control_Typography;
-use Elementor\Scheme_Typography;
 use Elementor\Widget_Base;
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
@@ -20,13 +19,22 @@ class Skillbar extends Widget_Base {
 	}
 
 	public function get_icon() {
-		// Upload "eicons.ttf" font via this site: http://bluejamesbond.github.io/CharacterMap/
 		return 'oew-icon eicon-skill-bar';
 	}
 
 	public function get_categories() {
 		return [ 'oceanwp-elements' ];
 	}
+
+    public function get_keywords() {
+        return [
+            'skillbar',
+            'skill',
+            'skills',
+            'bar',
+            'owp',
+        ];
+    }
 
 	public function get_script_depends() {
 		return [ 'oew-skillbar', 'appear' ];
@@ -36,7 +44,7 @@ class Skillbar extends Widget_Base {
 		return [ 'oew-skillbar' ];
 	}
 
-	protected function _register_controls() {
+	protected function register_controls() {
 
 		$this->start_controls_section(
 			'section_alert',
@@ -167,7 +175,6 @@ class Skillbar extends Widget_Base {
 			[
 				'name' 			=> 'skillbar_title',
 				'selector' 		=> '{{WRAPPER}} .oew-skillbar',
-				'scheme' 		=> Scheme_Typography::TYPOGRAPHY_1,
 			]
 		);
 
@@ -252,7 +259,7 @@ class Skillbar extends Widget_Base {
 	<?php
 	}
 
-	protected function _content_template() { ?>
+	protected function content_template() { ?>
 		<#
 			var wrap_classes = 'oew-skillbar clr';
 

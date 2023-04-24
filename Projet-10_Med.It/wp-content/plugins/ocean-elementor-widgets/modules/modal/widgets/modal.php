@@ -2,14 +2,17 @@
 namespace owpElementor\Modules\Modal\Widgets;
 
 // Elementor Classes
-use Elementor\Controls_Manager;
-use Elementor\Group_Control_Typography;
-use Elementor\Scheme_Typography;
-use Elementor\Group_Control_Background;
-use Elementor\Group_Control_Border;
-use Elementor\Group_Control_Box_Shadow;
 use Elementor\Widget_Base;
 use Elementor\Plugin;
+use Elementor\Group_Control_Typography;
+use Elementor\Group_Control_Box_Shadow;
+use Elementor\Group_Control_Border;
+use Elementor\Group_Control_Background;
+use Elementor\Controls_Manager;
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
 
 class Modal extends Widget_Base {
 
@@ -22,13 +25,22 @@ class Modal extends Widget_Base {
 	}
 
 	public function get_icon() {
-		// Upload "eicons.ttf" font via this site: http://bluejamesbond.github.io/CharacterMap/
 		return 'oew-icon eicon-button';
 	}
 
 	public function get_categories() {
 		return [ 'oceanwp-elements' ];
 	}
+
+    public function get_keywords() {
+        return [
+            'form',
+            'contact',
+            'modal',
+            'popup',
+            'owp',
+        ];
+    }
 
 	public function get_script_depends() {
 		return [ 'oew-modal' ];
@@ -38,7 +50,7 @@ class Modal extends Widget_Base {
 		return [ 'oew-modal' ];
 	}
 
-	protected function _register_controls() {
+	protected function register_controls() {
 
 		$this->start_controls_section(
 			'section_modal_button',
@@ -71,19 +83,19 @@ class Modal extends Widget_Base {
 				'options' 		=> [
 					'left'    => [
 						'title' => __( 'Left', 'ocean-elementor-widgets' ),
-						'icon' 	=> 'fa fa-align-left',
+						'icon' 	=> 'eicon-text-align-left',
 					],
 					'center' => [
 						'title' => __( 'Center', 'ocean-elementor-widgets' ),
-						'icon' 	=> 'fa fa-align-center',
+						'icon' 	=> 'eicon-text-align-center',
 					],
 					'right' => [
 						'title' => __( 'Right', 'ocean-elementor-widgets' ),
-						'icon' 	=> 'fa fa-align-right',
+						'icon' 	=> 'eicon-text-align-right',
 					],
 					'justify' => [
 						'title' => __( 'Justified', 'ocean-elementor-widgets' ),
-						'icon' 	=> 'fa fa-align-justify',
+						'icon' 	=> 'eicon-text-align-justify',
 					],
 				],
 				'default' 		=> '',
@@ -279,15 +291,15 @@ class Modal extends Widget_Base {
 				'options' 		=> [
 					'left'    => [
 						'title' => __( 'Left', 'ocean-elementor-widgets' ),
-						'icon' 	=> 'fa fa-align-left',
+						'icon' 	=> 'eicon-text-align-left',
 					],
 					'center' => [
 						'title' => __( 'Center', 'ocean-elementor-widgets' ),
-						'icon' 	=> 'fa fa-align-center',
+						'icon' 	=> 'eicon-text-align-center',
 					],
 					'right' => [
 						'title' => __( 'Right', 'ocean-elementor-widgets' ),
-						'icon' 	=> 'fa fa-align-right',
+						'icon' 	=> 'eicon-text-align-right',
 					],
 				],
 				'default' 		=> '',
@@ -353,7 +365,6 @@ class Modal extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name' 			=> 'modal_button_typography',
-				'scheme' 		=> Scheme_Typography::TYPOGRAPHY_4,
 				'selector' 		=> '{{WRAPPER}} .oew-modal-button a',
 				'condition' 	=> [
 					'layout' => 'default',
@@ -544,7 +555,6 @@ class Modal extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name' 			=> 'modal_typography',
-				'scheme' 		=> Scheme_Typography::TYPOGRAPHY_4,
 				'selector' 		=> '#oew-modal-{{ID}}.oew-modal-wrap .oew-modal-inner',
 			]
 		);
@@ -715,7 +725,7 @@ class Modal extends Widget_Base {
 		] );
 
 		$this->add_render_attribute( 'modal', 'id', 'oew-modal-' . esc_attr( $id ) );
-		$this->add_render_attribute( 'modal', 'class', 'oew-modal-wrap' );
+		$this->add_render_attribute( 'modal', 'class', 'oew-modal-wrap oew-temp-styles' );
 
 		if ( 'full' == $style ) {
 			$this->add_render_attribute( 'modal', 'class', 'oew-modal-full' );
@@ -802,8 +812,8 @@ class Modal extends Widget_Base {
 			'oew-modal-close-' . $settings['modal_close_button'],
 		] ); ?>
 
-		<button <?php echo $this->get_render_attribute_string( 'modal-close' ); ?>>
-			<svg width="14" height="14" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve">
+		<button aria-label="<?php esc_attr( oew_lang_strings( 'oew-string-mw-close-btn' ) ); ?>" <?php echo $this->get_render_attribute_string( 'modal-close' ); ?>>
+			<svg focusable="false" aria-hidden="true" role="img" width="14" height="14" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve">
 				<path d="M505.943,6.058c-8.077-8.077-21.172-8.077-29.249,0L6.058,476.693c-8.077,8.077-8.077,21.172,0,29.249
 					C10.096,509.982,15.39,512,20.683,512c5.293,0,10.586-2.019,14.625-6.059L505.943,35.306
 					C514.019,27.23,514.019,14.135,505.943,6.058z"/>
@@ -842,7 +852,10 @@ class Modal extends Widget_Base {
 				            $( 'html' ).css( 'margin-right', hiddenInnerWidth - innerWidth );
 
 				            // Open the modal
-				            $( '#oew-modal-<?php echo esc_attr( $id ); ?>' ).fadeIn( 500 );
+							var oewModal = $( '#oew-modal-<?php echo esc_attr( $id ); ?>' );
+				            oewModal.removeClass( 'oew-temp-styles' );
+							oewModal.css( 'display', 'block' );
+							oewModal.css( 'opacity', 1 );
 						}, <?php echo esc_attr( $timer ); ?> );
 				    } );
 				<?php } ?>
@@ -857,7 +870,10 @@ class Modal extends Widget_Base {
 				            $( 'html' ).css( 'margin-right', hiddenInnerWidth - innerWidth );
 
 				            // Open the modal
-				            $( '#oew-modal-<?php echo esc_attr( $id ); ?>' ).fadeIn( 500 );
+							var oewModal = $( '#oew-modal-<?php echo esc_attr( $id ); ?>' );
+				            oewModal.removeClass( 'oew-temp-styles' );
+							oewModal.css( 'display', 'block' );
+							oewModal.css( 'opacity', 1 );
 						}
 				    } );
 				<?php } ?>
@@ -913,7 +929,9 @@ class Modal extends Widget_Base {
 							            $( 'html' ).css( 'margin-right', hiddenInnerWidth - innerWidth );
 
 							            // Open the modal
-							            modal.fadeIn( 500 );
+										modal.removeClass( 'oew-temp-styles' );
+										modal.css( 'display', 'block' );
+										modal.css( 'opacity', 1 );
 									}, <?php echo esc_attr( $timer ); ?> );
 							    } );
 							<?php } ?>
@@ -931,7 +949,9 @@ class Modal extends Widget_Base {
 								        }
 
 							            // Open the modal
-							            modal.fadeIn( 500 );
+										modal.removeClass( 'oew-temp-styles' );
+										modal.css( 'display', 'block' );
+										modal.css( 'opacity', 1 );
 									}
 							    } );
 							<?php } ?>

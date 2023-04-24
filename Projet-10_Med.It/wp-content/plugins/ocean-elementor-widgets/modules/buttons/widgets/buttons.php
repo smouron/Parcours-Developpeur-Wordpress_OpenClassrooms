@@ -4,8 +4,6 @@ namespace owpElementor\Modules\Buttons\Widgets;
 // Elementor Classes
 use Elementor\Controls_Manager;
 use Elementor\Repeater;
-use Elementor\Scheme_Color;
-use Elementor\Scheme_Typography;
 use Elementor\Group_Control_Typography;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Box_Shadow;
@@ -24,7 +22,6 @@ class Buttons extends Widget_Base {
 	}
 
 	public function get_icon() {
-		// Upload "eicons.ttf" font via this site: http://bluejamesbond.github.io/CharacterMap/
 		return 'oew-icon eicon-button';
 	}
 
@@ -32,11 +29,18 @@ class Buttons extends Widget_Base {
 		return [ 'oceanwp-elements' ];
 	}
 
+    public function get_keywords() {
+        return [
+            'button',
+            'owp',
+        ];
+    }
+
 	public function get_style_depends() {
 		return [ 'oew-buttons' ];
 	}
 
-	protected function _register_controls() {
+	protected function register_controls() {
 
 		$this->start_controls_section(
 			'section_buttons',
@@ -182,10 +186,6 @@ class Buttons extends Widget_Base {
 			[
 				'label' 		=> __( 'Normal: Background Color', 'ocean-elementor-widgets' ),
 				'type' 			=> Controls_Manager::COLOR,
-				'scheme' 		=> [
-					'type' => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_4,
-				],
 				'selectors' 	=> [
 					'{{WRAPPER}} .oew-buttons li{{CURRENT_ITEM}} a' => 'background-color: {{VALUE}};',
 				],
@@ -305,7 +305,7 @@ class Buttons extends Widget_Base {
 						],
 					],
 				],
-				'fields' 		=> array_values( $repeater->get_controls() ),
+				'fields' 		=> $repeater->get_controls(),
 				'title_field' 	=> '{{{ text }}}',
 			]
 		);
@@ -318,15 +318,15 @@ class Buttons extends Widget_Base {
 				'options' 		=> [
 					'left'    => [
 						'title' => __( 'Left', 'ocean-elementor-widgets' ),
-						'icon' 	=> 'fa fa-align-left',
+						'icon' 	=> 'eicon-text-align-left',
 					],
 					'center' => [
 						'title' => __( 'Center', 'ocean-elementor-widgets' ),
-						'icon' 	=> 'fa fa-align-center',
+						'icon' 	=> 'eicon-text-align-center',
 					],
 					'right' => [
 						'title' => __( 'Right', 'ocean-elementor-widgets' ),
-						'icon' 	=> 'fa fa-align-right',
+						'icon' 	=> 'eicon-text-align-right',
 					],
 				],
 				'default' 		=> '',
@@ -407,7 +407,6 @@ class Buttons extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name' 			=> 'buttons_typography',
-				'scheme' 		=> Scheme_Typography::TYPOGRAPHY_4,
 				'selector' 		=> '{{WRAPPER}} .oew-buttons li a',
 			]
 		);
@@ -426,10 +425,6 @@ class Buttons extends Widget_Base {
 			[
 				'label' 		=> __( 'Background Color', 'ocean-elementor-widgets' ),
 				'type' 			=> Controls_Manager::COLOR,
-				'scheme' 		=> [
-					'type' => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_4,
-				],
 				'selectors' 	=> [
 					'{{WRAPPER}} .oew-buttons li a' => 'background-color: {{VALUE}};',
 				],
@@ -633,7 +628,7 @@ class Buttons extends Widget_Base {
 	<?php
 	}
 
-	protected function _content_template() { ?>
+	protected function content_template() { ?>
 		<#
 		if ( settings.buttons ) { #>
 

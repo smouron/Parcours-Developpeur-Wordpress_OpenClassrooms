@@ -1,0 +1,144 @@
+/*------------------------------------------------------------------
+Member
+-------------------------------------------------------------------*/
+.oew-member-carousel-wrap {
+    position: relative;
+    width: 100%;
+
+    .swiper-container,
+    .swiper {
+        width: 95%;
+
+        &.has-dots {
+            padding-bottom: 10px;
+        }
+    }
+
+    .swiper-slide {
+        padding: 0 15px;
+        text-align: center;
+    }
+
+    .oew-member-carousel-image {
+        margin-bottom: 15px;
+
+        img {
+            width: 100%;
+        }
+    }
+
+    .oew-member-carousel-content {
+        margin-bottom: 15px;
+    }
+
+    .oew-member-carousel-name {
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    .oew-member-carousel-role {
+        display: block;
+        font-size: 13px;
+        margin-bottom: 13px;
+    }
+
+    .oew-member-carousel-social {
+        list-style: none;
+        margin: 10px 0 0;
+
+        li {
+            display: inline-block;
+            text-align: center;
+
+            &:not(:last-child) {
+                margin-right: 10px;
+            }
+
+            a {
+                font-size: 18px;
+                line-height: 1;
+
+                i {
+                    width: 1em;
+                    height: 1em;
+                    text-align: center;
+                    display: inline-block;
+                }
+            }
+        }
+    }
+
+    .oew-swiper-buttons {
+        background-image: none;
+        outline: none;
+        margin-top: 0;
+        width: 40px;
+        top: calc(50% - (40px/2));
+        text-align: center;
+
+        &::after {
+            content: none;
+        }
+
+        svg {
+            width: 20px;
+        }
+
+        &, svg {
+            height: 40px;
+            -webkit-transition: all 0.3s ease;
+            -o-transition: all 0.3s ease;
+            transition: all 0.3s ease;
+        }
+    }
+
+    .swiper-button-next {
+        right: 0;
+    }
+
+    .swiper-button-prev {
+        left: 0;
+    }
+
+    .swiper-pagination {
+        position: static;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+    }
+
+    .swiper-pagination-bullet {
+        background: #ccc;
+        margin: 0 4px;
+        height: 8px;
+        width: 8px;
+        opacity: 1;
+        -webkit-transition: all .3s ease;
+        -o-transition: all .3s ease;
+        transition: all .3s ease;
+    }
+
+    .swiper-pagination-bullet-active {
+        background: #000;
+    }
+}
+
+/* RTL */
+body.rtl {
+    .oew-member-carousel-wrap {
+        .oew-member-carousel-social li:not(:last-child) {
+            margin-left: 10px;
+            margin-right: 0;
+        }
+
+        .swiper-button-next {
+            right: auto;
+            left: 0;
+        }
+
+        .swiper-button-prev {
+            left: auto;
+            right: 0;
+        }
+    }
+}

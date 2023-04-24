@@ -7,10 +7,13 @@ use Elementor\Group_Control_Image_Size;
 use Elementor\Utils;
 use Elementor\Group_Control_Background;
 use Elementor\Group_Control_Typography;
-use Elementor\Scheme_Typography;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Box_Shadow;
 use Elementor\Widget_Base;
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
 
 class InfoBox extends Widget_Base {
 
@@ -23,7 +26,6 @@ class InfoBox extends Widget_Base {
 	}
 
 	public function get_icon() {
-		// Upload "eicons.ttf" font via this site: http://bluejamesbond.github.io/CharacterMap/
 		return 'oew-icon eicon-icon-box';
 	}
 
@@ -31,11 +33,19 @@ class InfoBox extends Widget_Base {
 		return [ 'oceanwp-elements' ];
 	}
 
+    public function get_keywords() {
+        return [
+            'info',
+            'box',
+            'owp',
+        ];
+    }
+
 	public function get_style_depends() {
 		return [ 'oew-info-box' ];
 	}
 
-	protected function _register_controls() {
+	protected function register_controls() {
 
 		$this->start_controls_section(
 			'section_info_box',
@@ -135,15 +145,15 @@ class InfoBox extends Widget_Base {
 				'options' 		=> [
 					'left' => [
 						'title'   => __( 'Left', 'ocean-elementor-widgets' ),
-						'icon'    => 'fa fa-align-left',
+						'icon'    => 'eicon-text-align-left',
 					],
 					'top' => [
 						'title'   => __( 'Top', 'ocean-elementor-widgets' ),
-						'icon'    => 'fa fa-align-center',
+						'icon'    => 'eicon-text-align-center',
 					],
 					'right' => [
 						'title'   => __( 'Right', 'ocean-elementor-widgets' ),
-						'icon'    => 'fa fa-align-right',
+						'icon'    => 'eicon-text-align-right',
 					],
 				],
                 'prefix_class' 	=> 'oew-info-box%s-',
@@ -159,15 +169,15 @@ class InfoBox extends Widget_Base {
 				'options' 		=> [
 					'left'    => [
 						'title' => __( 'Left', 'ocean-elementor-widgets' ),
-						'icon' 	=> 'fa fa-align-left',
+						'icon' 	=> 'eicon-text-align-left',
 					],
 					'center' => [
 						'title' => __( 'Center', 'ocean-elementor-widgets' ),
-						'icon' 	=> 'fa fa-align-center',
+						'icon' 	=> 'eicon-text-align-center',
 					],
 					'right' => [
 						'title' => __( 'Right', 'ocean-elementor-widgets' ),
-						'icon' 	=> 'fa fa-align-right',
+						'icon' 	=> 'eicon-text-align-right',
 					],
 				],
 				'default' 		=> 'center',
@@ -624,7 +634,6 @@ class InfoBox extends Widget_Base {
             [
                 'name' 			=> 'text_typography',
                 'label' 		=> __( 'Typography', 'ocean-elementor-widgets' ),
-                'scheme' 		=> Scheme_Typography::TYPOGRAPHY_4,
                 'condition' 	=> [
                     'type' => 'text',
                 ],
@@ -834,7 +843,6 @@ class InfoBox extends Widget_Base {
             [
                 'name' 			=> 'title_typography',
                 'label' 		=> __( 'Typography', 'ocean-elementor-widgets' ),
-                'scheme' 		=> Scheme_Typography::TYPOGRAPHY_4,
                 'selector' 		=> '{{WRAPPER}} .oew-info-box-title',
             ]
         );
@@ -891,7 +899,6 @@ class InfoBox extends Widget_Base {
             [
                 'name' 			=> 'description_typography',
                 'label' 		=> __( 'Typography', 'ocean-elementor-widgets' ),
-                'scheme' 		=> Scheme_Typography::TYPOGRAPHY_4,
                 'selector' 		=> '{{WRAPPER}} .oew-info-box-description',
             ]
         );
@@ -1008,15 +1015,15 @@ class InfoBox extends Widget_Base {
 				'options' 		=> [
 					'flex-start' => [
 						'title' => __( 'Left', 'ocean-elementor-widgets' ),
-						'icon'  => 'fa fa-align-left',
+						'icon'  => 'eicon-text-align-left',
 					],
 					'center'    => [
 						'title' => __( 'Center', 'ocean-elementor-widgets' ),
-						'icon'  => 'fa fa-align-center',
+						'icon'  => 'eicon-text-align-center',
 					],
 					'flex-end' 	=> [
 						'title' => __( 'Right', 'ocean-elementor-widgets' ),
-						'icon'  => 'fa fa-align-right',
+						'icon'  => 'eicon-text-align-right',
 					],
 				],
 				'default' 		=> '',
@@ -1247,7 +1254,6 @@ class InfoBox extends Widget_Base {
             [
                 'name' 			=> 'button_typography',
                 'label' 		=> __( 'Typography', 'ocean-elementor-widgets' ),
-                'scheme' 		=> Scheme_Typography::TYPOGRAPHY_4,
                 'selector' 		=> '{{WRAPPER}} .oew-info-box-button',
 				'condition'		=> [
 					'link_type'    => 'button',
@@ -1489,7 +1495,7 @@ class InfoBox extends Widget_Base {
 	<?php
 	}
 
-	protected function _content_template() { ?>
+	protected function content_template() { ?>
 
 		<#
             var wrap_tag = 'div';

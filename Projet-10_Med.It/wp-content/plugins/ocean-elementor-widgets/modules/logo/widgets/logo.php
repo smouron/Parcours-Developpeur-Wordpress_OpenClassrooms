@@ -18,7 +18,6 @@ class Logo extends Widget_Base {
 	}
 
 	public function get_icon() {
-		// Upload "eicons.ttf" font via this site: http://bluejamesbond.github.io/CharacterMap/
 		return 'oew-icon eicon-image-rollover';
 	}
 
@@ -26,7 +25,15 @@ class Logo extends Widget_Base {
 		return [ 'oceanwp-elements' ];
 	}
 
-	protected function _register_controls() {
+    public function get_keywords() {
+        return [
+            'logo',
+            'icon',
+            'owp',
+        ];
+    }
+
+	protected function register_controls() {
 
 		$this->start_controls_section(
 			'section_logo',
@@ -43,15 +50,15 @@ class Logo extends Widget_Base {
 				'options' 		=> [
 					'left' => [
 						'title' => __( 'Left', 'ocean-elementor-widgets' ),
-						'icon'  => 'fa fa-align-left',
+						'icon'  => 'eicon-text-align-left',
 					],
 					'center' => [
 						'title' => __( 'Center', 'ocean-elementor-widgets' ),
-						'icon'  => 'fa fa-align-center',
+						'icon'  => 'eicon-text-align-center',
 					],
 					'right' => [
 						'title' => __( 'Right', 'ocean-elementor-widgets' ),
-						'icon'  => 'fa fa-align-right',
+						'icon'  => 'eicon-text-align-right',
 					],
 				],
 				'default' 		=> '',

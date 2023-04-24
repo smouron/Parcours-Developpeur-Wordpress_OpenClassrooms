@@ -6,10 +6,13 @@ use Elementor\Controls_Manager;
 use Elementor\Repeater;
 use Elementor\Utils;
 use Elementor\Group_Control_Typography;
-use Elementor\Scheme_Typography;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Box_Shadow;
 use Elementor\Widget_Base;
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
 
 class Brands extends Widget_Base {
 
@@ -22,7 +25,6 @@ class Brands extends Widget_Base {
 	}
 
 	public function get_icon() {
-		// Upload "eicons.ttf" font via this site: http://bluejamesbond.github.io/CharacterMap/
 		return 'oew-icon eicon-photo-library';
 	}
 
@@ -30,11 +32,21 @@ class Brands extends Widget_Base {
 		return [ 'oceanwp-elements' ];
 	}
 
+    public function get_keywords() {
+        return [
+            'brands',
+            'brand',
+            'logo',
+            'image',
+            'owp',
+        ];
+    }
+
 	public function get_style_depends() {
 		return [ 'oew-brands' ];
 	}
 
-	protected function _register_controls() {
+	protected function register_controls() {
 
 		$this->start_controls_section(
 			'section_brands',
@@ -113,7 +125,7 @@ class Brands extends Widget_Base {
 						],
 					],
 				],
-				'fields' 		=> array_values( $repeater->get_controls() ),
+				'fields' 		=> $repeater->get_controls(),
 				'title_field' 	=> '{{{ item_name }}}',
 			]
 		);
@@ -150,15 +162,15 @@ class Brands extends Widget_Base {
 				'options' 		=> [
 					'left' => [
 						'title' => __( 'Left', 'ocean-elementor-widgets' ),
-						'icon' 	=> 'fa fa-align-left',
+						'icon' 	=> 'eicon-text-align-left',
 					],
 					'center' => [
 						'title' => __( 'Center', 'ocean-elementor-widgets' ),
-						'icon' 	=> 'fa fa-align-center',
+						'icon' 	=> 'eicon-text-align-center',
 					],
 					'right' => [
 						'title' => __( 'Right', 'ocean-elementor-widgets' ),
-						'icon' 	=> 'fa fa-align-right',
+						'icon' 	=> 'eicon-text-align-right',
 					],
 				],
 				'selectors' 	=> [
@@ -329,7 +341,6 @@ class Brands extends Widget_Base {
 			[
 				'name' 			=> 'name_typo',
 				'selector' 		=> '{{WRAPPER}} .oew-brands .oew-brands-name',
-				'scheme' 		=> Scheme_Typography::TYPOGRAPHY_1,
 			]
 		);
 
@@ -371,7 +382,6 @@ class Brands extends Widget_Base {
 			[
 				'name' 			=> 'description_typo',
 				'selector' 		=> '{{WRAPPER}} .oew-brands .oew-brands-desc',
-				'scheme' 		=> Scheme_Typography::TYPOGRAPHY_1,
 			]
 		);
 
@@ -445,7 +455,7 @@ class Brands extends Widget_Base {
 	<?php
 	}
 
-	protected function _content_template() { ?>
+	protected function content_template() { ?>
 		<div class="oew-brands">
 			<div class="oew-brands-list oceanwp-row">
 				<# _.each( settings.brands, function( item, index ) {

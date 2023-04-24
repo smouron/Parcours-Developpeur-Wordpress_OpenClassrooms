@@ -5,8 +5,11 @@ namespace owpElementor\Modules\BusinessHours\Widgets;
 use Elementor\Controls_Manager;
 use Elementor\Repeater;
 use Elementor\Group_Control_Typography;
-use Elementor\Scheme_Typography;
 use Elementor\Widget_Base;
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
 
 class BusinessHours extends Widget_Base {
 
@@ -19,7 +22,6 @@ class BusinessHours extends Widget_Base {
 	}
 
 	public function get_icon() {
-		// Upload "eicons.ttf" font via this site: http://bluejamesbond.github.io/CharacterMap/
 		return 'oew-icon eicon-tel-field';
 	}
 
@@ -27,11 +29,20 @@ class BusinessHours extends Widget_Base {
 		return [ 'oceanwp-elements' ];
 	}
 
+    public function get_keywords() {
+        return [
+            'business hours',
+            'hours',
+            'business',
+            'owp',
+        ];
+    }
+
 	public function get_style_depends() {
 		return [ 'oew-business-hours' ];
 	}
 
-	protected function _register_controls() {
+	protected function register_controls() {
 
 		$this->start_controls_section(
 			'section_business_hours_settings',
@@ -39,6 +50,227 @@ class BusinessHours extends Widget_Base {
 				'label' 		=> __( 'Business Hours', 'ocean-elementor-widgets' ),
 			]
 		);
+
+        $repeater = new Repeater();
+
+        $repeater->add_control(
+            'day',
+            [
+                'name' => 'day',
+                'label' => __( 'Day', 'ocean-elementor-widgets' ),
+                'type' => Controls_Manager::SELECT,
+                'default' => __( 'Monday', 'ocean-elementor-widgets' ),
+                'options' => [
+                    __( 'Monday', 'ocean-elementor-widgets' )    => __( 'Monday', 'ocean-elementor-widgets' ),
+                    __( 'Tuesday', 'ocean-elementor-widgets' )   => __( 'Tuesday', 'ocean-elementor-widgets' ),
+                    __( 'Wednesday', 'ocean-elementor-widgets' ) => __( 'Wednesday', 'ocean-elementor-widgets' ),
+                    __( 'Thursday', 'ocean-elementor-widgets' )  => __( 'Thursday', 'ocean-elementor-widgets' ),
+                    __( 'Friday', 'ocean-elementor-widgets' )    => __( 'Friday', 'ocean-elementor-widgets' ),
+                    __( 'Saturday', 'ocean-elementor-widgets' )  => __( 'Saturday', 'ocean-elementor-widgets' ),
+                    __( 'Sunday', 'ocean-elementor-widgets' )    => __( 'Sunday', 'ocean-elementor-widgets' ),
+                ],
+            ]
+        );
+
+        $repeater->add_control(
+            'closed',
+            [
+                'name' => 'closed',
+                'label' => __( 'Closed?', 'ocean-elementor-widgets' ),
+                'type' => Controls_Manager::SWITCHER,
+                'default' => 'no',
+                'label_on' => __( 'No', 'ocean-elementor-widgets' ),
+                'label_off' => __( 'Yes', 'ocean-elementor-widgets' ),
+                'return_value' => 'no',
+            ]
+        );
+
+        $repeater->add_control(
+            'opening_hours',
+            [
+                'name' => 'opening_hours',
+                'label' => __( 'Opening Hours', 'ocean-elementor-widgets' ),
+                'type' => Controls_Manager::SELECT,
+                'default' => '08:00',
+                'options' => [
+                    '00:00'    => '12:00 AM',
+                    '00:30'    => '12:30 AM',
+                    '01:00'    => '1:00 AM',
+                    '01:30'    => '1:30 AM',
+                    '02:00'    => '2:00 AM',
+                    '02:30'    => '2:30 AM',
+                    '03:00'    => '3:00 AM',
+                    '03:30'    => '3:30 AM',
+                    '04:00'    => '4:00 AM',
+                    '04:30'    => '4:30 AM',
+                    '05:00'    => '5:00 AM',
+                    '05:30'    => '5:30 AM',
+                    '06:00'    => '6:00 AM',
+                    '06:30'    => '6:30 AM',
+                    '07:00'    => '7:00 AM',
+                    '07:30'    => '7:30 AM',
+                    '08:00'    => '8:00 AM',
+                    '08:30'    => '8:30 AM',
+                    '09:00'    => '9:00 AM',
+                    '09:30'    => '9:30 AM',
+                    '10:00'    => '10:00 AM',
+                    '10:30'    => '10:30 AM',
+                    '11:00'    => '11:00 AM',
+                    '11:30'    => '11:30 AM',
+                    '12:00'    => '12:00 PM',
+                    '12:30'    => '12:30 PM',
+                    '13:00'    => '1:00 PM',
+                    '13:30'    => '1:30 PM',
+                    '14:00'    => '2:00 PM',
+                    '14:30'    => '2:30 PM',
+                    '15:00'    => '3:00 PM',
+                    '15:30'    => '3:30 PM',
+                    '16:00'    => '4:00 PM',
+                    '16:30'    => '4:30 PM',
+                    '17:00'    => '5:00 PM',
+                    '17:30'    => '5:30 PM',
+                    '18:00'    => '6:00 PM',
+                    '18:30'    => '6:30 PM',
+                    '19:00'    => '7:00 PM',
+                    '19:30'    => '7:30 PM',
+                    '20:00'    => '8:00 PM',
+                    '20:30'    => '8:30 PM',
+                    '21:00'    => '9:00 PM',
+                    '21:30'    => '9:30 PM',
+                    '22:00'    => '10:00 PM',
+                    '22:30'    => '10:30 PM',
+                    '23:00'    => '11:00 PM',
+                    '23:30'    => '11:30 PM',
+                    '24:00'    => '12:00 PM',
+                    '24:30'    => '12:30 PM',
+                ],
+                'condition' => [
+                    'closed' => 'no',
+                ],
+            ]
+        );
+
+        $repeater->add_control(
+            'closing_hours',
+            [
+                'name' => 'closing_hours',
+                'label' => __( 'Closing Hours', 'ocean-elementor-widgets' ),
+                'type' => Controls_Manager::SELECT,
+                'default' => '19:00',
+                'options' => [
+                    '00:00'    => '12:00 AM',
+                    '00:30'    => '12:30 AM',
+                    '01:00'    => '1:00 AM',
+                    '01:30'    => '1:30 AM',
+                    '02:00'    => '2:00 AM',
+                    '02:30'    => '2:30 AM',
+                    '03:00'    => '3:00 AM',
+                    '03:30'    => '3:30 AM',
+                    '04:00'    => '4:00 AM',
+                    '04:30'    => '4:30 AM',
+                    '05:00'    => '5:00 AM',
+                    '05:30'    => '5:30 AM',
+                    '06:00'    => '6:00 AM',
+                    '06:30'    => '6:30 AM',
+                    '07:00'    => '7:00 AM',
+                    '07:30'    => '7:30 AM',
+                    '08:00'    => '8:00 AM',
+                    '08:30'    => '8:30 AM',
+                    '09:00'    => '9:00 AM',
+                    '09:30'    => '9:30 AM',
+                    '10:00'    => '10:00 AM',
+                    '10:30'    => '10:30 AM',
+                    '11:00'    => '11:00 AM',
+                    '11:30'    => '11:30 AM',
+                    '12:00'    => '12:00 PM',
+                    '12:30'    => '12:30 PM',
+                    '13:00'    => '1:00 PM',
+                    '13:30'    => '1:30 PM',
+                    '14:00'    => '2:00 PM',
+                    '14:30'    => '2:30 PM',
+                    '15:00'    => '3:00 PM',
+                    '15:30'    => '3:30 PM',
+                    '16:00'    => '4:00 PM',
+                    '16:30'    => '4:30 PM',
+                    '17:00'    => '5:00 PM',
+                    '17:30'    => '5:30 PM',
+                    '18:00'    => '6:00 PM',
+                    '18:30'    => '6:30 PM',
+                    '19:00'    => '7:00 PM',
+                    '19:30'    => '7:30 PM',
+                    '20:00'    => '8:00 PM',
+                    '20:30'    => '8:30 PM',
+                    '21:00'    => '9:00 PM',
+                    '21:30'    => '9:30 PM',
+                    '22:00'    => '10:00 PM',
+                    '22:30'    => '10:30 PM',
+                    '23:00'    => '11:00 PM',
+                    '23:30'    => '11:30 PM',
+                    '24:00'    => '12:00 PM',
+                    '24:30'    => '12:30 PM',
+                ],
+                'condition' => [
+                    'closed' => 'no',
+                ],
+            ]
+        );
+
+        $repeater->add_control(
+            'closed_text',
+            [
+                'name' => 'closed_text',
+                'label' => __( 'Closed Text', 'ocean-elementor-widgets' ),
+                'type' => Controls_Manager::TEXT,
+                'label_block' => true,
+                'placeholder' => __( 'Closed', 'ocean-elementor-widgets' ),
+                'default' => __( 'Closed', 'ocean-elementor-widgets' ),
+                'condition' => [
+                    'closed' => 'yes',
+                ],
+                'dynamic' => [ 'active' => true ],
+            ]
+        );
+
+        $repeater->add_control(
+            'highlight',
+            [
+                'name' => 'highlight',
+                'label' => __( 'Highlight', 'ocean-elementor-widgets' ),
+                'type' => Controls_Manager::SWITCHER,
+                'default' => 'no',
+                'return_value' => 'yes',
+            ]
+        );
+
+        $repeater->add_control(
+            'highlight_bg',
+            [
+                'name' => 'highlight_bg',
+                'label' => __( 'Background Color', 'ocean-elementor-widgets' ),
+                'type' => Controls_Manager::COLOR,
+                'condition' => [
+                    'highlight' => 'yes',
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .oew-business-hours .oew-business-hours-row{{CURRENT_ITEM}}' => 'background-color: {{VALUE}}',
+                ],
+            ]
+        );
+
+        $repeater->add_control(
+            'highlight_color',
+            [
+                'name' => 'highlight_color',
+                'label' => __( 'Text Color', 'ocean-elementor-widgets' ),
+                'type' => Controls_Manager::COLOR,
+                'condition' => [
+                    'highlight' => 'yes',
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .oew-business-hours .oew-business-hours-row{{CURRENT_ITEM}} .oew-business-day, {{WRAPPER}} .oew-business-hours .oew-business-hours-row{{CURRENT_ITEM}} .oew-business-timing' => 'color: {{VALUE}}',
+                ],
+            ]
+        );
 
 		$this->add_control(
 			'business_hours',
@@ -56,195 +288,7 @@ class BusinessHours extends Widget_Base {
 						'day' => __( 'Wednesday', 'ocean-elementor-widgets' ),
 					],
 				],
-				'fields' 		=> [
-                    [
-                        'name' => 'day',
-                        'label' => __( 'Day', 'ocean-elementor-widgets' ),
-                        'type' => Controls_Manager::SELECT,
-                        'default' => __( 'Monday', 'ocean-elementor-widgets' ),
-                        'options' => [
-                            __( 'Monday', 'ocean-elementor-widgets' )    => __( 'Monday', 'ocean-elementor-widgets' ),
-                            __( 'Tuesday', 'ocean-elementor-widgets' )   => __( 'Tuesday', 'ocean-elementor-widgets' ),
-                            __( 'Wednesday', 'ocean-elementor-widgets' ) => __( 'Wednesday', 'ocean-elementor-widgets' ),
-                            __( 'Thursday', 'ocean-elementor-widgets' )  => __( 'Thursday', 'ocean-elementor-widgets' ),
-                            __( 'Friday', 'ocean-elementor-widgets' )    => __( 'Friday', 'ocean-elementor-widgets' ),
-                            __( 'Saturday', 'ocean-elementor-widgets' )  => __( 'Saturday', 'ocean-elementor-widgets' ),
-                            __( 'Sunday', 'ocean-elementor-widgets' )    => __( 'Sunday', 'ocean-elementor-widgets' ),
-                        ],
-                    ],
-                    [
-                        'name' => 'closed',
-                        'label' => __( 'Closed?', 'ocean-elementor-widgets' ),
-                        'type' => Controls_Manager::SWITCHER,
-                        'default' => 'no',
-                        'label_on' => __( 'No', 'ocean-elementor-widgets' ),
-                        'label_off' => __( 'Yes', 'ocean-elementor-widgets' ),
-                        'return_value' => 'no',
-                    ],
-                    [
-                        'name' => 'opening_hours',
-                        'label' => __( 'Opening Hours', 'ocean-elementor-widgets' ),
-                        'type' => Controls_Manager::SELECT,
-                        'default' => '08:00',
-                        'options' => [
-                            '00:00'    => '12:00 AM',
-                            '00:30'    => '12:30 AM',
-                            '01:00'    => '1:00 AM',
-                            '01:30'    => '1:30 AM',
-                            '02:00'    => '2:00 AM',
-                            '02:30'    => '2:30 AM',
-                            '03:00'    => '3:00 AM',
-                            '03:30'    => '3:30 AM',
-                            '04:00'    => '4:00 AM',
-                            '04:30'    => '4:30 AM',
-                            '05:00'    => '5:00 AM',
-                            '05:30'    => '5:30 AM',
-                            '06:00'    => '6:00 AM',
-                            '06:30'    => '6:30 AM',
-                            '07:00'    => '7:00 AM',
-                            '07:30'    => '7:30 AM',
-                            '08:00'    => '8:00 AM',
-                            '08:30'    => '8:30 AM',
-                            '09:00'    => '9:00 AM',
-                            '09:30'    => '9:30 AM',
-                            '10:00'    => '10:00 AM',
-                            '10:30'    => '10:30 AM',
-                            '11:00'    => '11:00 AM',
-                            '11:30'    => '11:30 AM',
-                            '12:00'    => '12:00 PM',
-                            '12:30'    => '12:30 PM',
-                            '13:00'    => '1:00 PM',
-                            '13:30'    => '1:30 PM',
-                            '14:00'    => '2:00 PM',
-                            '14:30'    => '2:30 PM',
-                            '15:00'    => '3:00 PM',
-                            '15:30'    => '3:30 PM',
-                            '16:00'    => '4:00 PM',
-                            '16:30'    => '4:30 PM',
-                            '17:00'    => '5:00 PM',
-                            '17:30'    => '5:30 PM',
-                            '18:00'    => '6:00 PM',
-                            '18:30'    => '6:30 PM',
-                            '19:00'    => '7:00 PM',
-                            '19:30'    => '7:30 PM',
-                            '20:00'    => '8:00 PM',
-                            '20:30'    => '8:30 PM',
-                            '21:00'    => '9:00 PM',
-                            '21:30'    => '9:30 PM',
-                            '22:00'    => '10:00 PM',
-                            '22:30'    => '10:30 PM',
-                            '23:00'    => '11:00 PM',
-                            '23:30'    => '11:30 PM',
-                            '24:00'    => '12:00 PM',
-                            '24:30'    => '12:30 PM',
-                        ],
-                        'condition' => [
-                            'closed' => 'no',
-                        ],
-                    ],
-                    [
-                        'name' => 'closing_hours',
-                        'label' => __( 'Closing Hours', 'ocean-elementor-widgets' ),
-                        'type' => Controls_Manager::SELECT,
-                        'default' => '19:00',
-                        'options' => [
-                            '00:00'    => '12:00 AM',
-                            '00:30'    => '12:30 AM',
-                            '01:00'    => '1:00 AM',
-                            '01:30'    => '1:30 AM',
-                            '02:00'    => '2:00 AM',
-                            '02:30'    => '2:30 AM',
-                            '03:00'    => '3:00 AM',
-                            '03:30'    => '3:30 AM',
-                            '04:00'    => '4:00 AM',
-                            '04:30'    => '4:30 AM',
-                            '05:00'    => '5:00 AM',
-                            '05:30'    => '5:30 AM',
-                            '06:00'    => '6:00 AM',
-                            '06:30'    => '6:30 AM',
-                            '07:00'    => '7:00 AM',
-                            '07:30'    => '7:30 AM',
-                            '08:00'    => '8:00 AM',
-                            '08:30'    => '8:30 AM',
-                            '09:00'    => '9:00 AM',
-                            '09:30'    => '9:30 AM',
-                            '10:00'    => '10:00 AM',
-                            '10:30'    => '10:30 AM',
-                            '11:00'    => '11:00 AM',
-                            '11:30'    => '11:30 AM',
-                            '12:00'    => '12:00 PM',
-                            '12:30'    => '12:30 PM',
-                            '13:00'    => '1:00 PM',
-                            '13:30'    => '1:30 PM',
-                            '14:00'    => '2:00 PM',
-                            '14:30'    => '2:30 PM',
-                            '15:00'    => '3:00 PM',
-                            '15:30'    => '3:30 PM',
-                            '16:00'    => '4:00 PM',
-                            '16:30'    => '4:30 PM',
-                            '17:00'    => '5:00 PM',
-                            '17:30'    => '5:30 PM',
-                            '18:00'    => '6:00 PM',
-                            '18:30'    => '6:30 PM',
-                            '19:00'    => '7:00 PM',
-                            '19:30'    => '7:30 PM',
-                            '20:00'    => '8:00 PM',
-                            '20:30'    => '8:30 PM',
-                            '21:00'    => '9:00 PM',
-                            '21:30'    => '9:30 PM',
-                            '22:00'    => '10:00 PM',
-                            '22:30'    => '10:30 PM',
-                            '23:00'    => '11:00 PM',
-                            '23:30'    => '11:30 PM',
-                            '24:00'    => '12:00 PM',
-                            '24:30'    => '12:30 PM',
-                        ],
-                        'condition' => [
-                            'closed' => 'no',
-                        ],
-                    ],
-                    [
-                        'name' => 'closed_text',
-                        'label' => __( 'Closed Text', 'ocean-elementor-widgets' ),
-                        'type' => Controls_Manager::TEXT,
-                        'label_block' => true,
-                        'placeholder' => __( 'Closed', 'ocean-elementor-widgets' ),
-                        'default' => __( 'Closed', 'ocean-elementor-widgets' ),
-                        'condition' => [
-                            'closed' => 'yes',
-                        ],
-                        'dynamic' => [ 'active' => true ],
-                    ],
-                    [
-                        'name' => 'highlight',
-                        'label' => __( 'Highlight', 'ocean-elementor-widgets' ),
-                        'type' => Controls_Manager::SWITCHER,
-                        'default' => 'no',
-                        'return_value' => 'yes',
-                    ],
-                    [
-                        'name' => 'highlight_bg',
-                        'label' => __( 'Background Color', 'ocean-elementor-widgets' ),
-                        'type' => Controls_Manager::COLOR,
-                        'condition' => [
-                            'highlight' => 'yes',
-                        ],
-                        'selectors' => [
-                            '{{WRAPPER}} .oew-business-hours .oew-business-hours-row{{CURRENT_ITEM}}' => 'background-color: {{VALUE}}',
-                        ],
-                    ],
-                    [
-                        'name' => 'highlight_color',
-                        'label' => __( 'Text Color', 'ocean-elementor-widgets' ),
-                        'type' => Controls_Manager::COLOR,
-                        'condition' => [
-                            'highlight' => 'yes',
-                        ],
-                        'selectors' => [
-                            '{{WRAPPER}} .oew-business-hours .oew-business-hours-row{{CURRENT_ITEM}} .oew-business-day, {{WRAPPER}} .oew-business-hours .oew-business-hours-row{{CURRENT_ITEM}} .oew-business-timing' => 'color: {{VALUE}}',
-                        ],
-                    ]
-				],
+                'fields' => $repeater->get_controls(),
 				'title_field' => '{{{ day }}}',
 			]
 		);
@@ -657,7 +701,6 @@ class BusinessHours extends Widget_Base {
             [
                 'name' 			=> 'title_typography',
                 'label' 		=> __( 'Typography', 'ocean-elementor-widgets' ),
-                'scheme' 		=> Scheme_Typography::TYPOGRAPHY_4,
                 'selector' 		=> '{{WRAPPER}} .oew-business-hours .oew-business-day',
             ]
         );
@@ -687,7 +730,6 @@ class BusinessHours extends Widget_Base {
             [
                 'name' 			=> 'hours_typography',
                 'label' 		=> __( 'Typography', 'ocean-elementor-widgets' ),
-                'scheme' 		=> Scheme_Typography::TYPOGRAPHY_4,
                 'selector' 		=> '{{WRAPPER}} .oew-business-hours .oew-business-timing',
             ]
         );
@@ -827,7 +869,7 @@ class BusinessHours extends Widget_Base {
 	<?php
 	}
 
-	protected function _content_template() { ?>
+	protected function content_template() { ?>
 		<#
         function oew_timeTo12HrFormat(time) {
             // Take a time in 24 hour format and format it in 12 hour format

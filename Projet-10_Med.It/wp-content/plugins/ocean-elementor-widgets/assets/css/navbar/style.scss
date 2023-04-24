@@ -155,6 +155,10 @@ Navbar
             @include transform( translateY(-50%) translateX(0px) );
         }
     }
+
+    .owp-icon {
+        vertical-align: inherit;
+    }
 }
 
 .elementor .elementor-widget-oew-navbar {

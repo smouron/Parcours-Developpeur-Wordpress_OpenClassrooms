@@ -4,11 +4,14 @@ namespace owpElementor\Modules\ContactForm\Widgets;
 // Elementor Classes
 use Elementor\Controls_Manager;
 use Elementor\Group_Control_Typography;
-use Elementor\Scheme_Typography;
 use Elementor\Group_Control_Background;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Box_Shadow;
 use Elementor\Widget_Base;
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
 
 class Contact_Form extends Widget_Base {
 
@@ -21,7 +24,6 @@ class Contact_Form extends Widget_Base {
 	}
 
 	public function get_icon() {
-		// Upload "eicons.ttf" font via this site: http://bluejamesbond.github.io/CharacterMap/
 		return 'oew-icon eicon-form-horizontal';
 	}
 
@@ -29,7 +31,15 @@ class Contact_Form extends Widget_Base {
 		return [ 'oceanwp-elements' ];
 	}
 
-	protected function _register_controls() {
+    public function get_keywords() {
+        return [
+            'form',
+            'contact',
+            'owp',
+        ];
+    }
+
+	protected function register_controls() {
 
 		$this->start_controls_section(
 			'section_contact_form_7',
@@ -74,7 +84,6 @@ class Contact_Form extends Widget_Base {
 			[
 				'name' 			=> 'labels_typo',
 				'selector' 		=> '{{WRAPPER}} .wpcf7 label',
-				'scheme' 		=> Scheme_Typography::TYPOGRAPHY_1,
 			]
 		);
 
@@ -98,15 +107,15 @@ class Contact_Form extends Widget_Base {
 				'options' 		=> [
 					'left'    	=> [
 						'title' => __( 'Left', 'ocean-elementor-widgets' ),
-						'icon' 	=> 'fa fa-align-left',
+						'icon' 	=> 'eicon-text-align-left',
 					],
 					'center' 	=> [
 						'title' => __( 'Center', 'ocean-elementor-widgets' ),
-						'icon' 	=> 'fa fa-align-center',
+						'icon' 	=> 'eicon-text-align-center',
 					],
 					'right' 	=> [
 						'title' => __( 'Right', 'ocean-elementor-widgets' ),
-						'icon' 	=> 'fa fa-align-right',
+						'icon' 	=> 'eicon-text-align-right',
 					],
 				],
 				'selectors' 	=> [
@@ -140,7 +149,6 @@ class Contact_Form extends Widget_Base {
 			[
 				'name' 			=> 'invalid_label_typo',
 				'selector' 		=> '{{WRAPPER}} .wpcf7 span.wpcf7-not-valid-tip',
-				'scheme' 		=> Scheme_Typography::TYPOGRAPHY_1,
 			]
 		);
 
@@ -269,7 +277,6 @@ class Contact_Form extends Widget_Base {
 			[
 				'name' 			=> 'inputs_typo',
 				'selector' 		=> '{{WRAPPER}} .wpcf7 .wpcf7-form-control:not(.wpcf7-submit):not(.wpcf7-checkbox):not(.wpcf7-radio)',
-				'scheme' 		=> Scheme_Typography::TYPOGRAPHY_1,
 				'separator' 	=> 'before',
 			]
 		);
@@ -464,7 +471,6 @@ class Contact_Form extends Widget_Base {
 			[
 				'name' 			=> 'button_typo',
 				'selector' 		=> '{{WRAPPER}} .wpcf7 input.wpcf7-submit',
-				'scheme' 		=> Scheme_Typography::TYPOGRAPHY_1,
 				'separator' 	=> 'before',
 			]
 		);
@@ -549,7 +555,6 @@ class Contact_Form extends Widget_Base {
 			[
 				'name' 			=> 'alerts_typo',
 				'selector' 		=> '{{WRAPPER}} .wpcf7 div.wpcf7-response-output',
-				'scheme' 		=> Scheme_Typography::TYPOGRAPHY_1,
 			]
 		);
 
@@ -613,15 +618,15 @@ class Contact_Form extends Widget_Base {
 				'options' 		=> [
 					'left'    	=> [
 						'title' => __( 'Left', 'ocean-elementor-widgets' ),
-						'icon' 	=> 'fa fa-align-left',
+						'icon' 	=> 'eicon-text-align-left',
 					],
 					'center' 	=> [
 						'title' => __( 'Center', 'ocean-elementor-widgets' ),
-						'icon' 	=> 'fa fa-align-center',
+						'icon' 	=> 'eicon-text-align-center',
 					],
 					'right' 	=> [
 						'title' => __( 'Right', 'ocean-elementor-widgets' ),
-						'icon' 	=> 'fa fa-align-right',
+						'icon' 	=> 'eicon-text-align-right',
 					],
 				],
 				'selectors' 	=> [

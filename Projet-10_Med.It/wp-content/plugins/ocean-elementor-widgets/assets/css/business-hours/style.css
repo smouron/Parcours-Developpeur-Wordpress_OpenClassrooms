@@ -9,16 +9,17 @@ Business Hours
   -moz-transition: all 0.3s ease-in-out;
   -ms-transition: all 0.3s ease-in-out;
   -o-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out; }
-
+  transition: all 0.3s ease-in-out;
+}
 .oew-business-hours .oew-business-timing {
-  text-align: right; }
-
+  text-align: right;
+}
 .oew-business-hours .fa {
-  margin-right: 6px; }
-
+  margin-right: 6px;
+}
 .oew-business-hours .oew-business-day i, .oew-business-hours .oew-business-day svg {
   width: 1em;
   height: 1em;
   position: relative;
-  vertical-align: middle; }
+  vertical-align: middle;
+}

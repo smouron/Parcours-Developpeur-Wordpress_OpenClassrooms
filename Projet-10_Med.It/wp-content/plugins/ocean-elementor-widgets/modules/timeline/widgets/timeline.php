@@ -9,7 +9,6 @@ use Elementor\Group_Control_Background;
 use Elementor\Group_Control_Image_Size;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Typography;
-use Elementor\Scheme_Typography;
 use Elementor\Group_Control_Box_Shadow;
 use Elementor\Widget_Base;
 
@@ -26,7 +25,6 @@ class Timeline extends Widget_Base {
 	}
 
 	public function get_icon() {
-		// Upload "eicons.ttf" font via this site: http://bluejamesbond.github.io/CharacterMap/
 		return 'oew-icon eicon-time-line';
 	}
 
@@ -34,11 +32,19 @@ class Timeline extends Widget_Base {
 		return [ 'oceanwp-elements' ];
 	}
 
+    public function get_keywords() {
+        return [
+            'timeline',
+            'post',
+            'owp',
+        ];
+    }
+
 	public function get_style_depends() {
 		return [ 'oew-timeline' ];
 	}
 
-	protected function _register_controls() {
+	protected function register_controls() {
 
 		$this->start_controls_section(
 			'section_timeline_layout',
@@ -68,15 +74,15 @@ class Timeline extends Widget_Base {
 				'options' 		=> [
 					'left'    => [
 						'title' => __( 'Left', 'ocean-elementor-widgets' ),
-						'icon' 	=> 'fa fa-align-left',
+						'icon' 	=> 'eicon-text-align-left',
 					],
 					'center' => [
 						'title' => __( 'Center', 'ocean-elementor-widgets' ),
-						'icon' 	=> 'fa fa-align-center',
+						'icon' 	=> 'eicon-text-align-center',
 					],
 					'right' => [
 						'title' => __( 'Right', 'ocean-elementor-widgets' ),
-						'icon' 	=> 'fa fa-align-right',
+						'icon' 	=> 'eicon-text-align-right',
 					],
 				],
 				'default' 		=> 'center',
@@ -172,61 +178,86 @@ class Timeline extends Widget_Base {
 			]
 		);
 
+		$repeater = new Repeater();
+
+        $repeater->add_control(
+            'timeline_title',
+            [
+				'name' => 'timeline_title',
+				'label' => __( 'Title', 'ocean-elementor-widgets' ),
+				'type' => Controls_Manager::TEXT,
+				'default' => __( 'Your timeline title here', 'ocean-elementor-widgets' ),
+				'label_block' => 'true',
+				'dynamic' => [ 'active' => true ],
+			]
+        );
+
+		$repeater->add_control(
+            'timeline_date',
+            [
+				'name' => 'timeline_date',
+				'label' => __( 'Date', 'ocean-elementor-widgets' ),
+				'type' => Controls_Manager::TEXT,
+				'default' => __( '13 October 2018', 'ocean-elementor-widgets' ),
+				'dynamic' => [ 'active' => true ],
+			]
+        );
+
+		$repeater->add_control(
+            'timeline_image',
+            [
+				'name' => 'timeline_image',
+				'label' => __( 'Image', 'ocean-elementor-widgets' ),
+				'type' => Controls_Manager::MEDIA,
+				'default' => [
+					'url' => Utils::get_placeholder_image_src(),
+				],
+				'dynamic' => [ 'active' => true ],
+			]
+        );
+
+		$repeater->add_control(
+            'timeline_text',
+            [
+				'name' => 'timeline_text',
+				'label' => __( 'Content', 'ocean-elementor-widgets' ),
+				'type' => Controls_Manager::WYSIWYG,
+				'default' => __( 'I am text block. Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.', 'ocean-elementor-widgets' ),
+				'dynamic' => [ 'active' => true ],
+			]
+        );
+
+		$repeater->add_control(
+            'timeline_link',
+            [
+				'name' => 'timeline_link',
+				'label' => __( 'Item Link', 'ocean-elementor-widgets' ),
+				'type' => Controls_Manager::TEXT,
+				'placeholder' => __( 'https://your-link.com', 'ocean-elementor-widgets' ),
+				'default' => '#',
+				'dynamic' => [ 'active' => true ],
+			]
+        );
+
+		$repeater->add_control(
+            'timeline_icon',
+            [
+				'name' => 'timeline_icon',
+				'label' => __( 'Timeline Icon', 'ocean-elementor-widgets' ),
+				'type' => Controls_Manager::ICONS,
+				'default'		=> [
+					'value'   => 'fas fa-file-alt',
+					'library' => 'solid',
+				],
+			]
+        );
+
 		$this->add_control(
 			'items',
 			[
 				'label' 		=> __( 'List Items', 'ocean-elementor-widgets' ),
 				'type' 			=> Controls_Manager::REPEATER,
-				'fields' 		=> [
-					[
-						'name' => 'timeline_title',
-						'label' => __( 'Title', 'ocean-elementor-widgets' ),
-						'type' => Controls_Manager::TEXT,
-						'default' => __( 'Your timeline title here', 'ocean-elementor-widgets' ),
-						'label_block' => 'true',
-						'dynamic' => [ 'active' => true ],
-					],
-					[
-						'name' => 'timeline_date',
-						'label' => __( 'Date', 'ocean-elementor-widgets' ),
-						'type' => Controls_Manager::TEXT,
-						'default' => __( '13 October 2018', 'ocean-elementor-widgets' ),
-						'dynamic' => [ 'active' => true ],
-					],
-					[
-						'name' => 'timeline_image',
-						'label' => __( 'Image', 'ocean-elementor-widgets' ),
-						'type' => Controls_Manager::MEDIA,
-						'default' => [
-							'url' => Utils::get_placeholder_image_src(),
-						],
-						'dynamic' => [ 'active' => true ],
-					],
-					[
-						'name' => 'timeline_text',
-						'label' => __( 'Content', 'ocean-elementor-widgets' ),
-						'type' => Controls_Manager::WYSIWYG,
-						'default' => __( 'I am text block. Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.', 'ocean-elementor-widgets' ),
-						'dynamic' => [ 'active' => true ],
-					],
-					[
-						'name' => 'timeline_link',
-						'label' => __( 'Item Link', 'ocean-elementor-widgets' ),
-						'type' => Controls_Manager::TEXT,
-						'placeholder' => __( 'https://your-link.com', 'ocean-elementor-widgets' ),
-						'default' => '#',
-						'dynamic' => [ 'active' => true ],
-					],
-					[
-						'name' => 'timeline_icon',
-						'label' => __( 'Timeline Icon', 'ocean-elementor-widgets' ),
-						'type' => Controls_Manager::ICONS,
-						'default'		=> [
-							'value'   => 'fas fa-file-alt',
-							'library' => 'solid',
-						],
-					],
-				],
+                'fields' 		=> $repeater->get_controls(),
 				'default' 		=> [
 					[
 						'timeline_title' => __( 'Your timeline title here #1', 'ocean-elementor-widgets' ),
@@ -530,7 +561,6 @@ class Timeline extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name' 			=> 'timeline_title_typography',
-				'scheme' 		=> Scheme_Typography::TYPOGRAPHY_4,
 				'selector' 		=> '{{WRAPPER}} .oew-timeline .oew-timeline-item-wrap .oew-timeline-title',
 			]
 		);
@@ -605,7 +635,6 @@ class Timeline extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name' 			=> 'timeline_meta_typography',
-				'scheme' 		=> Scheme_Typography::TYPOGRAPHY_4,
 				'selector' 		=> '{{WRAPPER}} .oew-timeline .oew-timeline-item-wrap .oew-timeline-meta',
 			]
 		);
@@ -680,7 +709,6 @@ class Timeline extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name' 			=> 'timeline_excerpt_typography',
-				'scheme' 		=> Scheme_Typography::TYPOGRAPHY_4,
 				'selector' 		=> '{{WRAPPER}} .oew-timeline .oew-timeline-item-wrap .oew-timeline-excerpt',
 			]
 		);
@@ -722,7 +750,6 @@ class Timeline extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name' 			=> 'timeline_button_typography',
-				'scheme' 		=> Scheme_Typography::TYPOGRAPHY_4,
 				'selector' 		=> '{{WRAPPER}} .oew-timeline .oew-timeline-item-wrap .oew-timeline-readmore',
 			]
 		);
@@ -1022,7 +1049,6 @@ class Timeline extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name' 			=> 'timeline_date_typography',
-				'scheme' 		=> Scheme_Typography::TYPOGRAPHY_4,
 				'selector' 		=> '{{WRAPPER}} .oew-timeline .oew-timeline-date span',
 			]
 		);

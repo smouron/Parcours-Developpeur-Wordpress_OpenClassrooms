@@ -6,7 +6,6 @@ use Elementor\Controls_Manager;
 use Elementor\Group_Control_Box_Shadow;
 use Elementor\Group_Control_Typography;
 use Elementor\Group_Control_Border;
-use Elementor\Scheme_Typography;
 use Elementor\Widget_Base;
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
@@ -22,13 +21,20 @@ class SearchIcon extends Widget_Base {
 	}
 
 	public function get_icon() {
-		// Upload "eicons.ttf" font via this site: http://bluejamesbond.github.io/CharacterMap/
 		return 'oew-icon eicon-search';
 	}
 
 	public function get_categories() {
 		return [ 'oceanwp-elements' ];
 	}
+
+    public function get_keywords() {
+        return [
+            'search',
+            'search icon',
+            'owp',
+        ];
+    }
 
 	public function get_script_depends() {
 		return [ 'oew-search-icon' ];
@@ -38,7 +44,7 @@ class SearchIcon extends Widget_Base {
 		return [ 'oew-search-icon' ];
 	}
 
-	protected function _register_controls() {
+	protected function register_controls() {
 
 		$this->start_controls_section(
 			'section_search_icon',
@@ -106,15 +112,15 @@ class SearchIcon extends Widget_Base {
 				'options' 		=> [
 					'left'    => [
 						'title' => __( 'Left', 'ocean-elementor-widgets' ),
-						'icon' 	=> 'fa fa-align-left',
+						'icon' 	=> 'eicon-text-align-left',
 					],
 					'center' => [
 						'title' => __( 'Center', 'ocean-elementor-widgets' ),
-						'icon' 	=> 'fa fa-align-center',
+						'icon' 	=> 'eicon-text-align-center',
 					],
 					'right' => [
 						'title' => __( 'Right', 'ocean-elementor-widgets' ),
-						'icon' 	=> 'fa fa-align-right',
+						'icon' 	=> 'eicon-text-align-right',
 					],
 				],
 				'default' 		=> '',
@@ -145,6 +151,7 @@ class SearchIcon extends Widget_Base {
 				],
 				'selectors' => [
 					'{{WRAPPER}} .oew-search-icon-wrap .oew-search-toggle' => 'font-size: {{SIZE}}px;',
+					'{{WRAPPER}} .oew-search-icon-wrap .oew-search-toggle .owp-icon' => 'width: {{SIZE}}px; height: {{SIZE}}px;',
 				],
 			]
 		);
@@ -165,6 +172,7 @@ class SearchIcon extends Widget_Base {
 				'type' 			=> Controls_Manager::COLOR,
 				'selectors' 	=> [
 					'{{WRAPPER}} .oew-search-icon-wrap .oew-search-toggle' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .oew-search-icon-wrap .oew-search-toggle .owp-icon use' => 'stroke: {{VALUE}};',
 				],
 			]
 		);
@@ -185,6 +193,7 @@ class SearchIcon extends Widget_Base {
 				'type' 			=> Controls_Manager::COLOR,
 				'selectors' 	=> [
 					'{{WRAPPER}} .oew-search-icon-wrap .oew-search-toggle:hover' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .oew-search-icon-wrap .oew-search-toggle:hover .owp-icon use' => 'stroke: {{VALUE}};',
 				],
 			]
 		);
@@ -597,7 +606,6 @@ class SearchIcon extends Widget_Base {
 			[
 				'name' 			=> 'input_typo',
 				'selector' 		=> '{{WRAPPER}} form input, #oew-search-{{ID}} form input, #oew-search-{{ID}} form label',
-				'scheme' 		=> Scheme_Typography::TYPOGRAPHY_1,
 			]
 		);
 
@@ -629,6 +637,10 @@ class SearchIcon extends Widget_Base {
 	protected function render() {
 		$settings 	= $this->get_settings_for_display();
 		$id 		= $this->get_id();
+
+		// Get theme icons.
+		$theme_icons = oceanwp_theme_icons();
+		$icon_t = oceanwp_theme_icon_class();
 
 		// Style
 		$style = $settings['style'];
@@ -664,7 +676,7 @@ class SearchIcon extends Widget_Base {
 		} ?>
 
 		<div <?php echo $this->get_render_attribute_string( 'search-icon-wrap' ); ?>>
-			<a <?php echo $this->get_render_attribute_string( 'link' ); ?>><span class="icon-magnifier"></span></a>
+			<a <?php echo $this->get_render_attribute_string( 'link' ); ?>><?php oew_svg_icon( 'search' ); ?></a>
 
 			<div <?php echo $this->get_render_attribute_string( 'form-wrap' ); ?>>
 				<?php
@@ -702,6 +714,6 @@ class SearchIcon extends Widget_Base {
 	}
 
 	// No template because it cause a js error in the edit mode
-	protected function _content_template() {}
+	protected function content_template() {}
 
 }
