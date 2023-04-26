@@ -7,12 +7,13 @@ Suivi de mon planning : https://trello.com/invite/b/IzTdkieL/ATTIae69c03af8ba7bb
 ## Projets terminés
 
 ### Projet 1
+
 Démarrez votre formation de développeur WordPress
 
 Ce n'est pas du développement. Cela n'a pas été mis sur github
 
-
 ### Projet 2 - Riding-Citites
+
 Premiers pas sur le langage HTML
 
 #### Objectifs
@@ -22,7 +23,6 @@ Pour ce projet, suivant les consignes de Romain (maître de stage et CTO), l’o
 #### Réalisation
 
 RIDING CITIES : https://www.sanoecreation.fr/OpenClassRooms/Riding-Citites/index.html
-
 
 ### Projet 3 - Booki
 
@@ -37,7 +37,6 @@ Je suis chargé d'intégrer l'interface du site avec du code HTML et CSS.
 
 BOOKI : https://www.sanoecreation.fr/OpenClassRooms/Booki/index.html
 
-
 ### Projet 4 - Simpl-Vintage
 
 Créer un site complet avec WordPress sans utiliser de code
@@ -50,7 +49,6 @@ On me demande de développer pour la marque de vêtement Simpl Vintage, un site 
 #### Réalisation
 
 SIMPL VINTAGE : https://www.sanoecreation.fr/OpenClassRooms/Simpl-Vintage/
-
 
 ### Projet 5 - The-Artbox-master
 
@@ -66,7 +64,6 @@ Actuellement, il y a une page HTML par oeuvre. Soit 15 pages.
 
 THE ARTBOX MASTER : https://www.sanoecreation.fr/OpenClassRooms/The-Artbox-master/index.php
 
-
 ### Projet 6 - Planty
 
 Personnaliser une thème WordPress pour une startup avec HTML, CSS et Php
@@ -78,7 +75,6 @@ Pour ce projet, je suis intégrateur WordPress dans une agence web, et je suis e
 #### Réalisation
 
 PLANTY : https://www.sanoecreation.fr/OpenClassRooms/Planty/index.php
-
 
 ### Projet 7
 
@@ -93,7 +89,6 @@ Je suis en charge d'optimiser le au mieux le site Chic Dressing.
 
 CHIC DRESSING : http://chic-dressing.sanoecreation.fr/
 
-
 ### Projet 8 - Print-it-JS
 
 Premiers pas sur le langage JavaScipt
@@ -105,10 +100,6 @@ Pour ce projet, je débute comme développeur front-end en freelance, et je vien
 #### Réalisation
 
 PRINT-IT-JS : https://smouron.github.io/Print-it-JS-main/
-
----
-
-## Projets en attente de validation
 
 ### Projet 9 - Fleurs Chats errants / Koukaki
 
@@ -125,6 +116,10 @@ KOUKAKI : https://koukaki.sanoecreation.fr/
 
 ---
 
+## Projets en attente de validation
+
+---
+
 ## Projets en cours
 
 ### Projet 10 - Med.It
@@ -137,15 +132,13 @@ Pour ce projet, je suis développeur WordPress en freelance. La PME MedIT, spéc
 
 #### Réalisation
 
-MED.IT :
-
----
+MED.IT : https://medit.sanoecreation.fr/
 
 ## Projets à faire
 
 ### Projet 11 - Nathalie Motta
 
-Créer un sit WordPress complese pour une photographe freelance
+Créer un site WordPress complexe pour une photographe freelance
 
 #### Objectifs
 
@@ -157,6 +150,7 @@ Elle vient de perdre son site à la suite de la fermeture subite de la plateform
 
 PHOTOGRAPHE EVENT :
 
+---
 
 ### Projet 12 - Emoving
 
@@ -170,7 +164,6 @@ Vous faites partie d’une équipe composée d’un UX Designer, d’un graphist
 Chez Emoving, les employés ont plusieurs casquettes ; il vous revient de mener, préparer et planifier le projet. Vous devez évaluer le coût, le délai et la pertinence d'un développement sur base WordPress.
 
 #### Réalisation
-
 
 ### Projet 13 - Portfolio
 
