@@ -735,6 +735,9 @@ class HMWP_Controllers_Settings extends HMWP_Classes_FrontController
 	 */
 	private function applyPermalinksChanged(){
 
+		// Delete the restore transient
+		delete_transient('hmwp_restore');
+
 	    //Clear the cache if there are no errors
 	    if (HMWP_Classes_Tools::getOption('error') ) {
             return false;
@@ -744,9 +747,6 @@ class HMWP_Controllers_Settings extends HMWP_Classes_FrontController
 	    if(!$this->model->checkOptionsChange()) {
 		    return true;
 	    }
-
-        // Delete the restore transient
-	    delete_transient('hmwp_restore');
 
 	    //Force the recheck security notification
 	    delete_option(HMWP_SECURITY_CHECK_TIME);

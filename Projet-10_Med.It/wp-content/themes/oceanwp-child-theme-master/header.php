@@ -82,8 +82,7 @@ $lien=get_field('lien_google_maps', 161);
 
 <script>
 	(function ($) {
-			$('.popup-close').click(function(){
-			// $(this).parent().hide();			
+			$('.popup-close').click(function(){	
 			$('.popup-overlay').hide();
 		}); 
 	})(jQuery);
