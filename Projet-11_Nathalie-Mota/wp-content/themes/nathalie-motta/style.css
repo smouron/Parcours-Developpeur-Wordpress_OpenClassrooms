@@ -4,15 +4,18 @@ Theme URI: https://motaphoto.com
 Author: Stéphane Mouron
 Author URI: https://motaphoto.com
 Description: Thème pour le site de partage de séries de photos de Nathalie Motta avec ses clients
+Requires at least: WordPress 5.0
 Version: 1.0.0
 */
 
 * {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 body {
-    background: #E5E5E5; 
+    background: #FFFFFF; 
     color: #23282d; 
     font-family: 'Space Mono', monospace;     
     margin: 0; 
@@ -131,4 +134,25 @@ button, input[type="submit"] {
     #footer {
         flex-direction: column;
     }
+}
+
+/* BOUTONS */
+.btn,
+.popup-contact .wpcf7-submit{
+    display:inline-block;
+    background-color:#ffffff;
+    color:#000000;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    padding:8px 40px;
+    border-left: 4px solid #000000;
+    border-radius: 0px;
+    transition:all 0.4s ease;
+}
+.btn:hover,
+.popup-contact .wpcf7-submit:hover{
+    background:#000000;
+    color:#ffffff;
+    font-weight: 700;
 }

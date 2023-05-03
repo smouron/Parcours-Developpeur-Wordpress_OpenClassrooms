@@ -21,16 +21,17 @@
 </head>
 
 <body <?php body_class(); ?>>
-	<header id="header">
-		<h1>
-			<img src="<?php echo get_stylesheet_directory_uri() . '/assets/images/logo_nathalie_mota.png'?>" 
-			alt="<?php echo bloginfo('name'); ?>">
-		</h1>
+	<?php wp_body_open(); ?>	
+	<header id="header" class="header">
+		<a href="<?php echo home_url( '/' ); ?>">
+			<img src="<?php echo get_template_directory_uri(); ?>/assets/img/logo_nathalie_mota.png" 
+			alt="Logo <?php echo bloginfo('name'); ?>">
+		</a>
 		<nav id="navigation">
 			<?php 
 				// Affichage du menu main déclaré dans functions.php
 				wp_nav_menu(array('theme_location' => 'main')); 
 			?>
 		</nav>
-	</header>
+	</header>	
 
