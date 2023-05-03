@@ -118,10 +118,6 @@ KOUKAKI : https://koukaki.sanoecreation.fr/
 
 ## Projets en attente de validation
 
----
-
-## Projets en cours
-
 ### Projet 10 - Med.It
 
 Débuggez et tester un site WordPres d'outillage médical
@@ -134,7 +130,9 @@ Pour ce projet, je suis développeur WordPress en freelance. La PME MedIT, spéc
 
 MED.IT : https://medit.sanoecreation.fr/
 
-## Projets à faire
+---
+
+## Projets en cours
 
 ### Projet 11 - Nathalie Motta
 
@@ -151,6 +149,8 @@ Elle vient de perdre son site à la suite de la fermeture subite de la plateform
 PHOTOGRAPHE EVENT :
 
 ---
+
+## Projets à faire
 
 ### Projet 12 - Emoving
 
