@@ -21,5 +21,7 @@
 
 <?php wp_footer(); ?>
 
+<!-- <?php include('test.php'); ?> -->
+
 </body>
 </html>

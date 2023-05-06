@@ -8,18 +8,27 @@ if ( ! function_exists( 'wp_body_open' ) ) {
 
 function theme_enqueue_styles() {
     //  Chargement du style personnalisé du theme
-    wp_enqueue_style( 'parent-style', get_stylesheet_directory_uri() . '/style.css' );
+    wp_enqueue_style( 'nathalie-motta-style', get_stylesheet_uri(), array(), '1.0' );
     
     //  Chargement de style personnalisé pour le theme
-    wp_enqueue_style( 'contact-style', get_stylesheet_directory_uri() . '/assets/css/contact.css' );       
+    wp_enqueue_style( 'contact-style', get_stylesheet_directory_uri() . '/assets/css/contact.css', array(), '1.0' ); 
+    wp_enqueue_style( 'photo-detail-style', get_stylesheet_directory_uri() . '/assets/css/photo-detail.css', array(), '1.0' );     
     
     // Chargement du script JS personnalisé
-    wp_enqueue_script( 'order-custom-scripts', get_theme_file_uri( '/assets/js/script.js' ), array('jquery'), '1.0.0', true );
+    wp_enqueue_script( 'nathalie-motta-scripts', get_theme_file_uri( '/assets/js/scripts.js' ), array('jquery'), '1.0.0', true );
 }
 add_action( 'wp_enqueue_scripts', 'theme_enqueue_styles' );
 
 // Ajouter la prise en charge des images mises en avant
 add_theme_support( 'post-thumbnails' );
+
+// permet de définir la taille des images mises en avant 
+// set_post_thumbnail_size(largeur, hauteur max, true = on adapte l'image aux dimensions)
+set_post_thumbnail_size( 600, 0, false );
+
+// Définir d'autres tailles d'images
+add_image_size( 'desktop-home', 600, 520, true );
+add_image_size( 'mobil-home', 300, 260, true );
 
 // Ajouter automatiquement le titre du site dans l'en-tête du site
 add_theme_support( 'title-tag' );
@@ -64,20 +73,20 @@ function register_my_menu(){
  /**
  * Shortcode pour ajouter un bouton contact
  */
-function contact_btn() {
+function contact_btn($string) {
 
 	/** Code du bouton */
 	$string .= '<a href="#" id="contact_btn" class="contact-btn">Contact</a>';
 
 	/** On retourne le code  */
 	return $string;
-
 }
+
 /** On publie le shortcode  */
 add_shortcode('contact', 'contact_btn');
 
 // Ajout un bouton contact au menu du header
-function contact_btn_navbar( $items, $args ) {	
+function contact_btn_navbar( $items) {	
 	$items .= '
 	<li class="menu-item menu-item-type-post_type menu-item-object-post">
 		<a href="#" id="contact_btn_navbar" class="contact-btn">Contact</a>
@@ -89,3 +98,20 @@ function contact_btn_navbar( $items, $args ) {
 }
 
 add_filter( 'wp_nav_menu_header-menu_items', 'contact_btn_navbar', 10, 2 );
+
+// Récupération de la valeur d'un champs personnalisé ACF
+// $variable = nom de la variable dont on veut récupérer la valeur
+// $field = nom du champs personnalisés
+function my_acf_load_value( $variable,  $field ) {
+    // Initialisation de la valeur à retourner
+    $return = "";
+    // Recherche de la clé
+    foreach($field as $key => $value) {
+        if ($key === $variable) {
+            $return = $value;
+        }
+    }
+    return $return;
+}
+
+

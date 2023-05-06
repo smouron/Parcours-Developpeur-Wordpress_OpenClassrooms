@@ -1,27 +1,37 @@
 <?php
-/**
- * The main template file.
- *
- *
- * @package nathalie-motta theme
- */
-
-get_header();
-
-echo ('page.php');
+    get_header();
+    echo ('front-page.php');
 ?>
-
-  <div id="wrap">
+  <div id="wrap"> 
       <section id="content">
         <h1>Nathalie Motta</h1>
         <p>Photographe professionnelle dans l’événementiel</p>
+        <?php
+            if ( is_user_logged_in() ):
+                $current_user = wp_get_current_user(); 
+                echo "Bonjour, " . $current_user->user_firstname . " " . $current_user->user_lastname . " !";
+            else:
+                echo "Bonjour, visiteur !";
+            endif;
+        ?>
+        <br><br>
         <!-- Vérification s'il y a au moins 1 article -->
       <?php if(have_posts()) : ?>
         <div id="loop">
-            <?php while(have_posts()) : the_post(); ?>
+            <?php 
+            if(!is_page()) {
+                echo ("LISTE DES ARTICLES");
+            } else {
+                echo ("PAGE D'ACCUEIL");
+            } 
+            while(have_posts()) : the_post(); ?>
                 <article>
+                    <?php if(!is_page()) {
+                        echo ("ARTICLE");
+                    } 
+                    ?>
                     <h2><?php the_title(); ?></h2>
-                    <p>Publié le <?php the_time('d/m/Y'); ?>
+                    <!-- <p>Publié le <?php the_time('d/m/Y'); ?> -->
                         <!-- is_page() permet de déterminer si la page est en cours est une page -->
                         <?php if(!is_page()) : ?> dans <?php the_category(', '); ?><?php endif; ?>
                     </p>
@@ -44,11 +54,8 @@ echo ('page.php');
       <?php endif; ?>
       </section>
 
-      <aside id="sidebar">
-      </aside>
+      <!-- <aside id="sidebar">
+      </aside> -->
   </div>
 
 <?php get_footer(); ?>
-
-</body>
-</html>
