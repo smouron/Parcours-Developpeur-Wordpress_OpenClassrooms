@@ -36,8 +36,8 @@
                 <!-- permet d’afficher l’image mise en avant -->
                 <?php the_post_thumbnail(); ?>
             </div>
-            <div class="photo__full hidden">                
-                <?php the_post_thumbnail( 'desktop-home'); ?>
+            <div class="photo__full lightbox hidden">                
+                <?php the_post_thumbnail('large'); ?>
             </div>
         </div>
     </div>
@@ -45,7 +45,8 @@
         <p>Cette photo vous intéresse ? <button class="btn" type="button"><?php echo do_shortcode('[contact]'); ?></button></p>
         <div class="site__navigation flexrow">
 			<div class="site__navigation__prev">
-				<?php previous_post_link( '&#8606 Article Précédent<br>%link'); ?>
+				<!-- <?php previous_post_link( '&#8606 Article Précédent<br>%link'); ?> -->
+                <?php previous_post_link( '%link', '%title' ); ?>
 			</div>
 			<div class="site__navigation__next">
 				<?php next_post_link( 'Article Suivant &#8608<br>%link;'); ?> 

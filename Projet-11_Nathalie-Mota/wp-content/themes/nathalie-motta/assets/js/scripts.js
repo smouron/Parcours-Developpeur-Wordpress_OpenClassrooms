@@ -1,6 +1,7 @@
 console.log("Script lancé !!!");
 
 const photoInfo = document.querySelector(".photo__info--image");
+const refPhoto = document.querySelector(".refPhoto");
 
 // Gestion de la fermeture et de l'ouverture de la modale avec jQuery
 (function ($) {
@@ -21,15 +22,18 @@ const photoInfo = document.querySelector(".photo__info--image");
     $(".photo__full").toggleClass("hidden");
   });
 
-  $(".photo__full").click(function () {
+  $(".lightbox").click(function () {
     $(".photo__full").toggleClass("hidden");
   });
 })(jQuery);
 
-photoInfo.addEventListener("mouseenter", (e) => {
-  console.log(e);
-});
+//
+if (photoInfo) {
+  photoInfo.addEventListener("mouseenter", (e) => {
+    console.log(e);
+  });
 
-photoInfo.addEventListener("mouseover", (e) => {
-  console.log(e);
-});
+  photoInfo.addEventListener("mouseover", (e) => {
+    console.log(e);
+  });
+}
