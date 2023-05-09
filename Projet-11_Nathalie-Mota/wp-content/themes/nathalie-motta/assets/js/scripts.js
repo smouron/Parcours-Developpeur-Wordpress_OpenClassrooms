@@ -1,7 +1,6 @@
 console.log("Script lancé !!!");
 
 const photoInfo = document.querySelector(".photo__info--image");
-const refPhoto = document.querySelector(".refPhoto");
 
 // Gestion de la fermeture et de l'ouverture de la modale avec jQuery
 (function ($) {
@@ -12,6 +11,10 @@ const refPhoto = document.querySelector(".refPhoto");
   $("#contact_btn_navbar").click(function () {
     // $(".popup-overlay").show();
     $(".popup-overlay").toggleClass("hidden");
+    let divContent = $(".reference").text();
+    divContent = divContent.substr(11, divContent.length);
+    console.log(divContent);
+    $(".refPhoto").val(divContent);
   });
   $("#contact_btn").click(function () {
     // $(".popup-overlay").show();
@@ -26,14 +29,3 @@ const refPhoto = document.querySelector(".refPhoto");
     $(".photo__full").toggleClass("hidden");
   });
 })(jQuery);
-
-//
-if (photoInfo) {
-  photoInfo.addEventListener("mouseenter", (e) => {
-    console.log(e);
-  });
-
-  photoInfo.addEventListener("mouseover", (e) => {
-    console.log(e);
-  });
-}

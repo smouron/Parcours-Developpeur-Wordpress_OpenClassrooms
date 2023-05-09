@@ -12,7 +12,7 @@ function theme_enqueue_styles() {
     
     //  Chargement de style personnalisé pour le theme
     wp_enqueue_style( 'contact-style', get_stylesheet_directory_uri() . '/assets/css/contact.css', array(), '1.0' ); 
-    wp_enqueue_style( 'photo-detail-style', get_stylesheet_directory_uri() . '/assets/css/photo-detail.css', array(), '1.0' );     
+    wp_enqueue_style( 'simgle-photo-style', get_stylesheet_directory_uri() . '/assets/css/simgle-photo.css', array(), '1.0' );     
     
     // Chargement du script JS personnalisé
     wp_enqueue_script( 'nathalie-motta-scripts', get_theme_file_uri( '/assets/js/scripts.js' ), array('jquery'), '1.0.0', true );
@@ -41,9 +41,9 @@ function register_my_menu(){
  }
  add_action('after_setup_theme', 'register_my_menu');
 
-// créer des sidebars
+ // créer des sidebars
 // Visibles ensuite dans Apparence / Widgets (widgets_init)
- function register_my_sidebars(){
+function register_my_sidebars(){
     register_sidebar(
         array(
             'name' => "Sidebar principale",
@@ -68,7 +68,7 @@ function register_my_menu(){
         )
     );
  }
- add_action('widgets_init', 'register_my_sidebars');
+ add_action('widgets_init', 'register_my_sidebars'); 
 
  /**
  * Shortcode pour ajouter un bouton contact
@@ -92,8 +92,7 @@ function contact_btn_navbar( $items) {
 		<a href="#" id="contact_btn_navbar" class="contact-btn">Contact</a>
 	</li>';
 
-
-	// // On retourne le code
+	// On retourne le code
 	return $items;
 }
 
@@ -114,4 +113,22 @@ function my_acf_load_value( $variable,  $field ) {
     return $return;
 }
 
+/**
+* Show CPT in archives pages (TAG & Category)
+*
+*/
+function add_custom_types_to_tax( $query ) {
+    echo(is_category());
+    echo(is_tag());
+    if( is_category() || is_tag() && empty( $query->query_vars['suppress_filters'] ) ) {
+        // Set post type
+        $post_types = array('post','page','my_cpt_1','my_cpt_2','photo');
+ 
+        $query->set( 'post_type', $post_types );
+        return $query;
+    }
+}
+add_filter( 'pre_get_posts', 'add_custom_types_to_tax' );
+
+// get_template_part('cpt');
 

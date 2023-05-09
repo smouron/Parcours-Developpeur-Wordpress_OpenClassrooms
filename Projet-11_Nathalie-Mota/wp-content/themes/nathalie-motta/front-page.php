@@ -15,43 +15,68 @@
             endif;
         ?>
         <br><br>
-        <!-- Vérification s'il y a au moins 1 article -->
-      <?php if(have_posts()) : ?>
-        <div id="loop">
-            <?php 
-            if(!is_page()) {
-                echo ("LISTE DES ARTICLES");
-            } else {
-                echo ("PAGE D'ACCUEIL");
-            } 
-            while(have_posts()) : the_post(); ?>
-                <article>
-                    <?php if(!is_page()) {
-                        echo ("ARTICLE");
-                    } 
+        <?php   $custom_args = array(
+        'post_type' => 'photo',
+        // 'posts_per_page' => 1,
+        // 'category_name' => $categorie, 
+        'order' => 'DESC', // ASC ou DESC 
+        'orderby' => 'date', // title, date, comment_count…
+            );
+            //On crée ensuite une instance de requête WP_Query basée sur les critères placés dans la variables $args
+            $query = new WP_Query( $custom_args );
+            
+            echo $query->found_posts . " articles trouvés"; 
+            
+            ?>
+            <!-- On vérifie si le résultat de la requête contient des articles -->
+            <?php if($query->have_posts()) : ?>
+            <div class="container-news flexrow">
+            <!-- On parcourt chacun des articles résultant de la requête -->
+            <?php while($query->have_posts()) : ?>
+                <?php $query->the_post();?> 
+                
+                <?php if(has_post_thumbnail()) : ?>
+
+                    <?php
+                    // Récupérer la taxonomie actuelle
+                        $term = get_queried_object();
+                        $coucou = get_posts();
+                        
+                        // echo("Term: ");
+                        // print_r($term);
+                        // echo('<br><br>');
+                        // echo("Coucou: ");
+                        // print_r($coucou);
+                        // echo('<br><br>');
+                        $term_id  = my_acf_load_value('ID', $term);
+                        // Récupération du nom de la catégorie et du format
+                        $categorie  = my_acf_load_value('name', get_field('categorie')); 
                     ?>
-                    <h2><?php the_title(); ?></h2>
-                    <!-- <p>Publié le <?php the_time('d/m/Y'); ?> -->
-                        <!-- is_page() permet de déterminer si la page est en cours est une page -->
-                        <?php if(!is_page()) : ?> dans <?php the_category(', '); ?><?php endif; ?>
-                    </p>
-                    <!-- is_singular() permet de déterminer si la page en cours est un post/article -->
-                    <?php if(is_singular()) : ?>
-                        <?php the_content(); ?>
-                    <?php else : ?>
-                        <?php the_excerpt(); ?>
-                        <a href="<?php the_permalink(); ?>">Lire la suite</a>
-                    <?php endif; ?>
-                </article>
+
+                    <div class="news-info">
+                        <p class="info-title"><?php the_title(); ?></p>
+                        <p class="info-tax"><?php echo $categorie; ?></p>
+                        <a href="<?php the_permalink() ?>">
+                        <?php the_post_thumbnail(); ?>
+                        <a href="<?php the_permalink() ?>" alt="<?php the_title(); ?>"><span class="detail-photo"></span></a>                            
+                        <span class="open-lightbox"></span>
+                    <?php endif; ?>                  
+                    <br><br>
+                </div>
             <?php endwhile; ?>
         </div>
+        <?php else : ?>
+        <p>Désolé, aucun article ne correspond à cette requête</p>  
+        
         <div id="pagination">
             <!-- afficher le système de pagination (s’il existe de nombreux articles) -->
             <?php echo paginate_links(); ?>
         </div>
-      <?php else : ?>
-        <p>Aucun résultat</p>
-      <?php endif; ?>
+        
+        <?php endif; 
+        // On réinitialise à la requête principale
+        wp_reset_query(); ?>
+
       </section>
 
       <!-- <aside id="sidebar">

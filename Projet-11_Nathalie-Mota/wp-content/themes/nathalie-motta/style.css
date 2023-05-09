@@ -20,8 +20,9 @@ body {
     background: #FFFFFF; 
     color: #23282d; 
     font-family: 'Space Mono', monospace;     
-    margin: 0; 
-    padding: 0;
+    margin: auto; 
+    width: 80vw;
+    max-width: 1440px;
 }
 
 
@@ -48,19 +49,20 @@ ul li {
     display: flex;
     background-color: #ffffff;
     text-align: center;
-    align-items: center;
+    align-items: center;  
+    width: 80vw;
+    max-width: 1440px;
 }
 
 #header {
     height: 80px;
     justify-content: space-between;
-    padding: 0 145px;
 }
 
 #footer {
+    height: 40px;
     justify-content: center;
     border-top: 1px solid #000000;
-    height: 40px;
 }
 
 #header a,
@@ -106,7 +108,7 @@ button, input[type="submit"] {
 
 #wrap {
     display: flex; 
-    width: 960px; 
+    width: 100%; 
     margin: 0 auto;
 }
 #loop article {
@@ -178,6 +180,80 @@ button, input[type="submit"] {
     height: auto;
     max-width: 90%;
     width: auto;
+}
+
+.container-news {
+    width: 100%;
+    margin: 20px 0 40px;
+    gap: 20px;
+    flex-wrap: wrap;
+    text-align: center;
+    justify-content: center;
+}
+
+.news-info {
+    position: relative;        
+    font-family: 'Poppins', sans-serif;
+    text-transform: uppercase;
+    font-size: 14px;
+    line-height: 21px;
+    width: 565px;
+    height: 500px;
+}
+
+.news-info .info-tax,
+.news-info .info-title {
+    position: absolute;
+    bottom: 10px;
+    color: #FFFFFF;
+}
+
+.news-info .info-title {
+    left: 10px;
+}
+
+.news-info .info-tax {
+    right: 10px;
+}
+
+.news-info img {
+    overflow: hidden;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    transition: all 1s ease-in-out;
+}
+
+.news-info img:hover {
+    filter: brightness(50%);
+    -webkit-filter: brightness(50%);
+}
+
+.news-info .detail-photo {
+    position: absolute;
+    cursor: pointer;
+    background-image: url("./assets/img/fullscreen.png");
+    background-repeat: no-repeat;
+    width: 46px;
+    height: 46px;
+    top: 20px;
+    right: 20px;
+    /* opacity: 0; */
+    transition: all 1s ease-in-out;
+}
+
+.news-info .open-lightbox {
+    position: absolute;
+    cursor: pointer;
+    background-image: url("./assets/img/eye-svgrepo-com 1.png");
+    background-repeat: no-repeat;
+    width: 46px;
+    height: 46px;
+    left: 50%;
+    top: 50%;
+    transform: translate3d(-50%, -50%, 0);
+    /* opacity: 0; */
+    transition: all 1s ease-in-out;
 }
 
 

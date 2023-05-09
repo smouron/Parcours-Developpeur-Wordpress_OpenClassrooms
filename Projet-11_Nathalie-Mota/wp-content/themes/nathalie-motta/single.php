@@ -42,8 +42,7 @@
 			</div>
 		</div>
     </section>
-
 </div>
 <br>
-
 <?php get_footer();?>
+

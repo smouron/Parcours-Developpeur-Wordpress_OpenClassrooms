@@ -5,7 +5,7 @@
  * @package WordPress
  * @subpackage nathalie-motta
  */
-
+// echo ('footer.php');
 ?>
 	<footer id="footer">
 		<?php 
@@ -20,8 +20,6 @@
     ?>
 
 <?php wp_footer(); ?>
-
-<!-- <?php include('test.php'); ?> -->
 
 </body>
 </html>

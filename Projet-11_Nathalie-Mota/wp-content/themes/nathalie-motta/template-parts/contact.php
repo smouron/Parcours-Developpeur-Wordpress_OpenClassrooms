@@ -5,8 +5,9 @@
  * @package WordPress
  * @subpackage nathalie-motta theme
  */
-
+// echo ('contact.php');
 ?>
+
 
 <div class="popup-overlay hidden">
 	<div class="popup-contact">

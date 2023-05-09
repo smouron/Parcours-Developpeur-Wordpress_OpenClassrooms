@@ -1,0 +1,142 @@
+/* Partie en haut - Détail de la photo */
+.photo_detail {
+    width: 100%;
+    margin: auto;
+    font-family: 'Space Mono', monospace;
+}
+
+.photo_detail h1 {
+    font-style: italic;
+    font-weight: 400;
+    font-size: 66px;
+    line-height: 58px;
+    width: 80%;
+    padding: 40px 0;
+}
+
+.photo_detail h2 {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 26px;
+    letter-spacing: 2px;
+}
+
+.photo_detail a {
+    font-family: 'Space Mono', monospace;
+    font-size: 14px;
+    letter-spacing: 2px;
+    text-decoration: none;
+}
+
+.photo_detail .btn:hover a {
+    color: #fff;
+}
+
+.photo_detail ul {
+    width: 80%;
+}
+
+.photo_detail li {
+    font-weight: 400; 
+    font-size: 14px;
+    line-height: 21px;
+    letter-spacing: 2px;
+    padding-bottom: 10px;
+}
+
+.photo_detail .btn {
+    padding: 8px 30px;
+    margin-left: 30px;
+}
+
+.container__photo,
+.photo__others {
+    text-transform: uppercase;
+}
+
+.photo__info--description,
+.photo__info--image {
+    width: 50%;
+    margin: 10px;
+}
+
+.photo__info--description {
+    justify-content: flex-end;
+    border-bottom: 1px solid #000;
+    padding-bottom: 40px;
+}
+.photo__info--image  {
+    position: relative;
+}
+
+.photo__info--image img {
+    object-fit: contain;
+    /* Object-fit: cover; */
+    align-content: center;
+    text-align: center;
+    width: 100%;    
+    height: 100%;
+    padding: 0 5px;
+    transition: all 0.5s ease-in-out;
+}
+
+.photo__info--image img:hover {
+    filter: brightness(50%);
+    -webkit-filter: brightness(50%);
+}
+
+.photo__info--image .open-lightbox {
+    background-image: url("../img/eye-svgrepo-com 1.png");
+    width: 46px;
+    height: 46px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate3d(-50%, -50%, 0);
+    opacity: 0;
+    transition: all 1s ease-in-out;
+}
+
+.photo__info--image:hover span {
+    opacity: 1;
+}
+
+/* Partie centrale - Contact + photos suivantes et précédentes */
+.photo__others {
+    padding: 80px 0 70px;
+}
+
+.site__navigation__prev,
+.site__navigation__next {
+    text-align: center;
+    padding: 0 10px;
+}
+
+.photo__contact {
+    padding: 45px 0 10px;
+    justify-content: space-between;
+    border-bottom: 1px solid #000;
+}
+
+/* Partie basse - Autre photos de la catégorie */
+.photo__others--images {
+    justify-content: center;
+    text-align: center;
+    gap: 20px;
+}
+
+.photo__others--images img {
+    /* object-fit: contain; */
+    Object-fit: cover;
+    width: 50%;
+    height: 500px;
+    Object-fit: cover;
+    padding: 40px 0 70px;
+}
+
+.photo__others .btn {
+    margin: auto;
+    width: 241px;
+    padding: 6px;
+    transition: all 1s ease-in-out;
+}
