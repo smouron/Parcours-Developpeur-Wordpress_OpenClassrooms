@@ -1,4 +1,6 @@
-<?php echo('<br><hr><br>'); 
+<?php 
+echo(test.php);
+echo('<br><hr><br>'); 
 echo('Conditional Tags');
 echo('<br><br>'); ?>
 
@@ -34,12 +36,24 @@ $categorie_cpt = get_terms('categorie-cpt', array('hide_empty' => false));
 foreach ( $categorie_cpt as $terms){
 	echo $terms->name;
 	echo('<br><br>');
+	echo $terms->slug;
+	echo('<br>');
 }
+$categorie_acf = get_terms('categorie-acf', array('hide_empty' => false)); 
+foreach ( $categorie_acf as $terms){
+	echo $terms->name;
+	echo('<br>');
+	echo $terms->slug;
+	echo('<br>');
+}
+
 echo('<hr>');
 $format_cpt = get_terms('format-cpt', array('hide_empty' => false)); 
 foreach ( $format_cpt as $terms){
 	echo $terms->name;
 	echo('<br><br>');
+	echo $terms->slug;
+	echo('<br>');
 }
 
 // Affichage d'une taxonomie
@@ -74,7 +88,44 @@ $post_type_photo = $post_photo->post_type;
 echo($post_type_photo);
 echo('<br><br>');
 
+// Récupération de champs personnalisé pour filter l'affichage des posts
+$term = get_queried_object();
+   $publication = get_queried_object_id();
+   $categorie_id  =  get_post_meta( get_the_ID(), 'categorie-acf', true );
+   $categorie_name  = my_acf_load_value('name', get_field('categorie-acf'));
+   $format_id  =  get_post_meta( get_the_ID(), 'format-acf', true );
+   $format_name = my_acf_load_value('name', get_field('format-acf'));
+   // $categorie  = 'mariage';
+   echo("N° publication : " . $publication . " - N° categorie: " . $categorie_id . " - Catégorie: " . $categorie_name . " - N° format: " . $format_id . " - Format: " . $format_name );
+   echo('<br>');
+
 ?>
+
+ <!-- Affichage de la liste des catégories WP -->
+<ul>
+	<?php wp_list_categories( array(
+		'orderby' => 'name',
+		'show_count' => true
+	) ); ?> 
+</ul>
+
+<ul>
+	<?php wp_list_categories( array(
+		'exclude'  => array( 4,7 ),
+		'title_li' => ''
+	) ); ?>
+</ul>
+
+<ul>
+	<?php wp_list_categories( array(
+		'orderby'            => 'id',
+		'show_count'         => true,
+		'use_desc_for_title' => false,
+		'child_of'           => 8
+	) ); ?>
+</ul>
+
+<br>
 
 <?php echo('<br><hr><br>'); ?>
 
@@ -130,3 +181,5 @@ echo('<br><br>');
 		echo('<br><br>');	
 	?>
 </div>
+
+

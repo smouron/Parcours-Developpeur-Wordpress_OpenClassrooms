@@ -21,10 +21,10 @@ body {
     color: #23282d; 
     font-family: 'Space Mono', monospace;     
     margin: auto; 
-    width: 80vw;
-    max-width: 1440px;
+    width: 100vw;
+    /* width: 80vw; */
+    /* max-width: 1440px; */
 }
-
 
 a {    
     text-decoration: none;
@@ -50,13 +50,25 @@ ul li {
     background-color: #ffffff;
     text-align: center;
     align-items: center;  
-    width: 80vw;
-    max-width: 1440px;
+    justify-content: center;
+    margin: auto;
 }
 
 #header {
     height: 80px;
+    width: 100vw;
+    -webkit-box-shadow: 0px 11px 12px -7px rgba(126, 126, 126, 0.226); 
+    box-shadow: 0px 11px 12px -7px rgba(126, 126, 126, 0.226);
+}
+
+.container-header {
+    display: flex;
+    width: 100%; 
+    height: 80px;
+    max-width: 1440px;   
+    padding: 0 10px;
     justify-content: space-between;
+    align-items: center; 
 }
 
 #footer {
@@ -66,7 +78,8 @@ ul li {
 }
 
 #header a,
-#footer a {
+#footer a,
+#mention_text_footer {
     color: #000000; 
     text-decoration: none;
     font-weight: 400;
@@ -106,11 +119,20 @@ button, input[type="submit"] {
     padding: 10px;
 }
 
-#wrap {
-    display: flex; 
-    width: 100%; 
-    margin: 0 auto;
+#wrap,
+#front-page {
+    /* display: flex;  */
+    margin: 0 auto 40px;
 }
+
+#wrap {
+    width: 80%; 
+}
+
+#front-page {
+    width: 100%; 
+}
+
 #loop article {
     margin: 0 0 50px 0; 
     background: #fff; 
@@ -150,7 +172,7 @@ button, input[type="submit"] {
     padding:8px 40px;
     border-left: 4px solid #000000;
     border-radius: 0px;
-    transition:all 0.4s ease;
+
 }
 .btn:hover,
 .popup-contact .wpcf7-submit:hover{
@@ -158,6 +180,117 @@ button, input[type="submit"] {
     color:#ffffff;
     font-weight: 700;
 }
+
+/* HERO */
+.hero-area .hero-thumbnail {
+    position: relative;
+    margin: auto;
+    align-items: center;
+    width: 100%;
+    max-height: 966px;
+}
+
+.hero-area img {    
+    margin: auto;
+    /* object-fit: contain; */
+    object-fit: cover;
+    object-position: 50% 50%;
+    min-width: 100%;
+    /* max-height: 966px; */
+}
+
+.hero-area .title-hero {    
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate3d(-50%, -50%, 0);
+    width: 100%;
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 96px;
+    line-height: 142px;
+    font-style: italic;
+    color: transparent;
+    /* text-shadow: 0 0 2px rgb(255, 255, 255), 0 0 2px rgb(255, 255, 255); */
+    /* text-stroke: 2px rgb(255, 255, 255); */
+    -webkit-text-stroke: 2px rgb(255, 255, 255);
+}
+
+/* FILTRES */
+form {    
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.filter-area {
+    width: 75%;
+    margin: auto;
+    padding: 30px 20px;
+}
+
+.filter-area form {
+justify-content: space-between;   
+}
+
+.filter-area .filterleft {
+    gap: 20px;
+}
+
+.filter-area p,
+.filter-area option {    
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.filter-area p {
+    text-transform: uppercase;
+}
+
+.filter-area option {
+    text-transform: capitalize;
+}
+
+.filter-area .select-filter {
+    width: 275px;
+    position: relative;
+    display: inline-block;
+}
+
+.filter-area .option-filter {
+    width: 100%;
+    height: 40px;
+    border: 1px solid #000000;
+    background-color: #ffffff;
+    border-radius: 0;
+    padding: 0 24px;
+}
+
+/* On cache la flèche d'origne des sélecteurs car non modifiable */
+.filter-area select { 
+    appearance: none;
+}
+
+/* supprimer la fléche par défaut en IE 10 et 11 */
+.filter-area select::-ms-expand {
+    display: none; 
+}
+
+.filter-area .myarrow {  
+    width: 9px;
+    height: 7px;  
+    position: absolute;
+    display: inline-block;
+    top: 40px;
+    right: 15px;
+    background: url("./assets/img/caret-down.svg") right / 90% no-repeat;
+}
+
+.filter-area .option-filter:active,
+.filter-area .option-filter:focus {
+    /* border-bottom: 1px solid transparent; */
+}
+
 
 /* IMAGE PLEINE ECRAN */
 .lightbox {
@@ -184,7 +317,8 @@ button, input[type="submit"] {
 
 .container-news {
     width: 100%;
-    margin: 20px 0 40px;
+    max-width: 1440px;
+    margin: 20px auto 40px;
     gap: 20px;
     flex-wrap: wrap;
     text-align: center;
@@ -192,20 +326,34 @@ button, input[type="submit"] {
 }
 
 .news-info {
-    position: relative;        
-    font-family: 'Poppins', sans-serif;
-    text-transform: uppercase;
-    font-size: 14px;
-    line-height: 21px;
+    position: relative;  
+    transition: all 0.5s ease-in-out;
+}
+
+.container-news .news-info {
     width: 565px;
     height: 500px;
 }
+
 
 .news-info .info-tax,
 .news-info .info-title {
     position: absolute;
     bottom: 10px;
     color: #FFFFFF;
+}
+
+.news-info h2,
+.news-info h3,
+.news-info p {      
+    font-family: 'Poppins', sans-serif;
+    text-transform: uppercase;
+    font-size: 14px !important;
+    font-weight: 400;
+    line-height: 21px;  
+    opacity: 0;  
+    z-index: 99;
+    transition: all 0.5s ease-in-out;
 }
 
 .news-info .info-title {
@@ -221,15 +369,49 @@ button, input[type="submit"] {
     object-fit: cover;
     width: 100%;
     height: 100%;
-    transition: all 1s ease-in-out;
+}
+
+.news-info img,
+.news img,
+.brightness {    
+    transition: all 0.5s ease-in-out;
 }
 
 .news-info img:hover {
-    filter: brightness(50%);
+    /* filter: brightness(50%);
     -webkit-filter: brightness(50%);
+    opacity: 1; */
 }
 
-.news-info .detail-photo {
+.brightness::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0; 
+    background-color: #000000;
+    width: 100%;
+    height: 100%; 
+    opacity: 0;  
+    transition: all 0.5s ease-in-out;
+}
+
+.brightness:hover::before {
+    opacity: 0.5;
+}
+
+.thumbnail {
+    width: 100%;
+    height: 100%;
+}
+
+.news-info:hover .detail-photo,
+.news-info:hover .openLightbox,
+.news-info:hover .info-title,
+.news-info:hover .info-tax {
+    opacity: 1;
+}
+
+.detail-photo {
     position: absolute;
     cursor: pointer;
     background-image: url("./assets/img/fullscreen.png");
@@ -238,11 +420,11 @@ button, input[type="submit"] {
     height: 46px;
     top: 20px;
     right: 20px;
-    /* opacity: 0; */
+    opacity: 0;
     transition: all 1s ease-in-out;
 }
 
-.news-info .open-lightbox {
+.openLightbox {
     position: absolute;
     cursor: pointer;
     background-image: url("./assets/img/eye-svgrepo-com 1.png");
@@ -252,9 +434,10 @@ button, input[type="submit"] {
     left: 50%;
     top: 50%;
     transform: translate3d(-50%, -50%, 0);
-    /* opacity: 0; */
+    opacity: 0;
     transition: all 1s ease-in-out;
 }
+
 
 
 
@@ -270,4 +453,11 @@ button, input[type="submit"] {
     #footer {
         flex-direction: column;
     }
+}
+
+.btn:hover,
+.popup-contact .wpcf7-submit:hover{
+    background:#000000;
+    color:#ffffff;
+    font-weight: 700;
 }

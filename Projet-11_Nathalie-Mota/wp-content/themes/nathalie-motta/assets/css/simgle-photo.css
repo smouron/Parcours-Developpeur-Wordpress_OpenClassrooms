@@ -1,7 +1,9 @@
 /* Partie en haut - Détail de la photo */
 .photo_detail {
     width: 100%;
+    max-width: 1440px;
     margin: auto;
+    padding-top: 30px;
     font-family: 'Space Mono', monospace;
 }
 
@@ -67,6 +69,7 @@
 }
 .photo__info--image  {
     position: relative;
+    margin: 0 5px;
 }
 
 .photo__info--image img {
@@ -76,25 +79,7 @@
     text-align: center;
     width: 100%;    
     height: 100%;
-    padding: 0 5px;
     transition: all 0.5s ease-in-out;
-}
-
-.photo__info--image img:hover {
-    filter: brightness(50%);
-    -webkit-filter: brightness(50%);
-}
-
-.photo__info--image .open-lightbox {
-    background-image: url("../img/eye-svgrepo-com 1.png");
-    width: 46px;
-    height: 46px;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate3d(-50%, -50%, 0);
-    opacity: 0;
-    transition: all 1s ease-in-out;
 }
 
 .photo__info--image:hover span {
@@ -112,6 +97,18 @@
     padding: 0 10px;
 }
 
+.site__navigation__prev .wp-post-image,
+.site__navigation__next .wp-post-image {
+    width: 77px;
+    opacity: 0;
+    transition: all 0.5s ease-in-out;
+}
+
+.site__navigation__prev:hover .wp-post-image,
+.site__navigation__next:hover .wp-post-image {
+    opacity: 1;
+}
+
 .photo__contact {
     padding: 45px 0 10px;
     justify-content: space-between;
@@ -125,13 +122,23 @@
     gap: 20px;
 }
 
-.photo__others--images img {
+.photo__others--images .container-common {
+    width: 100%;
+    justify-content: center;
+    align-content: center;
+    gap: 20px;
+    padding: 40px 10px 70px;
+}
+
+.container-common .news-info {  
+    width: 100%;   
+    height: 500px;  
+}
+
+.photo__others--images img { 
     /* object-fit: contain; */
     Object-fit: cover;
-    width: 50%;
-    height: 500px;
-    Object-fit: cover;
-    padding: 40px 0 70px;
+    width: 100%;
 }
 
 .photo__others .btn {
