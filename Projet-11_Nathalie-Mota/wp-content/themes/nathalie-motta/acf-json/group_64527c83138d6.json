@@ -92,24 +92,6 @@
             "other_choice": 0,
             "layout": "vertical",
             "save_other_choice": 0
-        },
-        {
-            "key": "field_64536319bf27e",
-            "label": "Année",
-            "name": "annee",
-            "aria-label": "",
-            "type": "date_picker",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "display_format": "Y",
-            "return_format": "Y",
-            "first_day": 1
         }
     ],
     "location": [
@@ -130,5 +112,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1683735970
+    "modified": 1684746719
 }

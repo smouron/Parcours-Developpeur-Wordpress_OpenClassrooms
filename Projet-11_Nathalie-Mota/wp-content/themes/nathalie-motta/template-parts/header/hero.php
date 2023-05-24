@@ -13,11 +13,11 @@
             'posts_per_page' => 1,
             );
             //On crée ensuite une instance de requête WP_Query basée sur les critères placés dans la variables $args
-            $query = new WP_Query( $custom_args );            
+            $query_hero = new WP_Query( $custom_args );            
         ?>
         <!-- Récupération d'un post photo en mode aléatoire (rand) -->
-        <?php while($query->have_posts()) : ?>
-            <?php $query->the_post();?> 
+        <?php while($query_hero->have_posts()) : ?>
+            <?php $query_hero->the_post();?> 
 
             <?php if(has_post_thumbnail()) : ?>
                 <a href="<?php the_permalink(); ?>" alt="<?php the_title(); ?>"><?php the_post_thumbnail('hero'); ?></a>
@@ -25,5 +25,9 @@
                     
         <?php endwhile; ?>            
         <h1 class="title-hero"><?php bloginfo('description'); ?></h1>
-    </div>    
+    </div>  
 </div>
+<?php
+    // On réinitialise à la requête principale
+    wp_reset_postdata();       
+?>

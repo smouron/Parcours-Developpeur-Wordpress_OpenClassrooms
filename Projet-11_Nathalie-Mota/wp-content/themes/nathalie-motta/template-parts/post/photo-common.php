@@ -9,13 +9,11 @@
    $categorie_id  =  get_post_meta( get_the_ID(), 'categorie-acf', true );
    $categorie_name  = my_acf_load_value('name', get_field('categorie-acf'));
      
-   // echo($post_type_photo);
+   // Creation du filtre pour afficher les photos 
    $custom_args = array(
       'post_type' => 'photo',
       'posts_per_page' => 2,
       'orderby'   => 'rand',
-      // 'category' => 'Catégorie',
-      // 'category_name' => $categorie, 
       'meta_key' => 'categorie-acf',
       'meta_value' => $categorie_id,
       'compare'   => 'LIKE', // NOT LIKE
@@ -49,13 +47,10 @@
                   <div class="thumbnail">
                      <h2 class="info-title"><?php the_title(); ?></h2>
                      <h3 class="info-tax"><?php echo $categorie; ?></h3>
-                     <?php the_post_thumbnail('desktop-home'); ?>
                      <a href="<?php the_permalink() ?>" title="<?php the_title(); ?>" alt="<?php the_title(); ?>"><span class="detail-photo"></span></a>                            
+                     <?php the_post_thumbnail('desktop-home'); ?>
                      <span class="openLightbox"></span>
-                  </div>        
-                  <div class="lightbox hidden">                
-                        <?php the_post_thumbnail('large'); ?>
-                  </div>
+                  </div>   
                   <?php endif; ?>
             </div>
        <?php endwhile; ?>

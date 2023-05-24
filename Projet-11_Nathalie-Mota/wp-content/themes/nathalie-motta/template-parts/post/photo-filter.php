@@ -22,8 +22,8 @@ if (isset($_GET["date"])) {
 <div class="filter-area">
     <!-- <i class="fa-solid fa-caret-down"></i> -->
     <!-- <i class="fa-solid fa-caret-up"></i> -->
-    <span class="dashicons dashicons-arrow-up"></span>
-    <span class="dashicons dashicons-arrow-down"></span>
+    <!-- <span class="dashicons dashicons-arrow-up"></span> -->
+    <!-- <span class="dashicons dashicons-arrow-down"></span> -->
     <form class="flexrow" method="get" action="<?php echo 'http://127.0.0.1/nathalie-motta/index.php'; ?>">
     <!--  -->
     <!-- $terms->term_id :  -->
@@ -31,8 +31,10 @@ if (isset($_GET["date"])) {
     <!-- $terms->name : nom de l'élément de la taxonomie -->
     <!-- $terms->term_taxonomy_id : n° de l'élément de la taxonomie -->
         <div class="filterleft flexrow">
-            <div class="select-filter flexcolumn">            
-                <span class="myarrow"></i></span>
+            <div id="filtre-categorie" class="select-filter flexcolumn">            
+                <!-- <span class="myarrow"></i></span>                 -->
+                <span class="categorie-up dashicons dashicons-arrow-up hidden"></span>
+                <span class="categorie-down dashicons dashicons-arrow-down"></span>
                 <label for="categorie"><p>catégories</p></label>
                 <!-- une balise select ou input ne peut pas être imbriquée directement dans form -->
                 <select class="option-filter" name="categorie" id="categorie">
@@ -52,8 +54,10 @@ if (isset($_GET["date"])) {
                 </select>
                 <!-- <input type="submit" value="catergorie" title="Catégorie" /> -->
             </div>
-            <div class="select-filter flexcolumn">          
-                <span class="myarrow"></span>
+            <div id="filtre-format" class="select-filter flexcolumn">            
+                <!-- <span class="myarrow"></i></span>                 -->
+                <span class="format-up dashicons dashicons-arrow-up hidden"></span>
+                <span class="format-down dashicons dashicons-arrow-down"></span>
                 <label for="format"><p>formats</p></label>
                 <!-- une balise select ou input ne peut pas être imbriquée directement dans form -->
                 <select class="option-filter" name="format" id="format"> 
@@ -71,14 +75,16 @@ if (isset($_GET["date"])) {
             </div>
         </div>
         <div class="filterright flexrow">
-            <div class="select-filter flexcolumn">          
-                <span class="myarrow"></span>
+            <div id="filtre-date" class="select-filter flexcolumn">          
+                <!-- <span class="myarrow"></i></span>                 -->
+                <span class="date-up dashicons dashicons-arrow-up hidden"></span>
+                <span class="date-down dashicons dashicons-arrow-down"></span>
                 <label for="format"><p>trier par</p></label>
                 <!-- une balise select ou input ne peut pas être imbriquée directement dans form -->
                 <select class="option-filter" name="date" id="date">
                     <option value=""></option>
-                    <option value="asc" <?php if($order === "asc" ): ?>selected<?php endif; ?>>nouveauté</option>
-                    <option value="desc" <?php if($order === "desc"): ?>selected<?php endif; ?>>Les plus anciens</option>
+                    <option value="desc" <?php if($order === "desc"): ?>selected<?php endif; ?>>nouveauté</option>
+                    <option value="asc" <?php if($order === "asc" ): ?>selected<?php endif; ?>>Les plus anciens</option>
                 </select>
                 <!-- <input type="submit" value="order" title="Date" /> -->
             </div>

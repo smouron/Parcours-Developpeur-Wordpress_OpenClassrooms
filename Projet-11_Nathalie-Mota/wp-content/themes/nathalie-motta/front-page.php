@@ -10,6 +10,7 @@
         
         <!-- Chargement des filtres -->
         <?php get_template_part( 'template-parts/post/photo-filter' ); ?>
+        
                 
         <?php  
         // Récupération des paramètres de filtre dans l'url
@@ -29,19 +30,30 @@
             $order = "";
         }; 
 
-
+        if ($order === "") {
+            $orderby = "title";
+            $order = "ASC";
+        } else {            
+            $orderby = "date";
+        } 
+            
+ 
         // Initialisation du filtre d'affichage des posts
         $paged = ( get_query_var( 'paged' ) ) ? absint( get_query_var( 'paged' ) ) : 1;
+        // Récupérer la taxonomie actuelle
+        $term = get_queried_object();
+        $term_id  = my_acf_load_value('ID', $term);
 
         // $categorie_id  =  get_post_meta( get_the_ID(), 'categorie-acf', true );
-        $categorie_name  = my_acf_load_value('name', get_field('categorie-acf'));
         // $format_id  =  get_post_meta( get_the_ID(), 'format-acf', true );
-        $format_name = my_acf_load_value('name', get_field('format-acf'));
+        // $categorie_name  = my_acf_load_value('name', get_field('categorie-acf'));
+        // $format_name = my_acf_load_value('name', get_field('format-acf'));
         $custom_args = array(
         'post_type' => 'photo',
-        // 'posts_per_page' => 8,
+        //   'posts_per_page' => 8,
+        'posts_per_page' => get_option( 'posts_per_page'), // Valeur par défaut
         'order' => $order, // ASC ou DESC 
-        'orderby' => 'date', // 'date' , 'meta_value_num'
+        'orderby' =>  $orderby, // 'date' , 'meta_value_num'
         'paged' => 1,
         'meta_query'    => array(
             'relation'      => 'AND', 
@@ -57,11 +69,12 @@
             )
             ),
         // 'nopaging' => false,
-            );
+            );            
             //On crée ensuite une instance de requête WP_Query basée sur les critères placés dans la variables $args
-            $query = new WP_Query( $custom_args );
+            $query = new WP_Query( $custom_args );           
             
             // echo $query->found_posts . " articles trouvés"; 
+            $max_pages = $query->max_num_pages;
                         
             ?>
             <!-- On vérifie si le résultat de la requête contient des articles -->
@@ -80,23 +93,30 @@
         
         <?php
         // On réinitialise à la requête principale
-        wp_reset_query(); 
-        // wp_reset_postdata();       
+        // wp_reset_query(); 
+        wp_reset_postdata();       
         ?>
         
         <div id="pagination">
             <!-- afficher le système de pagination (s’il existe de nombreux articles) -->
             <!-- <h3>Articles suivants</h3> -->
-            <!-- <a href="#!" class="btn btn__primary" id="load-more">Load more</a> -->
-            <?php 
-                // echo paginate_links();
-            ?>
+            <?php if ($max_pages > 1): ?>
+            <a href="#!" class="btn btn__primary" id="load-more">Load more</a>
+            <?php endif ?>
         </div>
 
       </section>
+        <!-- Variables pour être récupérées par JavaScript -->
+        <form>
+            <input type="hidden" id="categorie_id" value="<?php echo $categorie_id; ?>">
+            <input type="hidden" id="format_id" value="<?php echo $format_id; ?>">
+            <input type="hidden" id="orderby" value="<?php echo $orderby; ?>">
+            <input type="hidden" id="order" value="<?php echo $order; ?>">
+            <input type="hidden" id="max_pages" value="<?php echo $max_pages; ?>">
+        </form>
 
-      <!-- <aside id="sidebar">
+
+      <!-- <aside id="widget-area">
       </aside> -->
   </div>
-
 <?php get_footer(); ?>

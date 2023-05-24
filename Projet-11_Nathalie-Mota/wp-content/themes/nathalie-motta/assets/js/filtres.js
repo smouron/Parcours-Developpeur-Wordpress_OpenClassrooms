@@ -11,10 +11,11 @@ if (document.readyState === "complete") {
 
 function monScript() {
   // Script JS pour gestion des filtres
-  const filtreCategorie = document.getElementById("categorie");
-  const filtreFormat = document.getElementById("format");
-  const filtreDate = document.getElementById("date");
+
+  const body = document.querySelector("body");
   const filtres = document.querySelectorAll(".option-filter");
+  const allDashicons = document.querySelectorAll(".dashicons");
+  const allSelect = document.querySelectorAll("select");
 
   // Initialiastion des données à rajouter à l'url
   let valueCategorie = "?categorie=";
@@ -33,8 +34,6 @@ function monScript() {
       // Récupération du filtre sélectionné
       let filtreName = filtre.name;
       let filtreValue = filtre.value;
-
-      console.log(filtre);
 
       let index = filtre.selectedIndex;
 
@@ -78,6 +77,63 @@ function monScript() {
 
       // Rechargement de la page avec la nouvelle URL
       window.location.href = "index.php" + valueSubmit;
+    });
+  });
+
+  // Réinitialisation des flèches des select si on click en dehors
+  body.addEventListener("click", (e) => {
+    if (e.target.tagName != "select" && e.target.tagName != "SELECT") {
+      initArrow();
+    }
+  });
+
+  // Fonction pour rechercher un mot dans une variable
+  // retourne vrai si le mot est trouvé, si non retourne false
+  function findWord(word, str) {
+    return RegExp("\\b" + word + "\\b").test(str);
+  }
+
+  // Réinitialisation de l'affichage des flèches sur les select
+  const initArrow = () => {
+    allDashicons.forEach((dashicons) => {
+      if (findWord("up", dashicons.className)) {
+        dashicons.classList.add("hidden");
+      }
+      if (findWord("down", dashicons.className)) {
+        dashicons.classList.remove("hidden");
+      }
+    });
+  };
+
+  // Passer de la flèche qui descend à la flèqhe qui monte
+  // et inversement
+  // et force la flèche qui descend sur les 2 autres selects
+  const arrow = (arg) => {
+    allDashicons.forEach((dashicons) => {
+      if (findWord(arg, dashicons.className)) {
+        if (
+          findWord("up", dashicons.className) ||
+          findWord("down", dashicons.className)
+        ) {
+          dashicons.classList.toggle("hidden");
+        }
+      } else {
+        if (findWord("up", dashicons.className)) {
+          dashicons.classList.add("hidden");
+        }
+        if (findWord("down", dashicons.className)) {
+          dashicons.classList.remove("hidden");
+        }
+      }
+    });
+  };
+
+  // Détection du click sur un select
+  // et modification de la flèche correpondante
+  allSelect.forEach((select) => {
+    select.addEventListener("click", () => {
+      // initArrow();
+      arrow(select.id);
     });
   });
 }

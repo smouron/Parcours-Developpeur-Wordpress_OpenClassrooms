@@ -51,6 +51,7 @@ if( have_posts() ) : while( have_posts() ) : the_post(); ?>
 							echo '<img src="'. get_stylesheet_directory_uri() .'/assets/img/suivant.png" alt="Photo suivante" ></a>';
 						}
 					?>
+					
 				</div>
 			</div>
 		</div>
@@ -58,10 +59,8 @@ if( have_posts() ) : while( have_posts() ) : the_post(); ?>
 			<h2>Vous aimerez aussi</h2>		
 			<div class="photo__others--images flexrow">
 				<?php 
-				get_template_part ( 'template-parts/post/photo-common');
+					get_template_part ( 'template-parts/post/photo-common');
 				 ?>
-				<!-- <img src="http://127.0.0.1/nathalie-motta/wp-content/uploads/2023/05/nathalie-13-scaled.jpeg" alt="" > -->
-				<!-- <img src="http://127.0.0.1/nathalie-motta/wp-content/uploads/2023/05/nathalie-5-scaled.jpeg" alt="" > -->
 			</div>
 			<button class="btn" type="button">
 				<a href="http://127.0.0.1/nathalie-motta/">Toutes les photos</a>
