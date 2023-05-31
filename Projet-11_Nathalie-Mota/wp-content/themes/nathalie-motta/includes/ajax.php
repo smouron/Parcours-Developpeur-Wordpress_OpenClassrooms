@@ -23,10 +23,10 @@ function nathalie_motta_load_more() {
   $format_id = $_POST['format'];
   $orderby = $_POST['orderby'];
   $order = $_POST['order'];
-  $paged = $_POST['paged'];
+  $paged = intval($_POST['paged']);
 
   // Configuration du filtre
-    $query = new WP_Query([
+    $query_more = new WP_Query([
       'post_type' => 'photo',
         // 'posts_per_page' => 8,
       'posts_per_page' => get_option( 'posts_per_page'), // Valeur par défaut
@@ -50,8 +50,8 @@ function nathalie_motta_load_more() {
      
     $response = '';
   
-    if($query->have_posts()) {
-      while($query->have_posts()) : $query->the_post();
+    if($query_more->have_posts()) {
+      while($query_more->have_posts()) : $query_more->the_post();
         $response .= get_template_part('template-parts/post/publication');
       endwhile;
     } else {
@@ -61,7 +61,46 @@ function nathalie_motta_load_more() {
 
     exit;
   }
-  add_action('wp_ajax_weichie_load_more', 'nathalie_motta_load_more');
-  add_action('wp_ajax_nopriv_weichie_load_more', 'nathalie_motta_load_more');
+  add_action('wp_ajax_nathalie_motta_load_more', 'nathalie_motta_load_more');
+  add_action('wp_ajax_nopriv_nathalie_motta_load_more', 'nathalie_motta_load_more');
+
+
+
+// Génération de l'affichage de la lightbox
+function nathalie_motta_lightbox() {
+
+  // On vérifie que l'identifiant a bien été envoyé
+  if( ! isset( $_POST['photo_id'] ) ) {
+    wp_send_json_error( "L'identifiant de la photo est manquant.", 403 );
+  }
+
+  // Récupération des données pour le filtre
+  $photo_id = intval($_POST['photo_id']);
+
+  // Configuration du filtre
+  $query_lightbox = new WP_Query([
+    'post_type' => 'photo',
+    'posts_per_page' => -1,
+  ]);
+ 
+$response = '';
+
+if($query_lightbox->have_posts()) {
+  while($query_lightbox->have_posts()) : $query_lightbox->the_post();
+  if ( get_the_id() == $photo_id) {
+    $response = get_template_part('template-parts/modal/lightbox');
+  }
+  endwhile;
+} else {
+  $response = '';
+
+}
+
+exit;
+ }
+add_action('wp_ajax_nathalie_motta_lightbox', 'nathalie_motta_lightbox');
+add_action('wp_ajax_nopriv_nathalie_motta_lightbox', 'nathalie_motta_lightbox');
 
 ?>
+ 
+

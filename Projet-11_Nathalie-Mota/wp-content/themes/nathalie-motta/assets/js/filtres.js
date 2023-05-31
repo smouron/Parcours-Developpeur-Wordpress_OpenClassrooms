@@ -131,7 +131,8 @@ function monScript() {
   // Détection du click sur un select
   // et modification de la flèche correpondante
   allSelect.forEach((select) => {
-    select.addEventListener("click", () => {
+    select.addEventListener("click", (e) => {
+      e.preventDefault();
       // initArrow();
       arrow(select.id);
     });

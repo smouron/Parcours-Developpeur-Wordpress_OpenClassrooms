@@ -20,7 +20,11 @@ function nathalie_motta_theme_enqueue() {
     // Chargement des script JS personnalisés
     wp_enqueue_script( 'nathalie-motta-scripts', get_theme_file_uri( '/assets/js/scripts.js' ), array('jquery'), '1.0.1', true );    
     wp_enqueue_script( 'nathalie-motta-scripts-filtres', get_theme_file_uri( '/assets/js/filtres.js' ), array(), '1.0.0', true );   
-    wp_enqueue_script( 'nathalie-motta-scripts-lightbox', get_theme_file_uri( '/assets/js/lightbox.js' ), array(), '1.0.0', true );
+    wp_enqueue_script( 'nathalie-motta-scripts-lightbox-ajax', get_theme_file_uri( '/assets/js/lightbox-ajax.js' ), array('jquery'), '1.0.0', true );
+
+    if (is_front_page()) {
+        wp_enqueue_script( 'nathalie-motta-scripts-publication-ajax', get_theme_file_uri( '/assets/js/publication-ajax.js' ), array('jquery'), '1.0.0', true );
+    };
 
     // activer les Dashicons sur le front-end 
     wp_enqueue_style ( 'dashicons' ); 
@@ -100,31 +104,6 @@ function contact_btn($string) {
 /** On publie le shortcode  */
 add_shortcode('contact', 'contact_btn');
 
-// Ajout un bouton contact au menu du header
-// Code désactivé - Ajout du bouton contact depuis le menu WordPress avec ajout de la class contact à ce lien
-function contact_btn_navbar( $items) {	
-	$items .= '
-	<li class="menu-item menu-item-type-post_type menu-item-object-post">
-		<a href="#" id="contact_btn_navbar" class="contact">Contact</a>
-	</li>';
-
-	// On retourne le code
-	return $items;
-}
-// add_filter( 'wp_nav_menu_header-menu_items', 'contact_btn_navbar', 10, 2 );
-
-// Ajout du texte Tous droits réservés dans le pied de page
-function mention_text_navbar( $items) {	
-	$items .= '
-	<li class="menu-item menu-item-type-post_type menu-item-object-page">
-		<p id="mention_text_footer" class="mention_text">Tous droits réservés</p>
-	</li>';
-
-	// On retourne le code
-	return $items;
-}
-// add_filter( 'wp_nav_menu_footer-menu_items', 'mention_text_navbar', 10, 2 );
-
 // Récupération de la valeur d'un champs personnalisé ACF
 // $variable = nom de la variable dont on veut récupérer la valeur
 // $field = nom du champs personnalisés
@@ -161,4 +140,9 @@ add_filter( 'pre_get_posts', 'add_custom_types_to_tax' );
 // Partie pour gerer le padding de l'affichage des photos  
 include get_template_directory() . '/includes/ajax.php';
 
- 
+function menu_nav() {
+    $menu2 = wp_nav_menu(array('theme_location' => 'main'));
+    $menu3 = wp_nav_menu(array('menu' => 'header'));
+    // echo ('Menu: ' . $menu3);
+}
+

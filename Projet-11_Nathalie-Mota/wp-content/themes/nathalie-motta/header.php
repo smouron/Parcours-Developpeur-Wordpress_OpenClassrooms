@@ -42,12 +42,10 @@
                     <span class="line"></span>
                 </button>
 				
-                <div id="modal__content" class="modal__content">
-                    <ul class="flexcolumn">
-                        <li><a href="#">Accueil</a></li>
-                        <li><a href="#">A propos</a></li>
-                        <li><a href="#">Contact</a></li>
-                    </ul>
+                <div id="modal__content" class="modal__content">           
+					<?php 				
+					wp_nav_menu(array('theme_location' => 'main')); 
+					?>
                 </div>
 			</nav>
 		</div>

@@ -12,25 +12,24 @@ if( have_posts() ) : while( have_posts() ) : the_post(); ?>
 			<p>Cette photo vous intéresse ? <button class="btn" type="button"><?php echo do_shortcode('[contact]'); ?></button></p>
 			<div class="site__navigation flexrow">				
 				<div class="site__navigation__prev">
-					<!-- <?php previous_post_link( '%link', '%title', false ); ?> -->
-					<?php
-						$prev_post = get_previous_post();							
-						if($prev_post) {
-							$prev_title = strip_tags(str_replace('"', '', $prev_post->post_title));
-							$prev_post_id = $prev_post->ID;
-							echo '<a rel="prev" href="' . get_permalink($prev_post_id) . '" title="' . $prev_title. '" class="previous_post">';
-							if (has_post_thumbnail($prev_post_id)){
+				<?php
+					$prev_post = get_previous_post();							
+					if($prev_post) {
+						$prev_title = strip_tags(str_replace('"', '', $prev_post->post_title));
+						$prev_post_id = $prev_post->ID;
+						echo '<a rel="prev" href="' . get_permalink($prev_post_id) . '" title="' . $prev_title. '" class="previous_post">';
+						if (has_post_thumbnail($prev_post_id)){
 							?>
-								<div><?php echo get_the_post_thumbnail($prev_post_id, array(77,60));?></div>
+							<div>
+								<?php echo get_the_post_thumbnail($prev_post_id, array(77,60));?></div>
 							<?php
 							}
 							else{
 								echo '<img src="'. get_stylesheet_directory_uri() .'/assets/img/no-image.jpeg" alt="Pas de photo" width="77px" ><br>';
-							}
-							
+							}							
 							echo '<img src="'. get_stylesheet_directory_uri() .'/assets/img/precedent.png" alt="Photo précédente" ></a>';
 						}
-					?>
+						?>
 				</div>
 				<div class="site__navigation__next">
 					<!-- <?php next_post_link( '%link', '%title', false ); ?>  -->

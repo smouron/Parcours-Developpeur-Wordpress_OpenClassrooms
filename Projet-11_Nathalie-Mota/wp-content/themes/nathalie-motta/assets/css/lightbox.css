@@ -10,7 +10,7 @@ Theme URI: https://motaphoto.com
     left: 0;
     width: 100vw;
     height: 100vh;
-    z-index: 10;
+    z-index: 999;
     background-color: rgba(0, 0, 0, 0.80);
     color: #FFFFFF;
     transition: all .3s ease-in-out;
@@ -102,4 +102,12 @@ Theme URI: https://motaphoto.com
 .lightbox__info {
     gap: 20px;    
     align-items: left;
+}
+
+/* Gestion d'une image d'attente de chargement */
+.lightbox__loader {
+    width: 38px;
+    height: 38px;
+    opacity: .5;
+    background: url("../img/loader.svg") center center no-repeat;
 }

@@ -24,8 +24,18 @@
     <!-- <p class="info-tax"><?php the_terms( $post->ID, 'categorie-acf', '' ); ?></p> -->
     <a href="<?php the_permalink() ?>" alt="<?php the_title(); ?>"><span class="detail-photo"></span></a>                            
     <?php the_post_thumbnail(); ?>
-    <span class="openLightbox"></span>
-    <?php get_template_part('template-parts/post/lightbox'); ?> 
+    <p><?php the_terms( $post->ID, 'categorie-acf', '' ); ?></p>
+    <form>
+        <input type="hidden" name="postid" class="postid" value="<?php the_id(); ?>">
+        <button class="openLightbox"
+            data-postid="<?php echo get_the_id(); ?>"    
+            data-arrow="true" 
+            data-nonce="<?php echo wp_create_nonce('nathalie_motta_lightbox'); ?>"
+            data-action="nathalie_motta_lightbox"
+            data-ajaxurl="<?php echo admin_url( 'admin-ajax.php' ); ?>"
+        >
+        </button>
+    </form>
 </div> 
 
 <?php endif; ?> 
