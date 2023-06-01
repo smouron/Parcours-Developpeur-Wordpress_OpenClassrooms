@@ -46,7 +46,6 @@ if (document.getElementById("max_pages") !== null) {
           $(".publication-list").append(res);
         },
       });
-      
     });
 
     // Gestion de la lightbox

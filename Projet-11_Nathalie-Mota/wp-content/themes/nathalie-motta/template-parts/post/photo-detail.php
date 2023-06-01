@@ -66,10 +66,12 @@
                 </li>
             </ul>
         </div>
-        <div class="photo__info--image flexcolumn brightness">
-            <!-- permet d’afficher l’image mise en avant -->
-            <?php the_post_thumbnail(); ?>            
-            <span class="openLightbox"></span>                     
+        <div class="photo__info--image flexcolumn">
+            <div class="container--image brightness">
+                <!-- permet d’afficher l’image mise en avant -->
+                <?php the_post_thumbnail(); ?>            
+                <span class="openLightbox"></span>
+            </div>                     
             <form>
                 <input type="hidden" name="postid" class="postid" value="<?php the_id(); ?>">
                 <button class="openLightbox"

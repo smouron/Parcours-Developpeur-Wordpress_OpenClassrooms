@@ -19,18 +19,18 @@ if (isset($_GET["date"])) {
 };  
 ?>
 
-<div class="filter-area">
+<div class="filter-area swiper-container">
     <!-- <i class="fa-solid fa-caret-down"></i> -->
     <!-- <i class="fa-solid fa-caret-up"></i> -->
     <!-- <span class="dashicons dashicons-arrow-up"></span> -->
     <!-- <span class="dashicons dashicons-arrow-down"></span> -->
-    <form class="flexrow" method="get" action="<?php echo 'http://127.0.0.1/nathalie-motta/index.php'; ?>">
+    <form class="flexrow swiper-wrapper" method="get" action="<?php echo 'http://127.0.0.1/nathalie-motta/index.php'; ?>">
     <!--  -->
     <!-- $terms->term_id :  -->
     <!-- $terms->taxonomy : nom de la taxonomie -->
     <!-- $terms->name : nom de l'élément de la taxonomie -->
     <!-- $terms->term_taxonomy_id : n° de l'élément de la taxonomie -->
-        <div class="filterleft flexrow">
+        <div class="filterleft swiper-slide flexrow">
             <div id="filtre-categorie" class="select-filter flexcolumn">            
                 <!-- <span class="myarrow"></i></span>                 -->
                 <span class="categorie-up dashicons dashicons-arrow-up hidden"></span>
@@ -74,7 +74,7 @@ if (isset($_GET["date"])) {
                 <!-- <input type="submit" value="format" title="Format" /> -->
             </div>
         </div>
-        <div class="filterright flexrow">
+        <div class="filterright swiper-slide flexrow">
             <div id="filtre-date" class="select-filter flexcolumn">          
                 <!-- <span class="myarrow"></i></span>                 -->
                 <span class="date-up dashicons dashicons-arrow-up hidden"></span>

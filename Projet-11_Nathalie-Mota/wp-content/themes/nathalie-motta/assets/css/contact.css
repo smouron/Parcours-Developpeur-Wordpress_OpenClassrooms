@@ -41,7 +41,7 @@
     overflow : hidden;
     margin-bottom: 10px;
     width:100%;
-    height: 50%;
+    height: 49px;
 }
 
 /* Position des 2 bannières pour le titre */
@@ -93,4 +93,25 @@
     justify-content:center;
     align-items:center;
     margin: auto;
+}
+
+/*  **********************************  */
+/*    Media query : max-width: 780px    */
+/*  **********************************  */
+@media all and (max-width: 780px) {
+    .popup-informations {    
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        padding: 25px 45px 5px;
+    }
+
+    .popup-close {
+        height: 20px;
+    }
+
+    .popup-title {        
+        background-image: url('../img/contact-mini.png');
+        height: 22px;
+    }
 }

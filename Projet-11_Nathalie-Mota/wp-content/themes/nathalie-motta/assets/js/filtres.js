@@ -137,4 +137,10 @@ function monScript() {
       arrow(select.id);
     });
   });
+
+  // Gestion du déplacement des filtres horizontalement
+  const swiper = new Swiper(".swiper-container", {
+    freeMode: true,
+    grabCursor: true,
+  });
 }
