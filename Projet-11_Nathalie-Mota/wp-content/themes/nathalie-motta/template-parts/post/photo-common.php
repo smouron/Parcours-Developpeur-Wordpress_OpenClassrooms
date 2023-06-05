@@ -82,11 +82,13 @@
    </article>
    <div class="lightbox hidden" id="lightbox">    
       <button class="lightbox__close">Fermer</button>
-      <div class="lightbox__container">
-         <button class="lightbox__next">Suivant</button>
-         <button class="lightbox__prev">Précédent</button>                 
+      <div class="lightbox__container">               
          <div class="lightbox__loader hidden"></div>
-         <div class="lightbox__container_info flexcolumn" id="lightbox__container_info">         
+         <div class="lightbox__container_info flexcolumn" id="lightbox__container_info"> 
+            <div class="lightbox__container_content flexcolumn" id="lightbox__container_content"></div>   
+               <button class="lightbox__next" title="Photo suivante"></button>
+               <button class="lightbox__prev" title="Photo précédente"></button>                     
+            </div>        
          </div>
       </div> 
    </div>

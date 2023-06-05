@@ -1,146 +1,89 @@
-// console.log("Script filtres lancé !!!");
+// Script pour gérer les filtres d'affichage en page d'accueil (front-page)
+// Variables récupérées
+//
+// console.log("Script filtres en ajax lancé !!!");
 
-// Différer le lancement du script => ne se lance qu'une fois que tout le HTML a été chargé
-if (document.readyState === "complete") {
-  monScript();
-} else {
-  document.addEventListener("DOMContentLoaded", function () {
-    monScript();
-  });
-}
-
-function monScript() {
-  // Script JS pour gestion des filtres
-
-  const body = document.querySelector("body");
-  const filtres = document.querySelectorAll(".option-filter");
-  const allDashicons = document.querySelectorAll(".dashicons");
-  const allSelect = document.querySelectorAll("select");
-
-  // Initialiastion des données à rajouter à l'url
-  let valueCategorie = "?categorie=";
-  let valueFormat = "&format=";
-  let valueDate = "&date=";
-  let valueSubmit = valueCategorie + valueFormat + valueDate;
-
-  // Récupération de l'url
-  let urlHref = window.location.href;
-  let url = new URL(urlHref);
-  let chemin = window.location.pathname + "index.php";
-
-  // Quand une nouvelle <option> est selectionnée
-  filtres.forEach((filtre) => {
-    filtre.addEventListener("change", function () {
-      // Récupération du filtre sélectionné
-      let filtreName = filtre.name;
-      let filtreValue = filtre.value;
-
-      let index = filtre.selectedIndex;
-
-      // Recherce dans l'URL la présence des paramètres des filtres
-      // s'ils sont présents, on récupère les valeurs actuelles
-      let search = url.searchParams.get("categorie");
-
-      // Si le paramètre est dans l'URL et qu'elle est numérique, on la récupère
-      if (search && Number(search)) {
-        console.log(url.searchParams.get("categorie"));
-        valueCategorie = "?categorie=" + search;
-      }
-
-      search = url.searchParams.get("format");
-      if (search && Number(search)) {
-        console.log(url.searchParams.get("format"));
-        valueFormat = "&format=" + search;
-      }
-
-      search = url.searchParams.get("date");
-      if (search) {
-        console.log(url.searchParams.get("date"));
-        valueDate = "&date=" + search;
-      }
-
-      if (filtreName === "categorie") {
-        valueCategorie = "?categorie=" + filtreValue;
-      }
-
-      if (filtreName === "format") {
-        valueFormat = "&format=" + filtreValue;
-      }
-
-      if (filtreName === "date") {
-        valueDate = "&date=" + filtreValue;
-      }
-
-      // Ajout des données à la page
-      valueSubmit = valueCategorie + valueFormat + valueDate;
-      chemin = "index.php" + valueSubmit;
-
-      // Rechargement de la page avec la nouvelle URL
-      window.location.href = "index.php" + valueSubmit;
-    });
-  });
-
-  // Réinitialisation des flèches des select si on click en dehors
-  body.addEventListener("click", (e) => {
-    if (e.target.tagName != "select" && e.target.tagName != "SELECT") {
-      initArrow();
-    }
-  });
-
-  // Fonction pour rechercher un mot dans une variable
-  // retourne vrai si le mot est trouvé, si non retourne false
-  function findWord(word, str) {
-    return RegExp("\\b" + word + "\\b").test(str);
+document.addEventListener("DOMContentLoaded", function () {
+  // Initialisation des variables des filtres
+  let categorie_id = "";
+  if (document.getElementById("categorie_id")) {
+    document.getElementById("categorie_id").value = "";
+  }
+  let format_id = "";
+  if (document.getElementById("format_id")) {
+    document.getElementById("format_id").value = "";
+  }
+  let order = "";
+  if (document.getElementById("date")) {
+    document.getElementById("date").value = "";
   }
 
-  // Réinitialisation de l'affichage des flèches sur les select
-  const initArrow = () => {
-    allDashicons.forEach((dashicons) => {
-      if (findWord("up", dashicons.className)) {
-        dashicons.classList.add("hidden");
-      }
-      if (findWord("down", dashicons.className)) {
-        dashicons.classList.remove("hidden");
-      }
-    });
-  };
+  let orderby = "date";
+  if (order === "") {
+    orderby = "title";
+    order = "ASC";
+  }
 
-  // Passer de la flèche qui descend à la flèqhe qui monte
-  // et inversement
-  // et force la flèche qui descend sur les 2 autres selects
-  const arrow = (arg) => {
-    allDashicons.forEach((dashicons) => {
-      if (findWord(arg, dashicons.className)) {
-        if (
-          findWord("up", dashicons.className) ||
-          findWord("down", dashicons.className)
-        ) {
-          dashicons.classList.toggle("hidden");
-        }
-      } else {
-        if (findWord("up", dashicons.className)) {
-          dashicons.classList.add("hidden");
-        }
-        if (findWord("down", dashicons.className)) {
-          dashicons.classList.remove("hidden");
-        }
-      }
-    });
-  };
+  let currentPage = 1;
+  let max_pages = 1;
 
-  // Détection du click sur un select
-  // et modification de la flèche correpondante
-  allSelect.forEach((select) => {
-    select.addEventListener("click", (e) => {
-      e.preventDefault();
-      // initArrow();
-      arrow(select.id);
-    });
-  });
+  (function ($) {
+    $(document).ready(function () {
+      $(".option-filter").change(function (e) {
+        // Empêcher l'envoi classique du formulaire
+        e.preventDefault();
 
-  // Gestion du déplacement des filtres horizontalement
-  const swiper = new Swiper(".swiper-container", {
-    freeMode: true,
-    grabCursor: true,
-  });
-}
+        if (document.getElementById("max_pages") !== null) {
+          max_pages = document.getElementById("max_pages").value;
+        }
+
+        // Récupération des valeurs sélectionnées
+        let targetName = e.target.name;
+        let targetValue = e.target.value;
+
+        // Réaffectation de la valeur dans la variable correspondante
+        if (targetName === "categorie_id") {
+          categorie_id = targetValue;
+        }
+        if (targetName === "format_id") {
+          format_id = targetValue;
+        }
+        if (targetName === "date") {
+          order = targetValue;
+        }
+
+        if (order === "") {
+          orderby = "title";
+          order = "ASC";
+        } else {
+          orderby = "date";
+        }
+
+        // Génération du nouvel affichage
+        $.ajax({
+          type: "POST",
+          url: "/nathalie-motta/wp-admin/admin-ajax.php",
+          dataType: "html", // <-- Change dataType from 'html' to 'json'
+          data: {
+            action: "nathalie_motta_load",
+            paged: 1,
+            categorie_id: categorie_id,
+            format_id: format_id,
+            orderby: orderby,
+            order: order,
+          },
+          success: function (res) {
+            $(".publication-list").empty().append(res);
+            // Récupération de la valeur du nouveau nombre de pages
+            let max_pages = document.getElementById("max_pages").value;
+            if (currentPage >= max_pages) {
+              $("#load-more").addClass("hidden");
+            } else {
+              $("#load-more").removeClass("hidden");
+            }
+          },
+        });
+      });
+    });
+  })(jQuery);
+});

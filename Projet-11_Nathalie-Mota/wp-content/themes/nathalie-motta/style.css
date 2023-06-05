@@ -3,9 +3,10 @@ Theme Name: nathalie-motta
 Theme URI: https://motaphoto.com
 Author: Stéphane Mouron
 Author URI: https://motaphoto.com
-Description: Thème pour le site de partage de séries de photos de Nathalie Motta avec ses clients
+Description: Thème pour le site de partage de séries de photos de Nathalie Motta, avec ses clients
 Requires at least: WordPress 5.0
 Version: 1.0.0
+Text Domain: nathaliemotta
 */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
@@ -486,7 +487,7 @@ form {
     width: 100%;
     max-width: 1440px;
     margin: 20px auto 40px;
-    gap: 20px;
+    /* gap: 20px; */
     flex-wrap: wrap;
     text-align: center;
     justify-content: center;
@@ -500,6 +501,7 @@ form {
 .container-news .news-info {
     width: 565px;
     height: 500px;
+    margin: 10px;
 }
 
 .news-info .info-tax,
@@ -734,6 +736,13 @@ form {
         height: 260px;
     }  
 
+    .news-info h2,
+    .news-info h3,
+    .news-info p {      
+        font-size: 12px !important;
+        line-height: 18px;  
+    }
+
 }
 
 
@@ -744,6 +753,13 @@ form {
     .filter-area {
         width: 180%;
     }
+
+    .news-info h2,
+    .news-info h3,
+    .news-info p {      
+        font-size: 10px !important;
+        line-height: 14px !important;  
+    }
 }
 
 
@@ -752,8 +768,15 @@ form {
 /*  **********************************  */
 @media all and (max-width: 320px) {
     .hero-area img {   
-        max-height: 300px;
+        max-height: 300px; 
     }   
+    
+    .news-info h2,
+    .news-info h3,
+    .news-info p {      
+        font-size: 8px !important;
+        line-height: 10px !important;  
+    }
 
     .hero-area .title-hero {
         font-size: 30px;

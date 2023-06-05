@@ -23,22 +23,26 @@ function nathalie_motta_theme_enqueue() {
     wp_enqueue_style( 'swiper-style', get_stylesheet_directory_uri() . '/assets/css/swiper-bundle.min.css' );    
     // wp_enqueue_script( 'swiper-element-bundle.min', 'https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js', array(), '9.2.0', true );
     wp_enqueue_script( 'swiper-element-bundle.min', get_theme_file_uri( '/assets/js/swiper-bundle.min.js'), array(), '9.2.0', true );
-
+ 
     // Chargement des script JS personnalisés
     wp_enqueue_script( 'nathalie-motta-scripts', get_theme_file_uri( '/assets/js/scripts.js' ), array('jquery'), '1.0.1', true );    
-    wp_enqueue_script( 'nathalie-motta-scripts-filtres', get_theme_file_uri( '/assets/js/filtres.js' ), array(), '1.0.0', true );   
-    wp_enqueue_script( 'nathalie-motta-scripts-lightbox-ajax', get_theme_file_uri( '/assets/js/lightbox-ajax.js' ), array('jquery'), '1.0.0', true );
+    wp_enqueue_script( 'nathalie-motta-scripts-filtres', get_theme_file_uri( '/assets/js/filtres.js' ), array('jquery'), '1.0.1', true );   
+    
+    // Script JS chargé pour tout le monde sauf avec front_page 
+    if (!is_front_page()) {
+        wp_enqueue_script( 'nathalie-motta-scripts-lightbox-ajax', get_theme_file_uri( '/assets/js/lightbox-ajax.js' ), array('jquery'), '1.0.3', true );
+    };  
 
+    // Script JS disponnibles chargé uniquement avec front_page 
     if (is_front_page()) {
-        wp_enqueue_script( 'nathalie-motta-scripts-publication-ajax', get_theme_file_uri( '/assets/js/publication-ajax.js' ), array('jquery'), '1.0.0', true );
-    };
+        wp_enqueue_script( 'nathalie-motta-scripts-publication-ajax', get_theme_file_uri( '/assets/js/publication-ajax.js' ), array('jquery'), '1.0.1', true );
+        wp_enqueue_script( 'nathalie-motta-scripts-lightbox-ajax', get_theme_file_uri( '/assets/js/lightbox-font-page-ajax.js' ), array('jquery'), '1.0.0', true );
+    };   
 
     // activer les Dashicons sur le front-end 
     wp_enqueue_style ( 'dashicons' ); 
 }
 add_action( 'wp_enqueue_scripts', 'nathalie_motta_theme_enqueue' );
-
-
 
 
 // Ajouter la prise en charge des images mises en avant
@@ -48,10 +52,15 @@ add_theme_support( 'post-thumbnails' );
 // set_post_thumbnail_size(largeur, hauteur max, true = on adapte l'image aux dimensions)
 set_post_thumbnail_size( 600, 0, false );
 
-// Définir d'autres tailles d'images
+// Définir d'autres tailles d'images : 
+// les options de base WP : 
+//      'thumbnail': 150 x 150 hard cropped 
+//      'medium' : 300 x 300 max height 300px
+//      'medium_large' : resolution (768 x 0 infinite height)
+//      'large' : 1024 x 1024 max height 1024px
+//      'full' : original size uploaded
 add_image_size( 'hero', 1450, 960, true );
 add_image_size( 'desktop-home', 600, 520, true );
-add_image_size( 'mobil-home', 300, 260, true );
 
 // Ajouter automatiquement le titre du site dans l'en-tête du site
 add_theme_support( 'title-tag' );
@@ -66,7 +75,7 @@ function register_my_menu(){
  add_action('after_setup_theme', 'register_my_menu');
 
 // créer un pour la gestion des widgets dans l'administration
-// etl'activation des sidebars
+// et l'activation des sidebars
 // Visibles ensuite dans Apparence / Widgets (widgets_init)
 function nathalie_motta_widgets(){
     register_sidebar(

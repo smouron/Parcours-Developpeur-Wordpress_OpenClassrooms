@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", function () {
   let idPhoto = null;
   let idPhotoNext = null;
   let idValue = 10;
-  let arrow = "";
+  let arrow = "true";
 
   function recupArrayPhp() {
     // Récupérarion des données qui sont en texte et transfert dans un tableau javascript
@@ -81,38 +81,47 @@ document.addEventListener("DOMContentLoaded", function () {
   (function ($) {
     $(document).ready(function () {
       // Gestion de la pagination de la lightbox
-      $(".openLightbox").click(function (e) {
+      $(".publication-list").click(function (e) {
         e.preventDefault();
+        // Récupération des élements du DOM enfants
+        // console.log(e.currentTarget);
+        // console.log(e.target.className);
 
-        // L'URL qui réceptionne les requêtes Ajax dans l'attribut "action" de <form>
-        const ajaxurl = $(this).data("ajaxurl");
-
-        // Récupération de la variable si on la reçoit
-        // si non initialisation par défaut à true
-
-        arrow = "true";
-        if (!$(this).data("arrow")) {
-          arrow = $(this).data("arrow");
+        // On recherche si c'est une class detail-photo
+        if (e.target.className === "detail-photo") {
+          // Si on est bien sur un élément avec la class
+          // on récupère l'adresse email lié à cet élément pour ouvrir ce lien
+          // console.log(e.target.parentElement);
+          window.location.href = e.target.parentElement.getAttribute("href");
         }
 
-        if (!$(this).data("postid")) {
+        // Et recherche si c'est une class openLightbox
+        if (e.target.className === "openLightbox") {
+          // Si c'est bien un élément avec la class openLightbox
+          // On récupère les élements complémentaires lier à cet élément
+          if (!$(e.target).data("arrow")) {
+            arrow = $(e.target).data("arrow");
+          }
+
+          if (!$(e.target).data("postid")) {
+            console.log(
+              "Identifiant manquant. Récupération du premier de la liste"
+            );
+            recupIdPhoto(0);
+          } else {
+            idPhoto = $(e.target).data("postid");
+          }
+          recupIdData(idPhoto);
           console.log(
-            "Identifiant manquant. Récupération du premier de la liste"
+            "Photo n° " + idValue + " de la liste - id Photo: " + idPhoto
           );
-          recupIdPhoto(0);
-        } else {
-          idPhoto = $(this).data("postid");
+
+          $(".lightbox").removeClass("hidden");
+
+          // On s'assure de le container est vide avant de chager le code
+          $("#lightbox__container_content").empty();
+          $.changePhoto();
         }
-        recupIdData(idPhoto);
-        console.log(
-          "n° " + idValue + " - id Photo: " + idPhoto + " - Arrow: " + arrow
-        );
-
-        $(".lightbox").removeClass("hidden");
-
-        // On s'assure de le container est vide avant de chager le code
-        $("#lightbox__container_content").empty();
-        $.changePhoto();
       });
 
       // Affichage de la photo prédécente

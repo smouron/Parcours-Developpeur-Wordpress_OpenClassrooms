@@ -69,7 +69,7 @@
         <div class="photo__info--image flexcolumn">
             <div class="container--image brightness">
                 <!-- permet d’afficher l’image mise en avant -->
-                <?php the_post_thumbnail(); ?>            
+                <?php the_post_thumbnail('medium_large'); ?>            
                 <span class="openLightbox"></span>
             </div>                     
             <form>
@@ -83,8 +83,7 @@
                 >
                 </button>
             </form>
-        </div> 
-        
+        </div>         
     </div>
 </article>
 
