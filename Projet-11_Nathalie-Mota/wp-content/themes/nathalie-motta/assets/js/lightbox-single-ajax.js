@@ -1,7 +1,7 @@
 // Script pour la gestion de la Lightbox sur toutes les photos
 
 document.addEventListener("DOMContentLoaded", function () {
-  console.log("Script lightbox lancé !!!");
+  // console.log("Script lightbox lancé !!!");
 
   // Récupération du tableau de toutes les photos selon les filtres
   let total_posts = "";
@@ -10,7 +10,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Supression du début "Array (" et de la fin ")" pour n'avoir que les données du tableau d'origine
     total_posts = total_posts.slice(8, total_posts.length - 3);
-    // console.log(total_posts);
   }
 
   let nb_total_posts = 1;
@@ -74,8 +73,6 @@ document.addEventListener("DOMContentLoaded", function () {
     data = arrayFinish[arg].split("\n");
     let position = data[0].search("ID") + 7;
     idPhoto = data[0].slice(`${position}`);
-
-    console.log("Id Photo: " + idPhoto);
   }
 
   (function ($) {
@@ -91,7 +88,6 @@ document.addEventListener("DOMContentLoaded", function () {
         if (e.target.className === "detail-photo") {
           // Si on est bien sur un élément avec la class
           // on récupère l'adresse email lié à cet élément pour ouvrir ce lien
-          // console.log(e.target.parentElement);
           window.location.href = e.target.parentElement.getAttribute("href");
         }
 
@@ -112,9 +108,7 @@ document.addEventListener("DOMContentLoaded", function () {
             idPhoto = $(e.target).data("postid");
           }
           recupIdData(idPhoto);
-          console.log(
-            "Photo n° " + idValue + " de la liste - id Photo: " + idPhoto
-          );
+          // console.log("photo n° " + idValue + " de la liste - id Photo: " +  idPhoto);
 
           $(".lightbox").removeClass("hidden");
 
@@ -134,8 +128,8 @@ document.addEventListener("DOMContentLoaded", function () {
         } else {
           idValue = nb_total_posts - 1;
         }
-        console.log("id: " + idValue + " - Arrow: " + arrow);
         recupIdPhoto(idValue);
+        console.log("id: " + idValue + " - id Photo: " + idPhoto);
         $.changePhoto();
       });
 
@@ -149,8 +143,8 @@ document.addEventListener("DOMContentLoaded", function () {
         } else {
           idValue = 0;
         }
-        console.log("id: " + idValue + " - Arrow: " + arrow);
         recupIdPhoto(idValue);
+        console.log("id: " + idValue + " - id Photo: " + idPhoto);
         $.changePhoto();
       });
 

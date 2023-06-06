@@ -4,6 +4,8 @@
 // console.log("Script filtres en ajax lancé !!!");
 
 document.addEventListener("DOMContentLoaded", function () {
+  const message = "<p>Désolé. Aucun article ne correspond à cette demande.<p>";
+
   // Initialisation des variables des filtres
   let categorie_id = "";
   if (document.getElementById("categorie_id")) {
@@ -18,14 +20,14 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("date").value = "";
   }
 
-  let orderby = "date";
-  if (order === "") {
-    orderby = "title";
-    order = "ASC";
-  }
-
   let currentPage = 1;
   let max_pages = 1;
+
+  // Gestion du déplacement des filtres horizontalement
+  const swiper = new Swiper(".swiper-container", {
+    freeMode: true,
+    grabCursor: true,
+  });
 
   (function ($) {
     $(document).ready(function () {
@@ -52,12 +54,7 @@ document.addEventListener("DOMContentLoaded", function () {
           order = targetValue;
         }
 
-        if (order === "") {
-          orderby = "title";
-          order = "ASC";
-        } else {
-          orderby = "date";
-        }
+        let orderby = "date";
 
         // Génération du nouvel affichage
         $.ajax({
@@ -76,11 +73,26 @@ document.addEventListener("DOMContentLoaded", function () {
             $(".publication-list").empty().append(res);
             // Récupération de la valeur du nouveau nombre de pages
             let max_pages = document.getElementById("max_pages").value;
+            let nb_total_posts = 0;
+
+            // Affiche ou cache le bouton "Charger plus" en fonction du nombre de pages
             if (currentPage >= max_pages) {
               $("#load-more").addClass("hidden");
             } else {
               $("#load-more").removeClass("hidden");
             }
+
+            // Contrôle s'il y a des photos à afficher
+            if (document.getElementById("nb_total_posts") !== null) {
+              nb_total_posts = document.getElementById("nb_total_posts").value;
+            }
+
+            // Et affiche un message s'il n'y a aucune photo à afficher
+            if (nb_total_posts == 0) {
+              $(".publication-list").append(message);
+            }
+
+            document.getElementById("currentPage").value = 1;
           },
         });
       });

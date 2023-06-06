@@ -1,5 +1,11 @@
-<!-- Article de photo -->
 <?php
+/**
+ * The single : ATRICLE PHOTO 
+ *
+ * @package WordPress
+ * @subpackage nathalie-motta theme
+ */
+
 	get_header();
 ?>
 
@@ -32,7 +38,7 @@ if( have_posts() ) : while( have_posts() ) : the_post(); ?>
 						?>
 				</div>
 				<div class="site__navigation__next">
-					<!-- <?php next_post_link( '%link', '%title', false ); ?>  -->
+					<!-- next_post_link( '%link', '%title', false );  -->
 					<?php
 						$next_post = get_next_post();
 						if($next_post) {

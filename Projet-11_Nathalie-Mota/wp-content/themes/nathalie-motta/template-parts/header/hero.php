@@ -1,5 +1,10 @@
 <?php
-// Gestion du hero du header
+/**
+ * Hero du header
+ *
+ * @package WordPress
+ * @subpackage nathalie-motta theme
+ */
 ?>
 
 <!-- Wrap Slider Area -->

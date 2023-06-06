@@ -29,7 +29,7 @@
 
 .popup-close{
     /* position:absolute; */
-    height:96px;
+    height:110px;
     width:100%;
     cursor:pointer;
     transition:all 0.4s ease;
@@ -57,7 +57,7 @@
     display:flex;
     justify-content:center;
     align-items:center;
-    padding: 25px 45px 60px;
+    padding: 15px 45px 60px;
 }
 
 .wpcf7-form p {
@@ -74,6 +74,11 @@
 
 .wpcf7-form p input {
     height: 40px;
+    padding: 10px;
+}
+
+.wpcf7-form p textarea {
+    padding: 10px;
 }
 
 .wpcf7-form p .wpcf7-text,
@@ -95,6 +100,7 @@
     margin: auto;
 }
 
+
 /*  **********************************  */
 /*    Media query : max-width: 780px    */
 /*  **********************************  */
@@ -103,11 +109,11 @@
         display:flex;
         justify-content:center;
         align-items:center;
-        padding: 25px 45px 5px;
+        padding: 5px 45px 5px;
     }
 
     .popup-close {
-        height: 20px;
+        height: 60px;
     }
 
     .popup-title {        

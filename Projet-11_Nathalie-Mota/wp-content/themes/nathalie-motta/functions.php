@@ -61,6 +61,7 @@ set_post_thumbnail_size( 600, 0, false );
 //      'full' : original size uploaded
 add_image_size( 'hero', 1450, 960, true );
 add_image_size( 'desktop-home', 600, 520, true );
+add_image_size( 'lightbox', 1300, 900, true );
 
 // Ajouter automatiquement le titre du site dans l'en-tête du site
 add_theme_support( 'title-tag' );

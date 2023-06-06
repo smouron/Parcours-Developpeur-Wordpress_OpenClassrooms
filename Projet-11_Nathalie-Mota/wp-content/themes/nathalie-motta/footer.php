@@ -5,7 +5,6 @@
  * @package WordPress
  * @subpackage nathalie-motta
  */
-// echo ('footer.php');
 ?>
 	<footer id="footer">
 		<?php 

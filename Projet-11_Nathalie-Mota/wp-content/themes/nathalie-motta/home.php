@@ -1,7 +1,13 @@
 <?php
-  // page d’accueil du blog
+/**
+ * The Home : ACCUEIL BLOG
+ *
+ * @package WordPress
+ * @subpackage nathalie-motta theme
+ */
+
+
   get_header();
-  echo ('home.php');
 ?>
 
 <!-- Bien souvent la page d'accueil du blog affiche de la même manière les informations que les pages d’archives du blog  -->

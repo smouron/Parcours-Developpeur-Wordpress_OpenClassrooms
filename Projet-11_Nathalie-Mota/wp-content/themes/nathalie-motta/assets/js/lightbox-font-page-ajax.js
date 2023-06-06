@@ -1,43 +1,48 @@
 // Script pour la gestion de la Lightbox sur toutes les photos
 
 document.addEventListener("DOMContentLoaded", function () {
-  console.log("Script lightbox lancé !!!");
+  // console.log("Script lightbox lancé !!!");
 
   // Récupération du tableau de toutes les photos selon les filtres
   let total_posts = "";
-  if (document.getElementById("total_posts") !== null) {
-    total_posts = document.getElementById("total_posts").value;
-
-    // Supression du début "Array (" et de la fin ")" pour n'avoir que les données du tableau d'origine
-    total_posts = total_posts.slice(8, total_posts.length - 3);
-    // console.log(total_posts);
-  }
-
   let nb_total_posts = 1;
-  if (document.getElementById("nb_total_posts") !== null) {
-    nb_total_posts = document.getElementById("nb_total_posts").value;
-  }
-
   let posts_per_page = 1;
-  if (document.getElementById("posts_per_page") !== null) {
-    posts_per_page = document.getElementById("posts_per_page").value;
-  }
 
-  // Intialisation des données pour le filtrage
-  let regex1 = /[(]/g;
-  let regex2 = /[)]/g;
+  // Intialisation des données pour le filtrage des données dans total_post
+  const regex1 = /[(]/g;
+  const regex2 = /[)]/g;
+  let arrayIntial;
 
-  let arrayIntial = total_posts;
-  let arrayFinish = new Array();
-  let data = new Array();
-
-  recupArrayPhp();
+  recupData();
 
   let id = "";
   let idPhoto = null;
   let idPhotoNext = null;
   let idValue = 10;
   let arrow = "true";
+
+  function recupData() {
+    if (document.getElementById("total_posts") !== null) {
+      total_posts = document.getElementById("total_posts").value;
+
+      // Supression du début "Array (" et de la fin ")" pour n'avoir que les données du tableau d'origine
+      total_posts = total_posts.slice(8, total_posts.length - 3);
+    }
+
+    if (document.getElementById("nb_total_posts") !== null) {
+      nb_total_posts = document.getElementById("nb_total_posts").value;
+    }
+
+    if (document.getElementById("posts_per_page") !== null) {
+      posts_per_page = document.getElementById("posts_per_page").value;
+    }
+
+    arrayIntial = total_posts;
+    arrayFinish = new Array();
+    data = new Array();
+
+    recupArrayPhp();
+  }
 
   function recupArrayPhp() {
     // Récupérarion des données qui sont en texte et transfert dans un tableau javascript
@@ -74,8 +79,6 @@ document.addEventListener("DOMContentLoaded", function () {
     data = arrayFinish[arg].split("\n");
     let position = data[0].search("ID") + 7;
     idPhoto = data[0].slice(`${position}`);
-
-    console.log("Id Photo: " + idPhoto);
   }
 
   (function ($) {
@@ -87,18 +90,19 @@ document.addEventListener("DOMContentLoaded", function () {
         // console.log(e.currentTarget);
         // console.log(e.target.className);
 
+        recupData();
+
         // On recherche si c'est une class detail-photo
         if (e.target.className === "detail-photo") {
-          // Si on est bien sur un élément avec la class
-          // on récupère l'adresse email lié à cet élément pour ouvrir ce lien
-          // console.log(e.target.parentElement);
+          // Si on est bien sur un élément avec la class detail-photo
+          // on récupère l'adresse email liée à cet élément pour ouvrir ce lien
           window.location.href = e.target.parentElement.getAttribute("href");
         }
 
         // Et recherche si c'est une class openLightbox
         if (e.target.className === "openLightbox") {
           // Si c'est bien un élément avec la class openLightbox
-          // On récupère les élements complémentaires lier à cet élément
+          // On récupère les élements complémentaires lié à cet élément
           if (!$(e.target).data("arrow")) {
             arrow = $(e.target).data("arrow");
           }
@@ -111,9 +115,7 @@ document.addEventListener("DOMContentLoaded", function () {
             idPhoto = $(e.target).data("postid");
           }
           recupIdData(idPhoto);
-          console.log(
-            "Photo n° " + idValue + " de la liste - id Photo: " + idPhoto
-          );
+          // console.log("photo n° " + idValue + " de la liste - id Photo: " +  idPhoto);
 
           $(".lightbox").removeClass("hidden");
 
@@ -133,8 +135,8 @@ document.addEventListener("DOMContentLoaded", function () {
         } else {
           idValue = nb_total_posts - 1;
         }
-        console.log("id: " + idValue + " - Arrow: " + arrow);
         recupIdPhoto(idValue);
+        console.log("id: " + idValue + " - id Photo: " + idPhoto);
         $.changePhoto();
       });
 
@@ -148,8 +150,8 @@ document.addEventListener("DOMContentLoaded", function () {
         } else {
           idValue = 0;
         }
-        console.log("id: " + idValue + " - Arrow: " + arrow);
         recupIdPhoto(idValue);
+        console.log("id: " + idValue + " - id Photo: " + idPhoto);
         $.changePhoto();
       });
 
@@ -187,6 +189,7 @@ document.addEventListener("DOMContentLoaded", function () {
           data: {
             action: "nathalie_motta_lightbox",
             photo_id: idPhoto,
+            categorie_id: 49,
           },
           success: function (res) {
             // On a eu la réponse que c'est bon
@@ -195,8 +198,8 @@ document.addEventListener("DOMContentLoaded", function () {
             // On affiche les informations de la lightbox
             $(".lightbox__loader").addClass("hidden");
             $("#lightbox__container_content").removeClass("hidden");
-            // On affiche les flèches que si c'était demandé
-            if (arrow) {
+            // On affiche les flèches que si c'était demandé et que l'on a plus d'une photo
+            if (arrow && nb_total_posts > 1) {
               // Si on veut les fleches, on les affiche
               $(".lightbox__next").removeClass("hidden");
               $(".lightbox__prev").removeClass("hidden");

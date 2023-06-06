@@ -41,7 +41,7 @@
             "save_terms": 1,
             "load_terms": 0,
             "return_format": "object",
-            "field_type": "radio",
+            "field_type": "select",
             "allow_null": 0,
             "multiple": 0
         },
@@ -64,7 +64,7 @@
             "save_terms": 1,
             "load_terms": 0,
             "return_format": "object",
-            "field_type": "radio",
+            "field_type": "select",
             "allow_null": 0,
             "multiple": 0
         },
@@ -112,5 +112,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1684746719
+    "modified": 1686050220
 }

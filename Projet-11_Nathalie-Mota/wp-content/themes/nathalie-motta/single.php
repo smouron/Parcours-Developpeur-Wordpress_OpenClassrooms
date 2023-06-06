@@ -1,7 +1,12 @@
-<!-- Article de blog -->
 <?php
+/**
+ * The single : ATRICLE BLOG 
+ *
+ * @package WordPress
+ * @subpackage nathalie-motta theme
+ */
+
 	get_header();
-	echo ('single.php');
 ?>
 
 <div id="wrap">

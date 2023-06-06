@@ -1,6 +1,5 @@
 <?php
 	get_header();
-	// echo ('page.php');
 ?>
   <div id="wrap">
       <section id="content">

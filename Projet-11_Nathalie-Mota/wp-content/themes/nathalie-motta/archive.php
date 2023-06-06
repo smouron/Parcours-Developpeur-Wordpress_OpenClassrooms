@@ -10,8 +10,6 @@
  */
 
 get_header();
-
-echo ('archive.php')
 ?>
 
 
