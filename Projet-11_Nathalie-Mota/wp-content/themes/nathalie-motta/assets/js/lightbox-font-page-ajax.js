@@ -175,6 +175,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
       // Affichage de la photo et des informations demandées
       $.changePhoto = function () {
+        // Récupération de l'adresse de la page	pour pointer Ajax
+        let url =
+          window.location.protocol +
+          "//" +
+          window.location.host +
+          window.location.pathname +
+          "wp-admin/admin-ajax.php";
+        // console.log("url = " + url);
+
         // On affiche une image de chargement
         $(".lightbox__loader").removeClass("hidden");
         // On cache tout le reste en attendant le réponse
@@ -184,7 +193,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         $.ajax({
           type: "POST",
-          url: "/nathalie-motta/wp-admin/admin-ajax.php",
+          url: url,
           dataType: "html", // <-- Change dataType from 'html' to 'json'
           data: {
             action: "nathalie_motta_lightbox",

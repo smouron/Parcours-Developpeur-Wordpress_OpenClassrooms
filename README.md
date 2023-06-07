@@ -114,10 +114,6 @@ Ma mission pour ces prochains jours est de dynamiser le site internet du studio 
 
 KOUKAKI : https://koukaki.sanoecreation.fr/
 
----
-
-## Projets en attente de validation
-
 ### Projet 10 - Med.It
 
 Débuggez et tester un site WordPres d'outillage médical
@@ -129,6 +125,10 @@ Pour ce projet, je suis développeur WordPress en freelance. La PME MedIT, spéc
 #### Réalisation
 
 MED.IT : https://medit.sanoecreation.fr/
+
+---
+
+## Projets en attente de validation
 
 ---
 
@@ -146,11 +146,7 @@ Elle vient de perdre son site à la suite de la fermeture subite de la plateform
 
 #### Réalisation
 
-PHOTOGRAPHE EVENT :
-
----
-
-## Projets à faire
+PHOTOGRAPHE EVENT : https://www.sanoecreation.fr/OpenClassRooms/nathalie-motta/
 
 ### Projet 12 - Emoving
 
@@ -164,6 +160,10 @@ Vous faites partie d’une équipe composée d’un UX Designer, d’un graphist
 Chez Emoving, les employés ont plusieurs casquettes ; il vous revient de mener, préparer et planifier le projet. Vous devez évaluer le coût, le délai et la pertinence d'un développement sur base WordPress.
 
 #### Réalisation
+
+---
+
+## Projets à faire
 
 ### Projet 13 - Portfolio
 

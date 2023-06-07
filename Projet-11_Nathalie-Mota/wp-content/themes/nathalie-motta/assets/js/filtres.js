@@ -35,6 +35,15 @@ document.addEventListener("DOMContentLoaded", function () {
         // Empêcher l'envoi classique du formulaire
         e.preventDefault();
 
+        // Récupération de l'adresse de la page	pour pointer Ajax
+        let url =
+          window.location.protocol +
+          "//" +
+          window.location.host +
+          window.location.pathname +
+          "/wp-admin/admin-ajax.php";
+        // console.log("url = " + url);
+
         if (document.getElementById("max_pages") !== null) {
           max_pages = document.getElementById("max_pages").value;
         }
@@ -59,7 +68,7 @@ document.addEventListener("DOMContentLoaded", function () {
         // Génération du nouvel affichage
         $.ajax({
           type: "POST",
-          url: "/nathalie-motta/wp-admin/admin-ajax.php",
+          url: url,
           dataType: "html", // <-- Change dataType from 'html' to 'json'
           data: {
             action: "nathalie_motta_load",

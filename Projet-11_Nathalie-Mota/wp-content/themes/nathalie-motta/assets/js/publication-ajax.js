@@ -12,6 +12,20 @@ document.addEventListener("DOMContentLoaded", function () {
       $("#load-more").click(function (e) {
         e.preventDefault();
 
+        // Récupération de l'adresse de la page	pour pointer Ajax
+        let pathname = window.location.pathname;
+        let pathnamefinal = pathname.substring(
+          0,
+          pathname.lastIndexOf("/photo") + 1
+        );
+        let url =
+          window.location.protocol +
+          "//" +
+          window.location.host +
+          window.location.pathname +
+          "wp-admin/admin-ajax.php";
+        // console.log("url = " + url);
+
         if (document.getElementById("currentPage") !== null) {
           currentPage = document.getElementById("currentPage").value;
         }
@@ -34,7 +48,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         $.ajax({
           type: "POST",
-          url: "/nathalie-motta/wp-admin/admin-ajax.php",
+          url: url,
           dataType: "html", // <-- Change dataType from 'html' to 'json'
           data: {
             action: "nathalie_motta_load",
