@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", function () {
   let idPhoto = null;
   let idPhotoNext = null;
   let idValue = 10;
-  let arrow = "true";
+  let arrow = "";
 
   function recupArrayPhp() {
     // Récupérarion des données qui sont en texte et transfert dans un tableau javascript
@@ -78,44 +78,36 @@ document.addEventListener("DOMContentLoaded", function () {
   (function ($) {
     $(document).ready(function () {
       // Gestion de la pagination de la lightbox
-      $(".publication-list").click(function (e) {
+      $(".openLightbox").click(function (e) {
         e.preventDefault();
-        // Récupération des élements du DOM enfants
-        // console.log(e.currentTarget);
-        // console.log(e.target.className);
 
-        // On recherche si c'est une class detail-photo
-        if (e.target.className === "detail-photo") {
-          // Si on est bien sur un élément avec la class
-          // on récupère l'adresse email lié à cet élément pour ouvrir ce lien
-          window.location.href = e.target.parentElement.getAttribute("href");
+        // L'URL qui réceptionne les requêtes Ajax dans l'attribut "action" de <form>
+        const ajaxurl = $(this).data("ajaxurl");
+
+        // Récupération de la variable si on la reçoit
+        // si non initialisation par défaut à true
+
+        arrow = "true";
+        if (!$(this).data("arrow")) {
+          arrow = $(this).data("arrow");
         }
 
-        // Et recherche si c'est une class openLightbox
-        if (e.target.className === "openLightbox") {
-          // Si c'est bien un élément avec la class openLightbox
-          // On récupère les élements complémentaires lier à cet élément
-          if (!$(e.target).data("arrow")) {
-            arrow = $(e.target).data("arrow");
-          }
-
-          if (!$(e.target).data("postid")) {
-            console.log(
-              "Identifiant manquant. Récupération du premier de la liste"
-            );
-            recupIdPhoto(0);
-          } else {
-            idPhoto = $(e.target).data("postid");
-          }
-          recupIdData(idPhoto);
-          // console.log("photo n° " + idValue + " de la liste - id Photo: " +  idPhoto);
-
-          $(".lightbox").removeClass("hidden");
-
-          // On s'assure de le container est vide avant de chager le code
-          $("#lightbox__container_content").empty();
-          $.changePhoto();
+        if (!$(this).data("postid")) {
+          console.log(
+            "Identifiant manquant. Récupération du premier de la liste"
+          );
+          recupIdPhoto(0);
+        } else {
+          idPhoto = $(this).data("postid");
         }
+        recupIdData(idPhoto);
+        // console.log("photo n° " + idValue + " de la liste - id Photo: " +  idPhoto);
+
+        $(".lightbox").removeClass("hidden");
+
+        // On s'assure de le container est vide avant de chager le code
+        $("#lightbox__container_content").empty();
+        $.changePhoto();
       });
 
       // Affichage de la photo prédécente
@@ -143,8 +135,8 @@ document.addEventListener("DOMContentLoaded", function () {
         } else {
           idValue = 0;
         }
-        recupIdPhoto(idValue);
         console.log("id: " + idValue + " - id Photo: " + idPhoto);
+        recupIdPhoto(idValue);
         $.changePhoto();
       });
 
@@ -174,6 +166,7 @@ document.addEventListener("DOMContentLoaded", function () {
           0,
           pathname.lastIndexOf("/photo") + 1
         );
+
         let url =
           window.location.protocol +
           "//" +

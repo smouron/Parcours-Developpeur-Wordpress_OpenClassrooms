@@ -166,7 +166,7 @@ document.addEventListener("DOMContentLoaded", function () {
           0,
           pathname.lastIndexOf("/photo") + 1
         );
-        console.log("pathname = " + pathnamefinal);
+
         let url =
           window.location.protocol +
           "//" +

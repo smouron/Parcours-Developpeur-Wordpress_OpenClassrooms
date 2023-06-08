@@ -37,7 +37,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
         let max_pages = document.getElementById("max_pages").value;
 
-        currentPage++; // Do currentPage + 1, because we want to load the next page
+        // currentPage + 1, pour pouvoir charger la page suivante
+        currentPage++;
         document.getElementById("currentPage").value = currentPage;
 
         if (currentPage >= max_pages) {
@@ -60,6 +61,9 @@ document.addEventListener("DOMContentLoaded", function () {
           },
           success: function (res) {
             $(".publication-list").append(res);
+
+            // Mise à jour du n° de page affiché
+            document.getElementById("currentPage").value = currentPage;
           },
         });
       });

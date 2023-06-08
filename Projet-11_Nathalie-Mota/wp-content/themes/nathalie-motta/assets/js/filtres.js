@@ -1,5 +1,4 @@
 // Script pour gérer les filtres d'affichage en page d'accueil (front-page)
-// Variables récupérées
 //
 // console.log("Script filtres en ajax lancé !!!");
 
@@ -23,10 +22,18 @@ document.addEventListener("DOMContentLoaded", function () {
   let currentPage = 1;
   let max_pages = 1;
 
+  document.getElementById("currentPage").value = 1;
+
   // Gestion du déplacement des filtres horizontalement
   const swiper = new Swiper(".swiper-container", {
     freeMode: true,
     grabCursor: true,
+    breakpoints: {
+      1200: {
+        grabCursor: false,
+        allowTouchMove: false,
+      },
+    },
   });
 
   (function ($) {
@@ -101,6 +108,7 @@ document.addEventListener("DOMContentLoaded", function () {
               $(".publication-list").append(message);
             }
 
+            // Réinitialisation du n° de page affiché
             document.getElementById("currentPage").value = 1;
           },
         });
