@@ -21,18 +21,17 @@
 <div class="news-info brightness">
     <h2 class="info-title"><?php the_title(); ?></h2>
     <h3 class="info-tax"><?php echo $categorie; ?></h3>
-    <!-- <p class="info-tax"><?php the_terms( $post->ID, 'categorie-acf', '' ); ?></p> -->
-    <a href="<?php the_permalink() ?>" alt="<?php the_title(); ?>"><span class="detail-photo"></span></a>                            
+    <a href="<?php the_permalink() ?>" aria-label="Voir le détail de la photo <?php the_title(); ?>" alt="<?php the_title(); ?>" title="Voir le détail de la photo"><span class="detail-photo"></span></a>                            
     <?php the_post_thumbnail(); ?>
     <p><?php the_terms( $post->ID, 'categorie-acf', '' ); ?></p>
     <form>
         <input type="hidden" name="postid" class="postid" value="<?php the_id(); ?>">
-        <a class="openLightbox"
+        <input type="hidden" name="ajaxurl" id='ajaxurl' value=="<?php echo admin_url( 'admin-ajax.php' ); ?>">
+        <input type="hidden" name="nonce" id='nonce' value="<?php echo wp_create_nonce( 'nathalie_motta_nonce' ); ?>" > 
+                       
+        <a class="openLightbox" title="Afficher la photo en plein écran" alt="Afficher la photo en plein écran"
             data-postid="<?php echo get_the_id(); ?>"    
             data-arrow="true" 
-            data-nonce="<?php echo wp_create_nonce('nathalie_motta_lightbox'); ?>"
-            data-action="nathalie_motta_lightbox"
-            data-ajaxurl="<?php echo admin_url( 'admin-ajax.php' ); ?>"
         >
         </a>
     </form>

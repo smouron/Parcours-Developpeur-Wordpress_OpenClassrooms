@@ -12,11 +12,21 @@
 *  Génération de l'affichage des photos
 */ 
 function nathalie_motta_load() { 
-  // Récupération des données pour le filtre
-  $categorie_id = $_POST['categorie_id'];
-  $format_id = $_POST['format_id'];
-  $orderby = $_POST['orderby'];
-  $order = $_POST['order'];
+  // Vérification de sécurité
+  if( 
+		! isset( $_REQUEST['nonce'] ) or 
+       	! wp_verify_nonce( $_REQUEST['nonce'], 'nathalie_motta_nonce' ) 
+    ) {
+    	wp_send_json_error( "Vous n’avez pas l’autorisation d’effectuer cette action.", 403 );
+      exit;
+  	}
+
+  // Récupération des données pour le filtre et on les nettoie
+  // pour éviter toute injection SQL 
+  $categorie_id = sanitize_text_field($_POST['categorie_id']);
+  $format_id = sanitize_text_field($_POST['format_id']);
+  $orderby = sanitize_text_field($_POST['orderby']);
+  $order = sanitize_text_field($_POST['order']);
   $paged = intval($_POST['paged']);
 
   // Configuration du filtre
@@ -88,10 +98,18 @@ function nathalie_motta_load() {
 *  Récupération des données de de la photo pour la lightbox
 */ 
 function nathalie_motta_lightbox() {
+  if( 
+		! isset( $_REQUEST['nonce'] ) or 
+       	! wp_verify_nonce( $_REQUEST['nonce'], 'nathalie_motta_nonce' ) 
+    ) {
+    	wp_send_json_error( "Vous n’avez pas l’autorisation d’effectuer cette action.", 403 );
+      exit;
+  	}
 
   // On vérifie que l'identifiant a bien été envoyé
   if( ! isset( $_POST['photo_id'] ) ) {
     wp_send_json_error( "L'identifiant de la photo est manquant.", 403 );
+    exit;
   }
 
   // Récupération des données pour le filtre

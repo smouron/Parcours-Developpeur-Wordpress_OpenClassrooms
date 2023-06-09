@@ -1,4 +1,16 @@
-// Script pour la gestion de la Lightbox sur toutes les photos
+// Script pour la gestion de la Lightbox sur toutes les photos en dehors de la page d'accueil
+
+/**
+ * Variables récupérées / renvoyées
+ *
+ * nonce : jeton de sécurité
+ * ajaxurl : adresse URL de la fonction Ajax dans WP
+ *
+ * total_posts : tableau de toutes les données des photos correspondantes aux filtres
+ * nb_total_posts : nombres de photos à afficher
+ * photo_id : indentifiant de la photo à afficher
+ *
+ */
 
 document.addEventListener("DOMContentLoaded", function () {
   // console.log("Script lightbox lancé !!!");
@@ -17,11 +29,6 @@ document.addEventListener("DOMContentLoaded", function () {
     nb_total_posts = document.getElementById("nb_total_posts").value;
   }
 
-  let posts_per_page = 1;
-  if (document.getElementById("posts_per_page") !== null) {
-    posts_per_page = document.getElementById("posts_per_page").value;
-  }
-
   // Intialisation des données pour le filtrage
   let regex1 = /[(]/g;
   let regex2 = /[)]/g;
@@ -32,9 +39,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   recupArrayPhp();
 
-  let id = "";
   let idPhoto = null;
-  let idPhotoNext = null;
   let idValue = 10;
   let arrow = "";
 
@@ -105,7 +110,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         $(".lightbox").removeClass("hidden");
 
-        // On s'assure de le container est vide avant de chager le code
+        // On s'assure de le container est vide avant de charger le code
         $("#lightbox__container_content").empty();
         $.changePhoto();
       });
@@ -160,7 +165,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
       // Affichage de la photo et des informations demandées
       $.changePhoto = function () {
+        // Récupération du jeton de sécurité
+        const nonce = $("#nonce").val();
+
         // Récupération de l'adresse de la page	pour pointer Ajax
+        const ajaxurl = $("#ajaxurl").val();
+
         let pathname = window.location.pathname;
         let pathnamefinal = pathname.substring(
           0,
@@ -173,7 +183,6 @@ document.addEventListener("DOMContentLoaded", function () {
           window.location.host +
           pathnamefinal +
           "wp-admin/admin-ajax.php";
-        // console.log("url = " + url);
 
         // On affiche une image de chargement
         $(".lightbox__loader").removeClass("hidden");
@@ -188,18 +197,17 @@ document.addEventListener("DOMContentLoaded", function () {
           dataType: "html", // <-- Change dataType from 'html' to 'json'
           data: {
             action: "nathalie_motta_lightbox",
+            nonce: nonce,
             photo_id: idPhoto,
           },
           success: function (res) {
-            // On a eu la réponse que c'est bon
-            // On retire l'image de chargement
+            // On a eu la réponse que c'est bon donc on retire l'image de chargement
             $("#lightbox__container_content").empty().append(res);
             // On affiche les informations de la lightbox
             $(".lightbox__loader").addClass("hidden");
             $("#lightbox__container_content").removeClass("hidden");
             // On affiche les flèches que si c'était demandé
             if (arrow) {
-              // Si on veut les fleches, on les affiche
               $(".lightbox__next").removeClass("hidden");
               $(".lightbox__prev").removeClass("hidden");
             }
@@ -207,6 +215,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
       };
 
+      // On referme la lightbox au click sur la croix
       $.close = function () {
         $(".lightbox").addClass("hidden");
       };

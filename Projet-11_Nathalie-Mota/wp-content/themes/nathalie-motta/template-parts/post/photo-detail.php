@@ -74,7 +74,7 @@
             </div>                     
             <form>
                 <input type="hidden" name="postid" class="postid" value="<?php the_id(); ?>">
-                <button class="openLightbox"
+                <button class="openLightbox" title="Afficher la photo en plein écran" alt="Afficher la photo en plein écran"
                     data-postid="<?php echo get_the_id(); ?>"       
                     data-arrow="false"
                     data-nonce="<?php echo wp_create_nonce('nathalie_motta_lightbox'); ?>"

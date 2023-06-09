@@ -89,8 +89,8 @@
                         <div class="lightbox__loader hidden"></div>
                         <div class="lightbox__container_info flexcolumn" id="lightbox__container_info"> 
                             <div class="lightbox__container_content flexcolumn" id="lightbox__container_content"></div>   
-                            <button class="lightbox__next" title="Photo suivante"></button>
-                            <button class="lightbox__prev" title="Photo précédente"></button>                     
+                            <button class="lightbox__next" aria-label="Voir la photo suivante" title="Photo suivante"></button>
+                            <button class="lightbox__prev" aria-label="Voir la photo précente" title="Photo précédente"></button>                     
                         </div>
                     </div> 
                 </div>
@@ -110,12 +110,13 @@
             <!-- <h3>Articles suivants</h3> -->
             <!-- Variables qui vont pourvoir être récupérées par JavaScript -->
             <form>
-               <input type="hidden" name="categorie_id" id="categorie_id" value="<?php echo $categorie_id; ?>">
-                <input type="hidden" name="format_id" id="format_id" value="<?php echo $format_id; ?>">
                 <input type="hidden" name="orderby" id="orderby" value="<?php echo $orderby; ?>">
                 <input type="hidden" name="order" id="order" value="<?php echo $order; ?>">
                 <input type="hidden" name="posts_per_page" id="posts_per_page" value="<?php echo get_option( 'posts_per_page'); ?>">
                 <input type="hidden" name="currentPage" id="currentPage" value="<?php  echo $paged; ?>">
+                <input type="hidden" name="ajaxurl" id='ajaxurl' value=="<?php echo admin_url( 'admin-ajax.php' ); ?>">
+                <!-- c’est un jeton de sécurité, pour s’assurer que la requête provient bien de ce site, et pas d’un autre -->
+                <input type="hidden" name="nonce" id='nonce' value="<?php echo wp_create_nonce( 'nathalie_motta_nonce' ); ?>" > 
                 <!-- On cache le bouton s'il n'y a pas plus d'1 page -->
                 <?php if ($max_pages > 1): ?>
                     <button class="btn_load-more" id="load-more">Charger plus</button>

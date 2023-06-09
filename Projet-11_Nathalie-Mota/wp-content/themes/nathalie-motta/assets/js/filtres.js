@@ -2,10 +2,26 @@
 //
 // console.log("Script filtres en ajax lancé !!!");
 
+/**
+ * Variables récupérées / renvoyées
+ *
+ * nonce : jeton de sécurité
+ * ajaxurl : adresse URL de la fonction Ajax dans WP
+ * 
+ * categorie_id : n° de la catégorie demandée ou vide si on ne filtre pas par catégorie
+ * format_id : n° du format demandé ou vide si on ne filtre pas par format
+ * order : ordre de tri Croissant (ASC) ou Décroissant (DEC)
+ * orderby : actuellement on trie par la date mais on pourrait éventuellement avoir un autre critère 
+ * currentPage : page affichée au moment de l'utilisation du script
+ * max_pages : page maximum en fonction des filtres
+ * nb_total_posts : nombres de photos à afficher
+ * 
+ */
+
 document.addEventListener("DOMContentLoaded", function () {
   const message = "<p>Désolé. Aucun article ne correspond à cette demande.<p>";
 
-  // Initialisation des variables des filtres
+  // Initialisation des variables des filtres au premier affichage du site
   let categorie_id = "";
   if (document.getElementById("categorie_id")) {
     document.getElementById("categorie_id").value = "";
@@ -42,14 +58,23 @@ document.addEventListener("DOMContentLoaded", function () {
         // Empêcher l'envoi classique du formulaire
         e.preventDefault();
 
+        // Récupération du jeton de sécurité
+        const nonce = $("#nonce").val();
+
         // Récupération de l'adresse de la page	pour pointer Ajax
+        const ajaxurl = $("#ajaxurl").val();
+
+        let pathname = window.location.pathname;
+        let pathnamefinal = pathname.substring(
+          0,
+          pathname.lastIndexOf("/photo") + 1
+        );
         let url =
           window.location.protocol +
           "//" +
           window.location.host +
           window.location.pathname +
           "/wp-admin/admin-ajax.php";
-        // console.log("url = " + url);
 
         if (document.getElementById("max_pages") !== null) {
           max_pages = document.getElementById("max_pages").value;
@@ -79,6 +104,7 @@ document.addEventListener("DOMContentLoaded", function () {
           dataType: "html", // <-- Change dataType from 'html' to 'json'
           data: {
             action: "nathalie_motta_load",
+            nonce: nonce,
             paged: 1,
             categorie_id: categorie_id,
             format_id: format_id,
