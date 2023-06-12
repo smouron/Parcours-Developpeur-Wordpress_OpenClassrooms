@@ -191,18 +191,6 @@ document.addEventListener("DOMContentLoaded", function () {
         // Récupération de l'adresse de la page	pour pointer Ajax
         const ajaxurl = $("#ajaxurl").val();
 
-        let pathname = window.location.pathname;
-        let pathnamefinal = pathname.substring(
-          0,
-          pathname.lastIndexOf("/photo") + 1
-        );
-        let url =
-          window.location.protocol +
-          "//" +
-          window.location.host +
-          window.location.pathname +
-          "wp-admin/admin-ajax.php";
-
         // On affiche une image de chargement
         $(".lightbox__loader").removeClass("hidden");
         // On cache tout le reste en attendant le réponse
@@ -212,7 +200,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         $.ajax({
           type: "POST",
-          url: url,
+          url: ajaxurl,
           dataType: "html", // <-- Change dataType from 'html' to 'json'
           data: {
             action: "nathalie_motta_lightbox",

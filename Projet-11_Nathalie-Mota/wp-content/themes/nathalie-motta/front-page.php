@@ -114,7 +114,7 @@
                 <input type="hidden" name="order" id="order" value="<?php echo $order; ?>">
                 <input type="hidden" name="posts_per_page" id="posts_per_page" value="<?php echo get_option( 'posts_per_page'); ?>">
                 <input type="hidden" name="currentPage" id="currentPage" value="<?php  echo $paged; ?>">
-                <input type="hidden" name="ajaxurl" id='ajaxurl' value=="<?php echo admin_url( 'admin-ajax.php' ); ?>">
+                <input type="hidden" name="ajaxurl" id='ajaxurl' value="<?php echo admin_url( 'admin-ajax.php' ); ?>">
                 <!-- c’est un jeton de sécurité, pour s’assurer que la requête provient bien de ce site, et pas d’un autre -->
                 <input type="hidden" name="nonce" id='nonce' value="<?php echo wp_create_nonce( 'nathalie_motta_nonce' ); ?>" > 
                 <!-- On cache le bouton s'il n'y a pas plus d'1 page -->

@@ -26,8 +26,6 @@
     <p><?php the_terms( $post->ID, 'categorie-acf', '' ); ?></p>
     <form>
         <input type="hidden" name="postid" class="postid" value="<?php the_id(); ?>">
-        <input type="hidden" name="ajaxurl" id='ajaxurl' value=="<?php echo admin_url( 'admin-ajax.php' ); ?>">
-        <input type="hidden" name="nonce" id='nonce' value="<?php echo wp_create_nonce( 'nathalie_motta_nonce' ); ?>" > 
                        
         <a class="openLightbox" title="Afficher la photo en plein écran" alt="Afficher la photo en plein écran"
             data-postid="<?php echo get_the_id(); ?>"    

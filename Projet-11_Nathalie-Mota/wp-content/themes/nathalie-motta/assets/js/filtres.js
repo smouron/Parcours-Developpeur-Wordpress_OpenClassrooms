@@ -7,15 +7,15 @@
  *
  * nonce : jeton de sécurité
  * ajaxurl : adresse URL de la fonction Ajax dans WP
- * 
+ *
  * categorie_id : n° de la catégorie demandée ou vide si on ne filtre pas par catégorie
  * format_id : n° du format demandé ou vide si on ne filtre pas par format
  * order : ordre de tri Croissant (ASC) ou Décroissant (DEC)
- * orderby : actuellement on trie par la date mais on pourrait éventuellement avoir un autre critère 
+ * orderby : actuellement on trie par la date mais on pourrait éventuellement avoir un autre critère
  * currentPage : page affichée au moment de l'utilisation du script
  * max_pages : page maximum en fonction des filtres
  * nb_total_posts : nombres de photos à afficher
- * 
+ *
  */
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -64,18 +64,6 @@ document.addEventListener("DOMContentLoaded", function () {
         // Récupération de l'adresse de la page	pour pointer Ajax
         const ajaxurl = $("#ajaxurl").val();
 
-        let pathname = window.location.pathname;
-        let pathnamefinal = pathname.substring(
-          0,
-          pathname.lastIndexOf("/photo") + 1
-        );
-        let url =
-          window.location.protocol +
-          "//" +
-          window.location.host +
-          window.location.pathname +
-          "/wp-admin/admin-ajax.php";
-
         if (document.getElementById("max_pages") !== null) {
           max_pages = document.getElementById("max_pages").value;
         }
@@ -100,7 +88,7 @@ document.addEventListener("DOMContentLoaded", function () {
         // Génération du nouvel affichage
         $.ajax({
           type: "POST",
-          url: url,
+          url: ajaxurl,
           dataType: "html", // <-- Change dataType from 'html' to 'json'
           data: {
             action: "nathalie_motta_load",

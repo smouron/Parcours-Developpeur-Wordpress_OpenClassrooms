@@ -3,7 +3,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const contactBtn = document.querySelectorAll(".contact");
   const popupOverlay = document.querySelector(".popup-overlay");
-  const popupClose = document.querySelector(".popup-close");
 
   // Gestion de la pagination des photos
   (function ($) {
@@ -41,7 +40,9 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   // Refermeture de la pop contact au clic
-  popupClose.addEventListener("click", () => {
-    popupOverlay.classList.add("hidden");
+  popupOverlay.addEventListener("click", (e) => {
+    if (e.target.className == "popup-overlay") {
+      popupOverlay.classList.add("hidden");
+    }
   });
 });

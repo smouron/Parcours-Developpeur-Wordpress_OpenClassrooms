@@ -10,7 +10,7 @@
 
 <div class="popup-overlay hidden">
 	<div class="popup-contact">
-		<div class="popup-close" title="Refermer la demande de contact">
+		<div class="popup-title__container">
 			<!-- <img class="popup-close" src="<?php echo get_stylesheet_directory_uri() . '/assets/img/contact.png'?>" alt="Page contact">		 -->
 			<div class="popup-title"></div>
 			<div class="popup-title"></div>

@@ -66,7 +66,7 @@ if( have_posts() ) : while( have_posts() ) : the_post(); ?>
 				<?php 
 					get_template_part ( 'template-parts/post/photo-common');
 				 ?>
-			<button class="btn" type="button">
+			<button class="btn btn-all-photos" type="button">
 				<a href="http://127.0.0.1/nathalie-motta/">Toutes les photos</a>
 			</button>
 			</div>

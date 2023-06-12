@@ -105,7 +105,7 @@
    <input type="hidden" name="orderby" id="orderby" value="<?php echo $orderby; ?>">
    <input type="hidden" name="order" id="order" value="<?php echo $order; ?>">
    <input type="hidden" name="max_pages" id="max_pages" value="<?php echo $max_pages; ?>">
-   <input type="hidden" name="ajaxurl" id='ajaxurl' value=="<?php echo admin_url( 'admin-ajax.php' ); ?>">
+   <input type="hidden" name="ajaxurl" id='ajaxurl' value="<?php echo admin_url( 'admin-ajax.php' ); ?>">
   <!-- c’est un jeton de sécurité, pour s’assurer que la requête provient bien de ce site, et pas d’un autre -->
    <input type="hidden" name="nonce" id='nonce' value="<?php echo wp_create_nonce( 'nathalie_motta_nonce' ); ?>" > 
 </form>  

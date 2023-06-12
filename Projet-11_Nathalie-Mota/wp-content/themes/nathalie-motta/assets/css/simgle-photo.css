@@ -158,7 +158,7 @@
     margin: auto;
     width: 241px;
     padding: 6px;
-    transition: all 1s ease-in-out;
+    /* transition: all 1s ease-in-out; */
 }
 
 /*  **********************************  */

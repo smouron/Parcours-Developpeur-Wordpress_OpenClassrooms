@@ -10,7 +10,7 @@
 
 /**
 *  Génération de l'affichage des photos
-*/ 
+*/  
 function nathalie_motta_load() { 
   // Vérification de sécurité
   if( 
