@@ -126,14 +126,6 @@ Pour ce projet, je suis développeur WordPress en freelance. La PME MedIT, spéc
 
 MED.IT : https://medit.sanoecreation.fr/
 
----
-
-## Projets en attente de validation
-
----
-
-## Projets en cours
-
 ### Projet 11 - Nathalie Motta
 
 Créer un site WordPress complexe pour une photographe freelance
@@ -147,6 +139,14 @@ Elle vient de perdre son site à la suite de la fermeture subite de la plateform
 #### Réalisation
 
 PHOTOGRAPHE EVENT : https://www.sanoecreation.fr/OpenClassRooms/nathalie-motta/
+
+---
+
+## Projets en attente de validation
+
+---
+
+## Projets en cours
 
 ### Projet 12 - Emoving
 
