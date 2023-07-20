@@ -140,14 +140,6 @@ Elle vient de perdre son site à la suite de la fermeture subite de la plateform
 
 PHOTOGRAPHE EVENT : https://www.sanoecreation.fr/OpenClassRooms/nathalie-motta/
 
----
-
-## Projets en attente de validation
-
----
-
-## Projets en cours
-
 ### Projet 12 - Emoving
 
 Planifier le développement d'un site de vente de vélos électriques
@@ -161,9 +153,15 @@ Chez Emoving, les employés ont plusieurs casquettes ; il vous revient de mener,
 
 #### Réalisation
 
+EMOVING : https://www.sanoecreation.fr/OpenClassRooms/emoving/
+
 ---
 
-## Projets à faire
+## Projets en attente de validation
+
+---
+
+## Projets en cours
 
 ### Projet 13 - Portfolio
 
@@ -174,3 +172,7 @@ Créer et publier votre portfolio de développeur
 Pour pouvoir commencer à postuler à des offres d’emploi de développeurs, il vous faudra un portfolio à présenter à aux recruteurs. Dans ce projet, vous développerez votre propre site personnel pour gagner en visibilité et montrer vos projets et compétences au monde entier.
 
 #### Réalisation
+
+---
+
+## Projets à faire

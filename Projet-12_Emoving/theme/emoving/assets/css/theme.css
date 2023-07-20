@@ -1,0 +1,364 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+
+/* 
+* General
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+p {
+    font-family: 'Poppins', sans-serif; 
+}
+
+.relative {
+    position: relative;
+  }
+  
+.absolute {
+    position: absolute;
+}
+
+.top0 {
+    top: 0;
+}
+
+.top50 {
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.left0 {
+    left: 0;
+}
+
+.basket {
+    background: url("../images/cart-shopping-black.svg") center center / 100% 100% no-repeat;
+    width: 17px;
+    height: 17px;
+    /* text-indent : on cache le texte des boutons */
+    text-indent: -3000px;
+    cursor: pointer;
+    transition: all .3s ease-in-out;
+    margin: 0 10px;
+}
+
+.main-navigation .basket {
+    height: 100%;
+    transition: all .3s ease-in-out;    
+}
+
+.main-navigation .basket:hover {
+    background: url("../images/cart-shopping-green.svg") center center / 100% 100% no-repeat;
+    color: #19AF00;
+}
+
+.gt-lang-code  {
+    transition: all .3s ease-in-out;
+}
+
+.gt_float_wrapper .gt_float_switcher .gt_options a:hover
+.gt-lang-code:hover  {
+    color: #19AF00 !important;
+    background: transparent !important;
+}
+
+/* Ajustements page Woocommerce */
+.woocommerce div.product {
+    top: 50px;
+    max-width: 1440px;
+    margin: auto;
+}
+
+.woocommerce div.product .woocommerce-tabs {
+    padding-bottom: 100px;
+}
+
+
+.summary.entry-summary {
+    padding-top: 20px;
+}
+
+/* Gestion fond des flèches du slider 'Smart Silder' */
+div#n2-ss-2 #n2-ss-2-arrow-previous,
+div#n2-ss-2 #n2-ss-2-arrow-next {
+    background: transparent !important;
+}
+
+div#n2-ss-2 #n2-ss-2-arrow-previous:hover,
+div#n2-ss-2 #n2-ss-2-arrow-next:hover {
+    background: #ffffffaf !important;
+}
+
+
+/* 
+*
+*  ajustement CSS de l'extension Variation Swatches
+*
+ */
+
+
+.cart.variations_form .tawcvs-swatches .swatch-item-wrapper .swatch.swatch-shape-circle.swatch-type-image.swatch-image {
+    width: 200px !important;
+    height: 80px !important;
+    border-radius: 0 !important;
+    background-size: 50% !important;
+    background-repeat: no-repeat !important;
+    background-position-x: center;
+    background-position-y: center;
+}
+
+.woocommerce.single-product form.cart.variations_form .tawcvs-swatches .swatch-item-wrapper .swatch.swatch-shape-circle.swatch-color {
+    width: 38px;
+    height: 38px;
+}
+
+
+.cart.variations_form .tawcvs-swatches .swatch-item-wrapper .swatch.swatch-shape-circle.swatch-type-image.swatch-image {
+    border-radius: 5px !important;
+    border: 1px solid #4F4F4F;
+}
+
+.cart.variations_form .tawcvs-swatches .swatch-item-wrapper .swatch.swatch-shape-circle.swatch-type-image.swatch-image.selected {
+    border-radius: 5px !important;
+    border: 1px solid #19AF00;
+}
+
+
+.woocommerce.single-product form.cart.variations_form .tawcvs-swatches .swatch.swatch-shape-circle {
+    border: 1px solid #F2F2F2;
+}
+
+.woocommerce.single-product form.cart.variations_form .tawcvs-swatches .swatch.swatch-shape-circle.selected {
+    border: 1px solid #19AF00;
+}
+
+.woocommerce.single-product form.cart.variations_form .tawcvs-swatches .swatch.swatch-shape-circle::before {
+    border-radius: 0 !important;
+    border: 0px solid transparent;
+}
+
+.woocommerce.single-product form.cart.variations_form .tawcvs-swatches .swatch.swatch-shape-circle.swatch-image + .swatch__tooltip {
+    opacity: 1;
+    visibility: visible;
+    top: 150%;
+    background: transparent;
+    color:#333;
+}
+
+.woocommerce.single-product form.cart.variations_form .tawcvs-swatches .swatch.swatch-shape-circle.swatch-image.selected + .swatch__tooltip {
+    color: #19AF00;
+}
+
+.woocommerce.single-product form.cart.variations_form .tawcvs-swatches .swatch.swatch-shape-circle.swatch-image + .swatch__tooltip::after {
+    opacity: 0 !important;
+    visibility: hidden !important;    
+}
+
+/* 
+* SHORT CODE : menu de recherche 
+*/
+
+.store_search_form input {
+    width: 100%;
+    padding-right: 35px;
+}
+
+.store_search_form span {
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+}
+
+
+
+/*
+* SHORT CODE : liste des magasins
+*/
+
+.store_list_information,
+.shop_name,
+.shop_address {
+    cursor: pointer;
+}
+
+.store_list_information {
+    margin-bottom: 15px;
+}
+
+.store_list_information h3,
+.store_list_information p {
+    color:black;
+    font-family: 'Poppins', sans-serif; 
+    margin-bottom: 0;
+}
+
+.store_list_information h3 {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.store_list_information p {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+}
+
+.shop_open.open {
+    color: green;
+}
+
+.shop_open.close {
+    color: red;
+}
+
+.store_list_information .hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.leaflet-tile-container img {
+    /* filter: sepia(0.5); */
+    /* -webkit-filter: sepia(1); */
+    filter: grayscale(1);
+    -webkit-filter: grayscale(1);
+}
+
+/*
+ * Information magasin 
+ */
+
+ .shop_info {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 900;
+    background-color: rgba(0, 0, 0, 0.50);
+    color: #FFFFFF;
+    transition: all .3s ease-in-out;
+}
+
+
+.shop_info .popup-shop {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;  
+    max-width: 397px;    
+    width: 80%;
+    min-height: 535px;     
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #FFFFFF;    
+}
+
+.shop_info .popup-informations {
+    width: 200px;
+}
+
+.popup-shop__close {
+    background: url("../images/vector.svg") center center / 100% 100% no-repeat;
+    width: 17px;
+    height: 17px;
+    position: absolute;
+    /* text-indent : on cache le texte des boutons */
+    text-indent: -3000px;
+    cursor: pointer;
+    top: 25px;
+    right: 25px;
+    z-index: 12;
+}
+
+.popup-shop__close:hover {
+    background-color: transparent;
+}
+
+.shop_info .shop_info__container {
+    display: flex;
+    flex-direction: column;   
+    text-align: left;    
+    margin-bottom: 0 !important;
+}
+
+.shop_info .shop_info__container h2,
+.shop_info .shop_info__container h3,
+.shop_info .shop_info__container h4 {
+    color:#4700DF;
+    font-weight: 700;
+}
+
+.shop_info .shop_info__container h2 {
+    font-size: 24px;
+    margin-bottom: 10px !important;
+}
+
+.shop_info .shop_info__container h3 {
+    font-size: 34px;
+    margin-bottom: 20px !important;
+}
+
+.shop_info .shop_info__container p {
+    color: black;
+    margin-bottom: 0 !important;
+    font-size: 16px;
+}
+
+.shop_info .shop_info__container p.shop_open  {
+    color: red;
+    margin-bottom: 20px !important;
+}
+
+.shop_info .shop_info__container p.ouvert {
+    color: #19AF00;
+}
+
+.shop_info .shop_info__container button {
+    margin: 20px 0 40px;
+}
+
+.shop_info .shop_info__container .shop_phone {    
+    margin-bottom: 20px !important;
+}
+
+.shop_info .shop_info__container .shop_hours {   
+    font-size: 14px;
+}
+
+/* 
+* Map
+*/
+
+.entry-content .wp-block-columns {
+    padding-top: #19AF00;
+}
+
+.leaflet-tile-container img.leaflet-tile {
+    /* opacity: 0 !important; */
+}
+
+.leaflet-container {
+    /* background: url("../images/map_france3.png") center center / 100% 100% no-repeat !important; */
+}
+
+.leaflet-marker-pane .leaflet-marker-icon {
+    margin-left: -12px;
+    margin-top: -41px;
+    width: 25px;
+    height: 41px;
+}
+
+/*
+* CHAT
+*/
+
+.css-1g9ek8d {
+    background: url("../images/Chat.png") center center / 100% 100% no-repeat;
+}
