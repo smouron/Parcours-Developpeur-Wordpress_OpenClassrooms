@@ -1,0 +1,247 @@
+get_queried_object() ==> récupère la liste de tous les thermes affecté au n° de l'article
+
+get_the_id() ==> récupère l'id de l'article
+
+$term = get_queried_object();
+$term->name ==> récupère le nom de l'article
+
+Afficher la liste des terms
+	$test2 = get_terms('techno-acf');				
+	var_dump($test2);
+Afficher les terms 1 par 1 
+	foreach ($test2 as $data) {
+		echo('<br>term_id: ');
+		echo $data->term_id;
+		echo(' - name: ');
+		echo $data->name;
+		echo(' - slug: ');
+		echo $data->slug;
+		echo(' - taxonomy: ');
+		echo $data->taxonomy;
+		echo('<br>');
+	}
+
+
+Affiche les terms affectés à l'article  
+	$field = get_field('techno');
+   	// Recherche de la clé
+    	foreach($field as $data) {
+    	    echo('<br>term_id: ');
+    	    echo $data->term_id;
+    	    echo(' - name: ');
+    	    echo $data->name;
+    	    echo(' - slug: ');
+    	    echo $data->slug;
+    	    if ($data->slug === $variable) {
+    	        echo('  -  Valeur trouvée !!!');
+    	        $return = 1;
+    	    }
+	}    
+
+
+_________________________________________________________________________________________________
+Les données affectées à l'article
+
+C:\wamp64\www\WordPress\wp-content\themes\stephane-mouron\single.php:112:
+object(WP_Post)[15474]
+  public 'ID' => int 1663
+  public 'post_author' => string '1' (length=1)
+  public 'post_date' => string '2023-08-10 12:50:14' (length=19)
+  public 'post_date_gmt' => string '2023-08-10 10:50:14' (length=19)
+  public 'post_content' => string '<!-- wp:paragraph -->
+<p>Projet 4 - Créer un site complet avec WordPress sans utiliser de code.</p>
+<!-- /wp:paragraph -->' (length=123)
+  public 'post_title' => string 'Simpl Vintage' (length=13)
+  public 'post_excerpt' => string '' (length=0)
+  public 'post_status' => string 'publish' (length=7)
+  public 'comment_status' => string 'closed' (length=6)
+  public 'ping_status' => string 'closed' (length=6)
+  public 'post_password' => string '' (length=0)
+  public 'post_name' => string 'simpl-vintage' (length=13)
+  public 'to_ping' => string '' (length=0)
+  public 'pinged' => string '' (length=0)
+  public 'post_modified' => string '2023-08-11 08:59:09' (length=19)
+  public 'post_modified_gmt' => string '2023-08-11 06:59:09' (length=19)
+  public 'post_content_filtered' => string '' (length=0)
+  public 'post_parent' => int 0
+  public 'guid' => string 'http://127.0.0.1/WordPress/?post_type=formation-wordpress&#038;p=1663' (length=69)
+  public 'menu_order' => int 0
+  public 'post_type' => string 'formation-wordpress' (length=19)
+  public 'post_mime_type' => string '' (length=0)
+  public 'comment_count' => string '0' (length=1)
+  public 'filter' => string 'raw' (length=3)
+
+_________________________________________________________________________________________________
+Terms affecté à l'article
+
+array (size=4)
+  0 => 
+    object(WP_Term)[15007]
+      public 'term_id' => int 122
+      public 'name' => string 'CSS' (length=3)
+      public 'slug' => string 'css' (length=3)
+      public 'term_group' => int 0
+      public 'term_taxonomy_id' => int 122
+      public 'taxonomy' => string 'techno-acf' (length=10)
+      public 'description' => string '' (length=0)
+      public 'parent' => int 0
+      public 'count' => int 34
+      public 'filter' => string 'raw' (length=3)
+  1 => 
+    object(WP_Term)[15008]
+      public 'term_id' => int 117
+      public 'name' => string 'Html' (length=4)
+      public 'slug' => string 'html' (length=4)
+      public 'term_group' => int 0
+      public 'term_taxonomy_id' => int 117
+      public 'taxonomy' => string 'techno-acf' (length=10)
+      public 'description' => string '' (length=0)
+      public 'parent' => int 0
+      public 'count' => int 35
+      public 'filter' => string 'raw' (length=3)
+  2 => 
+    object(WP_Term)[15003]
+      public 'term_id' => int 120
+      public 'name' => string 'PHP' (length=3)
+      public 'slug' => string 'php' (length=3)
+      public 'term_group' => int 0
+      public 'term_taxonomy_id' => int 120
+      public 'taxonomy' => string 'techno-acf' (length=10)
+      public 'description' => string '' (length=0)
+      public 'parent' => int 0
+      public 'count' => int 18
+      public 'filter' => string 'raw' (length=3)
+  3 => 
+    object(WP_Term)[15002]
+      public 'term_id' => int 119
+      public 'name' => string 'WordPress' (length=9)
+      public 'slug' => string 'wordpress' (length=9)
+      public 'term_group' => int 0
+      public 'term_taxonomy_id' => int 119
+      public 'taxonomy' => string 'techno-acf' (length=10)
+      public 'description' => string '' (length=0)
+      public 'parent' => int 0
+      public 'count' => int 11
+      public 'filter' => string 'raw' (length=3)
+
+	=====================================
+
+term_id: 122 - name: CSS - slug: css
+term_id: 117 - name: Html - slug: html
+term_id: 120 - name: PHP - slug: php
+term_id: 119 - name: WordPress - slug: wordpress
+
+
+_________________________________________________________________________________________________
+
+Tous les terms ACF
+
+array (size=8)
+  0 => 
+    object(WP_Term)[14991]
+      public 'term_id' => int 122
+      public 'name' => string 'CSS' (length=3)
+      public 'slug' => string 'css' (length=3)
+      public 'term_group' => int 0
+      public 'term_taxonomy_id' => int 122
+      public 'taxonomy' => string 'techno-acf' (length=10)
+      public 'description' => string '' (length=0)
+      public 'parent' => int 0
+      public 'count' => int 34
+      public 'filter' => string 'raw' (length=3)
+  1 => 
+    object(WP_Term)[14992]
+      public 'term_id' => int 117
+      public 'name' => string 'Html' (length=4)
+      public 'slug' => string 'html' (length=4)
+      public 'term_group' => int 0
+      public 'term_taxonomy_id' => int 117
+      public 'taxonomy' => string 'techno-acf' (length=10)
+      public 'description' => string '' (length=0)
+      public 'parent' => int 0
+      public 'count' => int 35
+      public 'filter' => string 'raw' (length=3)
+  2 => 
+    object(WP_Term)[14993]
+      public 'term_id' => int 118
+      public 'name' => string 'JavaScript' (length=10)
+      public 'slug' => string 'javascript' (length=10)
+      public 'term_group' => int 0
+      public 'term_taxonomy_id' => int 118
+      public 'taxonomy' => string 'techno-acf' (length=10)
+      public 'description' => string '' (length=0)
+      public 'parent' => int 0
+      public 'count' => int 18
+      public 'filter' => string 'raw' (length=3)
+  3 => 
+    object(WP_Term)[14994]
+      public 'term_id' => int 121
+      public 'name' => string 'jQuery' (length=6)
+      public 'slug' => string 'jquery' (length=6)
+      public 'term_group' => int 0
+      public 'term_taxonomy_id' => int 121
+      public 'taxonomy' => string 'techno-acf' (length=10)
+      public 'description' => string '' (length=0)
+      public 'parent' => int 0
+      public 'count' => int 6
+      public 'filter' => string 'raw' (length=3)
+  4 => 
+    object(WP_Term)[14984]
+      public 'term_id' => int 120
+      public 'name' => string 'PHP' (length=3)
+      public 'slug' => string 'php' (length=3)
+      public 'term_group' => int 0
+      public 'term_taxonomy_id' => int 120
+      public 'taxonomy' => string 'techno-acf' (length=10)
+      public 'description' => string '' (length=0)
+      public 'parent' => int 0
+      public 'count' => int 18
+      public 'filter' => string 'raw' (length=3)
+  5 => 
+    object(WP_Term)[14983]
+      public 'term_id' => int 124
+      public 'name' => string 'Prestashop' (length=10)
+      public 'slug' => string 'prestashop' (length=10)
+      public 'term_group' => int 0
+      public 'term_taxonomy_id' => int 124
+      public 'taxonomy' => string 'techno-acf' (length=10)
+      public 'description' => string '' (length=0)
+      public 'parent' => int 0
+      public 'count' => int 1
+      public 'filter' => string 'raw' (length=3)
+  7 => 
+    object(WP_Term)[14981]
+      public 'term_id' => int 123
+      public 'name' => string 'Woo Commerce' (length=12)
+      public 'slug' => string 'woo-commerce' (length=12)
+      public 'term_group' => int 0
+      public 'term_taxonomy_id' => int 123
+      public 'taxonomy' => string 'techno-acf' (length=10)
+      public 'description' => string '' (length=0)
+      public 'parent' => int 0
+      public 'count' => int 4
+      public 'filter' => string 'raw' (length=3)
+  8 => 
+    object(WP_Term)[14980]
+      public 'term_id' => int 119
+      public 'name' => string 'WordPress' (length=9)
+      public 'slug' => string 'wordpress' (length=9)
+      public 'term_group' => int 0
+      public 'term_taxonomy_id' => int 119
+      public 'taxonomy' => string 'techno-acf' (length=10)
+      public 'description' => string '' (length=0)
+      public 'parent' => int 0
+      public 'count' => int 11
+      public 'filter' => string 'raw' (length=3)
+
+
+	=====================================
+
+term_id: 122 - name: CSS - slug: css - taxonomy: techno-acf
+term_id: 117 - name: Html - slug: html - taxonomy: techno-acf
+term_id: 118 - name: JavaScript - slug: javascript - taxonomy: techno-acf
+term_id: 121 - name: jQuery - slug: jquery - taxonomy: techno-acf
+term_id: 120 - name: PHP - slug: php - taxonomy: techno-acf
+term_id: 124 - name: Prestashop - slug: prestashop - taxonomy: techno-acf
+term_id: 123 - name: Woo Commerce - slug: woo-commerce - taxonomy: techno-acf
+term_id: 119 - name: WordPress - slug: wordpress - taxonomy: techno-acf

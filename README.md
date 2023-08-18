@@ -12,7 +12,7 @@ Démarrez votre formation de développeur WordPress
 
 Ce n'est pas du développement. Cela n'a pas été mis sur github
 
-### Projet 2 - Riding-Citites
+### Projet 2 - Riding-Cities
 
 Premiers pas sur le langage HTML
 
@@ -22,7 +22,8 @@ Pour ce projet, suivant les consignes de Romain (maître de stage et CTO), l’o
 
 #### Réalisation
 
-RIDING CITIES : https://www.sanoecreation.fr/OpenClassRooms/Riding-Citites/index.html
+RIDING CITIES : https://stephane-mouron.fr/riding-cities/
+
 
 ### Projet 3 - Booki
 
@@ -35,7 +36,8 @@ Je suis chargé d'intégrer l'interface du site avec du code HTML et CSS.
 
 #### Réalisation
 
-BOOKI : https://www.sanoecreation.fr/OpenClassRooms/Booki/index.html
+BOOKI : https://stephane-mouron.fr/booki/
+
 
 ### Projet 4 - Simpl-Vintage
 
@@ -48,9 +50,10 @@ On me demande de développer pour la marque de vêtement Simpl Vintage, un site 
 
 #### Réalisation
 
-SIMPL VINTAGE : https://www.sanoecreation.fr/OpenClassRooms/Simpl-Vintage/
+SIMPL VINTAGE : http://stephane-mouron.fr/simpl-vintage/
 
-### Projet 5 - The-Artbox-master
+
+### Projet 5 - The Artbox
 
 Premiers pas sur le langage PHP
 
@@ -62,7 +65,8 @@ Actuellement, il y a une page HTML par oeuvre. Soit 15 pages.
 
 #### Réalisation
 
-THE ARTBOX MASTER : https://www.sanoecreation.fr/OpenClassRooms/The-Artbox-master/index.php
+THE ARTBOX MASTER : https://stephane-mouron.fr/the-artbox/
+
 
 ### Projet 6 - Planty
 
@@ -74,7 +78,8 @@ Pour ce projet, je suis intégrateur WordPress dans une agence web, et je suis e
 
 #### Réalisation
 
-PLANTY : https://www.sanoecreation.fr/OpenClassRooms/Planty/index.php
+PLANTY : http://stephane-mouron.fr/planty/
+
 
 ### Projet 7
 
@@ -87,7 +92,8 @@ Je suis en charge d'optimiser le au mieux le site Chic Dressing.
 
 #### Réalisation
 
-CHIC DRESSING : http://chic-dressing.sanoecreation.fr/
+CHIC DRESSING : http://stephane-mouron.fr/chic-dressing/
+
 
 ### Projet 8 - Print-it-JS
 
@@ -100,6 +106,8 @@ Pour ce projet, je débute comme développeur front-end en freelance, et je vien
 #### Réalisation
 
 PRINT-IT-JS : https://smouron.github.io/Print-it-JS-main/
+et : https://stephane-mouron.fr/print-it/
+
 
 ### Projet 9 - Fleurs Chats errants / Koukaki
 
@@ -112,7 +120,7 @@ Ma mission pour ces prochains jours est de dynamiser le site internet du studio 
 
 #### Réalisation
 
-KOUKAKI : https://koukaki.sanoecreation.fr/
+KOUKAKI : https://stephane-mouron.fr/koukaki/
 
 ### Projet 10 - Med.It
 
@@ -124,9 +132,9 @@ Pour ce projet, je suis développeur WordPress en freelance. La PME MedIT, spéc
 
 #### Réalisation
 
-MED.IT : https://medit.sanoecreation.fr/
+MED.IT : https://stephane-mouron.fr/med-it/
 
-### Projet 11 - Nathalie Motta
+### Projet 11 - Nathalie Mota
 
 Créer un site WordPress complexe pour une photographe freelance
 
@@ -138,7 +146,7 @@ Elle vient de perdre son site à la suite de la fermeture subite de la plateform
 
 #### Réalisation
 
-PHOTOGRAPHE EVENT : https://www.sanoecreation.fr/OpenClassRooms/nathalie-motta/
+PHOTOGRAPHE EVENT : https://stephane-mouron.fr/nathalie-mota/
 
 ### Projet 12 - Emoving
 
@@ -153,7 +161,7 @@ Chez Emoving, les employés ont plusieurs casquettes ; il vous revient de mener,
 
 #### Réalisation
 
-EMOVING : https://www.sanoecreation.fr/OpenClassRooms/emoving/
+EMOVING : https://stephane-mouron.fr/emoving/
 
 ---
 
@@ -171,7 +179,16 @@ Créer et publier votre portfolio de développeur
 
 Pour pouvoir commencer à postuler à des offres d’emploi de développeurs, il vous faudra un portfolio à présenter à aux recruteurs. Dans ce projet, vous développerez votre propre site personnel pour gagner en visibilité et montrer vos projets et compétences au monde entier.
 
+#### Contraintes du projet
+
+    - Le site doit présenter mon profil de développeur (ma formation et mes compétences) ainsi qu’au moins 2 projets sur lesquels j'ai travaillé, durant cette formation ou ailleurs. Pour chaque projet, il faut au minimum le contexte et une description du projet ainsi qu’un lien vers le code ou le site.
+    - Les projets présentés sur le site, doivent pouvoir être ajoutés et modifiés depuis l’interface d’administration de WordPress.
+    - Ce site doit être créé à partir de WordPress en local, puis il doit ensuite être déployé sur le serveur en FTP de mon choix.
+    - Le site doit être accessible en ligne via internet et doit être responsive.
+
 #### Réalisation
+
+PORTFOLIO : https://portfolio.stephane-mouron.fr
 
 ---
 
