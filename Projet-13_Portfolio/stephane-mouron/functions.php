@@ -5,16 +5,23 @@
 add_action( 'wp_enqueue_scripts', 'theme_enqueue_styles' );
 function theme_enqueue_styles() {
     //  Chargement des styles
-    // wp_enqueue_style( 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css', '6.4.0' );
-    wp_enqueue_style( 'swiper-style', 'https://cdn.jsdelivr.net/npm/swiper@10.0.4/swiper-bundle.min.css');
+    // Script JS disponnibles chargé uniquement avec front_page 
+    if (is_front_page()) {
+        // wp_enqueue_style( 'swiper-style', 'https://cdn.jsdelivr.net/npm/swiper@10.0.4/swiper-bundle.min.css');
+        wp_enqueue_style( 'swiper-style', get_stylesheet_directory_uri() . '/assets/css/swiper-bundle.min.css', array(), '10.2.0' );
+    }
     wp_enqueue_style( 'parent-style', get_template_directory_uri() . '/style.css' );
     wp_enqueue_style( 'theme-style', get_stylesheet_directory_uri() . '/assets/css/theme.css', array(), filemtime(get_stylesheet_directory() . '/assets/css/theme.css') );
     wp_enqueue_style( 'media-query-style', get_stylesheet_directory_uri() . '/assets/css/media-query.css', array(), filemtime(get_stylesheet_directory() . '/assets/css/media-query.css') );
     wp_enqueue_style( 'animations-style', get_stylesheet_directory_uri() . '/assets/css/animations.css', array(), filemtime(get_stylesheet_directory() . '/assets/css/animations.css') );
 
     // Chargement des scripts 
-    wp_enqueue_script( 'swiper-element-bundle.min', 'https://cdn.jsdelivr.net/npm/swiper@10.0.4/swiper-bundle.min.js' );
-    // wp_enqueue_script( 'swiper-element-bundle.min', get_theme_file_uri( '/assets/js/swiper-bundle.min.js'), array(), '9.2.0', true );
+
+    // Script JS disponnibles chargé uniquement avec front_page 
+    if (is_front_page()) {
+        // wp_enqueue_script( 'swiper-element-bundle.min', 'https://cdn.jsdelivr.net/npm/swiper@10.0.4/swiper-bundle.min.js' );
+       wp_enqueue_script( 'swiper-element-bundle.min', get_theme_file_uri( '/assets/js/swiper-bundle.js'), array(), '10.2.0', true );
+    }
 
     // Enqueue Custom Scripts
     wp_enqueue_script( 'custom-scripts', get_theme_file_uri( '/assets/js/scripts.js' ), array('jquery'), filemtime(get_stylesheet_directory() . '/assets/js/scripts.js'), true );
@@ -299,7 +306,8 @@ function mouron_portfolio_post($items) {
                 } 
             }
         }
-        $string .= '</p>';                    
+        $string .= '</p>';   
+        $string .= '<div class="container__article_info">';                 
         $string .= '<h3 class="title">' . get_the_title() . '</h3>';
         $string .= '<p>Le ' . $post_date . '</p>';
         $string .= '<h4>Objectif de cette réalisation</h4>';        
@@ -309,6 +317,8 @@ function mouron_portfolio_post($items) {
 
         $string .= '<div class="btn_more flexrow">';        
         $string .= '<a class="button center article_link" href="'. get_the_permalink() .'">Lire la suite</a>';
+        $string .= '</div>';
+        
         $string .= '</div>';
         
         $string .= '</a>';  

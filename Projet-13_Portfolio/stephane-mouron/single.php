@@ -69,7 +69,7 @@
 					$imageMaquette = get_field('maquette');
 					// !empty($imageMaquette) && !$imageMaquette =="" && !empty($urlMaquette) && !$urlMaquette =="" )
 					if (!empty($urlMaquette) && !$urlMaquette =="" ) {
-						echo ('<a class="link_figma" href="'. $urlMaquette .'" target="_blank"><i class="fa-brands fa-figma"></i> Lien vers la maquette Figma</a>');
+						// echo ('<a class="link_figma" href="'. $urlMaquette .'" target="_blank"><i class="fa-brands fa-figma"></i> Lien vers la maquette Figma</a>');
 					}
 					if (!empty($imageMaquette) && !$imageMaquette =="" ) {
 						echo('<a class="link_maquette" href="#imageMaquette"><img src="'. $imageMaquette .'" alt="maquette de '. get_the_title() .'" title="maquette de '. get_the_title() .'"></a>');
@@ -95,7 +95,7 @@
 				<?php				
 				$imageWebsite = get_field('image_sup_2');				
 				$urlWebsite = get_field('project_link');
-				echo('<a class="link_website" href="'. $urlWebsite .'" target="_blank"></i> Lien vers le site en ligne</a>');
+				// echo('<a class="link_website" href="'. $urlWebsite .'" target="_blank"></i> Lien vers le site en ligne</a>');
 				echo('<a href="#imageWebsite"><img src="'. $imageWebsite .'" alt="Le site final" title="Le site final"></a>');
 				echo('<div class="modal" id="imageWebsite">');
 				echo('<a title="Description" href="#ferme">');

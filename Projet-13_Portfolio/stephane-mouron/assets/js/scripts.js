@@ -3,28 +3,55 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Initialisation des variables
   const allPost = document.querySelectorAll(".article_details");
-  // console.log(listFilter);
+  const allFilter = document.querySelectorAll(".list_filter");
+  let word = "null";
   let searchWord = "null";
   let pas = 0;
   let className = "";
   let innerText = "";
   let therme = 0;
 
-  // Gestion des filtres de la page de la iste des réalisations
-  if (document.querySelector("#list_filter") !== null) {
-    const listFilter = document.querySelector("#list_filter");
-    // Gestion des filtres de la liste des réalisations
-    listFilter.addEventListener("click", (e) => {
-      // console.log(e);
+  // Gestion des filtres de la page de la liste des réalisations
+  // au click sur un des boutons des filtres
+  allFilter.forEach((filter) => {
+    // console.log(allFilter.NodeList[0]);
+    filter.addEventListener("click", (e) => {
       // mot sélectionné
-      searchWord = e.target.textContent.toLowerCase();
+      word = e.target.textContent.toLowerCase();
       console.log(searchWord);
-      if (searchWord == "tout") {
+      if (word == "tout") {
         searchWord = "css";
+      } else {
+        searchWord = word;
       }
+      desactiveBtn();
       research();
     });
-  }
+  });
+
+  const desactiveBtn = () => {
+    // Désactivation de tous les filtres
+    // et activation de celui qui a été cliqué
+
+    // allFilter.length = nombre de lignes filtre
+    // allFilter[0].children.length = nombre de filtre dans la ligne 0
+    for (let pas = 0; pas < allFilter.length; pas++) {
+      for (
+        let numfilter = 0;
+        numfilter < allFilter[pas].children.length;
+        numfilter++
+      ) {
+        // outerText : texte présent dans la balise <li>
+        if (
+          allFilter[pas].children[numfilter].outerText.toLowerCase() == word
+        ) {
+          allFilter[pas].children[numfilter].classList.add("active");
+        } else {
+          allFilter[pas].children[numfilter].classList.remove("active");
+        }
+      }
+    }
+  };
 
   const research = () => {
     // recherche le nombre de Post détecté
@@ -79,28 +106,30 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   };
 
-  // Initialize et configuration de Swiper
-  var swiper = new Swiper(".mySwiper", {
-    loop: true,
-    spaceBetween: 10,
-    slidesPerView: 3,
-    grabCursor: true,
-    centeredSlides: true,
-    effect: "fade",
-    autoplay: {
-      delay: 8000,
-      disableOnInteraction: false,
-    },
-    pagination: {
-      el: ".swiper-pagination",
-      clickable: true,
-      renderBullet: function (index, className) {
-        return '<span class="' + className + '">' + (index + 1) + "</span>";
+  if (document.querySelector(".mySwiper")) {
+    // Initialize et configuration de Swiper
+    var swiper = new Swiper(".mySwiper", {
+      loop: true,
+      spaceBetween: 10,
+      slidesPerView: 3,
+      grabCursor: true,
+      centeredSlides: true,
+      effect: "fade",
+      autoplay: {
+        delay: 8000,
+        disableOnInteraction: false,
       },
-    },
-    navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
-    },
-  });
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+        renderBullet: function (index, className) {
+          return '<span class="' + className + '">' + (index + 1) + "</span>";
+        },
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+    });
+  }
 });

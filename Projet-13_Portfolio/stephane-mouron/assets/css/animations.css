@@ -1,6 +1,3 @@
-@import url(https://fonts.googleapis.com/css?family=Finger+Paint);
-@import url(https://fonts.googleapis.com/css?family=Montserrat);
-
 :root {
   --main-color: #E8E8FFE0;
   --point-color1: #1437C4; 
@@ -24,56 +21,40 @@
     margin: 0 auto;
 }
 
-/* Effet partir en fumé */
-#test_html1 span {
-    font-size: 4rem;
-    color: rgb(22, 41, 212);
-    display: inline-block;
-	text-shadow: 0 0 0 whitesmoke;
-	animation: smoky 5s 3s both;
+/* Effet d'un point qui défille sur le séparateur du Header */
+header#masthead.site-header::after {
+  content: '';
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  bottom: -8px;
+  z-index: 99;
+  background: #f1f2f680;
+  animation: moving 6s infinite linear;
+  animation-direction: alternate;
 }
 
-#test_html1 span:nth-child(even) {
-	animation-name: smoky-mirror;
-}
-
-@keyframes smoky {
-	60% {
-		text-shadow: 0 0 40px whitesmoke;
-	}
-	to {
-		transform: translate3d(15rem, -8rem, 0) rotate(-40deg) skewX(70deg) scale(1.5);
-		text-shadow: 0 0 20px whitesmoke;
-		opacity: 0;
-	}
-}
-
-@keyframes smoky-mirror {
-	60% {
-		text-shadow: 0 0 40px whitesmoke;
-	}
-	to {
-		transform: translate3d(18rem, -8rem, 0) rotate(-40deg) skewX(-70deg) scale(2);
-		text-shadow: 0 0 20px whitesmoke;
-		opacity: 0;
-	}
-}
-
-@for $item from 1 through 21 {
-	span:nth-of-type(#{$item}) {
-		animation-delay: #{(3 + ($item/10))}s;
-	}
+@keyframes moving {
+  0% {
+    opacity: 0.13;
+    left: 2%;
+  }
+  10% {
+    opacity: 1;
+    left: 10%;
+  }
+  90% {
+    opacity: 1;
+    left: 90%;
+  }
+  100% {
+    opacity: 0.13;
+    left: 100%;
+  }
 }
 
 
 /* Animation Titre */
-#title_anim {
-    font-size: 3rem;
-    font:bold 4.0vw/1.2 'Rubik', sans-serif;
-    user-select:none;
-    z-index: 120;
-    position: relative;
-   }
    
 #title_anim span { 
     display:inline-block; 
