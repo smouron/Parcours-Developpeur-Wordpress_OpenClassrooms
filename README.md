@@ -24,7 +24,6 @@ Pour ce projet, suivant les consignes de Romain (maître de stage et CTO), l’o
 
 RIDING CITIES : https://stephane-mouron.fr/riding-cities/
 
-
 ### Projet 3 - Booki
 
 Créez la page d'accueil d'une agence de voyage avec HTML & CSS
@@ -38,7 +37,6 @@ Je suis chargé d'intégrer l'interface du site avec du code HTML et CSS.
 
 BOOKI : https://stephane-mouron.fr/booki/
 
-
 ### Projet 4 - Simpl-Vintage
 
 Créer un site complet avec WordPress sans utiliser de code
@@ -51,7 +49,6 @@ On me demande de développer pour la marque de vêtement Simpl Vintage, un site 
 #### Réalisation
 
 SIMPL VINTAGE : http://stephane-mouron.fr/simpl-vintage/
-
 
 ### Projet 5 - The Artbox
 
@@ -67,7 +64,6 @@ Actuellement, il y a une page HTML par oeuvre. Soit 15 pages.
 
 THE ARTBOX MASTER : https://stephane-mouron.fr/the-artbox/
 
-
 ### Projet 6 - Planty
 
 Personnaliser une thème WordPress pour une startup avec HTML, CSS et Php
@@ -79,7 +75,6 @@ Pour ce projet, je suis intégrateur WordPress dans une agence web, et je suis e
 #### Réalisation
 
 PLANTY : http://stephane-mouron.fr/planty/
-
 
 ### Projet 7
 
@@ -94,7 +89,6 @@ Je suis en charge d'optimiser le au mieux le site Chic Dressing.
 
 CHIC DRESSING : http://stephane-mouron.fr/chic-dressing/
 
-
 ### Projet 8 - Print-it-JS
 
 Premiers pas sur le langage JavaScipt
@@ -107,7 +101,6 @@ Pour ce projet, je débute comme développeur front-end en freelance, et je vien
 
 PRINT-IT-JS : https://smouron.github.io/Print-it-JS-main/
 et : https://stephane-mouron.fr/print-it/
-
 
 ### Projet 9 - Fleurs Chats errants / Koukaki
 
@@ -167,10 +160,6 @@ EMOVING : https://stephane-mouron.fr/emoving/
 
 ## Projets en attente de validation
 
----
-
-## Projets en cours
-
 ### Projet 13 - Portfolio
 
 Créer et publier votre portfolio de développeur
@@ -189,6 +178,10 @@ Pour pouvoir commencer à postuler à des offres d’emploi de développeurs, il
 #### Réalisation
 
 PORTFOLIO : https://portfolio.stephane-mouron.fr
+
+---
+
+## Projets en cours
 
 ---
 
