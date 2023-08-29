@@ -42,7 +42,7 @@ add_theme_support( 'title-tag' );
 
  /**
  * 
- * Shortcode pour générer un slider à partir d'articles
+ * Shortcode pour générer un slider à partir d'articles sélectionnés
  * 
  * type = type d'articles que l'on souhaite avoir
  *    Les 3 types de post possible : post / formation-wordpress / exercice
@@ -188,7 +188,8 @@ add_shortcode('slider_post', 'mouron_slider_post');
 
  /**
  * 
- * Shortcode pour générer la liste des articles à afficher
+ * Shortcode pour générer la liste des articles à afficher 
+ * sur la page qui affiche toutes les réalisations
  * 
  * type = type d'articles que l'on souhaite avoir
  *    Les 3 types de post possible : post / formation-wordpress / exercice

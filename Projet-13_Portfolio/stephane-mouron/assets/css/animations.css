@@ -189,10 +189,12 @@ z-index: 120;
 }
 
 /* EFFET DE PULSATION SUR LES FLECHES DU SLIDER  */
+.swiper-button-next::after,
 .nextend-arrow.nextend-arrow-next{
   animation: arrow-pulse 2.3s infinite;
 }
 
+.swiper-button-prev::after,
 .nextend-arrow.nextend-arrow-previous {
   animation: arrow-pulse 2.0s infinite;
   animation-delay: 1s;
@@ -224,18 +226,14 @@ z-index: 120;
   
 /* Texte qui apparait */
 h1 {
-  animation: donw-opacity 2.8s ease-out;
+  animation: donw-opacity 1.0s ease-out;
 }
 
 @keyframes donw-opacity {
   0% {
     opacity: 0;
-    transform: translateY(-400px);
+    transform: translateY(-300px);
   }
-
-  70%  {
-      opacity: 0;
-    } 
 
   90%  {
     opacity: 0.8;

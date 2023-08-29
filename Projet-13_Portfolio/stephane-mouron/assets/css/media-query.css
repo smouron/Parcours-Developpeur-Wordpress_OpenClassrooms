@@ -296,6 +296,7 @@
         padding: 30px 20px !important;
     }  
 
+    .btn_more a,
     .wp-element-button {    
         letter-spacing : 1px !important;
     }
@@ -372,20 +373,25 @@
         margin: 5px 10px;
     }
 
-    .swiper.mySwiper {
-        /* padding-bottom: 50px; */
-    }
-
     .swiper-pagination {
         /* height: 63px; */
         display: flex;
     }
 
+    .n2-ss-slider-controls .nextend-arrow-next,
+    .n2-ss-slider-controls .nextend-arrow-previous,
     .swiper-button-next,
     .swiper-button-prev {
-        opacity: 0;
+        opacity: 0 !important;
         height: 0;
-        width: 0;        
+        width: 0; 
+    }
+
+    .swiper-button-next::after,
+    .nextend-arrow.nextend-arrow-next,
+    .swiper-button-prev::after,
+    .nextend-arrow.nextend-arrow-previous {
+        animation: none;
     }
 
     .swiper-pagination-bullet { 
@@ -407,6 +413,11 @@
         min-width: 100%;
     }
 
+    .container_article .button {
+        padding: 8px 12px;
+    }
+    
+    .btn_more a,
     .wp-element-button {    
         letter-spacing : 0px !important;
     }
