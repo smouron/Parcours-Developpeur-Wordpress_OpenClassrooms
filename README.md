@@ -156,10 +156,6 @@ Chez Emoving, les employés ont plusieurs casquettes ; il vous revient de mener,
 
 EMOVING : https://stephane-mouron.fr/emoving/
 
----
-
-## Projets en attente de validation
-
 ### Projet 13 - Portfolio
 
 Créer et publier votre portfolio de développeur
@@ -178,6 +174,10 @@ Pour pouvoir commencer à postuler à des offres d’emploi de développeurs, il
 #### Réalisation
 
 PORTFOLIO : https://portfolio.stephane-mouron.fr
+
+---
+
+## Projets en attente de validation
 
 ---
 
