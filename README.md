@@ -1,4 +1,4 @@
-![Portfolio final](/Projet-13_Portfolio/monitor-g9ceeb1f8d_640.png)
+![Planning sur Trello](/images/trello.png)
 
 # Parcours-Developpeur-Wordpress_OpenClassrooms
 
@@ -14,6 +14,8 @@ Ce n'est pas du développement. Cela n'a pas été mis sur github
 
 ### Projet 2 - Riding-Cities
 
+![Riding-Cities](/Projet-2_Riding-Citites/monitor-g9ceeb1f8d_640.png)
+
 Premiers pas sur le langage HTML
 
 #### Objectifs
@@ -25,6 +27,8 @@ Pour ce projet, suivant les consignes de Romain (maître de stage et CTO), l’o
 RIDING CITIES : https://stephane-mouron.fr/riding-cities/
 
 ### Projet 3 - Booki
+
+![Booki](/Projet-3_Booki/monitor-g9ceeb1f8d_640.png)
 
 Créez la page d'accueil d'une agence de voyage avec HTML & CSS
 
@@ -39,6 +43,8 @@ BOOKI : https://stephane-mouron.fr/booki/
 
 ### Projet 4 - Simpl-Vintage
 
+![The Artbox](/Projet-4_Simpl-Vintage/monitor-g9ceeb1f8d_640.png)
+
 Créer un site complet avec WordPress sans utiliser de code
 
 #### Objectifs
@@ -51,6 +57,8 @@ On me demande de développer pour la marque de vêtement Simpl Vintage, un site 
 SIMPL VINTAGE : http://stephane-mouron.fr/simpl-vintage/
 
 ### Projet 5 - The Artbox
+
+![The Artbox](/Projet-5_The-Artbox-master/monitor-g9ceeb1f8d_640.png)
 
 Premiers pas sur le langage PHP
 
@@ -66,6 +74,8 @@ THE ARTBOX MASTER : https://stephane-mouron.fr/the-artbox/
 
 ### Projet 6 - Planty
 
+![Planty](/Projet-6_Planty/monitor-g9ceeb1f8d_640.png)
+
 Personnaliser une thème WordPress pour une startup avec HTML, CSS et Php
 
 #### Objectifs
@@ -76,7 +86,9 @@ Pour ce projet, je suis intégrateur WordPress dans une agence web, et je suis e
 
 PLANTY : http://stephane-mouron.fr/planty/
 
-### Projet 7
+### Projet 7 - Chic-Dressing
+
+![Print-it JS](/Projet-7_Chic-Dressing/monitor-g9ceeb1f8d_640.png)
 
 Chic-Dressing - Optimiser un site WordPress existant pour une marque de vêtements
 
@@ -91,6 +103,8 @@ CHIC DRESSING : http://stephane-mouron.fr/chic-dressing/
 
 ### Projet 8 - Print-it-JS
 
+![Print-it JS](/Projet-8_Print-it-JS/computer_print_it.png)
+
 Premiers pas sur le langage JavaScipt
 
 #### Objectifs
@@ -103,6 +117,8 @@ PRINT-IT-JS : https://smouron.github.io/Print-it-JS-main/
 et : https://stephane-mouron.fr/print-it/
 
 ### Projet 9 - Fleurs Chats errants / Koukaki
+
+![Koukaki](/Projet-9_Koukaki/monitor-g9ceeb1f8d_640.png)
 
 Améliorer le site d'un studio d'animation avec JavaScript et des animations CSS
 
@@ -117,6 +133,8 @@ KOUKAKI : https://stephane-mouron.fr/koukaki/
 
 ### Projet 10 - Med.It
 
+![Med.It](/Projet-10_Med.It/monitor-g9ceeb1f8d_640.png)
+
 Débuggez et tester un site WordPres d'outillage médical
 
 #### Objectifs
@@ -128,6 +146,8 @@ Pour ce projet, je suis développeur WordPress en freelance. La PME MedIT, spéc
 MED.IT : https://stephane-mouron.fr/med-it/
 
 ### Projet 11 - Nathalie Mota
+
+![Nathalie Mota](/Projet-11_Nathalie-Mota/monitor-g9ceeb1f8d_640.png)
 
 Créer un site WordPress complexe pour une photographe freelance
 
@@ -143,6 +163,8 @@ PHOTOGRAPHE EVENT : https://stephane-mouron.fr/nathalie-mota/
 
 ### Projet 12 - Emoving
 
+![Emoving](/Projet-12_Emoving/computer_emoving.png)
+
 Planifier le développement d'un site de vente de vélos électriques
 
 #### Objectifs
@@ -157,6 +179,8 @@ Chez Emoving, les employés ont plusieurs casquettes ; il vous revient de mener,
 EMOVING : https://stephane-mouron.fr/emoving/
 
 ### Projet 13 - Portfolio
+
+![Portfolio final](/Projet-13_Portfolio/monitor-g9ceeb1f8d_640.png)
 
 Créer et publier votre portfolio de développeur
 
