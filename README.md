@@ -224,6 +224,8 @@ Pour pouvoir commencer à postuler à des offres d’emploi de développeurs, il
 
 PORTFOLIO : ["Portfolio" final avec WordPress en ligne](https://portfolio.stephane-mouron.fr)
 
+<hr />
+
 ---
 
 ## Projets en attente de validation
