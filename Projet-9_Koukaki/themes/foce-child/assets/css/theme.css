@@ -11,6 +11,10 @@
   position: relative;
 }
 
+main {
+  overflow: hidden;
+}
+
 
 /* ************** */
 /*   Navigation   */
@@ -48,7 +52,7 @@
   transition: all .3s ease-in-out;
 }
 
-
+/* ---- AJOUT 7 ----  */
 /* Création du bouton pour fermer */
 .modal__burger.close .line:nth-child(2) {
   opacity: 0;
@@ -113,6 +117,7 @@
   -moz-filter: drop-shadow(0px 0px 5px #ff5c00);
 }
 
+/* ---- AJOUT 10 ----  */
 .modal__content--footer {
   position: absolute;
   left: 50%;
@@ -134,6 +139,7 @@
 	}
 }
 
+/* ---- AJOUT 8 ----  */
 /* *************** */
 /*   CAT - MODAL   */
 /* *************** */
@@ -175,6 +181,7 @@
   }
 }
 
+/* ---- AJOUT 9 ----  */
 /* ****************** */
 /*   FLOWER - MODAL   */
 /* ****************** */
@@ -243,6 +250,8 @@
   z-index: -2;
   opacity: 1;
   left: auto !important;
+  max-width: 100%;
+  overflow: hidden;  
 }
 
 .banner__video {  
@@ -268,10 +277,12 @@
   animation: move-up 2s 300ms both, float 6s 2s infinite ease-in-out;  
 }
 
+/* ---- AJOUT 5 ----  */
 .mouve-up {
   animation: move-up 2s 300ms both;  
 }
 
+/* ---- AJOUT 1 ----  */
 /* Pour faire apparaitre les éléments en descendant et avec agmentatation de l'opacité */
 @keyframes move-down {
   0% {
@@ -295,7 +306,7 @@
   }
 }
 
-
+/* ---- AJOUT 2 ----  */
 /* Pour faire flotter les éléments */
 @keyframes float {
   0% {
@@ -342,7 +353,8 @@
 @media all and (max-width: 700px) {
   .banner  {
     min-height: 600px !important;
-    height: 600px !important;
+    height: auto !important;
+    width: 100vw
   }
 
   .banner .banner__video {
@@ -365,7 +377,7 @@
 @media all and (max-width: 580px) {
   .banner  {
     min-height: 400px !important;
-    height: 400px !important;
+    /* height: 400px !important; */
   }
 
   .banner .banner__video {
@@ -415,6 +427,7 @@
 	height: 188px;
 }
 
+/* ---- AJOUT 3 ----  */
 /* Ajout d'une rotation sur les fleurs */
 .story__article::after,
 #studio h2::before,
@@ -456,6 +469,7 @@
   z-index: 2;
 }
 
+/* ---- AJOUT 4 ----  */
 #place .place--big_cloud {
   height: 122px;	
   top: 70px;
@@ -533,6 +547,7 @@
   width: 100%;
 }
 
+/* ---- AJOUT 5 ----  */
 .animTitle {
   animation: animTitle 1s 1s forwards;
 }
@@ -628,6 +643,7 @@
   height: 100%;
 }
 
+/* ---- AJOUT 6 ----  */
 /* Suppression des fleurs du pieds de page pour le déplacer dans la nouvelle section- */
 .nomination::before {
   content: url("../images/Sunflower.png");

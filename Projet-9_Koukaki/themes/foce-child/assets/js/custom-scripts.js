@@ -8,19 +8,20 @@ console.log("Démarrage du script !");
 
 // Différer le lancement du script => ne se lance qu'une fois que tout le HTML a été chargé
 
-  document.addEventListener("DOMContentLoaded", function () {
-    monScript();
-  });
-
+document.addEventListener("DOMContentLoaded", function () {
+  monScript();
+});
 
 function monScript() {
   // console.log("HTML prêt !");
 
-  // Gestion de la fermeture et de l'ouverture de la modale avec jQuery
-  (function($) {
-      $(".modal-open").click(function () {
-      console.log("modal-trigger cliqué");
-      $(".modal__content").animate({ height: "toggle", opacity: "toggle" }, 1000);
+  (function ($) {
+    // Gestion de la fermeture et de l'ouverture de la modale avec jQuery
+    $(".modal-open").click(function () {
+      $(".modal__content").animate(
+        { height: "toggle", opacity: "toggle" },
+        1000
+      );
       $(".modal__content").toggleClass("open");
       $(".modal__burger").toggleClass("close");
     });
@@ -28,39 +29,39 @@ function monScript() {
       if ($(".modal__content").hasClass("open")) {
         $(".modal__content").animate(
           { height: "toggle", opacity: "toggle" },
+
           1000
         );
         $(".modal__content").removeClass("open");
         $(".modal__burger").removeClass("close");
       }
-    });    
+    });
   })(jQuery);
 
-   // Initialize Swiper
-   var swiper = new Swiper('.swiper-container', {
+  // Initialize Swiper
+  var swiper = new Swiper(".swiper-container", {
     spaceBetween: 60,
     speed: 1000,
     autoplay: {
-        delay: 250,
+      delay: 250,
     },
-    effect: 'coverflow',
+    effect: "coverflow",
     grabCursor: true,
     centeredSlides: true,
     loop: true,
     slidesPerView: 3,
     coverflowEffect: {
-        rotate: 60,
-        stretch: 0,
-        depth: 100,
-        modifier: 1,
-        slideShadows: false,
+      rotate: 60,
+      stretch: 0,
+      depth: 100,
+      modifier: 1,
+      slideShadows: false,
     },
     autoplay: {
-        delay: 2500,
-        disableOnInteraction: false,
+      delay: 2500,
+      disableOnInteraction: false,
     },
-
-});
+  });
 
   let posX = 0;
   let mouveCloud = false;
@@ -75,7 +76,7 @@ function monScript() {
       if (entry.intersectionRatio > ratio) {
         elementName = entry.target.className;
         // console.log(elementName + " est visible");
-        
+
         // Si on trouve l'élément indiqué, on active l'animation d'apparition
         if (
           elementName === "story hidden" ||
@@ -100,7 +101,7 @@ function monScript() {
           entry.target.classList.add("animTitle");
           observer.unobserve(entry.target);
           entry.target.classList.remove("hidden");
-        }        
+        }
       }
     });
   };
@@ -145,9 +146,9 @@ function monScript() {
     }, 500);
 
     // On bouge les 2 nuages en fonction du scroll
-      posX = Math.round(0 - (window.scrollY - place.offsetTop - 200));
-      if (posX <= 0 && posX > -400) {
-        root.style.setProperty("--posX", posX + "px");
-      }     
+    posX = Math.round(0 - (window.scrollY - place.offsetTop - 200));
+    if (posX <= 0 && posX > -400) {
+      root.style.setProperty("--posX", posX + "px");
+    }
   });
 }
