@@ -104,7 +104,7 @@ CHIC DRESSING : [Le site "Chic Dressing" final en ligne](http://stephane-mouron.
 
 ### Projet 8 - Print-it-JS
 
-![Print-it JS](/Projet-8_Print-it-JS/computer_print_it.png)
+![Print-it JS](/projet-8_Print-it-JS/computer_print_it.png)
 
 **Premiers pas sur le langage JavaScipt**
 
