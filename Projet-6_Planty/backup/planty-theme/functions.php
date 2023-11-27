@@ -8,7 +8,7 @@ function theme_enqueue_styles() {
 wp_enqueue_style( 'parent-style', get_template_directory_uri() . '/style.css' );
  
 //  Chargement du style personnalisé pour le theme
-wp_enqueue_style( 'theme-style', get_stylesheet_directory_uri() . '/assets/css/theme.css' );
+wp_enqueue_style( 'theme-style', get_stylesheet_directory_uri() . '/assets/css/theme.css', array(), filemtime(get_stylesheet_directory() . '/assets/css/theme.css') );
 
 // Enqueue Custom Scripts
 wp_enqueue_script( 'order-custom-scripts', get_theme_file_uri( '/assets/js/custom-scripts.js' ), array(), '1.0.0', true );
@@ -98,6 +98,5 @@ function prefix_add_menu_item ( $items, $args ) {
             $items = implode('', $items_array);
         }
        
-       return $items;
-    
+       return $items;    
 }
