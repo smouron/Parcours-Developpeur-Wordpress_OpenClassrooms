@@ -24,7 +24,7 @@ Pour ce projet, suivant les consignes de Romain (maître de stage et CTO), l’o
 
 #### Réalisation
 
-RIDING CITIES : https://stephane-mouron.fr/riding-cities/
+RIDING CITIES : [riding-cities](https://stephane-mouron.fr/riding-cities/)
 
 ### Projet 3 - Booki
 
