@@ -17,8 +17,6 @@ Projets effectués durant cette formation
 
 ### Projet 2 - Riding-Cities
 
-![Riding-Cities](/Projet-2_Riding-Citites/monitor-g9ceeb1f8d_640.png)
-
 **Premiers pas sur le langage HTML**
 
 #### Objectifs
@@ -27,13 +25,13 @@ Pour ce projet, suivant les consignes de Romain (maître de stage et CTO), l’o
 
 #### Réalisation
 
+![Riding-Cities](/Projet-2_Riding-Citites/monitor-g9ceeb1f8d_640.png)
+
 RIDING CITIES : [Le site "Riding Cities" final en ligne](https://stephane-mouron.fr/riding-cities/)
 
 <hr />
 
 ### Projet 3 - Booki
-
-![Booki](/Projet-3_Booki/monitor-g9ceeb1f8d_640.png)
 
 **Créez la page d'accueil d'une agence de voyage avec HTML & CSS**
 
@@ -44,13 +42,13 @@ Je suis chargé d'intégrer l'interface du site avec du code HTML et CSS.
 
 #### Réalisation
 
+![Booki](/Projet-3_Booki/monitor-g9ceeb1f8d_640.png)
+
 BOOKI : [Le site "Booki" final en ligne](https://stephane-mouron.fr/booki/)
 
 <hr />
 
 ### Projet 4 - Simpl-Vintage
-
-![The Artbox](/Projet-4_Simpl-Vintage/monitor-g9ceeb1f8d_640.png)
 
 **Créer un site complet avec WordPress sans utiliser de code**
 
@@ -61,13 +59,13 @@ On me demande de développer pour la marque de vêtement Simpl Vintage, un site 
 
 #### Réalisation
 
+![The Artbox](/Projet-4_Simpl-Vintage/monitor-g9ceeb1f8d_640.png)
+
 SIMPL VINTAGE : [Le site "Simpl Vintage" final en ligne](http://stephane-mouron.fr/simpl-vintage/)
 
 <hr />
 
 ### Projet 5 - The Artbox
-
-![The Artbox](/Projet-5_The-Artbox-master/monitor-g9ceeb1f8d_640.png)
 
 **Premiers pas sur le langage PHP**
 
@@ -79,13 +77,13 @@ Actuellement, il y a une page HTML par oeuvre. Soit 15 pages.
 
 #### Réalisation
 
+![The Artbox](/Projet-5_The-Artbox-master/monitor-g9ceeb1f8d_640.png)
+
 THE ARTBOX MASTER : [Le site "The Artbox" final en ligne](https://stephane-mouron.fr/the-artbox/)
 
 <hr />
 
 ### Projet 6 - Planty
-
-![Planty](/Projet-6_Planty/monitor-g9ceeb1f8d_640.png)
 
 **Personnaliser une thème WordPress pour une startup avec HTML, CSS et Php**
 
@@ -95,13 +93,13 @@ Pour ce projet, je suis intégrateur WordPress dans une agence web, et je suis e
 
 #### Réalisation
 
+![Planty](/Projet-6_Planty/monitor-g9ceeb1f8d_640.png)
+
 PLANTY : http://stephane-mouron.fr/planty/
 
 <hr />
 
 ### Projet 7 - Chic-Dressing
-
-![Print-it JS](/Projet-7_Chic-Dressing/monitor-g9ceeb1f8d_640.png)
 
 **Chic-Dressing - Optimiser un site WordPress existant pour une marque de vêtements**
 
@@ -112,13 +110,13 @@ Je suis en charge d'optimiser le au mieux le site Chic Dressing.
 
 #### Réalisation
 
+![Print-it JS](/Projet-7_Chic-Dressing/monitor-g9ceeb1f8d_640.png)
+
 CHIC DRESSING : [Le site "Chic Dressing" final en ligne](http://stephane-mouron.fr/chic-dressing/)
 
 <hr />
 
 ### Projet 8 - Print-it-JS
-
-![Print-it JS](/projet-8_Print-it-JS/computer_print_it.png)
 
 **Premiers pas sur le langage JavaScipt**
 
@@ -128,14 +126,14 @@ Pour ce projet, je débute comme développeur front-end en freelance, et je vien
 
 #### Réalisation
 
+![Print-it JS](/projet-8_Print-it-JS/computer_print_it.png)
+
 PRINT-IT-JS : [Le site "Print-it JS" final en ligne](https://smouron.github.io/Print-it-JS-main/)
 et : https://stephane-mouron.fr/print-it/
 
 <hr />
 
 ### Projet 9 - Fleurs Chats errants / Koukaki
-
-![Koukaki](/Projet-9_Koukaki/monitor-g9ceeb1f8d_640.png)
 
 **Améliorer le site d'un studio d'animation avec JavaScript et des animations CSS**
 
@@ -146,13 +144,13 @@ Ma mission pour ces prochains jours est de dynamiser le site internet du studio 
 
 #### Réalisation
 
+![Koukaki](/Projet-9_Koukaki/monitor-g9ceeb1f8d_640.png)
+
 KOUKAKI : [Le site "Koukaki" final en ligne](https://stephane-mouron.fr/koukaki/)
 
 <hr />
 
 ### Projet 10 - Med.It
-
-![Med.It](/Projet-10_Med.It/monitor-g9ceeb1f8d_640.png)
 
 **Débuggez et tester un site WordPres d'outillage médical**
 
@@ -162,13 +160,13 @@ Pour ce projet, je suis développeur WordPress en freelance. La PME MedIT, spéc
 
 #### Réalisation
 
+![Med.It](/Projet-10_Med.It/monitor-g9ceeb1f8d_640.png)
+
 MED.IT : [Le site "Med.It" final en ligne](https://stephane-mouron.fr/med-it/)
 
 <hr />
 
 ### Projet 11 - Nathalie Mota
-
-![Nathalie Mota](/Projet-11_Nathalie-Mota/monitor-g9ceeb1f8d_640.png)
 
 **Créer un site WordPress complexe pour une photographe freelance**
 
@@ -180,13 +178,13 @@ Elle vient de perdre son site à la suite de la fermeture subite de la plateform
 
 #### Réalisation
 
+![Nathalie Mota](/Projet-11_Nathalie-Mota/monitor-g9ceeb1f8d_640.png)
+
 PHOTOGRAPHE EVENT : [Le site "Nathalie Mota" final en ligne](https://stephane-mouron.fr/nathalie-mota/)
 
 <hr />
 
 ### Projet 12 - Emoving
-
-![Emoving](/Projet-12_Emoving/computer_emoving.png)
 
 **Planifier le développement d'un site de vente de vélos électriques**
 
@@ -199,13 +197,13 @@ Chez Emoving, les employés ont plusieurs casquettes ; il vous revient de mener,
 
 #### Réalisation
 
+![Emoving](/Projet-12_Emoving/computer_emoving.png)
+
 EMOVING : [Le site "Emoving" final en ligne](https://stephane-mouron.fr/emoving/)
 
 <hr />
 
 ### Projet 13 - Portfolio
-
-![Portfolio final](/Projet-13_Portfolio/monitor-g9ceeb1f8d_640.png)
 
 **Créer et publier votre portfolio de développeur**
 
@@ -221,6 +219,8 @@ Pour pouvoir commencer à postuler à des offres d’emploi de développeurs, il
     - Le site doit être accessible en ligne via internet et doit être responsive.
 
 #### Réalisation
+
+![Portfolio final](/Projet-13_Portfolio/monitor-g9ceeb1f8d_640.png)
 
 PORTFOLIO : ["Portfolio" final avec WordPress en ligne](https://portfolio.stephane-mouron.fr)
 
