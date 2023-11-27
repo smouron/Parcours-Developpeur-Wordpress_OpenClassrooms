@@ -1,3 +1,5 @@
+![Portfolio final](/Projet-13_Portfolio/monitor-g9ceeb1f8d_640.png)
+
 # Parcours-Developpeur-Wordpress_OpenClassrooms
 
 Projets effectués durant cette formation
