@@ -2,8 +2,6 @@
 
 Projets effectués durant cette formation
 
-Suivi de mon planning : https://trello.com/invite/b/IzTdkieL/ATTIae69c03af8ba7bb98f07845cb629cf474CBFC24F/openclassrooms-developpeur-wordpress
-
 ## Projets terminés
 
 ### Projet 1
@@ -186,3 +184,5 @@ PORTFOLIO : https://portfolio.stephane-mouron.fr
 ---
 
 ## Projets à faire
+
+Parcours terminé le 04/09/2023
