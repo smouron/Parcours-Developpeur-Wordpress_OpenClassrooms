@@ -416,7 +416,8 @@ input[type="submit"] {
     margin: auto;
     align-items: center;
     width: 100%;
-    max-height: 966px;
+    max-height: 966px;    
+    overflow: hidden;
 }
 
 .hero-area img {    
@@ -825,7 +826,8 @@ form {
 /*  **********************************  */
 @media all and (max-width: 580px) {
     .filter-area {
-        width: 180%;
+        width: 100%;
+        overflow: hidden;
     }
 
     .news-info h2,
