@@ -8,15 +8,16 @@ Projets effectués durant cette formation
 
 ### Projet 1
 
-Démarrez votre formation de développeur WordPress
+**Démarrez votre formation de développeur WordPress**
 
-Ce n'est pas du développement. Cela n'a pas été mis sur github
+> [!NOTE]
+> Ce n'est pas du développement. Cela n'a pas été mis sur github
 
 ### Projet 2 - Riding-Cities
 
 ![Riding-Cities](/Projet-2_Riding-Citites/monitor-g9ceeb1f8d_640.png)
 
-Premiers pas sur le langage HTML
+**Premiers pas sur le langage HTML**
 
 #### Objectifs
 
@@ -24,13 +25,13 @@ Pour ce projet, suivant les consignes de Romain (maître de stage et CTO), l’o
 
 #### Réalisation
 
-RIDING CITIES : [riding-cities](https://stephane-mouron.fr/riding-cities/)
+RIDING CITIES : [Le site "Riding Cities" final en ligne](https://stephane-mouron.fr/riding-cities/)
 
 ### Projet 3 - Booki
 
 ![Booki](/Projet-3_Booki/monitor-g9ceeb1f8d_640.png)
 
-Créez la page d'accueil d'une agence de voyage avec HTML & CSS
+**Créez la page d'accueil d'une agence de voyage avec HTML & CSS**
 
 #### Objectifs
 
@@ -39,13 +40,13 @@ Je suis chargé d'intégrer l'interface du site avec du code HTML et CSS.
 
 #### Réalisation
 
-BOOKI : https://stephane-mouron.fr/booki/
+BOOKI : [Le site "Booki" final en ligne](https://stephane-mouron.fr/booki/)
 
 ### Projet 4 - Simpl-Vintage
 
 ![The Artbox](/Projet-4_Simpl-Vintage/monitor-g9ceeb1f8d_640.png)
 
-Créer un site complet avec WordPress sans utiliser de code
+**Créer un site complet avec WordPress sans utiliser de code**
 
 #### Objectifs
 
@@ -54,13 +55,13 @@ On me demande de développer pour la marque de vêtement Simpl Vintage, un site 
 
 #### Réalisation
 
-SIMPL VINTAGE : http://stephane-mouron.fr/simpl-vintage/
+SIMPL VINTAGE : [Le site "Simpl Vintage" final en ligne](http://stephane-mouron.fr/simpl-vintage/)
 
 ### Projet 5 - The Artbox
 
 ![The Artbox](/Projet-5_The-Artbox-master/monitor-g9ceeb1f8d_640.png)
 
-Premiers pas sur le langage PHP
+**Premiers pas sur le langage PHP**
 
 #### Objectifs
 
@@ -70,13 +71,13 @@ Actuellement, il y a une page HTML par oeuvre. Soit 15 pages.
 
 #### Réalisation
 
-THE ARTBOX MASTER : https://stephane-mouron.fr/the-artbox/
+THE ARTBOX MASTER : [Le site "The Artbox" final en ligne](https://stephane-mouron.fr/the-artbox/)
 
 ### Projet 6 - Planty
 
 ![Planty](/Projet-6_Planty/monitor-g9ceeb1f8d_640.png)
 
-Personnaliser une thème WordPress pour une startup avec HTML, CSS et Php
+**Personnaliser une thème WordPress pour une startup avec HTML, CSS et Php**
 
 #### Objectifs
 
@@ -90,7 +91,7 @@ PLANTY : http://stephane-mouron.fr/planty/
 
 ![Print-it JS](/Projet-7_Chic-Dressing/monitor-g9ceeb1f8d_640.png)
 
-Chic-Dressing - Optimiser un site WordPress existant pour une marque de vêtements
+**Chic-Dressing - Optimiser un site WordPress existant pour une marque de vêtements**
 
 #### Objectifs
 
@@ -99,13 +100,13 @@ Je suis en charge d'optimiser le au mieux le site Chic Dressing.
 
 #### Réalisation
 
-CHIC DRESSING : http://stephane-mouron.fr/chic-dressing/
+CHIC DRESSING : [Le site "Chic Dressing" final en ligne](http://stephane-mouron.fr/chic-dressing/)
 
 ### Projet 8 - Print-it-JS
 
 ![Print-it JS](/Projet-8_Print-it-JS/computer_print_it.png)
 
-Premiers pas sur le langage JavaScipt
+**Premiers pas sur le langage JavaScipt**
 
 #### Objectifs
 
@@ -113,14 +114,14 @@ Pour ce projet, je débute comme développeur front-end en freelance, et je vien
 
 #### Réalisation
 
-PRINT-IT-JS : https://smouron.github.io/Print-it-JS-main/
+PRINT-IT-JS : [Le site "Print-it JS" final en ligne](https://smouron.github.io/Print-it-JS-main/)
 et : https://stephane-mouron.fr/print-it/
 
 ### Projet 9 - Fleurs Chats errants / Koukaki
 
 ![Koukaki](/Projet-9_Koukaki/monitor-g9ceeb1f8d_640.png)
 
-Améliorer le site d'un studio d'animation avec JavaScript et des animations CSS
+**Améliorer le site d'un studio d'animation avec JavaScript et des animations CSS**
 
 #### Objectifs
 
@@ -129,13 +130,13 @@ Ma mission pour ces prochains jours est de dynamiser le site internet du studio 
 
 #### Réalisation
 
-KOUKAKI : https://stephane-mouron.fr/koukaki/
+KOUKAKI : [Le site "Koukaki" final en ligne](https://stephane-mouron.fr/koukaki/)
 
 ### Projet 10 - Med.It
 
 ![Med.It](/Projet-10_Med.It/monitor-g9ceeb1f8d_640.png)
 
-Débuggez et tester un site WordPres d'outillage médical
+**Débuggez et tester un site WordPres d'outillage médical**
 
 #### Objectifs
 
@@ -143,13 +144,13 @@ Pour ce projet, je suis développeur WordPress en freelance. La PME MedIT, spéc
 
 #### Réalisation
 
-MED.IT : https://stephane-mouron.fr/med-it/
+MED.IT : [Le site "Med.It" final en ligne](https://stephane-mouron.fr/med-it/)
 
 ### Projet 11 - Nathalie Mota
 
 ![Nathalie Mota](/Projet-11_Nathalie-Mota/monitor-g9ceeb1f8d_640.png)
 
-Créer un site WordPress complexe pour une photographe freelance
+**Créer un site WordPress complexe pour une photographe freelance**
 
 #### Objectifs
 
@@ -159,13 +160,13 @@ Elle vient de perdre son site à la suite de la fermeture subite de la plateform
 
 #### Réalisation
 
-PHOTOGRAPHE EVENT : https://stephane-mouron.fr/nathalie-mota/
+PHOTOGRAPHE EVENT : [Le site "Nathalie Mota" final en ligne](https://stephane-mouron.fr/nathalie-mota/)
 
 ### Projet 12 - Emoving
 
 ![Emoving](/Projet-12_Emoving/computer_emoving.png)
 
-Planifier le développement d'un site de vente de vélos électriques
+**Planifier le développement d'un site de vente de vélos électriques**
 
 #### Objectifs
 
@@ -176,13 +177,13 @@ Chez Emoving, les employés ont plusieurs casquettes ; il vous revient de mener,
 
 #### Réalisation
 
-EMOVING : https://stephane-mouron.fr/emoving/
+EMOVING : [Le site "Emoving" final en ligne](https://stephane-mouron.fr/emoving/)
 
 ### Projet 13 - Portfolio
 
 ![Portfolio final](/Projet-13_Portfolio/monitor-g9ceeb1f8d_640.png)
 
-Créer et publier votre portfolio de développeur
+**Créer et publier votre portfolio de développeur**
 
 #### Objectifs
 
@@ -197,7 +198,7 @@ Pour pouvoir commencer à postuler à des offres d’emploi de développeurs, il
 
 #### Réalisation
 
-PORTFOLIO : https://portfolio.stephane-mouron.fr
+PORTFOLIO : ["Portfolio" final avec WordPress en ligne](https://portfolio.stephane-mouron.fr)
 
 ---
 
