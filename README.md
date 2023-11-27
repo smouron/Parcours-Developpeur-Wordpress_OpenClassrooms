@@ -13,6 +13,8 @@ Projets effectués durant cette formation
 > [!NOTE]
 > Ce n'est pas du développement. Cela n'a pas été mis sur github
 
+<hr />
+
 ### Projet 2 - Riding-Cities
 
 ![Riding-Cities](/Projet-2_Riding-Citites/monitor-g9ceeb1f8d_640.png)
@@ -26,6 +28,8 @@ Pour ce projet, suivant les consignes de Romain (maître de stage et CTO), l’o
 #### Réalisation
 
 RIDING CITIES : [Le site "Riding Cities" final en ligne](https://stephane-mouron.fr/riding-cities/)
+
+<hr />
 
 ### Projet 3 - Booki
 
@@ -42,6 +46,8 @@ Je suis chargé d'intégrer l'interface du site avec du code HTML et CSS.
 
 BOOKI : [Le site "Booki" final en ligne](https://stephane-mouron.fr/booki/)
 
+<hr />
+
 ### Projet 4 - Simpl-Vintage
 
 ![The Artbox](/Projet-4_Simpl-Vintage/monitor-g9ceeb1f8d_640.png)
@@ -56,6 +62,8 @@ On me demande de développer pour la marque de vêtement Simpl Vintage, un site 
 #### Réalisation
 
 SIMPL VINTAGE : [Le site "Simpl Vintage" final en ligne](http://stephane-mouron.fr/simpl-vintage/)
+
+<hr />
 
 ### Projet 5 - The Artbox
 
@@ -73,6 +81,8 @@ Actuellement, il y a une page HTML par oeuvre. Soit 15 pages.
 
 THE ARTBOX MASTER : [Le site "The Artbox" final en ligne](https://stephane-mouron.fr/the-artbox/)
 
+<hr />
+
 ### Projet 6 - Planty
 
 ![Planty](/Projet-6_Planty/monitor-g9ceeb1f8d_640.png)
@@ -86,6 +96,8 @@ Pour ce projet, je suis intégrateur WordPress dans une agence web, et je suis e
 #### Réalisation
 
 PLANTY : http://stephane-mouron.fr/planty/
+
+<hr />
 
 ### Projet 7 - Chic-Dressing
 
@@ -102,6 +114,8 @@ Je suis en charge d'optimiser le au mieux le site Chic Dressing.
 
 CHIC DRESSING : [Le site "Chic Dressing" final en ligne](http://stephane-mouron.fr/chic-dressing/)
 
+<hr />
+
 ### Projet 8 - Print-it-JS
 
 ![Print-it JS](/projet-8_Print-it-JS/computer_print_it.png)
@@ -116,6 +130,8 @@ Pour ce projet, je débute comme développeur front-end en freelance, et je vien
 
 PRINT-IT-JS : [Le site "Print-it JS" final en ligne](https://smouron.github.io/Print-it-JS-main/)
 et : https://stephane-mouron.fr/print-it/
+
+<hr />
 
 ### Projet 9 - Fleurs Chats errants / Koukaki
 
@@ -132,6 +148,8 @@ Ma mission pour ces prochains jours est de dynamiser le site internet du studio 
 
 KOUKAKI : [Le site "Koukaki" final en ligne](https://stephane-mouron.fr/koukaki/)
 
+<hr />
+
 ### Projet 10 - Med.It
 
 ![Med.It](/Projet-10_Med.It/monitor-g9ceeb1f8d_640.png)
@@ -145,6 +163,8 @@ Pour ce projet, je suis développeur WordPress en freelance. La PME MedIT, spéc
 #### Réalisation
 
 MED.IT : [Le site "Med.It" final en ligne](https://stephane-mouron.fr/med-it/)
+
+<hr />
 
 ### Projet 11 - Nathalie Mota
 
@@ -162,6 +182,8 @@ Elle vient de perdre son site à la suite de la fermeture subite de la plateform
 
 PHOTOGRAPHE EVENT : [Le site "Nathalie Mota" final en ligne](https://stephane-mouron.fr/nathalie-mota/)
 
+<hr />
+
 ### Projet 12 - Emoving
 
 ![Emoving](/Projet-12_Emoving/computer_emoving.png)
@@ -178,6 +200,8 @@ Chez Emoving, les employés ont plusieurs casquettes ; il vous revient de mener,
 #### Réalisation
 
 EMOVING : [Le site "Emoving" final en ligne](https://stephane-mouron.fr/emoving/)
+
+<hr />
 
 ### Projet 13 - Portfolio
 
