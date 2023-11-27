@@ -1,0 +1,939 @@
+[
+    {
+        "key": "group_64bfeb8f855c1",
+        "title": "Exercices",
+        "fields": [
+            {
+                "key": "field_64d1093ec50f9",
+                "label": "Catégorie",
+                "name": "categorie",
+                "aria-label": "",
+                "type": "select",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "50",
+                    "class": "categorie",
+                    "id": ""
+                },
+                "choices": {
+                    "Projet développeur WordPress": "Projet développeur WordPress",
+                    "Exercice": "Exercice",
+                    "Personnel": "Personnel",
+                    "Autre": "Autre"
+                },
+                "default_value": false,
+                "return_format": "value",
+                "multiple": 0,
+                "allow_null": 0,
+                "ui": 0,
+                "ajax": 0,
+                "placeholder": ""
+            },
+            {
+                "key": "field_64bfeb905a721",
+                "label": "Origine",
+                "name": "project_origin",
+                "aria-label": "",
+                "type": "select",
+                "instructions": "",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "50",
+                    "class": "project_origin",
+                    "id": ""
+                },
+                "choices": {
+                    "OpenClassrooms": "OpenClassrooms",
+                    "From Scratch": "From Scratch",
+                    "Autre": "Autre"
+                },
+                "default_value": "OpenClassrooms",
+                "return_format": "value",
+                "multiple": 0,
+                "allow_null": 0,
+                "ui": 0,
+                "ajax": 0,
+                "placeholder": ""
+            },
+            {
+                "key": "field_64bfecb65a725",
+                "label": "Mission à réaliser \/ Détails",
+                "name": "project_mission",
+                "aria-label": "",
+                "type": "wysiwyg",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "100",
+                    "class": "project_mission",
+                    "id": ""
+                },
+                "default_value": "",
+                "tabs": "all",
+                "toolbar": "full",
+                "media_upload": 1,
+                "delay": 0
+            },
+            {
+                "key": "field_64bfeccb5a726",
+                "label": "Choix technique retenu \/ ce que j'ai fait",
+                "name": "technical_choice",
+                "aria-label": "",
+                "type": "wysiwyg",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "100",
+                    "class": "technical_choice",
+                    "id": ""
+                },
+                "default_value": "",
+                "tabs": "all",
+                "toolbar": "full",
+                "media_upload": 1,
+                "delay": 0
+            },
+            {
+                "key": "field_64bfec745a723",
+                "label": "Lien du cours",
+                "name": "url_class",
+                "aria-label": "",
+                "type": "url",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "25",
+                    "class": "url_class",
+                    "id": "url_class"
+                },
+                "default_value": "",
+                "placeholder": ""
+            },
+            {
+                "key": "field_64cceaac587db",
+                "label": "Lien maquette Figma",
+                "name": "project_figma",
+                "aria-label": "",
+                "type": "url",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "25",
+                    "class": "project_figma",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": ""
+            },
+            {
+                "key": "field_64bfed125a728",
+                "label": "Lien de site",
+                "name": "project_link",
+                "aria-label": "",
+                "type": "url",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "25",
+                    "class": "project_link",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": ""
+            },
+            {
+                "key": "field_64bfedbd5a729",
+                "label": "Lien GitHub",
+                "name": "github_class",
+                "aria-label": "",
+                "type": "url",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "25",
+                    "class": "github_class",
+                    "id": "github_class"
+                },
+                "default_value": "",
+                "placeholder": ""
+            },
+            {
+                "key": "field_64d5f85f86cdc",
+                "label": "Techno utilisée",
+                "name": "techno",
+                "aria-label": "",
+                "type": "taxonomy",
+                "instructions": "",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "50",
+                    "class": "",
+                    "id": ""
+                },
+                "taxonomy": "techno-acf",
+                "add_term": 1,
+                "save_terms": 1,
+                "load_terms": 1,
+                "return_format": "object",
+                "field_type": "checkbox",
+                "bidirectional": 0,
+                "multiple": 0,
+                "allow_null": 0,
+                "bidirectional_target": []
+            },
+            {
+                "key": "field_64bfecf35a727",
+                "label": "Image du Certificat",
+                "name": "certificat",
+                "aria-label": "",
+                "type": "image",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "50",
+                    "class": "certificat",
+                    "id": "certificat"
+                },
+                "return_format": "url",
+                "library": "all",
+                "min_width": "",
+                "min_height": "",
+                "min_size": "",
+                "max_width": "",
+                "max_height": "",
+                "max_size": "",
+                "mime_types": "",
+                "preview_size": "medium"
+            },
+            {
+                "key": "field_64cceb3e587dc",
+                "label": "Slider",
+                "name": "project_slider",
+                "aria-label": "",
+                "type": "acf_smartslider3",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "100",
+                    "class": "project_slider",
+                    "id": ""
+                }
+            },
+            {
+                "key": "field_64cceb60587dd",
+                "label": "Image Mise en avant secondaire",
+                "name": "image_sup_1",
+                "aria-label": "",
+                "type": "image",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "33",
+                    "class": "image_sup1",
+                    "id": ""
+                },
+                "return_format": "url",
+                "library": "all",
+                "min_width": "",
+                "min_height": "",
+                "min_size": "",
+                "max_width": "",
+                "max_height": "",
+                "max_size": "",
+                "mime_types": "",
+                "preview_size": "medium"
+            },
+            {
+                "key": "field_64ccebb4587de",
+                "label": "Autre image",
+                "name": "image_sup_2",
+                "aria-label": "",
+                "type": "image",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "33",
+                    "class": "image_sup_2",
+                    "id": ""
+                },
+                "return_format": "url",
+                "library": "all",
+                "min_width": "",
+                "min_height": "",
+                "min_size": "",
+                "max_width": "",
+                "max_height": "",
+                "max_size": "",
+                "mime_types": "",
+                "preview_size": "medium"
+            },
+            {
+                "key": "field_64cd0e29879a5",
+                "label": "La maquette",
+                "name": "maquette",
+                "aria-label": "",
+                "type": "image",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "33",
+                    "class": "maquette",
+                    "id": ""
+                },
+                "return_format": "url",
+                "library": "all",
+                "min_width": "",
+                "min_height": "",
+                "min_size": "",
+                "max_width": "",
+                "max_height": "",
+                "max_size": "",
+                "mime_types": "",
+                "preview_size": "medium"
+            },
+            {
+                "key": "field_64d6685783638",
+                "label": "Les liens externes",
+                "name": "external_links",
+                "aria-label": "",
+                "type": "text",
+                "instructions": "",
+                "required": false,
+                "conditional_logic": false,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "0": false,
+                "default_value": "",
+                "maxlength": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": ""
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "post"
+                }
+            ],
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "post"
+                }
+            ],
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "exercice"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": true,
+        "description": "",
+        "show_in_rest": 0
+    },
+    {
+        "key": "group_64bfb8fbb3006",
+        "title": "Projets WordPress",
+        "fields": [
+            {
+                "key": "field_64d1096c78ac2",
+                "label": "Catégorie",
+                "name": "categorie",
+                "aria-label": "",
+                "type": "select",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "50",
+                    "class": "categorie",
+                    "id": ""
+                },
+                "choices": {
+                    "Projet développeur WordPress": "Projet développeur WordPress",
+                    "Exercice": "Exercice",
+                    "Personnel": "Personnel",
+                    "Autre": "Autre"
+                },
+                "default_value": false,
+                "return_format": "value",
+                "multiple": 0,
+                "allow_null": 0,
+                "ui": 0,
+                "ajax": 0,
+                "placeholder": ""
+            },
+            {
+                "key": "field_64c3c5d30ff91",
+                "label": "Origine",
+                "name": "project_origin",
+                "aria-label": "",
+                "type": "select",
+                "instructions": "",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "50",
+                    "class": "project_origin",
+                    "id": ""
+                },
+                "choices": {
+                    "OpenClassrooms": "OpenClassrooms"
+                },
+                "default_value": "OpenClassrooms",
+                "return_format": "value",
+                "multiple": 0,
+                "allow_null": 0,
+                "ui": 0,
+                "ajax": 0,
+                "placeholder": ""
+            },
+            {
+                "key": "field_64bfb96117017",
+                "label": "Mission à réaliser \/ Détails",
+                "name": "project_mission",
+                "aria-label": "",
+                "type": "wysiwyg",
+                "instructions": "",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "100",
+                    "class": "project_mission",
+                    "id": ""
+                },
+                "default_value": "",
+                "tabs": "all",
+                "toolbar": "full",
+                "media_upload": 1,
+                "delay": 0
+            },
+            {
+                "key": "field_64bfb9fc17019",
+                "label": "Choix technique retenu \/ ce que j'ai fait",
+                "name": "technical_choice",
+                "aria-label": "",
+                "type": "wysiwyg",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "100",
+                    "class": "technical_choice",
+                    "id": ""
+                },
+                "default_value": "",
+                "tabs": "all",
+                "toolbar": "full",
+                "media_upload": 1,
+                "delay": 0
+            },
+            {
+                "key": "field_64bfb9be17018",
+                "label": "Lien note de synthèse \/ cahier des charges",
+                "name": "project_specifications",
+                "aria-label": "",
+                "type": "url",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "50",
+                    "class": "project_specifications",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": ""
+            },
+            {
+                "key": "field_64bfba311701b",
+                "label": "Lien maquette Figma",
+                "name": "project_figma",
+                "aria-label": "",
+                "type": "url",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "50",
+                    "class": "project_figma",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": ""
+            },
+            {
+                "key": "field_64bfba531701c",
+                "label": "Lien de site",
+                "name": "project_link",
+                "aria-label": "",
+                "type": "url",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "50",
+                    "class": "project_link",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": ""
+            },
+            {
+                "key": "field_64bfba831701d",
+                "label": "Lien GitHub",
+                "name": "project_github",
+                "aria-label": "",
+                "type": "url",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "50",
+                    "class": "project_github",
+                    "id": "project_github"
+                },
+                "default_value": "",
+                "placeholder": ""
+            },
+            {
+                "key": "field_64d5db7d9999a",
+                "label": "Techno utilisée",
+                "name": "techno",
+                "aria-label": "",
+                "type": "taxonomy",
+                "instructions": "",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "30",
+                    "class": "",
+                    "id": ""
+                },
+                "taxonomy": "techno-acf",
+                "add_term": 1,
+                "save_terms": 1,
+                "load_terms": 1,
+                "return_format": "object",
+                "field_type": "checkbox",
+                "bidirectional": 0,
+                "multiple": 0,
+                "allow_null": 0,
+                "bidirectional_target": []
+            },
+            {
+                "key": "field_64bfbb3fff985",
+                "label": "Slider",
+                "name": "project_slider",
+                "aria-label": "",
+                "type": "acf_smartslider3",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "100",
+                    "class": "project_slider",
+                    "id": ""
+                }
+            },
+            {
+                "key": "field_64c78d9f36e70",
+                "label": "Image Mise en avant secondaire",
+                "name": "image_sup_1",
+                "aria-label": "",
+                "type": "image",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "33",
+                    "class": "image_sup_1",
+                    "id": ""
+                },
+                "return_format": "url",
+                "library": "all",
+                "min_width": "",
+                "min_height": "",
+                "min_size": "",
+                "max_width": "",
+                "max_height": "",
+                "max_size": "",
+                "mime_types": "",
+                "preview_size": "medium"
+            },
+            {
+                "key": "field_64ccebcca8a42",
+                "label": "Image du site",
+                "name": "image_sup_2",
+                "aria-label": "",
+                "type": "image",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "33",
+                    "class": "image_sup_2",
+                    "id": ""
+                },
+                "return_format": "url",
+                "library": "all",
+                "min_width": "",
+                "min_height": "",
+                "min_size": "",
+                "max_width": "",
+                "max_height": "",
+                "max_size": "",
+                "mime_types": "",
+                "preview_size": "medium"
+            },
+            {
+                "key": "field_64cd0e54fc464",
+                "label": "La maquette",
+                "name": "maquette",
+                "aria-label": "",
+                "type": "image",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "33",
+                    "class": "maquette",
+                    "id": ""
+                },
+                "return_format": "url",
+                "library": "all",
+                "min_width": "",
+                "min_height": "",
+                "min_size": "",
+                "max_width": "",
+                "max_height": "",
+                "max_size": "",
+                "mime_types": "",
+                "preview_size": "medium"
+            },
+            {
+                "key": "field_64d665aa00fe2",
+                "label": "Les liens externes",
+                "name": "external_links",
+                "aria-label": "",
+                "type": "text",
+                "instructions": "",
+                "required": false,
+                "conditional_logic": false,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "0": false,
+                "default_value": "",
+                "maxlength": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": ""
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "post"
+                }
+            ],
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "formation-wordpress"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": true,
+        "description": "",
+        "show_in_rest": 0
+    },
+    {
+        "key": "post_type_64ccd10515774",
+        "title": "Exercices",
+        "menu_order": 0,
+        "active": true,
+        "post_type": "exercice",
+        "advanced_configuration": false,
+        "import_source": "",
+        "import_date": "",
+        "labels": {
+            "name": "Exercices",
+            "singular_name": "Exercice",
+            "menu_name": "Exercices",
+            "all_items": "All Exercices",
+            "edit_item": "Modifier Exercice",
+            "view_item": "Voir Exercice",
+            "view_items": "Voir Exercices",
+            "add_new_item": "Ajouter Exercice",
+            "add_new": "",
+            "new_item": "Nouveau Exercice",
+            "parent_item_colon": "Exercice parent :",
+            "search_items": "Search Exercices",
+            "not_found": "No exercices found",
+            "not_found_in_trash": "No exercices found in Trash",
+            "archives": "Archives des Exercice",
+            "attributes": "Exercice Attributes",
+            "featured_image": "",
+            "set_featured_image": "",
+            "remove_featured_image": "",
+            "use_featured_image": "",
+            "insert_into_item": "Insert into exercice",
+            "uploaded_to_this_item": "Uploaded to this exercice",
+            "filter_items_list": "Filter exercices list",
+            "filter_by_date": "Filter exercices by date",
+            "items_list_navigation": "Exercices list navigation",
+            "items_list": "Exercices list",
+            "item_published": "Exercice published.",
+            "item_published_privately": "Exercice published privately.",
+            "item_reverted_to_draft": "Exercice reverted to draft.",
+            "item_scheduled": "Exercice scheduled.",
+            "item_updated": "Exercice updated.",
+            "item_link": "Exercice Link",
+            "item_link_description": "A link to a exercice."
+        },
+        "description": "",
+        "public": true,
+        "hierarchical": true,
+        "exclude_from_search": false,
+        "publicly_queryable": true,
+        "show_ui": true,
+        "show_in_menu": true,
+        "admin_menu_parent": "",
+        "show_in_admin_bar": true,
+        "show_in_nav_menus": true,
+        "show_in_rest": true,
+        "rest_base": "",
+        "rest_namespace": "wp\/v2",
+        "rest_controller_class": "WP_REST_Posts_Controller",
+        "menu_position": "",
+        "menu_icon": "",
+        "rename_capabilities": false,
+        "singular_capability_name": "post",
+        "plural_capability_name": "posts",
+        "supports": [
+            "title",
+            "editor",
+            "thumbnail"
+        ],
+        "taxonomies": [
+            "techno-acf"
+        ],
+        "has_archive": false,
+        "has_archive_slug": "",
+        "rewrite": {
+            "permalink_rewrite": "post_type_key",
+            "with_front": "1",
+            "feeds": "0",
+            "pages": "1"
+        },
+        "query_var": "post_type_key",
+        "query_var_name": "",
+        "can_export": true,
+        "delete_with_user": false,
+        "register_meta_box_cb": "",
+        "enter_title_here": ""
+    },
+    {
+        "key": "post_type_64d4b7837ca72",
+        "title": "Formation WordPress",
+        "menu_order": 0,
+        "active": true,
+        "post_type": "formation-wordpress",
+        "advanced_configuration": false,
+        "import_source": "",
+        "import_date": "",
+        "labels": {
+            "name": "Formation WordPress",
+            "singular_name": "Formation WordPress",
+            "menu_name": "Formation WordPress",
+            "all_items": "All Formation WordPress",
+            "edit_item": "Modifier Formation WordPress",
+            "view_item": "Voir Formation WordPress",
+            "view_items": "Voir Formation WordPress",
+            "add_new_item": "Ajouter Formation WordPress",
+            "add_new": "",
+            "new_item": "Nouveau Formation WordPress",
+            "parent_item_colon": "Formation WordPress parent :",
+            "search_items": "Search Formation WordPress",
+            "not_found": "No formation wordpress found",
+            "not_found_in_trash": "No formation wordpress found in Trash",
+            "archives": "Archives des Formation WordPress",
+            "attributes": "Attributs des Formation WordPress",
+            "featured_image": "",
+            "set_featured_image": "",
+            "remove_featured_image": "",
+            "use_featured_image": "",
+            "insert_into_item": "Insérer dans formation wordpress",
+            "uploaded_to_this_item": "Téléversé sur ce formation wordpress",
+            "filter_items_list": "Filtrer la liste formation wordpress",
+            "filter_by_date": "Filtrer formation wordpress par date",
+            "items_list_navigation": "Navigation dans la liste Formation WordPress",
+            "items_list": "Liste Formation WordPress",
+            "item_published": "Formation WordPress publié.",
+            "item_published_privately": "Formation WordPress publié en privé.",
+            "item_reverted_to_draft": "Formation WordPress repassé en brouillon.",
+            "item_scheduled": "Formation WordPress planifié.",
+            "item_updated": "Formation WordPress mis à jour.",
+            "item_link": "Lien Formation WordPress",
+            "item_link_description": "Un lien vers un formation wordpress."
+        },
+        "description": "",
+        "public": true,
+        "hierarchical": true,
+        "exclude_from_search": false,
+        "publicly_queryable": true,
+        "show_ui": true,
+        "show_in_menu": true,
+        "admin_menu_parent": "",
+        "show_in_admin_bar": true,
+        "show_in_nav_menus": true,
+        "show_in_rest": true,
+        "rest_base": "",
+        "rest_namespace": "wp\/v2",
+        "rest_controller_class": "WP_REST_Posts_Controller",
+        "menu_position": "",
+        "menu_icon": "",
+        "rename_capabilities": false,
+        "singular_capability_name": "post",
+        "plural_capability_name": "posts",
+        "supports": [
+            "title",
+            "editor",
+            "thumbnail"
+        ],
+        "taxonomies": [
+            "techno-acf"
+        ],
+        "has_archive": false,
+        "has_archive_slug": "",
+        "rewrite": {
+            "permalink_rewrite": "post_type_key",
+            "with_front": "1",
+            "feeds": "0",
+            "pages": "1"
+        },
+        "query_var": "post_type_key",
+        "query_var_name": "",
+        "can_export": true,
+        "delete_with_user": false,
+        "register_meta_box_cb": "",
+        "enter_title_here": ""
+    },
+    {
+        "key": "taxonomy_64cb7310eb0b1",
+        "title": "Technologies",
+        "menu_order": 0,
+        "active": true,
+        "taxonomy": "techno-acf",
+        "object_type": [
+            "dev-wd",
+            "filesrouges"
+        ],
+        "advanced_configuration": 1,
+        "import_source": "",
+        "import_date": "",
+        "labels": {
+            "name": "Technologies",
+            "singular_name": "Technologie",
+            "menu_name": "Techno",
+            "all_items": "All Techno",
+            "edit_item": "Modifier Techno",
+            "view_item": "Voir Techno",
+            "update_item": "Mettre à jour Techno",
+            "add_new_item": "Ajouter Techno",
+            "new_item_name": "New Techno Name",
+            "parent_item": "",
+            "parent_item_colon": "",
+            "search_items": "Search Techno",
+            "most_used": "",
+            "not_found": "No techno found",
+            "no_terms": "Aucun techno",
+            "name_field_description": "",
+            "slug_field_description": "",
+            "parent_field_description": "",
+            "desc_field_description": "",
+            "filter_by_item": "",
+            "items_list_navigation": "Techno list navigation",
+            "items_list": "Techno list",
+            "back_to_items": "← Aller à « techno »",
+            "item_link": "Techno Link",
+            "item_link_description": "Un lien vers un techno"
+        },
+        "description": "",
+        "capabilities": {
+            "manage_terms": "manage_categories",
+            "edit_terms": "manage_categories",
+            "delete_terms": "manage_categories",
+            "assign_terms": "edit_posts"
+        },
+        "public": 1,
+        "publicly_queryable": 1,
+        "hierarchical": 1,
+        "show_ui": 1,
+        "show_in_menu": 1,
+        "show_in_nav_menus": 1,
+        "show_in_rest": 1,
+        "rest_base": "",
+        "rest_namespace": "wp\/v2",
+        "rest_controller_class": "WP_REST_Terms_Controller",
+        "show_tagcloud": 1,
+        "show_in_quick_edit": 1,
+        "show_admin_column": 0,
+        "rewrite": {
+            "permalink_rewrite": "taxonomy_key",
+            "with_front": "1",
+            "rewrite_hierarchical": "0"
+        },
+        "query_var": "post_type_key",
+        "query_var_name": "",
+        "default_term": {
+            "default_term_enabled": "0"
+        },
+        "sort": 0,
+        "meta_box": "default",
+        "meta_box_cb": "",
+        "meta_box_sanitize_cb": ""
+    }
+]
