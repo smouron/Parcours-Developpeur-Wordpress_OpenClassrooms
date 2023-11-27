@@ -1,4 +1,7 @@
-<?php if ( ashe_options('header_image_label') === true ) : ?>
+<?php
+// echo('page-header.php');
+
+if ( ashe_options('header_image_label') === true ) : ?>
 
 	<div class="entry-header">
 		<div class="cv-outer">
@@ -8,9 +11,12 @@
 				<?php if ( has_custom_logo() ) :
 
 				$custom_logo_id = get_theme_mod( 'custom_logo' );
-				//  'thumbnail', 'medium', 'large', 'full'
+				
+				// ----- DEBUT LIGNE MODIFIEE / AJOUTEE - wp_get_attachment -----
+				// 'thumbnail', 'medium', 'large', 'full'
 				// $custom_logo 	= wp_get_attachment_image_src( $custom_logo_id , 'full' );
 				$custom_logo 	= wp_get_attachment_image_src( $custom_logo_id , 'thumbnail' ); 
+				// ----- FIN LIGNE MODIFIEE / AJOUTEE - wp_get_attachment -----
 
 				?>
 

@@ -1,12 +1,17 @@
 <?php
 
-// 'thumb', 'thumbnail', 'post-thumbnail', 'medium', 'medium-large', 'large', 'full', $image_size
+// echo('featured-links.php');
+
+// ----- DEBUT LIGNE MODIFIEE / AJOUTEE - wp_get_attachment -----
+// 'thumbnail', 'medium', 'large', 'full'
 // $featured_links_image_1 = wp_get_attachment_image_src( ashe_options( 'featured_links_image_1' ), 'full' );
 // $featured_links_image_2 = wp_get_attachment_image_src( ashe_options( 'featured_links_image_2' ), 'full' );
 // $featured_links_image_3 = wp_get_attachment_image_src( ashe_options( 'featured_links_image_3' ), 'full' );
+
 $featured_links_image_1 = wp_get_attachment_image_src( ashe_options( 'featured_links_image_1' ), 'thumbnail' );
 $featured_links_image_2 = wp_get_attachment_image_src( ashe_options( 'featured_links_image_2' ), 'thumbnail' );
 $featured_links_image_3 = wp_get_attachment_image_src( ashe_options( 'featured_links_image_3' ), 'thumbnail' );
+// ----- FIN LIGNE MODIFIEE / AJOUTEE - wp_get_attachment -----
 
 ?>
 

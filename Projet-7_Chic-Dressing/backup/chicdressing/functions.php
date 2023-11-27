@@ -7,6 +7,8 @@ function chicdressing_enqueue_styles() {
 
 add_filter( 'big_image_size_threshold', '__return_false' );
 
+
+// -----  DEBUT LIGNE MODIFIEE / AJOUTEE - GOOGLE FONTS -----
 function deregister_gfonts_scripts() {
     wp_dequeue_style( 'ashe-playfair-font');
     wp_deregister_style( 'ashe-playfair-font');
@@ -23,5 +25,5 @@ function deregister_gfonts_scripts() {
 
 add_action( 'wp_enqueue_scripts', 'deregister_gfonts_scripts', 20);
 
-
+// -----  FIN LIGNE MODIFIEE / AJOUTEE - GOOGLE FONTS -----
  

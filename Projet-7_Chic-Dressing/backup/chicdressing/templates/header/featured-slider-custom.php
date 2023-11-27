@@ -1,5 +1,8 @@
 <?php
 
+
+// echo('featured-slider-custom.php');
+
 $slider_navigation 	= ashe_options( 'featured_slider_navigation' );
 $slider_pagination 	= ashe_options( 'featured_slider_pagination' );
 
@@ -30,7 +33,7 @@ $slider_data .= '}';
 	
 	$slider_repeater_encoded = get_theme_mod( 'featured_slider_repeater', json_encode( array(
 		array(
-			'image_url' => 'http://127.0.0.1/chic-dressing/wp-content/uploads/2020/08/yogendra-singh-kOIODZD_ByQ-unsplash-compress-0.jpg',
+			'image_url' => '',
 			'title' => 'Slide 1 Title',
 			'text' => 'Slide 1 Description. Some lorem ipsum dolor sit amet text',
 			'link' => '',
@@ -65,13 +68,13 @@ $slider_data .= '}';
 
 	<div class="slider-item">
 
-		<!-- 'thumb', 'thumbnail', 'post-thumbnail', 'medium', 'medium-large', 'large', 'full', $image_size -->
 		<div class="slider-item-bg" style="background-image:url( 
 			<?php 
-			// echo wp_get_attachment_image_src( $repeater_item->image_url, 'full' )[0]; 
-			echo wp_get_attachment_image_src( $repeater_item->image_url, 'thumbnail' ); 
-			// echo ( $repeater_item->image_url);
-			?>);">
+				// ----- DEBUT LIGNE MODIFIEE / AJOUTEE - wp_get_attachment -----
+				// 'thumbnail', 'medium', 'large', 'full'
+				// echo wp_get_attachment_image_src( $repeater_item->image_url, 'full' )[0];
+				echo wp_get_attachment_image_src( $repeater_item->image_url, 'thumbnail' )[0]; ?>);
+			">
 		</div>
 
 		<div class="cv-container image-overlay">

@@ -1,6 +1,7 @@
 <?php
 
 get_header();
+// echo('page.php');
 
 if ( is_front_page() ) {
 
@@ -50,14 +51,13 @@ if ( is_front_page() ) {
 				}
 
 				if ( get_the_title() !== '' ) {
-					// echo '<header class="post-header">';
-					// 	echo '<h1 class="page-title">'. get_the_title() .'</h1>';
-					// echo '</header>';
-
-					//    ----- LIGNE MODIFIEE -----
-					echo '<header id="title-contact" class="post-header">';
+					echo '<header class="post-header">';
+						//  ----- DEBUT LIGNE MODIFIEE / AJOUTEE - h1 en h2 -----
+						// 	echo '<h1 class="page-title">'. get_the_title() .'</h1>';
 						echo '<h2 class="page-title">'. get_the_title() .'</h2>';
-						echo '</header>';
+						// -----  FIN LIGNE MODIFIEE / AJOUTEE - h1 en h2 -----
+					echo '</header>';
+
 				}
 
 				echo '<div class="post-content">';

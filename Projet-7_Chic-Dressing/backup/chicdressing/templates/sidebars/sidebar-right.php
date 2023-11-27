@@ -1,5 +1,7 @@
 <?php
 
+// echo('sidebar-right.php');
+
 // check if available
 if ( ! is_active_sidebar( 'sidebar-right' ) && ! ashe_is_preview() ) {
 	return;

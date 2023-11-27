@@ -1,5 +1,7 @@
 <?php
 
+// echo('featured-slider.php');
+
 $slider_navigation 	= ashe_options( 'featured_slider_navigation' );
 $slider_pagination 	= ashe_options( 'featured_slider_pagination' );
 
@@ -74,8 +76,10 @@ $slider_data .= '}';
 
 	<div class="slider-item">
 
+		<!-- ----- DEBUT LIGNE MODIFIEE / AJOUTEE - Title / Alt ----- -->
 		<!-- <div class="slider-item-bg" style="background-image:url(<?php echo esc_url($featured_image); ?>);"></div> -->
-		<div class="slider-item-bg" style="background-image:url(<?php echo esc_url($featured_image); ?>); height: 540px;"></div>
+		<div class="slider-item-bg" style="background-image:url(<?php echo esc_url($featured_image); ?>);" alt='<?php the_title(); ?>' title='<?php the_title(); ?>'></div>
+		<!-- ----- FIN LIGNE MODIFIEE / AJOUTEE - Title / Alt ----- -->
 
 		<div class="cv-container image-overlay">
 			<div class="cv-outer">

@@ -3,6 +3,7 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class($post_class); ?>>
 
 <?php
+// echo('post-content.php');
 
 if ( have_posts() ) :
 
@@ -31,9 +32,12 @@ if ( have_posts() ) :
 		?>
 
 		<?php if ( get_the_title() ) : ?>
-		<!--             -----  LIGNE MODIFIEE -----           -->
+
+		<!--  ----- DEBUT LIGNE MODIFIEE / DEPLACEE - h1 en h2 -----  -->
 		<!-- <h1 class="post-title"><?php the_title(); ?></h1> -->
 		<h2 class="post-title"><?php the_title(); ?></h2>
+		<!--  ----- FIN LIGNE MODIFIEE / DEPLACEE - h1 en h2 -----  -->
+		
 		<?php endif; ?>
 
 		<?php if ( ashe_options( 'single_page_show_date' ) || ashe_options( 'single_page_show_comments' ) ) : ?>
@@ -109,5 +113,4 @@ if ( have_posts() ) :
 endif; // have_posts()
 
 ?>
-
 </article>

@@ -4,8 +4,9 @@
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-	<!-- LIGNE MODIFIEE / AJOUTEE -->
+	<!-- -----  DEBUT LIGNE MODIFIEE / AJOUTEE - META ----- -->
 	<meta name="keywords" content="vente de vêtements , seconde main, habits seconde main en ligne, vetements d'occasion a paris, vente vêtements d'occasion femme "/>
+	<!-- -----  FIN LIGNE MODIFIEE / AJOUTEE - META ----- -->
 	
 	<link rel="profile" href="https://gmpg.org/xfn/11">
 <?php wp_head(); ?>

@@ -1,6 +1,7 @@
 <div class="main-container">
 	
 	<?php
+	// echo('blog-list.php');
 		
 	// Category Description
 	if ( is_category() ) {
@@ -9,7 +10,7 @@
 
 	// Blog Grid
 	echo '<ul class="blog-grid">';
-	
+
 	if ( have_posts() ) :
 
 		// Loop Start

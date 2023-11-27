@@ -2,6 +2,8 @@
 <div class="main-container">
 
 	<?php
+	
+	// echo('blog-grid.php');
 
 	// Category Description
 	if ( is_category() ) {
@@ -9,12 +11,14 @@
 	}
 
 	// Blog Grid
-	//            -----  LIGNE MODIFIEE et DEPLACEE -----
+	//  ----- DEBUT LIGNE MODIFIEE / DEPLACEE - h1 en h2 -----
 	// echo '<h1 id="leblog" class="chic-title">Dernières publications </h1>';
-	echo '<h2 id="leblog" class="chic-title">Dernières publications </h2>';
-	
+	echo '<h2 id="leblog" class="chic-title">Dernières publications </h2>';	
+	//  ----- FIN LIGNE MODIFIEE / DEPLACEE - h1 en h2 -----
+
 	echo '<ul class="blog-grid">';
 	// On ajoute un titre à la section blog
+	
 
 	if ( have_posts() ) :
 
@@ -34,9 +38,10 @@
 			<article id="post-<?php the_ID(); ?>" <?php post_class($post_class); ?>>
 
 				<div class="post-media">
-					<!--                -----  LIGNE MODIFIEE -----               -->
+					<!-- ----- DEBUT LIGNE MODIFIEE / DEPLACEE - aria-label ----- -->
 					<!-- <a href="<?php echo esc_url( get_permalink() ); ?>"></a> -->
-					<a href="<?php echo esc_url( get_permalink() ); ?>" aria-label="Lire la suite de <?php the_title(); ?>"></a>
+					<a href="<?php echo esc_url( get_permalink() ); ?>" title="<?php the_title(); ?>" aria-label="Lire la suite de <?php the_title(); ?>"></a>					
+					<!-- ----- FIN LIGNE MODIFIEE / DEPLACEE ----- -->
 					<?php the_post_thumbnail('full'); ?>
 				</div>
 
@@ -53,13 +58,14 @@
 					?>
 
 					<?php if ( get_the_title() ) : ?>
-					<!--   ----- LIGNE MODIFIEE -----      -->
+					<!-- ----- DEBUT LIGNE MODIFIEE / DEPLACEE - h2 en h3 ----- -->
 					<!-- <h2 class="post-title">
 						<a href="<?php esc_url( the_permalink() ); ?>"><?php the_title(); ?></a>
 					</h2> -->
 					<h3 class="post-title">
-						<a href="<?php esc_url( the_permalink() ); ?>"><?php the_title(); ?></a>
-					</h3>
+						<a href="<?php esc_url( the_permalink() ); ?>"  aria-label="Lire la suite de <?php the_title(); ?>"><?php the_title(); ?></a>
+					</h3>				
+					<!-- ----- FIN LIGNE MODIFIEE / DEPLACEE - h2 en h3 ----- -->
 					<?php endif; ?>
 
 					<?php if ( ashe_options( 'blog_page_show_date' ) || ashe_options( 'blog_page_show_comments' ) ) : ?>
@@ -153,9 +159,10 @@
 	endif; // have_posts()
 
 	echo '</ul>';
-	// ----- LIGNE MODIFIEE -----
+	// ----- LIGNE MODIFIEE / DEPLACEE ------
 	// echo '<p class="text-center"><a class="chic-bouton" href="/blog">Voir tous les articles</a></p>';
 	echo '<p class="text-center"><a class="chic-bouton" href="'. get_site_url() .'/blog">Voir tous les articles</a></p>';
+	// ----- LIGNE MODIFIEE / DEPLACEE -----
 
 	?>
 
