@@ -9,10 +9,10 @@
         <title>The ArtBox</title>
     </head>
     <body class="d-flex flex-column min-vh-100">
-        <?php include_once('variables.php'); ?>
+        <?php require_once('variables.php'); ?>
 
         <!-- Header -->
-        <?php include_once ('header.php'); ?>
+        <?php require_once('header.php'); ?>
 
         <main>
             <div id="liste-oeuvres">
@@ -29,6 +29,6 @@
         </main>
         
         <!-- FOOTER -->
-        <?php include_once 'footer.php'; ?>
+        <?php require_once('footer.php'); ?>
     </body>
 </html>

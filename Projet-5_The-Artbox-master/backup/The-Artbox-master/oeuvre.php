@@ -9,10 +9,10 @@
         <title>The ArtBox</title>
     </head>
     <body>
-        <?php include_once('variables.php'); ?>
+        <?php require_once('variables.php'); ?>
 
         <!-- Header -->
-        <?php include_once ('header.php'); ?>
+        <?php require_once('header.php'); ?>
 
         <?php 
         // Récupération de la valeur envoyée et traitement pour retirer d'éventuelles balises HTML
@@ -92,6 +92,6 @@
         } 
         ?> 
         <!-- FOOTER -->
-        <?php include_once ('footer.php'); ?>
+        <?php require_once('footer.php'); ?>
     </body>
 </html>
