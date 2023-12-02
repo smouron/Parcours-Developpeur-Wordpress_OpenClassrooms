@@ -25,6 +25,9 @@ function theme_enqueue_styles() {
 
     // Enqueue Custom Scripts
     wp_enqueue_script( 'custom-scripts', get_theme_file_uri( '/assets/js/scripts.js' ), array('jquery'), filemtime(get_stylesheet_directory() . '/assets/js/scripts.js'), true );
+    if (is_front_page()) {
+        wp_enqueue_script( 'custom-scripts-home', get_theme_file_uri( '/assets/js/scripts-home.js' ), array('jquery'), filemtime(get_stylesheet_directory() . '/assets/js/scripts-home.js'), true );
+    }; 
 }
 
 // Ajouter la prise en charge des images mises en avant
