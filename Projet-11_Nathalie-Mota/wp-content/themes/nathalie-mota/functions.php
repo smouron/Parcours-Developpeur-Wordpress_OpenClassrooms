@@ -111,7 +111,7 @@ function nathalie_mota_widgets(){
 function contact_btn($string) {
 
 	/** Code du bouton */
-	$string .= '<a href="#" id="contact_btn" class="contact">Contact</a>';
+	$string = '<a href="#" class="contact">Contact</a>';
 
 	/** On retourne le code  */
 	return $string;

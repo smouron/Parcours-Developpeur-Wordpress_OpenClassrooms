@@ -15,7 +15,7 @@ if( have_posts() ) : while( have_posts() ) : the_post(); ?>
 		<?php get_template_part ( 'template-parts/post/photo-detail'); ?>
 		
 		<div class="photo__contact flexrow">
-			<p>Cette photo vous intéresse ? <button class="btn" type="button"><?php echo do_shortcode('[contact]'); ?></button></p>
+			<p>Cette photo vous intéresse ? <button class="btn" type="button"><a href="#" class="contact">Contact</a></button></p>
 			<div class="site__navigation flexrow">				
 				<div class="site__navigation__prev">
 				<?php
