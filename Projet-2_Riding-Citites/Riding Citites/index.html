@@ -1,10 +1,21 @@
 <!DOCTYPE html>
 <html lang="fr">
 
+<!-- 
+  ********************************** 
+	     Projet 2 - OpenClassrooms
+   Stephane Mouron (19/01/2023)
+
+Ajout de class et modification du htmpl
+  pour rendre la partie responsive
+      et ajout d'un pied de page
+  ********************************** 
+-->
+
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="./assets/css/style.css">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link
@@ -16,7 +27,7 @@
 <body>
 	<div class="container">
 		<header>
-			<img src="images/header.png" alt="skateboard sur un sol goudronné">
+			<img src="./assets/images/header.png" alt="skateboard sur un sol goudronné">
 			<div class="headerTextContent">
 				<h1>RIDING CITIES</h1>
 			</div>
@@ -24,44 +35,48 @@
 		<main>
 			<section>
 				<h2>La mission de l'asso</h2>
-				<div class="directionRow">
+				<div id="container_article" class="grid missions">
 					<article>
 						<h3>Promouvoir</h3>
-						<p>L'asso regroupe des passionnés de glisse et plus particulièrement de skateboard qui œuvrent
+						<p>L'asso regroupe des passionnés de glisse et plus particulièrement de skateboard qui
+							œuvrent
 							pour la promotion de ce sport au niveau régional.</p>
 					</article>
 					<article>
 						<h3>Transmettre</h3>
-						<p>Nous proposons des cours pour enfants, ados et adultes. Nous intervenons également dans les
+						<p>Nous proposons des cours pour enfants, ados et adultes. Nous intervenons également dans
+							les
 							écoles pour faire découvrir le skate aux plus jeunes.</p>
 					</article>
 					<article>
 						<h3>Entraîner</h3>
-						<p>Nous accompagnons nos membres sur les compétitions en les préparant physiquement à donner le
+						<p>Nous accompagnons nos membres sur les compétitions en les préparant physiquement à donner
+							le
 							meilleur d'eux-mêmes.</p>
 					</article>
 					<article>
 						<h3>Fédérer</h3>
-						<p>L'asso organise tout au long de l'année des évènements autour du skate pour réunir toujours
+						<p>L'asso organise tout au long de l'année des évènements autour du skate pour réunir
+							toujours
 							plus de monde autour de cette pratique.</p>
 					</article>
 				</div>
 			</section>
-			<section class="sectionLinearGradientBackground whiteContentSection">
+			<section class="sectionLinearGradientBackground whiteContentSection sm textCenter">
 				<h2>Les membres fondateurs</h2>
-				<div class="members directionRow">
-					<article class="textCenter">
-						<img src="images/soraya.png" alt="Membre fondateur Soraya, spécialisé en Longboard">
+				<div class="directionRow members">
+					<article>
+						<img src="./assets/images/soraya.png" alt="Membre fondateur Soraya, spécialisé en Longboard">
 						<h3>Soraya</h3>
 						<p>Longboard</p>
 					</article>
-					<article class="textCenter">
-						<img src="images/marc.png" alt="Membre fondateur Marc, spécialisé en Street">
+					<article>
+						<img src="./assets/images/marc.png" alt="Membre fondateur Marc, spécialisé en Street">
 						<h3>Marc</h3>
 						<p>Street</p>
 					</article>
-					<article class="textCenter">
-						<img src="images/pedro.png" alt="Membre fondateur Pedro, spécialisé en Pool">
+					<article>
+						<img src="./assets/images/pedro.png" alt="Membre fondateur Pedro, spécialisé en Pool">
 						<h3>Pedro</h3>
 						<p>Pool</p>
 					</article>
@@ -69,20 +84,33 @@
 			</section>
 			<section class="sectionLightGreyBackground">
 				<h2>Découvrez nos cours !</h2>
-				<div class="directionRow">
-					<a class="button buttonRounded buttonHighlight buttonMainColor"
-						href="documents/planning-adultes.pdf" target="_blank">Télécharger le
+				<div class="directionRow documents">
+					<a class="button buttonRounded buttonHighlight sm buttonMainColor"
+						href="./assets/documents/planning-adultes.pdf" target="_blank">Télécharger le
 						planning
 						de cours pour adultes</a>
 				</div>
-				<div class="directionRow">
-					<a class="button buttonRounded buttonHighlight buttonSecondColor"
-						href="documents/planning-enfants.pdf" target="_blank">Télécharger
+				<div class="directionRow documents">
+					<a class="button buttonRounded buttonHighlight sm buttonSecondColor"
+						href="./assets/documents/planning-enfants.pdf" target="_blank">Télécharger
 						le planning
 						de cours pour enfants</a>
 				</div>
 			</section>
 		</main>
+		<footer class="directionRow">
+			<p>
+				Exercice
+				<a href="https://openclassrooms.com/fr/" target="_blank">OpenClassrooms</a>
+			</p>
+			<p class="separator">
+				|
+			</p>
+			<p>
+				© 2023 -
+				<a href="https://sanoecreation.fr/" target="_blank">Stéphane Mouron</a>
+			</p>
+		</footer>
 	</div>
 </body>
 
