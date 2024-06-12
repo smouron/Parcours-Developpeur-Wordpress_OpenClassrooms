@@ -9,7 +9,6 @@
         <title>The ArtBox</title>
     </head>
     <body>
-        <?php require_once('variables.php'); ?>
 
         <!-- Header -->
         <?php require_once('header.php'); ?>
@@ -31,12 +30,13 @@
                 // si c'est le cas, on récupère les informations pour les afficher
                 if ($artworks[$id]['artwork_id'] == $getData['id']): ?> 
                     <?php $select = $id;?>
-                    <main>
-                        <article id="detail-oeuvre">
-                            <div id="img-oeuvre">
+                <main>
+                    <section class="article">
+                        <article id="detail-artwork">
+                            <div id="img-artwork">
                                 <img src="img/<?php echo $artworks[$id]['artwork_image']; ?>" alt="<?php echo $artworks[$id]['title']; ?>">
                             </div>
-                            <div id="contenu-oeuvre">
+                            <div id="data-artwork">
                                 <h1><?php echo $artworks[$id]['title']; ?></h1>
                                 <p class="description"><?php echo $artworks[$id]['description']; ?></p>
                                 <p class="description-complete">
@@ -44,9 +44,9 @@
                                 </p>
                             </div>
                         </article>
-                    </main>   
+                    </section>  
                     <!-- Affichage de l'ouevre qui est avant et celle qui est après dans la liste -->
-                    <section id="container-autres-oeuvres">
+                    <section id="container-other-artwork">
                         <?php
                         if ($select > 0) {
                             $previous = $select - 1;
@@ -61,20 +61,21 @@
                         }
 
                         ?>
-                        <div class="autres-oeuvres">   
+                        <a href="<?php echo 'oeuvre.php?id=' . $artworks[$previous]['artwork_id']; ?>" class="other-artwork">
                             <h3>Oeuvre précédent</h3>
-                            <a href="<?php echo 'oeuvre.php?id=' . $artworks[$previous]['artwork_id']; ?>">
+                            <div>
                                 <img src="img/<?php echo $artworks[$previous]['artwork_image']; ?>" alt="<?php echo $artworks[$previous]['title']; ?>">
-                            </a>                            
-                            <h4><?php echo $artworks[$previous]['title']; ?></h4>
-                        </div>
-                        <div class="autres-oeuvres">
+                            </div>                            
+                            <p><?php echo $artworks[$previous]['title']; ?></p>                        
+                        </a> 
+                        <a href="<?php echo 'oeuvre.php?id=' . $artworks[$next]['artwork_id']; ?>" class="other-artwork">
                             <h3>Oeuvre suivante</h3>
-                            <a href="<?php echo 'oeuvre.php?id=' . $artworks[$next]['artwork_id']; ?>">
+                            <div>
                                 <img src="img/<?php echo $artworks[$next]['artwork_image']; ?>" alt="<?php echo $artworks[$next]['title']; ?>">
-                            </a>                                
-                            <h4><?php echo $artworks[$next]['title']; ?></h4>
-                        </div>
+                            </div>                              
+                            <p><?php echo $artworks[$next]['title']; ?></p>   
+                        </a> 
+
                         
                     </section>
                     <?php    $control = true;
@@ -90,7 +91,9 @@
             header('Refresh:2; url=index.php');
             exit();
         } 
-        ?> 
+        ?>         
+        </main>
+
         <!-- FOOTER -->
         <?php require_once('footer.php'); ?>
     </body>

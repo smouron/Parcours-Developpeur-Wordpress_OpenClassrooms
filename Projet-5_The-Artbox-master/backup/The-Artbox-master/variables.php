@@ -121,7 +121,7 @@ $artworks = [
 
 	[
 		'artwork_id' => 14,
-		'artwork_image' =>	'steve-johnson-4',
+		'artwork_image' =>	'steve-johnson-4.png',
 		'title' =>	'Mirage',
 		'description' =>	'Stéphanie Kaiser',
 		'full_description' =>	'Interdum et malesuada fames ac ante ipsum primis in faucibus. Nam iaculis lorem ac ex tristique egestas et nec sapien. Donec tincidunt id erat sit amet tempus. Nullam vel molestie dui. Duis a neque massa. Vivamus quis ornare lacus. Nullam eleifend condimentum egestas. Vivamus magna purus, fermentum mollis mauris sed, consectetur interdum libero. Duis interdum tortor tellus, eget sollicitudin quis.',

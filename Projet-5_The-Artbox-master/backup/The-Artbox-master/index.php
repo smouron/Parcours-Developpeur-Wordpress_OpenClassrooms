@@ -9,15 +9,14 @@
         <title>The ArtBox</title>
     </head>
     <body class="d-flex flex-column min-vh-100">
-        <?php require_once('variables.php'); ?>
 
         <!-- Header -->
         <?php require_once('header.php'); ?>
 
         <main>
-            <div id="liste-oeuvres">
+            <div id="list-artwork">
                 <?php foreach ($artworks as $artwork): ?> 
-                    <article class="oeuvre">
+                    <article class="artwork">
                         <a href="<?php echo 'oeuvre.php?id=' . $artwork['artwork_id']; ?>">
                             <img src="img/<?php echo $artwork['artwork_image']; ?>" alt="<?php echo $artwork['title']; ?>">
                             <h2><?php echo $artwork['title']; ?></h2>
