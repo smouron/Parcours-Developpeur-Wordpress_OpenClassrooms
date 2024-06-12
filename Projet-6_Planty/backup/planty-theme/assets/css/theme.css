@@ -1,11 +1,63 @@
-/* Chargement de la font personnalisée */
-@font-face {
-  font-family: 'Syne';
-  src: url('../fonts/Syne-VariableFont_wght.ttf') format('truetype');
+/* -------------------------------------------
+Projet 6 de la formation OpenClassrooms (Planty) 
+
+  Développement réalisé par Stéphane Mouron
+      durant le mois de Mars en 2023
+*/
+
+/* Balises généralistes */
+.relative {
+  position: relative;
 }
 
-body * {
-  font-family: 'Syne', 'Times New Roman', Times, serif;
+.absolute {
+  position: absolute;
+}
+
+.flexrow {
+  display: flex;
+  flex-direction: row;
+}
+
+.flexcolumn {
+  display: flex;
+  flex-direction: column;
+}
+
+.radius10 {
+  border-radius: 10px;
+}
+
+.radius {
+  border-radius: 20px;
+}
+
+.reverse {
+  flex-wrap: wrap-reverse;
+}
+
+.hidden {   
+  visibility: hidden;  
+  opacity: 0;  
+  display: none;
+  transition: .3s ease-in-out;
+}
+
+.none {
+  display: none;
+  visibility: hidden;  
+  opacity: 0;  
+  width: 0;
+  height: 0;
+  border: 0px solid transparent !important;
+}
+
+.textcenter {
+  text-align: center;
+}
+
+.elementcenter {
+  justify-content: center;
 }
 
 /* Suppression du padding qui est mis par défaut sur les balises ARTICLE */
@@ -44,13 +96,18 @@ body * {
   padding-left: 0;
 }
 
-/* Surcharge du bouton Admin */
+/* Surcharge du bouton Admin*/
 .menu-admin {
   padding-right: 60px;
 }
 
+.menu-item a.menu-admin {
+  font-size: 16px;	
+}
+
 #ast-hf-mobile-menu .menu-admin {
   padding: 20px 60px 0 20px;
+  font-size: 16px;
 }
 
 /* Surcharge du menu pour la version téléphone */
@@ -59,51 +116,28 @@ body * {
 #ast-hf-mobile-menu .menu-admin  {
   display: flex;
   height: 60px;
-  background: #FFFFFF;
+  background: var(--ast-global-color-2);
 }
 
 #ast-hf-mobile-menu a:hover  {
-  color: #000000;
-}
-
-/* Surcharge au passage de la souri sur les liens du Header */
-.main-header-menu a {
-  font-size: 16px;	
-  font-weight: 400;
-  line-height: 19px;  
-}
-
-.main-header-menu a:hover  {
-  font-size: 13px;	
-  font-weight: 700;
-  line-height: 15px;
-  color: #000000;
+  color: var(--ast-global-color-3);
 }
 
 /* Surcharge d'un style "bouton" sur le lien commande */
 .main-header-menu > li:last-child {
-  background-color: #e0b9b4;
+  background-color: var(--ast-global-color-4);
   transition: 0.45s ease;
   width: 236px;
   height: 80px;
 }
 
-.main-header-menu > li:last-child a {
-  font-size: 16px;	
-  font-weight: 700;
-  line-height: 19px; 
-}
-
 .main-header-menu > li:last-child a:hover {
-  background-color: #c02e44 !important;
-  font-size: 16px;	
-  font-weight: 700;
-  line-height: 19px; 
+  background-color: var(--ast-global-color-8) !important;
 }
 
 .main-header-menu li:last-child a {
-  color: #ffffff !important;
-  background-color: #e0b9b4 !important;
+  color: var(--ast-global-color-2) !important;
+  background-color: var(--ast-global-color-4) !important;
 }
 
 
@@ -192,14 +226,14 @@ body * {
 
 #fluentform_6 h2,
 #fluentform_6 h3 {
-  color: #ffffff;
+  color: var(--ast-global-color-2);
   font-weight: 700;
   margin: 0;
 }
 
 #fluentform_6 label {
   margin: 5px 0 5px 0 !important;
-  color: #ffffff;
+  color: var(--ast-global-color-2);
 }
 
 /*   Partie QUANTITES   */
@@ -210,7 +244,7 @@ body * {
   text-align: center;
   justify-content: center;
   padding-bottom: 40px;
-  border-bottom: 1px solid #FFFFFF;
+  border-bottom: 1px solid var(--ast-global-color-2);
   margin-bottom: 50px;
 }
 
@@ -258,21 +292,21 @@ body * {
   font-size: 15px;
   font-weight: 400;
   text-align: center;
-  background-color: #e0b9b4;
-  color: #ffffff;  
+  background-color: var(--ast-global-color-4);
+  color: var(--ast-global-color-2);  
   left: 55px;
   padding: 0;
 }
 
 #fluentform_6 .btn-quantity:hover {
-  background-color: #c02e44;
+  background-color: var(--ast-global-color-8);
 }
 
 #fluentform_6 .btn-more {
   position: absolute;
   border: 0;
-  border-bottom: solid 2px #ffffff;
-  border-left: solid 1px #ffffff;
+  border-bottom: solid 2px var(--ast-global-color-2);
+  border-left: solid 1px var(--ast-global-color-2);
   border-radius: 0 7px 0 0;
   top: 0;
   z-index: 5;
@@ -281,8 +315,8 @@ body * {
 #fluentform_6 .btn-less {
   position: absolute;
   border: 0;
-  border-top: solid 2px #ffffff;
-  border-left: solid 1px #ffffff;
+  border-top: solid 2px var(--ast-global-color-2);
+  border-left: solid 1px var(--ast-global-color-2);
   border-radius: 0 0 7px 0;
   bottom: 0;
   z-index: 5;
@@ -304,7 +338,7 @@ body * {
 /*    Partie INFORMATIONS   */
 #fluentform_6 .ff_columns_total_2 label {
   margin: 5px 0 5px 0 !important;
-  color: #ffffff;
+  color: var(--ast-global-color-2);
 }
 
 #fluentform_6 .ff_columns_total_2 input[type='text'],
@@ -315,7 +349,7 @@ body * {
 }
 
 #fluentform_6 .ff_columns_total_2 .ff-t-column-1 {
-  border-right: 1px solid #ffffff;
+  border-right: 1px solid var(--ast-global-color-2);
 }
 
 #fluentform_6 .ff_columns_total_2 .ff-t-column-2 {
@@ -364,7 +398,7 @@ body * {
     #fluentform_6 .ff_columns_total_4 {
       flex-wrap: wrap;
 	    gap: 175px 10px;
-	    margin-top: -265px;
+	    margin-top: -240px;
     }
 	
 	 #fluentform_6 .ff-t-cell:last-of-type {
@@ -375,7 +409,7 @@ body * {
 	 #fluentform_6 .ff_columns_total_4 .ff-t-column-2,
 	 #fluentform_6 .ff_columns_total_4 .ff-t-column-3,
 	 #fluentform_6 .ff_columns_total_4 .ff-t-column-4 {
-		 flex-basis: 45% !important;
+		 flex-basis: 43% !important;
 	 }
 	 
  
@@ -386,7 +420,7 @@ body * {
     #fluentform_6 .ff_columns_total_2 {
       flex-direction: column;
       gap: 0px;
-	  padding-left: 50px;
+	    padding-left: 50px;
     }
     
     #fluentform_6 .ff_columns_total_2 .ff-t-column-1 {
@@ -412,8 +446,8 @@ body * {
 		 
     #fluentform_6 .ff_columns_total_4 {
       flex-wrap: wrap;
-	  gap: 165px 0px;
-	  margin-top: -260px;
+	    gap: 165px 0px;
+	    margin-top: -235px;
     }
 	
 }
@@ -435,7 +469,7 @@ body * {
 		 
     #fluentform_6 .ff_columns_total_4 {
 	  gap: 145px 0px;
-	  margin-top: -705px;
+	  margin-top: -675px;
     }
 	
 	#fluentform_6 .btn-quantity {
@@ -449,7 +483,7 @@ body * {
 	#fluentform_6 .ff_columns_total_2 {
       flex-direction: column;
       gap: 0px;
-	  padding-left: 0;
+	    padding-left: 0;
     }
 	  
     #fluentform_6 .ff_columns_total_2 input[type='text'],
@@ -458,7 +492,8 @@ body * {
     }
 
     #fluentform_6 .ff_columns_total_2 .input-order {
-      width:250px;
+      max-width:300px;
+      width:100%;
     }
 }
 
@@ -467,10 +502,6 @@ body * {
 /*  **********************************  */
 @media only screen and (max-width: 545px) {
 
-
-  .wp-block-uagb-image figure img {
-    width: 20% !important;
-  }
 	
 	  /* ------------------ */
 	  /*                    */
@@ -480,7 +511,9 @@ body * {
 		 
     #fluentform_6 .ff_columns_total_4 {
 	  gap: 165px 0px;
-	  margin-top: -755px;
+	  margin-top: -735px;
     }
 }
+ 
+
  
