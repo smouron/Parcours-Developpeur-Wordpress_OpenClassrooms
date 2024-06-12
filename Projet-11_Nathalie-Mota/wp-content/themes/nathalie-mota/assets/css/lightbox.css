@@ -105,13 +105,13 @@ max-width: 100%;
     align-items: left;
 }
 
-.lightbox .lightbox__container h2,
+.lightbox .lightbox__container .photo-title,
 .lightbox .lightbox__container p {
     color: #FFFFFF;
     opacity: 1;
 }
 
-.lightbox .lightbox__container h2 { 
+.lightbox .lightbox__container .photo-title { 
     width: 80%;   
     font-weight: 400;
     font-size: 16px;

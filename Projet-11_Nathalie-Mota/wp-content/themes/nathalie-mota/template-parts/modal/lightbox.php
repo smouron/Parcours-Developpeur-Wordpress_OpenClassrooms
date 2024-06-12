@@ -14,7 +14,7 @@
 
 ?>
 <?php the_post_thumbnail('lightbox'); ?>
-<h2 class="photo-title-<?php the_id(); ?>"><?php the_title(); ?></h2>
+<h4 class="photo-title photo-title-<?php the_id(); ?>"><?php the_title(); ?></h4>
 <div class="lightbox__info flexrow">
      <p class="photo-category-<?php the_id(); ?>"><?php echo $categorie; ?></p>
     <p class="photo-year-<?php the_id(); ?>"><?php echo the_time( 'Y' ); ?></p>

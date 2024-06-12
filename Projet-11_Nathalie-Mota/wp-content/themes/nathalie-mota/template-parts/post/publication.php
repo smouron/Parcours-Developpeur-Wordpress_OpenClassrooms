@@ -20,7 +20,7 @@
 <!-- Génération du nombre de photo en fonction de l'option dans WordPress -->
 <div class="news-info brightness">
     <h2 class="info-title"><?php the_title(); ?></h2>
-    <h3 class="info-tax"><?php echo $categorie; ?></h3>
+    <p class="info-tax"><?php echo $categorie; ?></p>
     <a href="<?php the_permalink() ?>" aria-label="Voir le détail de la photo <?php the_title(); ?>" alt="<?php the_title(); ?>" title="Voir le détail de la photo"><span class="detail-photo"></span></a>                            
     <?php the_post_thumbnail(); ?>
     <p><?php the_terms( $post->ID, 'categorie-acf', '' ); ?></p>

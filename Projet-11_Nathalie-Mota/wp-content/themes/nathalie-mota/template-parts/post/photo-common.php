@@ -60,8 +60,8 @@
            <div class="news-info brightness">
                <?php if(has_post_thumbnail()) : ?>
                   <div class="thumbnail">
-                     <h2 class="info-title"><?php the_title(); ?></h2>
-                     <h3 class="info-tax"><?php echo $categorie; ?></h3>
+                     <h3 class="info-title"><?php the_title(); ?></h3>
+                     <p class="info-tax"><?php echo $categorie; ?></p>
                      <a href="<?php the_permalink() ?>" title="<?php the_title(); ?>" alt="<?php the_title(); ?>" aria-label="<?php the_title(); ?>"><span class="detail-photo"></span></a>                            
                      <?php the_post_thumbnail('desktop-home'); ?>                     
                      <form>
