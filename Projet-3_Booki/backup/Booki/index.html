@@ -10,7 +10,8 @@
 		@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap');
 	</style>
 	<!-- Récupération sur Fontawesome des icones dont on aura besoin -->
-	<script src="https://kit.fontawesome.com/57bf6f7049.js" crossorigin="anonymous"></script>
+	<!-- <script src="https://kit.fontawesome.com/57bf6f7049.js" crossorigin="anonymous"></script> -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
 
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 
@@ -19,7 +20,8 @@
 
 <body>
 	<header class="flex-row">
-		<img src="images/logo/Booki.png" alt="Logo de Booki">
+		<a href="index.html" id="image_header" title="Site de Booki"><img src="images/logo/Booki.png"
+				alt="Logo de Booki"></a>
 		<nav>
 			<a href="index.html#accommodation">Hébergements</a>
 			<a href="index.html#activities">Activités</a>
@@ -39,16 +41,17 @@
 		</div>
 		<section class="filter hover-black flex-row">
 			<h2 class="title">Filtres</h2>
-			<a href="#" class="link-button flex-row">
+			<a href="#" class="link-button flex-row" title="Afficher uniquement les hébergements qui ont un tarif bas">
 				<i class="fa-solid fa-money-bill-wave main-color"></i><span>économique</span>
 			</a>
-			<a href="#" class="link-button flex-row">
+			<a href="#" class="link-button flex-row" title="Afficher uniquement les hébergements pour les familles">
 				<i class="fa-solid fa-person main-color"></i><span>familial</span>
 			</a>
-			<a href="#" class="link-button flex-row">
+			<a href="#" class="link-button flex-row" title="Afficher uniquement les hébergements qui sont romantiques">
 				<i class="fa-solid fa-heart main-color"></i><span>romantique</span>
 			</a>
-			<a href="#" class="link-button flex-row">
+			<a href="#" class="link-button flex-row"
+				title="Afficher uniquement les hébergements qui autorisent les animaux">
 				<i class="fa-solid fa-dog main-color"></i><span>Animaux autorisés</span>
 			</a>
 		</section>
@@ -107,7 +110,7 @@
 								<i class="fa-solid fa-star main-color"></i>
 								<i class="fa-solid fa-star main-color"></i>
 								<i class="fa-solid fa-star main-color"></i>
-								<i class="fa-solid fa-star main-color"></i>
+								<i class="fa-solid fa-star second-color"></i>
 								<i class="fa-solid fa-star second-color"></i>
 							</div>
 						</a>
@@ -141,7 +144,7 @@
 								<i class="fa-solid fa-star main-color"></i>
 								<i class="fa-solid fa-star main-color"></i>
 								<i class="fa-solid fa-star main-color"></i>
-								<i class="fa-solid fa-star main-color"></i>
+								<i class="fa-solid fa-star second-color"></i>
 								<i class="fa-solid fa-star second-color"></i>
 							</div>
 						</a>
@@ -157,8 +160,8 @@
 							<div class="notation">
 								<i class="fa-solid fa-star main-color"></i>
 								<i class="fa-solid fa-star main-color"></i>
-								<i class="fa-solid fa-star main-color"></i>
-								<i class="fa-solid fa-star main-color"></i>
+								<i class="fa-solid fa-star second-color"></i>
+								<i class="fa-solid fa-star second-color"></i>
 								<i class="fa-solid fa-star second-color"></i>
 							</div>
 						</a>
@@ -221,7 +224,7 @@
 									<i class="fa-solid fa-star main-color"></i>
 									<i class="fa-solid fa-star main-color"></i>
 									<i class="fa-solid fa-star main-color"></i>
-									<i class="fa-solid fa-star main-color"></i>
+									<i class="fa-solid fa-star second-color"></i>
 									<i class="fa-solid fa-star second-color"></i>
 								</div>
 							</div>
@@ -269,29 +272,42 @@
 		</div>
 	</main>
 
-	<footer class="flex-row">
-		<div>
-			<h2 class="title">A propos</h2>
-			<ul>
-				<li><a href="#">Fonctionnement du site</a></li>
-				<li><a href="#">Conditions générales</a></li>
-				<li><a href="#">Données et confidentialité</a></li>
-			</ul>
-		</div>
-		<div>
-			<h2 class="title">Nos hébergements</h2>
-			<ul>
-				<li><a href="#">Charte qualité</a></li>
-				<li><a href="#">Proposer votre hôtel</a></li>
-			</ul>
-		</div>
-		<div>
-			<h2 class="title">Assistance</h2>
-			<ul>
-				<li><a href="#">Centre d'aide</a></li>
-				<li><a href="#">Nous contacter</a></li>
-			</ul>
-		</div>
+	<footer class="flex-column">
+		<section class="footer-1 flex-row">
+			<div>
+				<h2 class="title">A propos</h2>
+				<ul>
+					<li><a href="rgpd.html#functioning">Fonctionnement du site</a></li>
+					<li><a href="rgpd.html#terms">Conditions générales</a></li>
+					<li><a href="rgpd.html#data">Données et confidentialité</a></li>
+				</ul>
+			</div>
+			<div>
+				<h2 class="title">Nos hébergements</h2>
+				<ul>
+					<li><a href="index.html#">Charte qualité</a></li>
+					<li><a href="index.html#">Proposer votre hôtel</a></li>
+				</ul>
+			</div>
+			<div>
+				<h2 class="title">Assistance</h2>
+				<ul>
+					<li><a href="#">Centre d'aide</a></li>
+					<li><a href="mailto:stephane.mouron@free.fr">Nous contacter</a></li>
+				</ul>
+			</div>
+		</section>
+		<section class="footer-2 flex-row">
+			<p>
+				<a href="https://openclassrooms.com/fr/" target="_blank">Exercice OpenClassrooms</a>
+			</p>
+			<p class="separator">
+				|
+			</p>
+			<p>
+				<a href="https://sanoecreation.fr/" target="_blank">© 2023 - Stéphane Mouron</a>
+			</p>
+		</section>
 	</footer>
 </body>
 

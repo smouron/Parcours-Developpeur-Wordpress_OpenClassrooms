@@ -1,14 +1,22 @@
+/*
+Projet réalisé dans le cadre de la formation OpenClassrooms
+     Réalisé par Stéphane Mouron - Début 2023
+*/
+
+
 /* ********************  Infos  Media query  ******************** */
-/* only screen and (max-width: 1023px) : à partir de la ligne 423 */
-/* only screen and (max-width:  768px) : à partir de la ligne 532 */
-/* only screen and (max-width:  580px) : à partir de la ligne 670 */
+/* only screen and (max-width: 1023px) : à partir de la ligne 504 */
+/* only screen and (max-width:  768px) : à partir de la ligne 614 */
+/* only screen and (max-width:  580px) : à partir de la ligne 752 */
+/* only screen and (max-width:  375px) : à partir de la ligne 844 */
 
 /* ----- Utilisation de variables pour les couleurs ----- */
 :root {
   --main-color: #0065fc; /* var(--main-color) */
   --second-color: #deebff; /* var(--second-color) */
   --third-color: #ffffff; /* var(--third-color) */
-  --main-background-color: #ffffff; /* var(--main-background-color) */
+  --main-background-color: #ffffff; /* var(--main-background-color) */  
+  --dark-color: #033279; /* var(--dark-color) */
   /*  #d9d9d9; #f2f2f2;  */
   --second-background-color: #f2f2f2; /* var(--second-background-color) */
   --main-border-color: #d9d9d9; /* var(--main-border-color) */
@@ -49,6 +57,11 @@ input::placeholder {
   font-size: 1.125rem;
   font-weight: 700;
   line-height: 21px;
+}
+
+input::placeholder {
+  color: #30486b;
+  opacity: 0.5;
 }
 
 p {
@@ -108,11 +121,6 @@ a {
 a:hover,
 a:focus {
   color: var(--main-color);
-}
-
-input::placeholder {
-  opacity: 1;
-  color: black;
 }
 
 img {
@@ -177,12 +185,17 @@ header {
   margin-left: 5px;
 }
 
+header #image_header {
+  margin: 0;
+  padding: 0;
+}
+
 header img {
   height: 19px;
   padding: 44px 0 52px;
 }
 
-header a {
+header nav a {
   margin: 0 25px;
   padding: 46px 5px 10px;
   border-top: 3px solid transparent;
@@ -312,8 +325,9 @@ input[type='submit']:focus {
 
 .container-list {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
+  /* grid-template-rows: 1fr 1fr; */
+  /* grid-template-columns: 1fr 1fr 1fr; */
+  grid-template: repeat(2, 1fr) / repeat(3, 1fr);
   gap: 35px 30px;
   justify-content: center;
 }
@@ -405,21 +419,45 @@ input[type='submit']:focus {
   margin: 15px 20px 20px;
 }
 
+
+/* ----- RGPD ----- */
+
+#rgpd {
+  width: 80%;
+  max-width: 800px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin-bottom: 80px;
+}
+
+#rgpd h1,
+#rgpd h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+#rgpd a {
+  color: var(--dark-color);
+  border-bottom: 1px solid var(--main-color);
+}
+
+#rgpd a:hover,
+#rgpd a:focus {
+  color: var(--main-color);
+  border-bottom: 1px solid transparent;
+}
+
+
+#rgpd p {
+  margin-bottom: 10px;
+}
+
 /* ----- FOOTER ----- */
 
 footer {
-  align-items: flex-start;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 40px;
-  background: var(--second-background-color);
-  min-width: 60px;
-  padding: 40px;
-}
-
-footer div {
-  width: 30%;
-  min-width: 190px;
+  width: 100%;
 }
 
 footer h2,
@@ -429,6 +467,41 @@ footer h3 {
 
 footer li {
   padding-bottom: 10px;
+}
+
+footer section.footer-1 {
+  align-items: flex-start;
+  justify-content: space-between;  
+  flex-wrap: wrap;
+  gap: 40px;
+  background: var(--second-background-color);
+  min-width: 60px;
+  padding: 40px;
+}
+
+footer section.footer-1 div {
+  width: 30%;
+  min-width: 190px;
+}
+
+footer section.footer-2 {
+  width: 100%;
+  height: 60px;   
+  align-items: center;
+  justify-content: center; 
+  gap: 40px;
+  background-color: #928c8cf2;
+  color: #ffffff;
+  font-weight: 700;
+}
+
+footer section.footer-2 a {
+  color: #ffffff;
+  font-weight: 900;
+}
+
+footer section.footer-2 a:hover {
+  color: #f4fc00;
 }
 
 /*  ***********************************  */
@@ -510,8 +583,9 @@ footer li {
   }
 
   .container-list {
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
+    /* grid-template-rows: 1fr 1fr 1fr; */
+    /* grid-template-columns: 1fr 1fr; */
+    grid-template: repeat(3, 1fr) / repeat(2, 1fr);
     gap: 30px 25px;
   }
 
@@ -535,7 +609,7 @@ footer li {
   }
 
   /* ----- FOOTER ----- */
-  footer div {
+  footer section.footer-1 div {
     width: 25%;
   }
 }
@@ -627,8 +701,9 @@ footer li {
 
   .container-list {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
+    /* grid-template-rows: 1fr 1fr 1fr; */
+    /* grid-template-columns: 1fr 1fr; */
+    grid-template: repeat(2, 1fr) / repeat(3, 1fr);
     gap: 20px;
   }
 
@@ -672,7 +747,7 @@ footer li {
   }
 
   /* ----- FOOTER ----- */
-  footer div {
+  footer section.footer-1 div {
     width: 40%;
   }
 }
@@ -730,9 +805,10 @@ footer li {
 
   /* ----- MAIN - section Liste des Hébergements ----- */
   .container-list {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
+    display: grid;    
+    /* grid-template-rows: 1fr 1fr 1fr; */
+    /* grid-template-columns: 1fr 1fr; */
+    grid-template: repeat(3, 1fr) / repeat(2, 1fr);
     gap: 15px 20px;
     /* justify-content: center; */
   }
@@ -748,4 +824,44 @@ footer li {
   }
 
   /* ----- FOOTER ----- */
+  footer section.footer-1 {
+    gap: 30px;
+    padding: 20px;
+    justify-content: center;
+  }
+
+
+  footer section.footer-2 {
+    flex-direction: column;
+    height: auto;
+    padding-top: 15px;
+    padding-bottom: 20px;
+    gap:15px;
+  }
+
+  footer section.footer-2 .separator {
+    display: none;
+  }
+}
+
+/*  **********************************  */
+/*    Media query : max-width: 375px    */
+/*  **********************************  */
+@media only screen and (max-width: 375px) {
+
+  /* ----- Activités à Marseille ----- */ 
+  #activities .activities {
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+  }
+
+  #activities .activities .card {
+    width: 85%;
+    margin: auto;
+  }
+
+
+  /* ----- FOOTER ----- */
+
 }
