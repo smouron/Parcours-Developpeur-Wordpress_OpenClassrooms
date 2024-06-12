@@ -806,8 +806,6 @@ footer section.footer-2 a:hover {
   /* ----- MAIN - section Liste des Hébergements ----- */
   .container-list {
     display: grid;    
-    /* grid-template-rows: 1fr 1fr 1fr; */
-    /* grid-template-columns: 1fr 1fr; */
     grid-template: repeat(3, 1fr) / repeat(2, 1fr);
     gap: 15px 20px;
     /* justify-content: center; */
@@ -848,6 +846,13 @@ footer section.footer-2 a:hover {
 /*    Media query : max-width: 375px    */
 /*  **********************************  */
 @media only screen and (max-width: 375px) {
+   /* ----- MAIN - section Liste des Hébergements ----- */
+   .container-list {
+    display: grid;    
+    grid-template: repeat(6, 1fr) / repeat(1, 1fr);
+    gap: 15px 20px;
+    /* justify-content: center; */
+  }
 
   /* ----- Activités à Marseille ----- */ 
   #activities .activities {
