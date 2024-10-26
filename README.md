@@ -27,7 +27,7 @@ Pour ce projet, suivant les consignes de Romain (maître de stage et CTO), l’o
 
 ![Riding-Cities](/Projet-2_Riding-Citites/monitor-g9ceeb1f8d_640.png)
 
-RIDING CITIES : [Le site "Riding Cities" final en ligne](https://stephane-mouron.fr/riding-cities/)
+RIDING CITIES : [Le site "Riding Cities" final en ligne](https://exercices.stephane-mouron.com/riding-cities/)
 
 <hr />
 
@@ -44,7 +44,7 @@ Je suis chargé d'intégrer l'interface du site avec du code HTML et CSS.
 
 ![Booki](/Projet-3_Booki/monitor-g9ceeb1f8d_640.png)
 
-BOOKI : [Le site "Booki" final en ligne](https://stephane-mouron.fr/booki/)
+BOOKI : [Le site "Booki" final en ligne](https://exercices.stephane-mouron.com/booki/)
 
 <hr />
 
@@ -61,7 +61,7 @@ On me demande de développer pour la marque de vêtement Simpl Vintage, un site 
 
 ![The Artbox](/Projet-4_Simpl-Vintage/monitor-g9ceeb1f8d_640.png)
 
-SIMPL VINTAGE : [Le site "Simpl Vintage" final en ligne](http://stephane-mouron.fr/simpl-vintage/)
+SIMPL VINTAGE : [Le site "Simpl Vintage" final en ligne](https://simpl-vintage.stephane-mouron.com/)
 
 <hr />
 
@@ -79,7 +79,7 @@ Actuellement, il y a une page HTML par oeuvre. Soit 15 pages.
 
 ![The Artbox](/Projet-5_The-Artbox-master/monitor-g9ceeb1f8d_640.png)
 
-THE ARTBOX MASTER : [Le site "The Artbox" final en ligne](https://stephane-mouron.fr/the-artbox/)
+THE ARTBOX MASTER : [Le site "The Artbox" final en ligne](https://exercices.stephane-mouron.com/the-artbox/)
 
 <hr />
 
@@ -95,7 +95,7 @@ Pour ce projet, je suis intégrateur WordPress dans une agence web, et je suis e
 
 ![Planty](/Projet-6_Planty/monitor-g9ceeb1f8d_640.png)
 
-PLANTY : http://stephane-mouron.fr/planty/
+PLANTY : https://planty.stephane-mouron.com/
 
 <hr />
 
@@ -112,7 +112,7 @@ Je suis en charge d'optimiser le au mieux le site Chic Dressing.
 
 ![Print-it JS](/Projet-7_Chic-Dressing/monitor-g9ceeb1f8d_640.png)
 
-CHIC DRESSING : [Le site "Chic Dressing" final en ligne](http://stephane-mouron.fr/chic-dressing/)
+CHIC DRESSING : le site n'est plus en ligne
 
 <hr />
 
@@ -129,7 +129,7 @@ Pour ce projet, je débute comme développeur front-end en freelance, et je vien
 ![Print-it JS](/projet-8_Print-it-JS/computer_print_it.png)
 
 PRINT-IT-JS : [Le site "Print-it JS" final en ligne](https://smouron.github.io/Print-it-JS-main/)
-et : https://stephane-mouron.fr/print-it/
+et : https://exercices.stephane-mouron.com/print-it/
 
 <hr />
 
@@ -146,7 +146,7 @@ Ma mission pour ces prochains jours est de dynamiser le site internet du studio 
 
 ![Koukaki](/Projet-9_Koukaki/monitor-g9ceeb1f8d_640.png)
 
-KOUKAKI : [Le site "Koukaki" final en ligne](https://stephane-mouron.fr/koukaki/)
+KOUKAKI : [Le site "Koukaki" final en ligne](https://koukaki.stephane-mouron.com/)
 
 <hr />
 
@@ -162,7 +162,7 @@ Pour ce projet, je suis développeur WordPress en freelance. La PME MedIT, spéc
 
 ![Med.It](/Projet-10_Med.It/monitor-g9ceeb1f8d_640.png)
 
-MED.IT : [Le site "Med.It" final en ligne](https://stephane-mouron.fr/med-it/)
+MED.IT : le site n'est plus en ligne
 
 <hr />
 
@@ -180,7 +180,7 @@ Elle vient de perdre son site à la suite de la fermeture subite de la plateform
 
 ![Nathalie Mota](/Projet-11_Nathalie-Mota/monitor-g9ceeb1f8d_640.png)
 
-PHOTOGRAPHE EVENT : [Le site "Nathalie Mota" final en ligne](https://stephane-mouron.fr/nathalie-mota/)
+PHOTOGRAPHE EVENT : [Le site "Nathalie Mota" final en ligne](https://nathalie-mota.stephane-mouron.com/)
 
 <hr />
 
@@ -199,7 +199,7 @@ Chez Emoving, les employés ont plusieurs casquettes ; il vous revient de mener,
 
 ![Emoving](/Projet-12_Emoving/computer_emoving.png)
 
-EMOVING : [Le site "Emoving" final en ligne](https://stephane-mouron.fr/emoving/)
+EMOVING : le site n'est plus en ligne
 
 <hr />
 
@@ -222,7 +222,7 @@ Pour pouvoir commencer à postuler à des offres d’emploi de développeurs, il
 
 ![Portfolio final](/Projet-13_Portfolio/monitor-g9ceeb1f8d_640.png)
 
-PORTFOLIO : ["Portfolio" final avec WordPress en ligne](https://portfolio.stephane-mouron.fr)
+PORTFOLIO : ["Portfolio" final avec WordPress en ligne](https://stephane-mouron.fr/)
 
 <hr />
 

@@ -50,6 +50,8 @@ function monScript() {
   const arrowRight = document.querySelector(".arrow_right");
   const dots = document.querySelector(".dots");
 
+  console.log(dots);
+
   // Le script est lancé donc on fait afficher les flêches
   arrowLeft.classList.remove("hidden");
   arrowRight.classList.remove("hidden");
@@ -93,6 +95,8 @@ function monScript() {
   // on récupère l'id qui est dans target dans la liste des élements "dot"
   // et on ne prend que la valeur finale qui est le n° du dot
   dots.addEventListener("click", (e) => {
+    // console.log(e);
+    console.log(e.target.title);
     if (e.target.id != "" && e.target.id != null) {
       numDot = parseInt(e.target.id.substring(3));
     }

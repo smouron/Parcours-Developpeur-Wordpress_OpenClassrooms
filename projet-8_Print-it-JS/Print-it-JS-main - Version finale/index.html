@@ -15,10 +15,16 @@
 
 <body>
 	<header class="container">
-		<h1>
-			<img class="logo" src="./assets/images/logo.png" alt="Print it ! Impressions d'entreprises">
-		</h1>
-		<a class="btn devis" href="mailto:contact@print-it.tld">Devis</a>
+		<section id="top-header" class="header">
+			<p>Site réalisé en 2023 dans le cadre de ma formation avec OpenClassrooms</p>
+		</section>
+		<section id="bottom-header" class="header">
+			<div>
+				<img class="logo" src="./assets/images/logo.png" alt="Print it ! Impressions d'entreprises">
+			</div>
+			<a class="btn devis"
+				href="mailto:stephane-mouron@sanoecreation.fr?subject=Demande&nbsp;de&nbsp;devis">Devis</a>
+		</section>
 	</header>
 	<main>
 		<div id="banner">
@@ -33,9 +39,12 @@
 			<div class="dots">
 			</div>
 		</div>
+		<div id="title">
+			<h1>L'impressions de haute&nbsp;qualité pour les&nbsp;entreprises.</h1>
+		</div>
 		<section id="about-us" class="container">
-			<div>
-				<h2>Qui sommes-nous ?</h2>
+			<div class="info">
+				<h2>Qui sommes-nous&nbsp;?</h2>
 				<ul>
 					<li>Depuis près de 60 ans nous sommes un imprimeur familial spécialisé dans les besoins
 						d’entreprises de petite et grande taille. Implantés à Rennes dans le quartier Bréquigny, nous
@@ -44,12 +53,12 @@
 						savoir-faire à votre disposition afin de répondre au mieux à vos attentes.</li>
 				</ul>
 			</div>
-			<aside>
+			<div class="image">
 				<img src="./assets/images/colors.jpg" alt="palette multicolore">
-			</aside>
+			</div>
 		</section>
 		<section id="products" class="container">
-			<div>
+			<div class="info">
 				<h2>Nos produits</h2>
 				<p>Grâce à nos nombreuses années d'expérience dans l'impression de produits évènementiels et supports de
 					communication, nous ne cessons d'innover et de perfectionner nos services afin de satisfaire au
@@ -58,18 +67,19 @@
 					promotionnelles, les brochures, les flyers, les goodies d’entreprises, les autocollants de toutes
 					tailles... </p>
 			</div>
-			<aside>
+			<div class="image">
 				<img src="./assets/images/yellow-book.jpg" alt="Imprimeur avec un livre jaune dans les mains">
-			</aside>
+			</div>
 
 		</section>
 		<section id="question" class="bg-yellow">
-			<h2>Une question? Un devis?</h2>
+			<h2>Une&nbsp;question&nbsp;? Un&nbsp;devis&nbsp;?</h2>
 			<p>Appelez-nous au 02 12 34 56 78 ou faites une demande de devis ici :</p>
-			<a href="mailto:contact@print-it.tld" class="btn devis">Devis</a>
+			<a href="mailto:mailto:stephane-mouron@sanoecreation.fr?subject=Demande&nbsp;de&nbsp;devis"
+				class="btn devis">Devis</a>
 		</section>
 		<section id="why-us" class="container">
-			<h2>Pourquoi faire appel à nous?</h2>
+			<h2>Pourquoi faire appel à&nbsp;nous&nbsp;?</h2>
 			<div>
 				<article>
 					<img src="./assets/images/proximity-icon.png" alt="Icone Proximité">
@@ -91,8 +101,8 @@
 			</div>
 		</section>
 		<section id="contact" class="bg-lightblue">
-			<div class="container">
-				<div>
+			<div class="contact container">
+				<div class="texte">
 					<h2>Contact</h2>
 					<div>
 						<h3>Par téléphone</h3>
@@ -105,7 +115,7 @@
 					<div>
 						<h3>Par e-mail</h3>
 						<p>
-							<a href="mailto:contact@print-it.tld" class="btn">Nous écrire</a>
+							<a href="mailto:stephane-mouron@sanoecreation.fr" class="btn">Nous écrire</a>
 						</p>
 					</div>
 					<div>
@@ -116,7 +126,7 @@
 						</p>
 					</div>
 				</div>
-				<div>
+				<div class="image">
 					<img src="./assets/images/magnifying-glass.jpg" alt="Loupe avec palette bleue">
 				</div>
 
@@ -124,26 +134,39 @@
 		</section>
 	</main>
 	<footer>
-		<div>
-			<p class="footer-contact">Contact</p>
-			<ul>
-				<li>Appelez-nous au 02 12 34 56 78</li>
-				<li>Lun-Ven : 9h30-18h30</li>
-				<li>Sam : 10h-13h et 14h-18h30</li>
-			</ul>
-		</div>
-		<div>
-			<p>5, rue Yves Noël,35200 Rennes<br>
-				<img src="./assets/images/metro.png" alt="metro" /> Clémenceau
-			</p>
-		</div>
-		<div>
-			<a href="mailto:contact@print-it.tld" class="btn">Nous écrire</a>
-			<a href="mailto:contact@print-it.tld?subject=Demande&nbsp;de&nbsp;devis" class="btn devis">Devis</a>
-		</div>
-		<div>
-			<img class="footer-logo" src="./assets/images/logo.png" alt="Print it ! Impressions d'entreprises">
-		</div>
+		<section id="top-footer" class="footer">
+			<div>
+				<p class="footer-contact">Contact</p>
+				<ul>
+					<li>Appelez-nous au 02 12 34 56 78</li>
+					<li>Lun-Ven : 9h30-18h30</li>
+					<li>Sam : 10h-13h et 14h-18h30</li>
+				</ul>
+			</div>
+			<div>
+				<p>5, rue Yves Noël,35200 Rennes<br>
+					<img src="./assets/images/metro.png" alt="metro" /> Clémenceau
+				</p>
+			</div>
+			<div>
+				<a href="mailto:stephane-mouron@sanoecreation.fr" class="btn">Nous écrire</a>
+				<a href="mailto:stephane-mouron@sanoecreation.fr?subject=Demande&nbsp;de&nbsp;devis"
+					class="btn devis">Devis</a>
+			</div>
+			<div>
+				<img class="footer-logo" src="./assets/images/logo.png" alt="Print it ! Impressions d'entreprises">
+			</div>
+		</section>
+		<section id="bottom-footer" class="footer">
+			<div>
+				<p>Réalisation <a href="https://openclassrooms.com/fr/" target="_blank">OpenClassrooms</a>
+				</p>
+				<p>
+					Modification
+					<a href="https://sanoecreation.fr" target="_blank">Sanoé Création</a>
+				</p>
+			</div>
+		</section>
 	</footer>
 	<script src="./assets/script.js"></script>
 </body>

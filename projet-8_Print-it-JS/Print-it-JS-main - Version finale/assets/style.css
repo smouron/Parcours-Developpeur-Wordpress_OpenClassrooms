@@ -3,14 +3,21 @@
 	--primary-color: #3396C0;
 	--secondary-color: #CD006B;
 	--third-color: #EEE325;
+	
+	--color1: #ffffff;
+	--color2: rgba(0, 0, 0, 0.25);
+	--color3: #E6F4FB;
+	--color4: #28363d;
+	--color5: #1e212d;
 }
 
 /* Reset CSS */
 * {
 	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;-
+	-moz-box-sizing: border-box;
 	box-sizing: border-box;
 }
+
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -31,62 +38,120 @@ time, mark, audio, video {
 	font-size: 100%;
 	vertical-align: baseline;
 }
+
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
 	display: block;
 }
+
 body {
 	line-height: 1;
+	width: 100vw;
 }
+
 ol, ul {
 	list-style: none;
 }
+
 blockquote, q {
 	quotes: none;
 }
-blockquote:before, blockquote:after,
-q:before, q:after {
+
+blockquote:before, 
+blockquote:after,
+q:before, 
+q:after {
 	content: none;
 }
+
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
-body {
 
-}
 section {
 	margin-block: 6em;
 }
-h2 {
+
+h1, h2, h3, h4, .btn {
 	font-family: 'Roboto Slab', sans-serif;
+}
+
+h1 {
+	font-size: 50px;
+	font-weight: 900;
+	margin: 1em 15px;
+	text-align: center;
+}
+
+h2 {
 	font-size: 40px;
 	font-weight: 900;
 	margin-block: 1em;
 }
-h3{
-	font-family: 'Roboto Slab', sans-serif;
-	font-size: 22px;
+
+h3 {
+	font-size: 26px;
 	font-weight: 900;
 	margin-block: 1em;
 }
 
-p, li {
+p, 
+li {
 	font-family: Roboto, sans-serif;
-	font-size: 16px;
+	font-size: 18px;
 	line-height: 26px;
 }
-.container {
-	max-width: 1440px;
-	margin-inline:auto;
-	padding-inline: 5%;
+
+/* AJOUTE pour chacher les flêches du slider tant que le script JS n'est pas lancé */
+.hidden {
+	visibility: hidden;
 }
-header {
+
+.arrow,
+.dot {	
+	cursor: pointer;
+}
+
+header,
+.container {
+	margin: auto;
 	display: flex;
+}
+
+header, 
+main,
+footer {
+	width: 100vw;
+	margin: auto;
+}
+
+header {
+	width: 100%;
+	background-color: var(--color1);
+	flex-direction: column;
+}
+
+header #top-header {
+	background-color: var(--primary-color);
+	color: var(--color1);
+	text-align: center;
+	margin: auto;	
+	padding: 5px 20px;
+	width: 100%;
+}
+
+header #bottom-header {
+	width: 100%;
+	max-width: 1440px;	
+	display: flex;
+	flex-wrap: wrap;
 	justify-content: space-between;
 	align-items: center;
+	margin: auto;
 }
+
 .logo{
 	width: 260px;
 	margin-block: 10px;
@@ -94,14 +159,29 @@ header {
 
 .btn {
 	background-color: var(--primary-color) ;
+	border: 1px solid var(--primary-color);
 	padding: 16px 32px;
 	margin-inline:5px;
 	border-radius: 5px;
-	color: white;
+	color: var(--color1);
 	text-decoration: none;
 }
+
+.btn:hover {
+	background-color: var(--color1); 
+	color: var(--primary-color);
+	transition: all .3s ease-in-out;
+}
+
 .devis {
 	background-color: var(--secondary-color);
+	border: 1px solid var(--secondary-color);
+	color: var(--color1);
+}
+
+.devis:hover {
+	background-color: var(--color1); 
+	color: var(--secondary-color);
 }
 
 #banner {
@@ -113,6 +193,7 @@ header {
 	min-height: 470px;
 	position: relative;
 }
+
 .banner-img {
 	position: absolute;
 	width: 100%;
@@ -120,6 +201,11 @@ header {
 	z-index: -1;
 	object-fit: cover;
 	object-position: center;
+}
+
+#title {
+	max-width: 750px;
+	margin: auto;
 }
 
 /* Code CSS en prévision de l'ajout d'un carousel pour la bannière */
@@ -145,12 +231,12 @@ header {
 	width: 13px;
 	height: 13px;
 	background-color: #ffffff00;
-	border: 3px solid #fff;
+	border: 3px solid var(--color1);
 	border-radius: 100%;
-	box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+	box-shadow: 0 4px 4px var(--color2);
 }
 .dot_selected {
-	background-color: #fff;
+	background-color: var(--color1);
 }
 /* Fin du code CSS pour le carousel */
 
@@ -159,57 +245,94 @@ header {
 	font-weight: 900;
 	font-size: 50px;
 	line-height: 66px;
-	color: white;
-	text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+	color: var(--color1);
+	text-shadow: 0 4px 4px var(--color2);
 	text-align: center;
 }
+
 #banner span {
 	display: block;
 	font-weight: 400;
 	font-size: 30px;
 }
-#about-us {
+
+#about-us,
+#products {
 	display: flex;
+	flex-direction: row;
+	max-width: 1440px;
+	padding: 10px;
 }
-#about-us article, #about-us aside {
-	flex:1;
+
+#about-us div,
+#products div {
+	margin: auto;
+	width: 50%;
 }
+
+#products div {
+	padding: 10px 0;
+}
+
+#about-us .info,
+#products .info {
+	max-width: 700px;
+	padding: 0 4em;
+}
+
+#about-us .image,
+#products .image {
+	display: flex;
+	justify-content: center;
+}
+
+
+#about-us img,
+#products img {
+	width: 100%;
+	min-width: 390px;
+	max-width: 600px;
+}
+
+
+#about-us article, 
+#products div, 
+#products aside,
+#about-us aside {	
+	margin: auto;
+}
+
 #about-us li {
 	background: url("./images/tricolor-icon.png") no-repeat left top;
 	font-size: 16px;
 	line-height: 26px;
 	padding-left:2em;
-	width: 65%;
+	width: 90%;
 	margin-bottom: 1em;
 
 }
 
 #products {
-	display: flex;
 	align-items: flex-start;
 	flex-direction: row-reverse;
 }
-#products div, #products aside {
-	flex:1;
-}
-#products div {
-	padding: 0 6em;
-}
-#products h2 {
-	margin-top: 0;
-}
+
 .bg-yellow {
 	background-color: var(--third-color);
 }
+
 #question {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	padding-block: 3em;
+	padding: 3em 15px;
+	text-align: center;
 }
+
 #question h2 {
 	margin-bottom: 10px;
 }
+
 #question p {
 	margin-bottom: 20px;
 }
@@ -222,6 +345,8 @@ header {
 #why-us > div{
 	display: flex;
 	justify-content: space-evenly;
+	flex-wrap: wrap;
+	gap: 80px 10px;
 }
 #why-us article {
 	max-width: 320px;
@@ -238,25 +363,34 @@ header {
 }
 
 .bg-lightblue{
-	background-color: #E6F4FB;
+	background-color: var(--color3);
 }
+
 #contact {
 	margin-bottom: 0;
 }
-#contact article, #contact div {
-	flex:1;
-}
-
 
 #contact .container {
 	flex-direction: row;
 	display: flex;
-	padding: 6em ;
+	padding: 4em ;
+}
+
+#contact .contact {
+	max-width: 1440px;
+	margin: auto;
+}
+
+#contact article,
+#contact div {
+	flex:1;
 }
 
 #contact .container > div > div {
 	display: flex;
 	padding-bottom: 20px;
+	flex-wrap: wrap;
+	padding-bottom: 30px;
 }
 
 #contact h3 {
@@ -265,27 +399,79 @@ header {
 	padding-left:1.5em;
 	width: 200px;
 }
+
+#contact .image img {
+	width: 100%;
+}
+
 .inline-icon {
 	vertical-align: middle;
 }
+
 footer {
-	background-color: #28363D;
-	color: white;
+	background-color: var(--color4);
+}
+
+footer .footer {
+	width: 100%;
+	margin: auto;
+	color: var(--color1);
 	display: flex;
-	padding-block: 3em;
-	justify-content: space-evenly;
 	font-size: 12px;
 	align-items: center;
+	margin: 0;
 }
-footer div {
 
-	position: relative;
+footer #top-footer {
+	max-width: 1440px;		
+	margin: auto;
 }
+
+footer #bottom-footer div {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+	margin: 0 10px;
+	gap: 10px 30px;
+}
+
+footer #bottom-footer {
+	background-color: var(--color5);
+} 
+
+footer #bottom-footer a {
+	color: var(--color1);
+}
+
+footer #bottom-footer a:hover {
+	color: var(--primary-color);
+}
+
+footer {
+	flex-direction: column;
+}
+
+footer .footer {
+	padding-block: 3em;
+	justify-content: space-evenly;
+	flex-direction: row;
+	flex-wrap: wrap;
+}
+
+footer div,
+footer .footer {
+	position: relative;
+	min-width: 300px;
+	gap: 40px 20px;
+}
+
 .footer-logo {
-	background-color: white;
+	background-color: var(--color1);
 	max-width: 308px;
 	padding: 10px;
 }
+
 .footer-contact {
 	margin-bottom: 1em;
 	font-weight: 700;
@@ -293,18 +479,94 @@ footer div {
 
 }
 
+/*  **********************************  */
+/*    Media query : max-width: 1250px    */
+/*  **********************************  */
 @media all and (max-width: 1250px) {
+	header #bottom-heade {
+		padding: 0 15px;
+	}
+	
+	header #bottom-header > div,
+	header #bottom-header > a {
+		margin: 10px 15px;
+	}
+
+	#about-us,
+	#products {
+		flex-direction: column-reverse;
+		padding: 10px;
+	}
+
+	#about-us div,
+	#products div {
+		width: 90%;
+	}
+
+	#products .info {
+		padding-top: 20px;
+	}
+	
 	#contact > article {
 		flex: 2;
 	}
+
+	#contact h2 {
+		text-align: center;
+	}
+
+	#contact .texte {
+		max-width: 500px;
+  		margin: auto;
+	}
+
+	#contact .image {
+		display: none;
+		opacity: 0;
+		visibility: hidden;
+	}
+
+	#contact .container > div > div {
+		padding-bottom: 50px;
+	}
 }
 
-/* AJOUTE pour chacher les flêches du slider tant que le script JS n'est pas lancé */
-.hidden {
-	visibility: hidden;
+/*  **********************************  */
+/*    Media query : max-width: 700px    */
+/*  **********************************  */
+@media all and (max-width: 700px) {
+	h1 {
+		font-size: 40px;
+	}
+	
+	h2 {
+		font-size: 34px;
+	}
+	
+	h3 {
+		font-size: 22px;
+	}
+
+	#banner p {
+		width: 70%;
+		font-size: 38px;
+		line-height: 42px;
+	}
+	
+	#banner span {
+		width: 70%;
+		font-size: 24px;
+		text-align: center;
+		margin: auto;
+	}
+	
+	#about-us .info,
+	#products .info {
+		padding: 0 10px;
+	}
+
+	#contact .container {
+		padding: 30px 20px ;
+	}
 }
 
-.arrow,
-.dot {	
-	cursor: pointer;
-}
